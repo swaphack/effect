@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GameUpdateConfig>
+  <ServerAddress>127.0.0.1</ServerAddress>
+  <ServerPort>9527</ServerPort>
+  <MainVersion>1</MainVersion>
+  <SubVersion>1</SubVersion>
+  <UpdateVersion>2</UpdateVersion>
+  <AssetBundleUrl>https://mirrors.tuna.tsinghua.edu.cn/apache//commons/lang/binaries/commons-lang3-3.9-bin.zip</AssetBundleUrl>
+</GameUpdateConfig>

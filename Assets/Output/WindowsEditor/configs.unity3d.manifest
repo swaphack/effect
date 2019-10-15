@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 495432869
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cfbf3b1e5a8289f04bfd55268b38c6c8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1033bf7ddfd4c6d43e7a6382c0a0a61a
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/Bundles/Configs/Xml/hello.txt
+Dependencies: []

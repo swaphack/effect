@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1450685261
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7168dcc70a60d3485cee519954fcbcda
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 851a84b3121727cf42d62197d637a792
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 84
+  Script: {instanceID: 0}
+Assets:
+- Assets/Bundles/Materials/VideoMatertial.mat
+- Assets/Bundles/Materials/VideoRender Texture.renderTexture
+Dependencies: []

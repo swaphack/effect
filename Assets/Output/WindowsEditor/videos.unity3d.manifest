@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 1482989161
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c8cd1048f6157ff08b72e5d144fa7b0b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f11dae1f0660b609e306899f37ef0a74
+HashAppended: 0
+ClassTypes:
+- Class: 329
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Bundles/Videos/20190726_IGGSDK-Unity\u8BBE\u8BA1\u4E0E\u4F7F\u7528-Arabic\u5434\u6C5F\u6D77.mp4"
+Dependencies: []
