@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{857F2492-B37C-EC66-8575-A86F51D12C33}</ProjectGuid>
+    <ProjectGuid>{24A2DA26-900C-74DB-FA21-4409FD278BFE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -123,9 +123,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Effect.CSharp.csproj">
-      <Project>{35F0CBF3-007A-2543-FE32-C2CA9CB8D8CE}</Project>
-      <Name>Effect.CSharp</Name>
+    <ProjectReference Include="effect.CSharp.csproj">
+      <Project>{CE7127D8-D8EE-32EC-65D9-9FF9625B90E5}</Project>
+      <Name>effect.CSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

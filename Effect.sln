@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Effect.CSharp", "Effect.CSharp.csproj", "{35F0CBF3-007A-2543-FE32-C2CA9CB8D8CE}"
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "effect.CSharp", "effect.CSharp.csproj", "{35F0CBF3-007A-2543-FE32-C2CA9CB8D8CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Effect.CSharp.Editor", "Effect.CSharp.Editor.csproj", "{857F2492-B37C-EC66-8575-A86F51D12C33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "effect.CSharp.Editor", "effect.CSharp.Editor.csproj", "{24A2DA26-900C-74DB-FA21-4409FD278BFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +17,10 @@ Global
 		{35F0CBF3-007A-2543-FE32-C2CA9CB8D8CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35F0CBF3-007A-2543-FE32-C2CA9CB8D8CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35F0CBF3-007A-2543-FE32-C2CA9CB8D8CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{857F2492-B37C-EC66-8575-A86F51D12C33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{857F2492-B37C-EC66-8575-A86F51D12C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{857F2492-B37C-EC66-8575-A86F51D12C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{857F2492-B37C-EC66-8575-A86F51D12C33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24A2DA26-900C-74DB-FA21-4409FD278BFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24A2DA26-900C-74DB-FA21-4409FD278BFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24A2DA26-900C-74DB-FA21-4409FD278BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24A2DA26-900C-74DB-FA21-4409FD278BFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
