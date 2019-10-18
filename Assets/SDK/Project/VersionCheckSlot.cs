@@ -74,7 +74,7 @@ namespace Assets.SDK.Project
             string url = _config.HostUrl;
             UnityWebRequest request = HttpUtility.DoGet(url, fields);
             yield return request.Send();
-            if (request.isNetworkError)
+            if (request.isError)
             {
                 Debug.LogError(request.error);
             }
