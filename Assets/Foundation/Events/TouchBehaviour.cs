@@ -115,10 +115,10 @@ namespace Assets.Foundation.Events
             }
 
             TouchBegan(beganTouches.ToArray());
-            TouchBegan(stationaryTouches.ToArray());
-            TouchBegan(movedTouches.ToArray());
-            TouchBegan(canceledTouches.ToArray());
-            TouchBegan(endedTouches.ToArray());
+            TouchStationary(stationaryTouches.ToArray());
+            TouchMoved(movedTouches.ToArray());
+            TouchCanceled(canceledTouches.ToArray());
+            TouchEnded(endedTouches.ToArray());
         }
 
         public virtual void TouchBegan(Touch[] touches)
