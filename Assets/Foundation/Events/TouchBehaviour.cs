@@ -35,6 +35,16 @@ namespace Assets.Foundation.Events
             }
         }
 
+        protected void ShowTouchInfos(Touch[] touches)
+        {
+            for(var i = 0 ; i < touches.Length; i++)
+            {
+                var touch  = touches[i];
+                Debug.LogFormat("Touch fingerId : {0}, phase : {1}, position : {2}", 
+                    touch.fingerId, touch.phase, touch.position);
+            }
+        }
+
         public abstract void DispatchTouches(Touch[] touches);
     }
 
@@ -115,10 +125,10 @@ namespace Assets.Foundation.Events
             }
 
             TouchBegan(beganTouches.ToArray());
-            TouchBegan(stationaryTouches.ToArray());
-            TouchBegan(movedTouches.ToArray());
-            TouchBegan(canceledTouches.ToArray());
-            TouchBegan(endedTouches.ToArray());
+            TouchStationary(stationaryTouches.ToArray());
+            TouchMoved(movedTouches.ToArray());
+            TouchCanceled(canceledTouches.ToArray());
+            TouchEnded(endedTouches.ToArray());
         }
 
         public virtual void TouchBegan(Touch[] touches)

@@ -78,6 +78,14 @@ namespace Assets.Foundation.Events
             return changed;
         }
 
+        private void ShowTwoTouchInfos()
+        {
+            Debug.LogFormat("first fingerId : {0}, phase : {1}, position : {2}", 
+                    _firstTouch.fingerId, _firstTouch.phase, _firstTouch.position);
+            Debug.LogFormat("second fingerId : {0}, phase : {1}, position : {2}", 
+                    _secondTouch.fingerId, _secondTouch.phase, _secondTouch.position);
+        }
+
         public override void TouchBegan(Touch[] touches)
         {
             if (CheckFingerChanged(touches))
@@ -93,6 +101,9 @@ namespace Assets.Foundation.Events
                 float distance = Vector2.Distance(_firstTouch.position, _secondTouch.position);
                 if (distance != _distance)
                 {
+                    Debug.LogFormat("TouchStationary, new distance : {0}, old distance : {1}, diff : {2}", 
+                        distance, _distance, distance - _distance);
+
                     this.DoScale(distance - _distance);
                     _distance = distance;
                 }
@@ -106,6 +117,9 @@ namespace Assets.Foundation.Events
                 float distance = Vector2.Distance(_firstTouch.position, _secondTouch.position);
                 if (distance != _distance)
                 {
+                    Debug.LogFormat("TouchStationary, new distance : {0}, old distance : {1}, diff : {2}", 
+                        distance, _distance, distance - _distance);
+
                     this.DoScale(distance - _distance);
                     _distance = distance;
                 }
