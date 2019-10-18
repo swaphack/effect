@@ -46,6 +46,9 @@ namespace Assets.Foundation.Actions
             _actions.Clear();
         }
 
+        /// <summary>
+        /// 上次更新显示时间
+        /// </summary>
         private float _lastUpdateShowTime;
         void Start()
         {

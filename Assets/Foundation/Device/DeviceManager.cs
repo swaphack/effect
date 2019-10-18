@@ -8,11 +8,11 @@ namespace Assets.Foundation.Device
     /// </summary>
     public class DeviceManager : Singleton<DeviceManager>
     {
-        void Start()
+        public void Init()
         {
             if (Input.touchSupported)
             {
-                this.gameObject.AddComponent<Touch>();
+                this.gameObject.AddComponent<TouchScreen>();
             }
 
             if (Input.mousePresent)
@@ -21,6 +21,30 @@ namespace Assets.Foundation.Device
             }
 
             this.gameObject.AddComponent<Keyboard>();
+        }
+
+        public Touch Touch 
+        {
+            get
+            {
+                return this.GetComponent<Touch>();
+            }
+        }
+
+        public Mouse Mouse
+        {
+            get
+            {
+                return this.GetComponent<Mouse>();
+            }
+        }
+
+        public Keyboard Keyboard
+        {
+            get
+            {
+                return this.GetComponent<Keyboard>();
+            }
         }
     }
 }

@@ -3,25 +3,22 @@ using UnityEngine;
 
 namespace Assets.Foundation.UI
 {
-    public class UITouchPanel : TouchBehaviour
+    public class UITouchPanel : SingleTouchBehaviour
     {
-        void Start()
-        {
-            IsTouchEnabled = true;
-        }
-        public override void TouchBegan(HitTouchInfo hitInfo)
+
+        public override void TouchBegan(Touch hitInfo)
         {
             Debug.LogFormat("{0}-{1}", "TouchBegan", hitInfo);
         }
-        public override void TouchMoved(HitTouchInfo hitInfo)
+        public override void TouchMoved(Touch hitInfo)
         {
             Debug.LogFormat("{0}-{1}", "TouchMoved", hitInfo);
         }
-        public override void TouchEnded(HitTouchInfo hitInfo)
+        public override void TouchEnded(Touch hitInfo)
         {
             Debug.LogFormat("{0}-{1}", "TouchEnded", hitInfo);
         }
-        public override void TouchCanceled(HitTouchInfo hitInfo)
+        public override void TouchCanceled(Touch hitInfo)
         {
             Debug.LogFormat("{0}-{1}", "TouchCanceled", hitInfo);
         }

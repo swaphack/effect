@@ -5,94 +5,55 @@ using System.Collections.Generic;
 namespace Assets.Foundation.Events
 {
     /// <summary>
-    /// 点击管理
+    /// 单点管理
     /// </summary>
     public class TouchManager : Singleton<TouchManager>
     {
-        private Dictionary<GameObject, TouchBehaviour> _behaviours = new Dictionary<GameObject, TouchBehaviour>();
+        private struct TouchInfo
+        {
+            public int fingerId;
+            public GameObject target;
+
+            public TouchInfo(int fingerId, GameObject target)
+            {
+                this.fingerId = fingerId;
+                this.target = target;
+            }
+        }
+
+        private Dictionary<GameObject, ITouchProtocol> _behaviours = new Dictionary<GameObject, ITouchProtocol>();
+        private Dictionary<int, TouchInfo> _touchInfos = new Dictionary<int, TouchInfo>();
 
         /// <summary>
         /// 添加触摸处理
         /// </summary>
         /// <param name="behaviour"></param>
-        public void AddTouchBehaviour(TouchBehaviour behaviour)
+        public void AddBehaviour(ITouchProtocol behaviour)
         { 
             if (behaviour == null)
             {
                 return;
             }
 
-            _behaviours.Add(behaviour.gameObject, behaviour);
+            _behaviours.Add(behaviour.Target, behaviour);
         }
         /// <summary>
         /// 移除触摸处理
         /// </summary>
         /// <param name="behaviour"></param>
-        public void RemoveTouchBehaviour(TouchBehaviour behaviour)
+        public void RemoveBehaviour(ITouchProtocol behaviour)
         {
             if (behaviour == null)
             {
                 return;
             }
 
-            _behaviours.Remove(behaviour.gameObject);
+            _behaviours.Remove(behaviour.Target);
         }
 
-        /// <summary>
-        /// 派发3d触摸事件
-        /// </summary>
-        /// <param name="hitInfo"></param>
-        /// <param name="touchPhase"></param>
-        private void Dispatch3DTouch(RaycastHit hitInfo, TouchPhase touchPhase)
+        private GameObject GetHitTarget(Touch touch)
         {
-            if (!_behaviours.ContainsKey(hitInfo.collider.gameObject))
-            {
-                return;
-            }
-
-            var behaviour = _behaviours[hitInfo.collider.gameObject];
-            HitTouchInfo hitTouchInfo = new HitTouchInfo();
-            switch (touchPhase)
-            {
-                case TouchPhase.Began: behaviour.TouchBegan(hitTouchInfo); break;
-                case TouchPhase.Moved: behaviour.TouchMoved(hitTouchInfo); break;
-                case TouchPhase.Ended: behaviour.TouchEnded(hitTouchInfo); break;
-                case TouchPhase.Canceled: behaviour.TouchCanceled(hitTouchInfo); break;
-                default: break;
-            }
-        }
-
-        /// <summary>
-        /// 派发2d触摸事件
-        /// </summary>
-        /// <param name="hitInfo"></param>
-        /// <param name="touchPhase"></param>
-        private void Dispatch2DTouch(RaycastHit2D hitInfo, TouchPhase touchPhase)
-        {
-            if (!_behaviours.ContainsKey(hitInfo.collider.gameObject))
-            {
-                return;
-            }
-
-            var behaviour = _behaviours[hitInfo.collider.gameObject];
-            HitTouchInfo hitTouchInfo = new HitTouchInfo();
-            switch (touchPhase)
-            {
-                case TouchPhase.Began: behaviour.TouchBegan(hitTouchInfo); break;
-                case TouchPhase.Moved: behaviour.TouchMoved(hitTouchInfo); break;
-                case TouchPhase.Ended: behaviour.TouchEnded(hitTouchInfo); break;
-                case TouchPhase.Canceled: behaviour.TouchCanceled(hitTouchInfo); break;
-                default: break;
-            }
-        }
-
-        /// <summary>
-        /// 单点触摸
-        /// </summary>
-        /// <param name="touchInfo"></param>
-        public void OnSingleTouch(TouchInfo touchInfo)
-        {
-            var pos = touchInfo.hitPosition;
+            Vector3 pos = touch.position;
 
             // 3d
             {
@@ -102,7 +63,7 @@ namespace Assets.Foundation.Events
                 {
                     if (raycastHitInfo.collider != null)
                     {
-                        this.Dispatch3DTouch(raycastHitInfo, touchInfo.touchPhase);
+                        return raycastHitInfo.collider.gameObject;
                     }
                 }
             }
@@ -112,7 +73,61 @@ namespace Assets.Foundation.Events
                 RaycastHit2D raycastHitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(pos), Vector2.zero);
                 if (raycastHitInfo.collider != null)
                 {
-                    Dispatch2DTouch(raycastHitInfo, touchInfo.touchPhase);
+                    return raycastHitInfo.collider.gameObject;
+                }
+            }
+
+            return null;
+        }
+
+        public void DispatchTouch(Touch touch)
+        {
+            DispatchTouches(new Touch[1] { touch });
+        }
+
+        /// <summary>
+        /// 点击派发
+        /// </summary>
+        /// <param name="touches"></param>
+        public void DispatchTouches(Touch[] touches)
+        {
+            if (touches == null || touches.Length == 0)
+            {
+                return;
+            }
+
+            var touch = touches[0];
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                if (!_touchInfos.ContainsKey(touch.fingerId))
+                {
+                    var go = GetHitTarget(touch);
+                    if (go != null)
+                    {
+                        _touchInfos.Add(touch.fingerId, new TouchInfo(touch.fingerId, go));
+                    }
+                }
+            }
+
+            if (_touchInfos.ContainsKey(touch.fingerId))
+            {
+                var touchInfo = _touchInfos[touch.fingerId];
+                var go = touchInfo.target;
+                if (!_behaviours.ContainsKey(go))
+                {
+                    return;
+                }
+
+                var behaviour = _behaviours[go];
+                behaviour.DispatchTouches(touches);
+            }
+
+            if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
+            {
+                if (_touchInfos.ContainsKey(touch.fingerId))
+                {
+                    _touchInfos.Remove(touch.fingerId);
                 }
             }
         }

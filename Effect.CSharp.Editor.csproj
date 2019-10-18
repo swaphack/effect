@@ -228,6 +228,7 @@
     <Compile Include="Assets\Editor\Widgets\WidgetUtility.cs" />
     <Compile Include="Assets\Editor\Windows\ContextExtensions.cs" />
     <Compile Include="Assets\Editor\Windows\Editors\EditorStyleViewer.cs" />
+    <Compile Include="Assets\Editor\Windows\RenderExtensions.cs" />
     <Compile Include="Assets\Editor\Windows\TestW.cs" />
     <Compile Include="Assets\Editor\Windows\ToolExtensions.cs" />
     <Compile Include="Assets\Editor\Windows\Tools\BundlePack.cs" />
@@ -235,13 +236,6 @@
     <Compile Include="Assets\Editor\Windows\Tools\ImageSetting.cs" />
     <Compile Include="Assets\Editor\Windows\Tools\TextureDisplay.cs" />
     <Compile Include="Assets\Editor\Windows\UIExtensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Bundles\Audios\sound.xml" />
-    <None Include="Assets\Bundles\Configs\Xml\hello.txt" />
-    <None Include="Assets\Resources\Config\GameMainConfig.xml" />
-    <None Include="Assets\Resources\Config\GameUpdateConfig.xml" />
-    <None Include="Assets\Resources\Language\cn.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

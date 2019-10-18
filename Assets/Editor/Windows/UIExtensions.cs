@@ -3,6 +3,9 @@ using UnityEngine;
 using Assets.Foundation.Extensions;
 using Assets.Foundation.UI;
 using UnityEngine.UI;
+using UnityEngine.Video;
+using Assets.Foundation.DataAccess;
+using UnityEngine.Rendering;
 
 namespace Assets.Editor.Windows
 {
@@ -39,7 +42,7 @@ namespace Assets.Editor.Windows
             return child;
         }
 
-        [MenuItem("GameObject/UI/UI RectTransform")]
+        [MenuItem("GameObject/UIExtension/UI RectTransform", priority=10)]
         private static void CreateUIRectTransform()
         {
             CreateUIRectTransform(300, 300);
@@ -93,13 +96,13 @@ namespace Assets.Editor.Windows
             return listView;
         }
 
-        [MenuItem("GameObject/UI/UI ListView")]
+        [MenuItem("GameObject/UIExtension/UI ListView", priority = 10)]
         private static UIListView CreateUIListView()
         {
             return CreateUIListView<UIListView>();
         }
 
-        [MenuItem("GameObject/UI/UI Image")]
+        [MenuItem("GameObject/UIExtension/UI Image")]
         private static UIImage CreateUIImage()
         {
             GameObject child = CreateUIRectTransform(200, 200);
@@ -118,7 +121,7 @@ namespace Assets.Editor.Windows
             return image;
         }
 
-        [MenuItem("GameObject/UI/UI Text")]
+        [MenuItem("GameObject/UIExtension/UI Text", priority = 10)]
         private static UIText CreateUIText()
         {
             GameObject child = CreateUIRectTransform(160, 55);
@@ -138,7 +141,7 @@ namespace Assets.Editor.Windows
             return text;
         }
 
-        [MenuItem("GameObject/UI/UI ScrollText")]
+        [MenuItem("GameObject/UIExtension/UI ScrollText", priority = 10)]
         private static void CreateUIScrollText()
         {
             UIScrollText listView = CreateUIListView<UIScrollText>();
@@ -166,10 +169,52 @@ namespace Assets.Editor.Windows
             };
         }
 
-        [MenuItem("GameObject/UI/UI Video")]
+        [MenuItem("GameObject/UIExtension/UI Video", priority = 10)]
         private static void CreateUIVideo()
         {
+            VideoClip clip = AssetDatabase.LoadAssetAtPath<VideoClip>("Assets/Bundles/Videos/4.mp4");
+            int width = 256;
+            int height = 256;
+            if (clip != null)
+            {
+                width = (int)clip.width;
+                height = (int)clip.height;
+            }
 
+            GameObject child = CreateUIRectTransform(width, height);
+            if (child == null)
+            {
+                return;
+            }
+
+            UIVideo video = child.AddComponent<UIVideo>();
+            child.name = video.GetType().Name;
+            child.layer = 5;
+
+            video.raycastTarget = true;
+            video.type = Image.Type.Simple;
+            
+            var videoPlayer = video.GetComponent<VideoPlayer>();
+            videoPlayer.renderMode = VideoRenderMode.RenderTexture;
+            videoPlayer.controlledAudioTrackCount = 1;
+            videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+            videoPlayer.source = VideoSource.VideoClip;
+            videoPlayer.clip = clip;
+
+            var audioSrc = video.GetComponent<AudioSource>();
+            videoPlayer.EnableAudioTrack(0, true);
+            videoPlayer.SetTargetAudioSource(0, audioSrc);
+            
+            Material mat = new Material(Shader.Find("Unlit/Texture"));
+            video.material = mat;
+
+            RenderTexture texture = new RenderTexture(width, height, 32);
+            texture.name = "Video Render Texture";
+            texture.dimension = TextureDimension.Tex2D;
+            texture.format = RenderTextureFormat.ARGB32;
+            mat.mainTexture = texture;
+            videoPlayer.targetTexture = texture;
         }
     }
 }
+

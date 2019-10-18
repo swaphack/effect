@@ -1,6 +1,7 @@
 ﻿using Assets.Foundation.DataAccess;
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Editor.EGUI
@@ -198,7 +199,7 @@ namespace Assets.Editor.EGUI
 
         protected virtual void UpdateContent()
         {
-            var texture = FilePath.Instance.Get<Texture>(_imagePath);
+            var texture = AssetDatabase.LoadAssetAtPath<Texture>(_imagePath);
             _content.image = texture;
             _content.text = _text;
             _content.tooltip = _tooltip;

@@ -1,8 +1,4 @@
-﻿using Assets.Game.Protocol;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 
 namespace Assets.Foundation.Protocol
 {
@@ -28,12 +24,6 @@ namespace Assets.Foundation.Protocol
         {
             this.ID = id;
         }
-
-        public MessageHeader(ProtocolID id)
-        {
-            this.ID = (int)id;
-        }
-
 
         /// <summary>
         /// 生成包

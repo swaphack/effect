@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{35F0CBF3-007A-2543-FE32-C2CA9CB8D8CE}</ProjectGuid>
+    <ProjectGuid>{CE7127D8-D8EE-32EC-65D9-9FF9625B90E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.6.3p2</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -92,8 +94,10 @@
     <Compile Include="Assets\Foundation\Actions\IAction.cs" />
     <Compile Include="Assets\Foundation\Actions\IActionBehaviour.cs" />
     <Compile Include="Assets\Foundation\Actions\Repeate.cs" />
+    <Compile Include="Assets\Foundation\Controller\DirectionController.cs" />
     <Compile Include="Assets\Foundation\Creator\ObjectBehaviour.cs" />
     <Compile Include="Assets\Foundation\Creator\ObjectProperty.cs" />
+    <Compile Include="Assets\Foundation\DataAccess\AccessType.cs" />
     <Compile Include="Assets\Foundation\Data\DByteReader.cs" />
     <Compile Include="Assets\Foundation\Data\DByteWriter.cs" />
     <Compile Include="Assets\Foundation\Data\DJsonReader.cs" />
@@ -119,13 +123,20 @@
     <Compile Include="Assets\Foundation\Device\DeviceManager.cs" />
     <Compile Include="Assets\Foundation\Device\Keyboard.cs" />
     <Compile Include="Assets\Foundation\Device\Mouse.cs" />
-    <Compile Include="Assets\Foundation\Device\Touch.cs" />
+    <Compile Include="Assets\Foundation\Device\TouchScreen.cs" />
+    <Compile Include="Assets\Foundation\Effects\CameraSnapshot.cs" />
+    <Compile Include="Assets\Foundation\Effects\MapScale.cs" />
+    <Compile Include="Assets\Foundation\Effects\Mirror.cs" />
+    <Compile Include="Assets\Foundation\Effects\PressButton.cs" />
     <Compile Include="Assets\Foundation\Effects\Weather.cs" />
-    <Compile Include="Assets\Foundation\Events\HitInfo.cs" />
+    <Compile Include="Assets\Foundation\Events\EventBehaviour.cs" />
+    <Compile Include="Assets\Foundation\Events\IScrollProtocol.cs" />
     <Compile Include="Assets\Foundation\Events\ITouchProtocol.cs" />
+    <Compile Include="Assets\Foundation\Events\ScrollBehaviour.cs" />
+    <Compile Include="Assets\Foundation\Events\ScrollManager.cs" />
     <Compile Include="Assets\Foundation\Events\TouchBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Events\TouchInfo.cs" />
     <Compile Include="Assets\Foundation\Events\TouchManager.cs" />
+    <Compile Include="Assets\Foundation\Events\TouchScrollBehaviour.cs" />
     <Compile Include="Assets\Foundation\Extensions\ExtAction.cs" />
     <Compile Include="Assets\Foundation\Extensions\ExtNode.cs" />
     <Compile Include="Assets\Foundation\Extensions\ExtUI.cs" />
@@ -139,6 +150,9 @@
     <Compile Include="Assets\Foundation\Protocol\PacketWriter.cs" />
     <Compile Include="Assets\Foundation\Scene\InformationBehaviour.cs" />
     <Compile Include="Assets\Foundation\Scene\LinkBehaviour.cs" />
+    <Compile Include="Assets\Foundation\SimpleEffect\AutoMove.cs" />
+    <Compile Include="Assets\Foundation\SimpleEffect\AutoRotation.cs" />
+    <Compile Include="Assets\Foundation\SimpleEffect\FocusTarget.cs" />
     <Compile Include="Assets\Foundation\TextFormat\FieldParser.cs" />
     <Compile Include="Assets\Foundation\TextFormat\IFieldParse.cs" />
     <Compile Include="Assets\Foundation\TextFormat\IniFormat.cs" />
@@ -149,6 +163,7 @@
     <Compile Include="Assets\Foundation\Tool\HttpUtility.cs" />
     <Compile Include="Assets\Foundation\Tool\XmlUtility.cs" />
     <Compile Include="Assets\Foundation\UI\UIAction.cs" />
+    <Compile Include="Assets\Foundation\UI\UIFile.cs" />
     <Compile Include="Assets\Foundation\UI\UIFrame.cs" />
     <Compile Include="Assets\Foundation\UI\UIGrideScrollView.cs" />
     <Compile Include="Assets\Foundation\UI\UIImage.cs" />
@@ -160,28 +175,22 @@
     <Compile Include="Assets\Foundation\UI\UIText.cs" />
     <Compile Include="Assets\Foundation\UI\UITouchPanel.cs" />
     <Compile Include="Assets\Foundation\UI\UIVideo.cs" />
-    <Compile Include="Assets\Game\Logic\RoleManager.cs" />
-    <Compile Include="Assets\Game\Project\ABManifest.cs" />
-    <Compile Include="Assets\Game\Project\ConfigHelper.cs" />
-    <Compile Include="Assets\Game\Project\GameDetail.cs" />
-    <Compile Include="Assets\Game\Project\GameLoginSlot.cs" />
-    <Compile Include="Assets\Game\Project\GameWorkflow.cs" />
-    <Compile Include="Assets\Game\Project\VersionCheckSlot.cs" />
-    <Compile Include="Assets\Game\Project\VersionUpdateSlot.cs" />
-    <Compile Include="Assets\Game\Project\Workflow.cs" />
-    <Compile Include="Assets\Game\Protocol\ProtocolID.cs" />
-    <Compile Include="Assets\Game\Protocol\RoleMessage.cs" />
-    <Compile Include="Assets\Game\Test.cs" />
-    <Compile Include="Assets\Game\UI\UILoading.cs" />
-    <Compile Include="Assets\Game\UI\UILogin.cs" />
-    <Compile Include="Assets\Game\UITest.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Bundles\Audios\sound.xml" />
-    <None Include="Assets\Bundles\Configs\Xml\hello.txt" />
-    <None Include="Assets\Resources\Config\GameMainConfig.xml" />
-    <None Include="Assets\Resources\Config\GameUpdateConfig.xml" />
-    <None Include="Assets\Resources\Language\cn.xml" />
+    <Compile Include="Assets\Home\AppDetail.cs" />
+    <Compile Include="Assets\Home\AppMain.cs" />
+    <Compile Include="Assets\Home\UI\MainUI.cs" />
+    <Compile Include="Assets\SDK\App\AppDetail.cs" />
+    <Compile Include="Assets\SDK\App\AppInstance.cs" />
+    <Compile Include="Assets\SDK\App\ResourceType.cs" />
+    <Compile Include="Assets\SDK\Project\ABManifest.cs" />
+    <Compile Include="Assets\SDK\Project\ConfigHelper.cs" />
+    <Compile Include="Assets\SDK\Project\GameDetail.cs" />
+    <Compile Include="Assets\SDK\Project\GameServerMessage.cs" />
+    <Compile Include="Assets\SDK\Project\GameServerSlot.cs" />
+    <Compile Include="Assets\SDK\Project\GameWorkflow.cs" />
+    <Compile Include="Assets\SDK\Project\LoginServerSlot.cs" />
+    <Compile Include="Assets\SDK\Project\VersionCheckSlot.cs" />
+    <Compile Include="Assets\SDK\Project\VersionUpdateSlot.cs" />
+    <Compile Include="Assets\SDK\Project\Workflow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

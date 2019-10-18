@@ -9,6 +9,46 @@ using UnityEditor;
 namespace Assets.Foundation.DataAccess
 {
     /// <summary>
+    /// 文件路径信息
+    /// </summary>
+    public class FilePathInfo
+    {
+        /// <summary>
+        /// 资源名字
+        /// </summary>
+        public string _assetName;
+        public string AssetName
+        {
+            get { return _assetName; }
+            set { _assetName = value; }
+        }
+        /// <summary>
+        /// 类型
+        /// </summary>
+        public AccessType _type;
+        public AccessType Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
+        /// <summary>
+        /// 路径
+        /// </summary>
+        public string _fullpath;
+        public string Fullpath
+        {
+            get { return _fullpath; }
+            set { _fullpath = value; }
+        }
+        public FilePathInfo(string name, string path, AccessType type)
+        {
+            this._assetName = name;
+            this._fullpath = path;
+            this._type = type;
+        }
+    }
+
+    /// <summary>
     /// 文件路径
     /// </summary>
     public sealed class FilePath
@@ -147,11 +187,11 @@ namespace Assets.Foundation.DataAccess
         /// <summary>
         /// 资源文件名对应完整路径
         /// </summary>
-        private Dictionary<string, string> _fullpaths;
+        private Dictionary<string, FilePathInfo> _fullpaths;
 
         private FilePath()
         {
-            _fullpaths = new Dictionary<string, string>();
+            _fullpaths = new Dictionary<string, FilePathInfo>();
             _searchPaths = new HashSet<string>();
         }
 
@@ -215,6 +255,39 @@ namespace Assets.Foundation.DataAccess
         public void RemoveAllSearchPaths()
         {
             _searchPaths.Clear();
+            _fullpaths.Clear();
+        }
+
+        /// <summary>
+        /// 添加资源路径
+        /// </summary>
+        /// <param name="assetName"></param>
+        /// <param name="fullpath"></param>
+        /// <param name="type"></param>
+        private void AddAssetPath(string assetName, string fullpath, AccessType type)
+        {
+            if (string.IsNullOrEmpty(assetName) || string.IsNullOrEmpty(fullpath))
+            {
+                return;
+            }
+            FilePathInfo info = new FilePathInfo(assetName, fullpath, type);
+
+            _fullpaths[assetName] = info;
+        }
+
+        private FilePathInfo FindAsset(string assetName)
+        {
+            if (string.IsNullOrEmpty(assetName))
+            {
+                return null;
+            }
+
+            if (!_fullpaths.ContainsKey(assetName))
+            {
+                return null;
+            }
+
+            return _fullpaths[assetName];
         }
 
         /// <summary>
@@ -222,61 +295,82 @@ namespace Assets.Foundation.DataAccess
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public string GetFullPath(string filename)
+        public FilePathInfo FindAssetPath(string filename)
         {
             if (string.IsNullOrEmpty(filename))
             {
                 return null;
             }
-            if (_fullpaths.ContainsKey(filename))
+            var info = FindAsset(filename);
+            if (info != null)
             {
-                return _fullpaths[filename];
+                return info;
             }
 
             foreach (var item in _searchPaths)
             {
                 // 外部文件
                 string path = Path.Combine(item, filename);
-                if (File.Exists(path))
-                {
-                    _fullpaths.Add(filename, path);
-
-                    return path;
-                }
 #if UNITY_EDITOR
                 // editor
                 if (AssetDatabase.LoadAssetAtPath<Object>(path))
                 {
-                    _fullpaths.Add(filename, path);
-                    return path;
+                    this.AddAssetPath(filename, path, AccessType.AssetDatabase);
+                    return FindAsset(filename);
                 }
 #endif
+
+                if (BundleManager.Instance.Contains(path))
+                {
+                    this.AddAssetPath(filename, path, AccessType.AssetBundles);
+                    return FindAsset(filename);
+                }
 
                 // Resources文件
                 if (Resources.Load<Object>(path))
                 {
-                    _fullpaths.Add(filename, path);
-
-                    return path;
+                    this.AddAssetPath(filename, path, AccessType.Resources);
+                    return FindAsset(filename);
                 }
             }
 
             return null;
         }
 
-
-        public T Get<T>(string filename) where T : Object
+        /// <summary>
+        /// 加载资源
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="assetName"></param>
+        /// <returns></returns>
+        public T LoadAsset<T>(string assetName) where T : UnityEngine.Object
         {
-            string fullpath = GetFullPath(filename);
-            if (fullpath == null)
+            if (string.IsNullOrEmpty(assetName))
             {
                 return null;
             }
+
+            var info = FindAsset(assetName);
+            if (info == null)
+            {
+                return null;
+            }
+
+            if (info.Type == AccessType.Resources)
+            {
+                return Resources.Load<T>(info.Fullpath);
+            }
+            else if (info.Type == AccessType.AssetBundles)
+            {
+                return BundleManager.Instance.LoadAsset<T>(info.Fullpath);
+            }
 #if UNITY_EDITOR
-            return AssetDatabase.LoadAssetAtPath<T>(fullpath);
-#else
-            return Resources.Load<T>(fullpath);
+            else if (info.Type == AccessType.AssetDatabase)
+            {
+                return AssetDatabase.LoadAssetAtPath<T>(info.Fullpath);
+            }
 #endif
+            return null;
         }
     }
 }

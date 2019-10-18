@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
 namespace Assets.Foundation.UI
 {
-    class UIVideo
+    [RequireComponent(typeof(AudioSource), typeof(VideoPlayer))]
+    public class UIVideo : Image
     {
+
     }
 }

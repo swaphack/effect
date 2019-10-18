@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Foundation.Managers;
 using System.IO;
+using Assets.SDK.Project;
 
 namespace Assets.Foundation.DataAccess
 {
@@ -10,11 +11,19 @@ namespace Assets.Foundation.DataAccess
     /// </summary>
     public sealed class BundleManager : Singleton<BundleManager>
     {
+        /// <summary>
+        /// 资源名字对应资源包
+        /// </summary>
         private Dictionary<string, AssetBundle> _assetBundles;
+        /// <summary>
+        /// 资源名字对应资源包名字
+        /// </summary>
+        private Dictionary<string, string> _assetPaths;
 
         private BundleManager()
         {
             _assetBundles = new Dictionary<string,AssetBundle>();
+            _assetPaths = new Dictionary<string, string>();
         }
 
         /// <summary>
@@ -25,6 +34,15 @@ namespace Assets.Foundation.DataAccess
         public void Add(string path, AssetBundle bundle)
         {
             _assetBundles.Add(path, bundle);
+
+            string[] assetNames = bundle.GetAllAssetNames();
+            if (assetNames != null && assetNames.Length > 0)
+            {
+                for (var i = 0; i < assetNames.Length; i++)
+                {
+                    _assetPaths[assetNames[i]] = path;
+                }
+            }
         }
 
         /// <summary>
@@ -39,6 +57,11 @@ namespace Assets.Foundation.DataAccess
             }
 
             var bundle = _assetBundles[path];
+            string[] assetNames = bundle.GetAllAssetNames();
+            for (var i = 0; i < assetNames.Length; i++)
+            {
+                _assetPaths.Remove(assetNames[i]);
+            }
             bundle.Unload(true);
         }
         /// <summary>
@@ -49,12 +72,20 @@ namespace Assets.Foundation.DataAccess
         /// <returns></returns>
         public T LoadAsset<T>(string assetName) where T : Object
         {
-            foreach (var item in _assetBundles)
+            if (string.IsNullOrEmpty(assetName))
             {
-                if (item.Value.Contains(assetName))
-                {
-                    return item.Value.LoadAsset<T>(assetName);
-                }
+                return null;
+            }
+
+            if (!_assetPaths.ContainsKey(assetName))
+            {
+                return null;
+            }
+
+            string bundleName = _assetPaths[assetName];
+            if (_assetBundles.ContainsKey(bundleName))
+            {
+                return _assetBundles[bundleName].LoadAsset<T>(assetName);
             }
 
             return null;
@@ -68,12 +99,20 @@ namespace Assets.Foundation.DataAccess
         /// <returns></returns>
         public AssetBundleRequest LoadAssetAsync<T>(string assetName) where T : Object
         {
-            foreach (var item in _assetBundles)
+            if (string.IsNullOrEmpty(assetName))
             {
-                if (item.Value.Contains(assetName))
-                {
-                    return item.Value.LoadAssetAsync<T>(assetName);
-                }
+                return null;
+            }
+
+            if (!_assetPaths.ContainsKey(assetName))
+            {
+                return null;
+            }
+
+            string bundleName = _assetPaths[assetName];
+            if (_assetBundles.ContainsKey(bundleName))
+            {
+                return _assetBundles[bundleName].LoadAssetAsync<T>(assetName);
             }
 
             return null;
@@ -102,9 +141,62 @@ namespace Assets.Foundation.DataAccess
             return true;
         }
 
+        /// <summary>
+        /// 是否包含文件
+        /// </summary>
+        /// <param name="assetName"></param>
+        /// <returns></returns>
+        public bool Contains(string assetName)
+        {
+            if (string.IsNullOrEmpty(assetName))
+            {
+                return false;
+            }
+
+            return _assetPaths.ContainsKey(assetName);
+        }
+
         public void Init()
         {
+            LoadAssetBundle();
+        }
+
+        /*
+        void LoadAssetBundle()
+        {
+            string configPath = FilePath.GetBundlePath();
             
+            string[] files = Directory.GetFiles(configPath, "*.unity3d");
+            for (int i = 0; i < files.Length; i++)
+            {
+                LoadFromFile(files[i]);
+            }
+        }
+         * */
+
+        void LoadAssetBundle()
+        {
+            string configPath = FilePath.GetBundleManifestPath();
+
+            WWW www = new WWW(configPath);
+            while (!www.isDone) { };
+            if (!string.IsNullOrEmpty(www.error))
+            {
+                return;
+            }
+            ABManifest manifest = new ABManifest();
+            manifest.Read(www.text);
+            var names = manifest.GetAllAssetBundles();
+            if (names == null || names.Count == 0)
+            {
+                return;
+            }
+
+            for (int i = 0; i < names.Count; i++)
+            {
+                string fullpath = Path.Combine(FilePath.GetBundlePath(), names[i]);
+                this.LoadFromFile(fullpath);
+            }
         }
     }
 }

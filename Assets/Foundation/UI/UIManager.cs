@@ -5,7 +5,7 @@ using Assets.Foundation.DataAccess;
 using Assets.Foundation.Extensions;
 using System.IO;
 using Assets.Foundation.Data;
-using Assets.Game.Project;
+using Assets.SDK.Project;
 
 namespace Assets.Foundation.UI
 {
@@ -31,7 +31,6 @@ namespace Assets.Foundation.UI
             }
             _init = true;
             this.InitGameObject();
-            this.LoadAssetBundle();
         }
 
 
@@ -54,47 +53,7 @@ namespace Assets.Foundation.UI
                 }
             }
         }
-
-        /*
-        void LoadAssetBundle()
-        {
-            string configPath = FilePath.GetBundlePath();
-            
-            string[] files = Directory.GetFiles(configPath, "*.unity3d");
-
-            var bundles = BundleManager.Instance;
-            for (int i = 0; i < files.Length; i++)
-            {
-                bundles.LoadFromFile(files[i]);
-            }
-        }
-        */
-
-        void LoadAssetBundle()
-        {
-            string configPath = FilePath.GetBundleManifestPath();
-
-            WWW www = new WWW(configPath);
-            while (!www.isDone) { };
-            if (!string.IsNullOrEmpty(www.error))
-            {
-                return;
-            }
-            ABManifest manifest = new ABManifest();
-            manifest.Read(www.text);
-            var names = manifest.GetAllAssetBundles();
-            if (names == null || names.Count == 0)
-            {
-                return;
-            }
-
-            var bundles = BundleManager.Instance;
-            for (int i = 0; i < names.Count; i++)
-            {
-                string fullpath = Path.Combine(FilePath.GetBundlePath(), names[i]);
-                bundles.LoadFromFile(fullpath);
-            }
-        }
+        
 
         /// <summary>
         /// 添加界面
@@ -158,16 +117,12 @@ namespace Assets.Foundation.UI
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="data"></param>
-        public static void ShowUI<T>(params object[] data) where T : UIFrame, new()
+        public static void ShowUI<T>(params object[] data) where T : UIFile, new()
         {
-            var ui = UIManager.Instance;
-            ui.Init();
-
-
-            var bundles = BundleManager.Instance;
-            var tempGo = new GameObject();
-            var temp = tempGo.AddComponent<T>();
-            var go = bundles.LoadAsset<GameObject>(string.Format("Assets/Bundles/Frames/{0}.prefab", temp.Path));
+            var root = UIManager.Instance.root;
+            var temp = root.AddComponent<T>();
+            string assetPath = string.Format("UI/Main/{0}", temp.Path);
+            GameObject go = FilePath.Instance.LoadAsset<GameObject>(assetPath);
             if (go == null)
             {
                 return;
@@ -178,16 +133,16 @@ namespace Assets.Foundation.UI
             instance.name = temp.Path.Substring(begin, temp.Path.Length - begin);
             var frame = instance.AddComponent<T>();
             frame.InitWithParams(data);
-            ui.AddFrame(frame);
+            UIManager.Instance.AddFrame(frame);
 
-            tempGo.RemoveFromParentAndCleanUp();
+            Object.DestroyImmediate(temp);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        public static void CloseUI<T>() where T : UIFrame
+        public static void CloseUI<T>() where T : UIFile
         {
             var ui = UIManager.Instance;
             var t = ui.GetComponentInChildren<T>();

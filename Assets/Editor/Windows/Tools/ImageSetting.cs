@@ -21,6 +21,7 @@ namespace Assets.Editor.Windows.Tools
             public TextureImporterCompression textureCompression;
             public bool sRGBTexture;
             public TextureImporterAlphaSource alphaSource;
+            public SpriteImportMode spriteMode;
         }
         private SettingParams setting;
 
@@ -28,21 +29,20 @@ namespace Assets.Editor.Windows.Tools
         private int[] TextureIntArray = new int[] { 0, 1, 2, 8, 7, 4, 6, 10 };
         private string[] TextureTypeString = new string[] { "Default", "Normal Map", "GUI", "Sprite", "Cursor", "Cookie", "Lightmap", "Single Channel" };
 
+        private int[] SizeIntArray = new int[] { 32, 64, 128, 256, 512, 1024, 2048, 4096 };
+        private string[] MaxSizeString = new string[] { "32", "64", "128", "256", "512", "1024", "2048", "4096" };
+
         /// <summary>
         /// 临时存储int[]
         /// </summary>
         private int[] IntArray = new int[] { 0, 1, 2, 3, 4, 5, 6, 7 };
 
         private string[] AlphaSourceString = new string[] { "None", "FromInput", "FromGrayScale" };
-
         private string[] FilterModeString = new string[] { "Point", "Bilinear", "Trilinear" };
-        //Wrap Mode
         private string[] WrapModeString = new string[] { "Repeat", "Clamp" };
-
-        private int[] SizeIntArray = new int[] { 32, 64, 128, 256, 512, 1024, 2048, 4096 };
-        private string[] MaxSizeString = new string[] { "32", "64", "128", "256", "512", "1024", "2048", "4096" };
-        //Format
         private string[] FormatString = new string[] { "Uncompressed", "Compressed", "CompressedHQ", "CompressedLQ" };
+        private string[] SpriteModeString = new string[] { "None", "Single", "Multiple", "Polygon" };
+
 
         public ImageSetting()
         {
@@ -58,6 +58,7 @@ namespace Assets.Editor.Windows.Tools
             setting.textureCompression = TextureImporterCompression.Compressed;
             setting.sRGBTexture = true;
             setting.alphaSource = TextureImporterAlphaSource.FromInput;
+            setting.spriteMode = SpriteImportMode.Single;
         }
 
         /// <summary>
@@ -73,6 +74,7 @@ namespace Assets.Editor.Windows.Tools
             textureImporter.textureType = setting.textureType;
             textureImporter.maxTextureSize = setting.maxTextureSize;
             textureImporter.textureCompression = setting.textureCompression;
+            textureImporter.spriteImportMode = setting.spriteMode;
             return textureImporter;
         }
 
@@ -116,6 +118,16 @@ namespace Assets.Editor.Windows.Tools
                 setting.textureType = (TextureImporterType)value;
             };
             vLayout.Add(textureType);
+
+            UIIntPopupFieldWidget spriteMode = new UIIntPopupFieldWidget("Sprite Mode", setting.spriteMode);
+            spriteMode.Describes = SpriteModeString;
+            spriteMode.Indexs = IntArray;
+            spriteMode.OnValueChanged = (System.Object value) =>
+            {
+                setting.spriteMode = (SpriteImportMode)value;
+            };
+            vLayout.Add(spriteMode);
+
 
             UIBooleanFieldWidget sRGBTexture = new UIBooleanFieldWidget("sRGBTexture", setting.sRGBTexture);
             sRGBTexture.OnValueChanged = (System.Object value) =>
