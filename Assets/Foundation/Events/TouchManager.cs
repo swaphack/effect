@@ -34,7 +34,6 @@ namespace Assets.Foundation.Events
             {
                 return;
             }
-
             _behaviours.Add(behaviour.Target, behaviour);
         }
         /// <summary>
@@ -105,6 +104,7 @@ namespace Assets.Foundation.Events
                     var go = GetHitTarget(touch);
                     if (go != null)
                     {
+
                         _touchInfos.Add(touch.fingerId, new TouchInfo(touch.fingerId, go));
                     }
                 }
@@ -114,6 +114,10 @@ namespace Assets.Foundation.Events
             {
                 var touchInfo = _touchInfos[touch.fingerId];
                 var go = touchInfo.target;
+                if (go == null)
+                {
+                    return;
+                }
                 if (!_behaviours.ContainsKey(go))
                 {
                     return;

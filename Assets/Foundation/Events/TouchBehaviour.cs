@@ -35,6 +35,16 @@ namespace Assets.Foundation.Events
             }
         }
 
+        protected void ShowTouchInfos(Touch[] touches)
+        {
+            for(var i = 0 ; i < touches.Length; i++)
+            {
+                var touch  = touches[i];
+                Debug.LogFormat("Touch fingerId : {0}, phase : {1}, position : {2}", 
+                    touch.fingerId, touch.phase, touch.position);
+            }
+        }
+
         public abstract void DispatchTouches(Touch[] touches);
     }
 
