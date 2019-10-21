@@ -87,12 +87,7 @@ namespace Assets.Foundation.UI
 
         public T GetModule<T>() where T : Component
         {
-            var t = this.GetComponent<T>();
-            if (t == null)
-            {
-                t = this.gameObject.AddComponent<T>();
-            }
-
+            var t = this.CreateComponent<T>();
             return t;
         }
 

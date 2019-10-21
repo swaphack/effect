@@ -6,7 +6,7 @@ namespace Assets.Foundation.Extensions
     /// <summary>
     /// 动作扩展
     /// </summary>
-    public static class ExtAction
+    public static class ActionExtensions
     {
         /// <summary>
         /// 播放动作
@@ -19,12 +19,7 @@ namespace Assets.Foundation.Extensions
             {
                 return;
             }
-            var actionBehaviour = go.GetComponent<ActionBehaviour>();
-            if (actionBehaviour == null)
-            {
-                actionBehaviour = go.gameObject.AddComponent<ActionBehaviour>();
-            }
-
+            var actionBehaviour = go.CreateComponent<ActionBehaviour>();
             actionBehaviour.RunAction(action);
         }
 
@@ -39,11 +34,7 @@ namespace Assets.Foundation.Extensions
             {
                 return;
             }
-            var actionBehaviour = go.GetComponent<ActionBehaviour>();
-            if (actionBehaviour == null)
-            {
-                actionBehaviour = go.gameObject.AddComponent<ActionBehaviour>();
-            }
+            var actionBehaviour = go.CreateComponent<ActionBehaviour>();
 
             actionBehaviour.RunAction(action);
         }
@@ -59,11 +50,7 @@ namespace Assets.Foundation.Extensions
             {
                 return;
             }
-            var actionBehaviour = go.GetComponent<ActionBehaviour>();
-            if (actionBehaviour == null)
-            {
-                actionBehaviour = go.gameObject.AddComponent<ActionBehaviour>();
-            }
+            var actionBehaviour = go.CreateComponent<ActionBehaviour>();
 
             actionBehaviour.RunAction(action);
         }
@@ -79,11 +66,7 @@ namespace Assets.Foundation.Extensions
             {
                 return;
             }
-            var actionBehaviour = go.GetComponent<ActionBehaviour>();
-            if (actionBehaviour == null)
-            {
-                actionBehaviour = go.gameObject.AddComponent<ActionBehaviour>();
-            }
+            var actionBehaviour = go.CreateComponent<ActionBehaviour>();
 
             actionBehaviour.RunAction(action);
         }

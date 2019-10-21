@@ -5,7 +5,7 @@ using Assets.Foundation.DataAccess;
 using Assets.Foundation.Device;
 using Assets.Foundation.Events;
 using Assets.Foundation.Managers;
-using Assets.Foundation.UI;
+using UnityEngine;
 
 namespace Assets.Home
 {
@@ -17,8 +17,14 @@ namespace Assets.Home
             DeviceManager.Init();
             TouchManager.Init();
 
-            UIManager.ShowUI<MainCity>();
+            //UIManager.ShowUI<MainCity>();
             UIManager.ShowUI<MainUI>();
+
+            var role = GameObject.Find("Role");
+            if (role != null)
+            {
+                UIManager.ShowUI<RoleControlUI>(role);
+            }
         }
     }
 }

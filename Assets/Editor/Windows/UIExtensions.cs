@@ -19,8 +19,6 @@ namespace Assets.Editor.Windows
                 return null;
             }
 
-            //var parentRect = go.GetComponent<RectTransform>();
-
             GameObject child = new GameObject();
             go.AddChild(child);
 

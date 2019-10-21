@@ -1,5 +1,6 @@
 ﻿using Assets.SDK.App;
 using UnityEngine;
+using Assets.Foundation.Extensions;
 
 namespace Assets.Foundation.Managers
 {
@@ -33,11 +34,7 @@ namespace Assets.Foundation.Managers
             {
                 return null;
             }
-            var t = root.GetComponent<T>();
-            if (t == null)
-            {
-                t = root.AddComponent<T>();
-            }
+            var t = root.CreateComponent<T>();
             return t;
         }
 

@@ -51,16 +51,11 @@ namespace Assets.Foundation.UI
 
         private void UpdateHorizontalItems()
         {
-            var temp = content.GetComponent<VerticalLayoutGroup>();
-            if (temp != null)
-            {
-                Component.DestroyImmediate(temp);
-            }
+            content.DestoryComponent<VerticalLayoutGroup>();
 
-            var layout = content.GetComponent<HorizontalLayoutGroup>();
-            if (layout == null)
+            var layout = content.CreateComponent<HorizontalLayoutGroup>();
+            if (layout != null)
             {
-                layout = content.gameObject.AddComponent<HorizontalLayoutGroup>();
                 SetContentPivot(layout.childAlignment, content);
                 SetLayoutParams(layout);
             }
@@ -86,15 +81,11 @@ namespace Assets.Foundation.UI
 
         private void UpdateVerticalItems()
         {
-            var temp = content.GetComponent<HorizontalLayoutGroup>();
-            if (temp != null)
+            content.DestoryComponent<HorizontalLayoutGroup>();
+
+            var layout = content.CreateComponent<VerticalLayoutGroup>();
+            if (layout != null)
             {
-                Component.DestroyImmediate(temp);
-            }
-            var layout = content.GetComponent<VerticalLayoutGroup>();
-            if (layout == null)
-            {
-                layout = content.gameObject.AddComponent<VerticalLayoutGroup>();
                 SetContentPivot(layout.childAlignment, content);
                 SetLayoutParams(layout);
             }

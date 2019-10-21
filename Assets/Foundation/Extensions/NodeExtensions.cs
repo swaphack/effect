@@ -6,8 +6,23 @@ namespace Assets.Foundation.Extensions
     /// <summary>
     /// 节点扩展
     /// </summary>
-    public static class ExtNode
+    public static class NodeExtensions
     {
+        public static T CreateComponent<T>(this GameObject t) where T : Component
+        {
+            if (t == null)
+            {
+                return null;
+            }
+            var c = t.GetComponent<T>();
+            if (c == null)
+            {
+                c = t.AddComponent<T>();
+            }
+
+            return c;
+        }
+
         /// <summary>
         /// 添加子节点
         /// </summary>

@@ -9,7 +9,7 @@ namespace Assets.Foundation.Extensions
     /// <summary>
     /// ui扩展功能
     /// </summary>
-    public static class ExtUI
+    public static class UIExtensions
     {
         public static float GetWidth(this RectTransform t)
         {

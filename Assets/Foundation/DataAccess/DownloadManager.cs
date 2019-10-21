@@ -84,11 +84,17 @@ namespace Assets.Foundation.DataAccess
                     {
                         return false;
                     }
-
+#if UNITY_IOS
                     if (_www.isNetworkError)
                     {
                         return true;
                     }
+#else
+                    if (_www.isError)
+                    {
+                        return true;
+                    }
+#endif
                     if (!_www.isDone)
                     {
                         return false;

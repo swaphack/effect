@@ -65,15 +65,14 @@ namespace Assets.Foundation.UI
                 return;
             }
 
-            var rootRect = root.GetComponent<RectTransform>();
-
             var rect = frame.GetComponent<RectTransform>();
             if (rect != null)
             {
-                rect.sizeDelta = rootRect.sizeDelta;
-                rect.anchoredPosition = 0.5f * rootRect.sizeDelta;
                 rect.anchorMin = Vector2.zero;
                 rect.anchorMax = Vector2.one;
+
+                rect.offsetMax = Vector2.zero;
+                rect.offsetMin = Vector2.zero;
             }
 
             root.AddChild(frame.gameObject);
