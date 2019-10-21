@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using Assets.Foundation.Managers;
 
 #if UNITY_EDITOR
 using UnityEditor;
-using Assets.Foundation.Managers;
 #endif
 
 namespace Assets.Foundation.DataAccess
@@ -182,6 +182,8 @@ namespace Assets.Foundation.DataAccess
             AddSearchPath("");
             AddSearchPath("Assets/Editor/Resource");
 #else
+            AddSearchPath("");
+            AddSearchPath(PersistentDataPath);
 #endif
  
         }

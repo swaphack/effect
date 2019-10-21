@@ -117,6 +117,7 @@ namespace Assets.Foundation.UI
             var root = UIManager.Instance.root;
             var temp = root.AddComponent<T>();
             string assetPath = string.Format("UI/{0}", temp.Path);
+            Debug.LogFormat("ui asset path {0}", assetPath);
             GameObject go = FilePath.Instance.LoadAssetAtPath<GameObject>(assetPath);
             if (go == null)
             {

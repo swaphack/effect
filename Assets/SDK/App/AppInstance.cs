@@ -1,8 +1,4 @@
-﻿using Assets.Foundation.DataAccess;
-using Assets.Foundation.Device;
-using Assets.Foundation.Events;
-using Assets.Foundation.Managers;
-using Assets.Foundation.UI;
+﻿
 using UnityEngine;
 
 namespace Assets.SDK.App
@@ -98,9 +94,6 @@ namespace Assets.SDK.App
             Debug.Log("On Application Start");
 
             _app = this;
-            UIManager.Init();
-            DeviceManager.Init();
-            TouchManager.Init();
 
             this.Init();
         }

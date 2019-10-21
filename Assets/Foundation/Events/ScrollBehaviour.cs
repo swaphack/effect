@@ -14,6 +14,7 @@ namespace Assets.Foundation.Events
                 return this.gameObject;
             }
         }
+
         protected override void UpdateEventStatus(bool status)
         {
             if (TouchManager.Instance != null)

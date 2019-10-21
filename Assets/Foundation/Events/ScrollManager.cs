@@ -55,7 +55,14 @@ namespace Assets.Foundation.Events
                 return;
             }
 
-            _behaviours.Add(behaviour.Target, behaviour);
+            if (_behaviours.ContainsKey(behaviour.Target))
+            {
+                _behaviours[behaviour.Target] = behaviour;
+            }
+            else
+            {
+                _behaviours.Add(behaviour.Target, behaviour);
+            }
         }
         /// <summary>
         /// 移除触摸处理
@@ -73,29 +80,38 @@ namespace Assets.Foundation.Events
 
         public void DispatchScale(float scaleDelta)
         {
+            Debug.LogFormat("ScrollManager Dispatch Scale {0}", scaleDelta);
+
             GameObject go = GetHitTarget(Input.mousePosition);
             if (go == null)
             {
                 return;
             }
+            Debug.LogFormat("ScrollManager target {0}", go.name);
             if (!_behaviours.ContainsKey(go))
             {
                 return;
             }
-
+            Debug.LogFormat("ScrollManager target {0} behaviour", go.name);
             var behaviour = _behaviours[go];
             behaviour.DoScale(scaleDelta);
         }
 
         private GameObject GetHitTarget(Vector2 position)
         {
+
             PointerEventData pointer = new PointerEventData(EventSystem.current);
             pointer.position = position;
 
             List<RaycastResult> results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(pointer, results);
+
+            Debug.LogFormat("behaviour count {0}", _behaviours.Count);
+
             foreach (var item in results)
             {
+                Debug.LogFormat("GetHitTarget target {0}", item.gameObject.name);
+
                 if (_behaviours.ContainsKey(item.gameObject))
                 {
                     return item.gameObject;
@@ -107,12 +123,17 @@ namespace Assets.Foundation.Events
 
         public void DispatchTouches(Touch[] touches)
         {
+            Debug.LogFormat("ScrollManager Dispatch Touches");
+
             if (touches == null || touches.Length == 0)
             {
                 return;
             }
 
+
             var touch = touches[0];
+
+            Debug.LogFormat("first touch pos {0} ,phase {1}", touch.position, touch.phase);
 
             if (touch.phase == TouchPhase.Began)
             {
@@ -130,24 +151,28 @@ namespace Assets.Foundation.Events
             if (_touchInfos.ContainsKey(touch.fingerId))
             {
                 var touchInfo = _touchInfos[touch.fingerId];
-                touchInfo.firstPos = touch.position;
                 var go = touchInfo.target;
                 if (go == null)
                 {
+                    touchInfo.firstPos = touch.position;
                     return;
                 }
 
                 if (!_behaviours.ContainsKey(go))
                 {
+                    touchInfo.firstPos = touch.position;
                     return;
                 }
 
                 if (touches.Length < 2)
                 {
+                    touchInfo.firstPos = touch.position;
                     return;
                 }
+                var secondTouch = touches[1];
+                Debug.LogFormat("second touch pos {0} ,phase {1}", secondTouch.position, secondTouch.phase);
 
-                SetSecondTouch(touchInfo, touches[1]);
+                SetSecondTouch(touchInfo, touch, secondTouch);
             }
 
             if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
@@ -159,20 +184,22 @@ namespace Assets.Foundation.Events
             }
         }
 
-        private void SetSecondTouch(TouchInfo info, Touch touch)
+        private void SetSecondTouch(TouchInfo info, Touch touch, Touch secondTouch)
         {
-            if (touch.phase == TouchPhase.Began)
+            if (secondTouch.phase == TouchPhase.Began)
             {
                 info.secondId = touch.fingerId;
                 info.secondPos = touch.position;
             }
-            else if (touch.phase == TouchPhase.Stationary
-                || touch.phase == TouchPhase.Moved
-                || touch.phase == TouchPhase.Canceled
-                || touch.phase == TouchPhase.Ended)
+            else if (secondTouch.phase == TouchPhase.Stationary
+                || secondTouch.phase == TouchPhase.Moved
+                || secondTouch.phase == TouchPhase.Canceled
+                || secondTouch.phase == TouchPhase.Ended)
             {
-                info.secondPos = touch.position;
-                float dt = info.GetDiff(info.firstPos, info.secondPos);
+                float dt = info.GetDiff(touch.position, secondTouch.position);
+
+                Debug.LogFormat("touch diff {0}", dt);
+
                 var behaviour = _behaviours[info.target];
                 behaviour.DoScale(dt);
             }

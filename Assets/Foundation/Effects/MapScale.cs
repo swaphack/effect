@@ -22,7 +22,7 @@ namespace Assets.Foundation.Effects
         /// 缩放比差距百分比
         /// </summary>
         [SerializeField]
-        private float _scaleDeltaPercent = 0.01f;
+        private float _scaleDeltaPercent = 0.002f;
         /// <summary>
         /// 影响目标
         /// </summary>
@@ -54,7 +54,6 @@ namespace Assets.Foundation.Effects
 
         public MapScale()
         {
-            IsEventEnable = true;
         }
 
         protected override void UpdateEventStatus(bool status)
@@ -85,6 +84,7 @@ namespace Assets.Foundation.Effects
 
             scale = Mathf.Clamp(scale, MinScale, MaxScale);
             this.Content.localScale = new Vector3(scale, scale, scale);
+            this.UpdatePivot();
         }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace Assets.Foundation.Effects
             this.IncreaseScale(delta * _scaleDeltaPercent);
         }
 
-        void Update()
+        private void UpdatePivot()
         {
             this.Content.anchorMin = Vector2.zero;
             this.Content.anchorMax = Vector2.one;
@@ -120,6 +120,11 @@ namespace Assets.Foundation.Effects
 
             var pivot = new Vector2(fx, fy);
             this.Content.pivot = pivot;
+        }
+
+        void Update()
+        {
+            this.UpdatePivot();
         }
     }
 }

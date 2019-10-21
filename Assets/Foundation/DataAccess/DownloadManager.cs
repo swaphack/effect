@@ -85,7 +85,7 @@ namespace Assets.Foundation.DataAccess
                         return false;
                     }
 
-                    if (_www.isError)
+                    if (_www.isNetworkError)
                     {
                         return true;
                     }
