@@ -68,14 +68,15 @@ namespace Assets.Foundation.UI
             var rect = frame.GetComponent<RectTransform>();
             if (rect != null)
             {
+                root.AddChild(frame.gameObject);
+
                 rect.anchorMin = Vector2.zero;
                 rect.anchorMax = Vector2.one;
-
-                rect.offsetMax = Vector2.zero;
+                rect.pivot = Vector2.zero;
                 rect.offsetMin = Vector2.zero;
+                rect.offsetMax = Vector2.zero;
+                //rect.sizeDelta = Vector2.zero;
             }
-
-            root.AddChild(frame.gameObject);
         }
         /// <summary>
         /// 移除界面

@@ -18,12 +18,12 @@ namespace Assets.Home
             TouchManager.Init();
 
             //UIManager.ShowUI<MainCity>();
-            UIManager.ShowUI<MainUI>();
 
             var role = GameObject.Find("Role");
             if (role != null)
             {
                 UIManager.ShowUI<RoleControlUI>(role);
+                UIManager.ShowUI<MainUI>(role);
             }
         }
     }
