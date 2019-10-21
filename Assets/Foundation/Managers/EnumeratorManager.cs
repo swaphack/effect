@@ -7,7 +7,7 @@ namespace Assets.Foundation.Managers
     /// <summary>
     /// 迭代器管理，延迟通知事件
     /// </summary>
-    public class EnumeratorManager : Singleton<EnumeratorManager>
+    public class EnumeratorManager : SingletonBehaviour<EnumeratorManager>
     {
         private List<IEnumerator> _values;
 

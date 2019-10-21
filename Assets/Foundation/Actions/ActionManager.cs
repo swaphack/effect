@@ -7,7 +7,7 @@ namespace Assets.Foundation.Actions
     /// <summary>
     ///  动作管理
     /// </summary>
-    public sealed class ActionManager : Singleton<ActionManager>
+    public sealed class ActionManager : SingletonBehaviour<ActionManager>
     {
         private Dictionary<Object, IActionBehaviour> _actions;
 
@@ -73,6 +73,10 @@ namespace Assets.Foundation.Actions
             {
                 item.Value.UpdateAction(dt);
             }
+        }
+
+        public override void Initialize()
+        {
         }
     }
 }

@@ -74,9 +74,20 @@ namespace Assets.Foundation.Tool
 
                 var reader = new PacketReader(Convert.FromBase64String(strObj));
                 var t = Type.GetType(type);
-                var obj = DataHelper.Create(t);
-                obj = reader.ReadObject(obj);
-                value = new KeyValuePair<string, object>(key, obj);
+                if (t != null)
+                {
+                    var obj = DataHelper.Create(t);
+                    if (obj != null)
+                    {
+                        obj = reader.ReadObject(obj);
+                        if (obj != null)
+                        {
+                            value = new KeyValuePair<string, object>(key, obj);
+                        }
+                    }
+                    
+                }
+                
             }
 
             return value;

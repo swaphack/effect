@@ -9,7 +9,7 @@ namespace Assets.Foundation.DataAccess
     /// <summary>
     /// 下载
     /// </summary>
-    public sealed class DownloadManager : Singleton<DownloadManager>
+    public sealed class DownloadManager : SingletonBehaviour<DownloadManager>
     {
         /// <summary>
         /// 回调

@@ -9,7 +9,7 @@ namespace Assets.Foundation.DataAccess
     /// <summary>
     /// 资源包管理
     /// </summary>
-    public sealed class BundleManager : Singleton<BundleManager>
+    public sealed class BundleManager : SingletonBehaviour<BundleManager>
     {
         /// <summary>
         /// 资源名字对应资源包
@@ -156,7 +156,7 @@ namespace Assets.Foundation.DataAccess
             return _assetPaths.ContainsKey(assetName);
         }
 
-        public void Init()
+        public override void Initialize()
         {
             LoadAssetBundle();
         }

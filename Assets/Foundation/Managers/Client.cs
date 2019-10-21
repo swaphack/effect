@@ -11,7 +11,7 @@ namespace Assets.Foundation.Managers
     /// <summary>
     /// 客户端
     /// </summary>
-    public class Client : Singleton<Client>
+    public class Client : SingletonBehaviour<Client>
     {
         /// <summary>
         /// 服务端地址

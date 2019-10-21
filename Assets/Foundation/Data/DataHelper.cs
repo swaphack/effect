@@ -13,6 +13,10 @@ namespace Assets.Foundation.Data
         /// <returns></returns>
         public static Object Create(Type type)
         {
+            if (type == null)
+            {
+                return null;
+            }
             if (Type.GetTypeCode(type) == TypeCode.String)
             {
                 return string.Empty;

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using UnityEngine;
 
 namespace Assets.Foundation.Events
 {
     public interface IScrollProtocol
     {
+        GameObject Target { get; }
         void DoScale(float delta);
     }
 }

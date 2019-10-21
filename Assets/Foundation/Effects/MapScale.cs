@@ -6,7 +6,7 @@ namespace Assets.Foundation.Effects
     /// <summary>
     /// 地图缩放
     /// </summary>
-    public class MapScale : TouchScrollBehaviour
+    public class MapScale : ScrollBehaviour
     {
         /// <summary>
         /// 最小缩放比例
@@ -27,7 +27,7 @@ namespace Assets.Foundation.Effects
         /// 影响目标
         /// </summary>
         [SerializeField]
-        private Transform _content;
+        private RectTransform _content;
 
         public float MinScale
         {
@@ -46,7 +46,7 @@ namespace Assets.Foundation.Effects
             set { _scaleDeltaPercent = value; }
         }
 
-        public Transform Content
+        public RectTransform Content
         {
             get { return _content; }
             set { _content = value; }
@@ -54,6 +54,22 @@ namespace Assets.Foundation.Effects
 
         public MapScale()
         {
+            IsEventEnable = true;
+        }
+
+        protected override void UpdateEventStatus(bool status)
+        {
+            if (ScrollManager.Instance != null)
+            {
+                if (status)
+                {
+                    ScrollManager.Instance.AddBehaviour(this);
+                }
+                else
+                {
+                    ScrollManager.Instance.RemoveBehaviour(this);
+                }
+            }
         }
 
         /// <summary>
@@ -66,6 +82,7 @@ namespace Assets.Foundation.Effects
             {
                 return;
             }
+
             scale = Mathf.Clamp(scale, MinScale, MaxScale);
             this.Content.localScale = new Vector3(scale, scale, scale);
         }
@@ -89,6 +106,20 @@ namespace Assets.Foundation.Effects
         {
             Debug.LogFormat("MapScale {0}", delta);
             this.IncreaseScale(delta * _scaleDeltaPercent);
+        }
+
+        void Update()
+        {
+            this.Content.anchorMin = Vector2.zero;
+            this.Content.anchorMax = Vector2.one;
+
+            var rect = this.GetComponent<RectTransform>();
+
+            float fx = (Mathf.Abs(this.Content.offsetMin.x) + rect.rect.width * 0.5f) / this.Content.rect.width;
+            float fy = (Mathf.Abs(this.Content.offsetMin.y) + rect.rect.height * 0.5f) / this.Content.rect.height;
+
+            var pivot = new Vector2(fx, fy);
+            this.Content.pivot = pivot;
         }
     }
 }

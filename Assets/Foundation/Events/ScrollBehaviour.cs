@@ -7,6 +7,13 @@ namespace Assets.Foundation.Events
     /// </summary>
     public class ScrollBehaviour : EventBehaviour, IScrollProtocol
     {
+        public GameObject Target
+        {
+            get
+            {
+                return this.gameObject;
+            }
+        }
         protected override void UpdateEventStatus(bool status)
         {
             if (TouchManager.Instance != null)

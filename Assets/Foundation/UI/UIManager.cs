@@ -12,18 +12,13 @@ namespace Assets.Foundation.UI
     /// <summary>
     /// ui管理类
     /// </summary>
-    public class UIManager : Singleton<UIManager>
+    public class UIManager : SingletonBehaviour<UIManager>
     {
         public GameObject root;
 
         private bool _init = false;
 
-        void Start()
-        {
-            Init();
-        }
-
-        public void Init()
+        public override void Initialize()
         {
             if (_init)
             {
@@ -121,10 +116,11 @@ namespace Assets.Foundation.UI
         {
             var root = UIManager.Instance.root;
             var temp = root.AddComponent<T>();
-            string assetPath = string.Format("UI/Main/{0}", temp.Path);
-            GameObject go = FilePath.Instance.LoadAsset<GameObject>(assetPath);
+            string assetPath = string.Format("UI/{0}", temp.Path);
+            GameObject go = FilePath.Instance.LoadAssetAtPath<GameObject>(assetPath);
             if (go == null)
             {
+                Object.DestroyImmediate(temp);
                 return;
             }
 

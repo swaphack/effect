@@ -10,7 +10,7 @@ namespace Assets.Foundation.Managers
     /// <summary>
     /// 接收到的数据
     /// </summary>
-    public class MessageManager : Singleton<MessageManager>
+    public class MessageManager : SingletonBehaviour<MessageManager>
     {
         public delegate void BuffCallback(byte[] data);
         /// <summary>

@@ -12,7 +12,7 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIFieldWidget : UIWidget, IKeyValueRecord
     {
-        public delegate void FieldValueFunc(System.Object value);
+        public delegate void FieldValueFunc(object value);
 
         /// <summary>
         /// 控件信息
@@ -98,7 +98,7 @@ namespace Assets.Editor.Widgets
         /// 设置值
         /// </summary>
         /// <param name="value"></param>
-        protected void SetValue(System.Object value)
+        protected void SetValue(object value)
         {
             Value = value;
         }

@@ -45,7 +45,7 @@ namespace Assets.SDK.Project
         /// </summary>
         private GameMainConfig _config;
 
-        public override IEnumerator Init(System.Object data)
+        public override IEnumerator Init(object data)
         {
             _config = ConfigHelper.LoadFromXmlResource<GameMainConfig>(ConfigPath);
 

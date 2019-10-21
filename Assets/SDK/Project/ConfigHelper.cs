@@ -24,7 +24,7 @@ namespace Assets.SDK.Project
             }
 
             Type type = typeof(T);
-            System.Object obj = (System.Object)t;
+            object obj = (object)t;
             DXmlReader reader = new DXmlReader(node);
             if (!reader.Read(type.Name, ref obj))
             {

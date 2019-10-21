@@ -31,9 +31,9 @@ namespace Assets.Editor.DataAccess
             public string path { get { return _path; } }
 
             private string _path;
-            private System.Object _object;
+            private object _object;
 
-            public System.Object Object
+            public object Object
             {
                 set
                 {

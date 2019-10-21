@@ -6,9 +6,9 @@ namespace Assets.Foundation.Device
     /// <summary>
     /// 设备管理
     /// </summary>
-    public class DeviceManager : Singleton<DeviceManager>
+    public class DeviceManager : SingletonBehaviour<DeviceManager>
     {
-        public void Init()
+        public override void Initialize()
         {
             if (Input.touchSupported)
             {

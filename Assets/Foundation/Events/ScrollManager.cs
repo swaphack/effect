@@ -1,14 +1,48 @@
 ﻿using Assets.Foundation.Managers;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.Foundation.Events
 {
     /// <summary>
     /// 缩放管理
     /// </summary>
-    public class ScrollManager : Singleton<ScrollManager>
+    public class ScrollManager : SingletonBehaviour<ScrollManager>
     {
-        private HashSet<IScrollProtocol> _behaviours = new HashSet<IScrollProtocol>();
+        private struct TouchInfo
+        {
+            public int firstId;
+            public int secondId;
+            public Vector2 firstPos;
+            public Vector2 secondPos;
+
+            public GameObject target;
+
+            public TouchInfo(int fingerId, Vector2 firstPos, GameObject target)
+            {
+                this.firstId = fingerId;
+                this.firstPos = firstPos;
+                this.target = target;
+
+                this.secondId = -1;
+                this.secondPos = Vector2.zero;
+            }
+
+            public float GetDiff(Vector2 p1, Vector2 p2)
+            {
+                float oldDis = Vector2.Distance(firstPos, secondPos);
+                float newDis = Vector2.Distance(p1, p2);
+
+                firstPos = p1;
+                secondPos = p2;
+
+                return newDis - oldDis;
+            }
+        }
+
+        private Dictionary<GameObject, IScrollProtocol> _behaviours = new Dictionary<GameObject, IScrollProtocol>();
+        private Dictionary<int, TouchInfo> _touchInfos = new Dictionary<int, TouchInfo>();
 
         /// <summary>
         /// 添加触摸处理
@@ -16,12 +50,12 @@ namespace Assets.Foundation.Events
         /// <param name="behaviour"></param>
         public void AddBehaviour(IScrollProtocol behaviour)
         {
-            if (behaviour == null)
+            if (behaviour == null || behaviour.Target == null)
             {
                 return;
             }
 
-            _behaviours.Add(behaviour);
+            _behaviours.Add(behaviour.Target, behaviour);
         }
         /// <summary>
         /// 移除触摸处理
@@ -29,19 +63,118 @@ namespace Assets.Foundation.Events
         /// <param name="behaviour"></param>
         public void RemoveBehaviour(IScrollProtocol behaviour)
         {
-            if (behaviour == null)
+            if (behaviour == null || behaviour.Target == null)
             {
                 return;
             }
 
-            _behaviours.Remove(behaviour);
+            _behaviours.Remove(behaviour.Target);
         }
 
         public void DispatchScale(float scaleDelta)
         {
-            foreach (var item in _behaviours)
+            GameObject go = GetHitTarget(Input.mousePosition);
+            if (go == null)
             {
-                item.DoScale(scaleDelta);
+                return;
+            }
+            if (!_behaviours.ContainsKey(go))
+            {
+                return;
+            }
+
+            var behaviour = _behaviours[go];
+            behaviour.DoScale(scaleDelta);
+        }
+
+        private GameObject GetHitTarget(Vector2 position)
+        {
+            PointerEventData pointer = new PointerEventData(EventSystem.current);
+            pointer.position = position;
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointer, results);
+            foreach (var item in results)
+            {
+                if (_behaviours.ContainsKey(item.gameObject))
+                {
+                    return item.gameObject;
+                }
+            }
+
+            return null;
+        }
+
+        public void DispatchTouches(Touch[] touches)
+        {
+            if (touches == null || touches.Length == 0)
+            {
+                return;
+            }
+
+            var touch = touches[0];
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                if (!_touchInfos.ContainsKey(touch.fingerId))
+                {
+                    var go = GetHitTarget(touch.position);
+                    if (go != null)
+                    {
+
+                        _touchInfos.Add(touch.fingerId, new TouchInfo(touch.fingerId, touch.position, go));
+                    }
+                }
+            }
+
+            if (_touchInfos.ContainsKey(touch.fingerId))
+            {
+                var touchInfo = _touchInfos[touch.fingerId];
+                touchInfo.firstPos = touch.position;
+                var go = touchInfo.target;
+                if (go == null)
+                {
+                    return;
+                }
+
+                if (!_behaviours.ContainsKey(go))
+                {
+                    return;
+                }
+
+                if (touches.Length < 2)
+                {
+                    return;
+                }
+
+                SetSecondTouch(touchInfo, touches[1]);
+            }
+
+            if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
+            {
+                if (_touchInfos.ContainsKey(touch.fingerId))
+                {
+                    _touchInfos.Remove(touch.fingerId);
+                }
+            }
+        }
+
+        private void SetSecondTouch(TouchInfo info, Touch touch)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                info.secondId = touch.fingerId;
+                info.secondPos = touch.position;
+            }
+            else if (touch.phase == TouchPhase.Stationary
+                || touch.phase == TouchPhase.Moved
+                || touch.phase == TouchPhase.Canceled
+                || touch.phase == TouchPhase.Ended)
+            {
+                info.secondPos = touch.position;
+                float dt = info.GetDiff(info.firstPos, info.secondPos);
+                var behaviour = _behaviours[info.target];
+                behaviour.DoScale(dt);
             }
         }
     }

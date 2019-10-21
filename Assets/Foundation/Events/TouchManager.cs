@@ -7,7 +7,7 @@ namespace Assets.Foundation.Events
     /// <summary>
     /// 单点管理
     /// </summary>
-    public class TouchManager : Singleton<TouchManager>
+    public class TouchManager : SingletonBehaviour<TouchManager>
     {
         private struct TouchInfo
         {

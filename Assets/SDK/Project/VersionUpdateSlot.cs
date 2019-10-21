@@ -51,7 +51,7 @@ namespace Assets.SDK.Project
 
         private string _tempUrl;
         private string _bundleUrl;
-        public override IEnumerator Init(System.Object data)
+        public override IEnumerator Init(object data)
         {
             State = WorkState.Start;
 
@@ -93,7 +93,7 @@ namespace Assets.SDK.Project
             }
             if (progress == 1)
             {
-                Singleton.GetInstance<ZipResource>().AddTask(new ZipResource.LoadTask(_tempUrl, _bundleUrl, (IFileItem item) =>
+                SingletonBehaviour.GetInstance<ZipResource>().AddTask(new ZipResource.LoadTask(_tempUrl, _bundleUrl, (IFileItem item) =>
                 {
                     State = WorkState.End;
                 }));

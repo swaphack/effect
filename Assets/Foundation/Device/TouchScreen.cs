@@ -21,9 +21,9 @@ namespace Assets.Foundation.Device
                 return;
             }
 
-            
-
             TouchManager.Instance.DispatchTouches(Input.touches);
+
+            ScrollManager.Instance.DispatchTouches(Input.touches);
         }
     }
 }

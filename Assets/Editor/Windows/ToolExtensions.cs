@@ -41,7 +41,7 @@ namespace Assets.Editor.Windows
         }
 
         [MenuItem("Editors/Style Viewer")]
-        public static void Init()
+        public static void ShowStyleViewer()
         {
             EditorWindow.GetWindow<EditorStyleViewer>();
         }

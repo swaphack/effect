@@ -81,7 +81,7 @@ namespace Assets.Foundation.UI
         /// </summary>
         public void RemoveAllMessageHands()
         {
-            if (!Singleton.isValid<MessageManager>())
+            if (!SingletonBehaviour.isValid<MessageManager>())
             {
                 return;
             }

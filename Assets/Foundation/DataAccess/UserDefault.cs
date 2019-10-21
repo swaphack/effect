@@ -1,4 +1,5 @@
-﻿using Assets.Foundation.Protocol;
+﻿using Assets.Foundation.Managers;
+using Assets.Foundation.Protocol;
 using Assets.Foundation.Tool;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,14 @@ namespace Assets.Foundation.DataAccess
     /// <summary>
     /// 用户默认文件
     /// </summary>
-    public class UserDefault
+    public class UserDefault : Singleton<UserDefault>
     {
         /// <summary>
         /// 文件名
         /// </summary>
         private const string FileName = "UserDefault.xml";
 
-        private Dictionary<string, System.Object> _values;
+        private Dictionary<string, object> _values;
 
         /// <summary>
         /// 文件路径
@@ -33,24 +34,10 @@ namespace Assets.Foundation.DataAccess
  
         }
 
-        private static UserDefault _instace;
-
-        public static UserDefault Instance
-        {
-            get
-            {
-                if (_instace == null)
-                {
-                    _instace = new UserDefault();
-                    _instace.Load();
-                }
-                return _instace;
-            }
-        }
-
         private UserDefault()
         {
             _values = new Dictionary<string, object>();
+            this.Load();
         }
 
         /// <summary>
@@ -124,6 +111,11 @@ namespace Assets.Foundation.DataAccess
             doc.Save(FullPath);
         }
 
+        public void Clear()
+        {
+            _values.Clear();
+        }
+
         /// <summary>
         /// 加载
         /// </summary>
@@ -146,7 +138,10 @@ namespace Assets.Foundation.DataAccess
             while (node != null)
             {
                 var item = XmlUtility.ReadObjectByNodeAttribute(node);
-                this._values.Add(item.Key, item.Value);
+                if (item.Key != null)
+                {
+                    this._values.Add(item.Key, item.Value);
+                }
 
                 node = node.NextSibling;
             }

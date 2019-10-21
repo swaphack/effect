@@ -113,7 +113,7 @@ namespace Assets.Editor.Windows.Tools
             UIIntPopupFieldWidget textureType = new UIIntPopupFieldWidget("Texture Type", setting.textureType);
             textureType.Describes = TextureTypeString;
             textureType.Indexs = TextureIntArray;
-            textureType.OnValueChanged = (System.Object value) => 
+            textureType.OnValueChanged = (object value) => 
             {
                 setting.textureType = (TextureImporterType)value;
             };
@@ -122,7 +122,7 @@ namespace Assets.Editor.Windows.Tools
             UIIntPopupFieldWidget spriteMode = new UIIntPopupFieldWidget("Sprite Mode", setting.spriteMode);
             spriteMode.Describes = SpriteModeString;
             spriteMode.Indexs = IntArray;
-            spriteMode.OnValueChanged = (System.Object value) =>
+            spriteMode.OnValueChanged = (object value) =>
             {
                 setting.spriteMode = (SpriteImportMode)value;
             };
@@ -130,7 +130,7 @@ namespace Assets.Editor.Windows.Tools
 
 
             UIBooleanFieldWidget sRGBTexture = new UIBooleanFieldWidget("sRGBTexture", setting.sRGBTexture);
-            sRGBTexture.OnValueChanged = (System.Object value) =>
+            sRGBTexture.OnValueChanged = (object value) =>
             {
                 setting.sRGBTexture = (bool)value;
             };
@@ -139,14 +139,14 @@ namespace Assets.Editor.Windows.Tools
             UIIntPopupFieldWidget alphaSource = new UIIntPopupFieldWidget("Alpha Source", setting.alphaSource);
             alphaSource.Describes = AlphaSourceString;
             alphaSource.Indexs = IntArray;
-            alphaSource.OnValueChanged = (System.Object value) =>
+            alphaSource.OnValueChanged = (object value) =>
             {
                 setting.alphaSource = (TextureImporterAlphaSource)value;
             };
             vLayout.Add(alphaSource);
 
             UIBooleanFieldWidget alphaIsTransparency = new UIBooleanFieldWidget("Alpha Is Transparency", setting.alphaIsTransparency);
-            alphaIsTransparency.OnValueChanged = (System.Object value) =>
+            alphaIsTransparency.OnValueChanged = (object value) =>
             {
                 setting.alphaIsTransparency = (bool)value;
             };
@@ -155,7 +155,7 @@ namespace Assets.Editor.Windows.Tools
             UIIntPopupFieldWidget filterMode = new UIIntPopupFieldWidget("Filter Mode", setting.filterMode);
             filterMode.Describes = FilterModeString;
             filterMode.Indexs = IntArray;
-            filterMode.OnValueChanged = (System.Object value) =>
+            filterMode.OnValueChanged = (object value) =>
             {
                 setting.filterMode = (FilterMode)value;
             };
@@ -164,7 +164,7 @@ namespace Assets.Editor.Windows.Tools
             UIIntPopupFieldWidget wrapMode = new UIIntPopupFieldWidget("Wrap Mode", setting.wrapMode);
             wrapMode.Describes = WrapModeString;
             wrapMode.Indexs = IntArray;
-            wrapMode.OnValueChanged = (System.Object value) =>
+            wrapMode.OnValueChanged = (object value) =>
             {
                 setting.wrapMode = (TextureWrapMode)value;
             };
@@ -174,7 +174,7 @@ namespace Assets.Editor.Windows.Tools
             UIIntSlideFieldWidget anisoLevel = new UIIntSlideFieldWidget("Aniso Level", setting.anisoLevel);
             anisoLevel.MinValue = 0;
             anisoLevel.MaxValue = 9;
-            anisoLevel.OnValueChanged = (System.Object value) =>
+            anisoLevel.OnValueChanged = (object value) =>
             {
                 setting.anisoLevel = (int)value;
             };
@@ -183,7 +183,7 @@ namespace Assets.Editor.Windows.Tools
             UIIntPopupFieldWidget maxTextureSize = new UIIntPopupFieldWidget("Max Size", setting.maxTextureSize);
             maxTextureSize.Describes = MaxSizeString;
             maxTextureSize.Indexs = SizeIntArray;
-            maxTextureSize.OnValueChanged = (System.Object value) =>
+            maxTextureSize.OnValueChanged = (object value) =>
             {
                 setting.maxTextureSize = (int)value;
             };
@@ -192,7 +192,7 @@ namespace Assets.Editor.Windows.Tools
             UIIntPopupFieldWidget textureCompression = new UIIntPopupFieldWidget("Texture Compression", setting.textureCompression);
             textureCompression.Describes = FormatString;
             textureCompression.Indexs = IntArray;
-            textureCompression.OnValueChanged = (System.Object value) =>
+            textureCompression.OnValueChanged = (object value) =>
             {
                 setting.textureCompression = (TextureImporterCompression)value;
             };
