@@ -22,8 +22,9 @@ namespace Assets.Home
             var role = GameObject.Find("Role");
             if (role != null)
             {
-                UIManager.ShowUI<RoleControlUI>(role);
                 UIManager.ShowUI<MainUI>(role);
+
+                UIManager.ShowUI<RoleControlUI>(role);
             }
         }
     }

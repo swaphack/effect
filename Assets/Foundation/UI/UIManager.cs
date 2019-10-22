@@ -16,6 +16,8 @@ namespace Assets.Foundation.UI
     {
         public GameObject root;
 
+        private int HorizontalOffset = 85;
+
         private bool _init = false;
 
         public override void Initialize()
@@ -33,18 +35,35 @@ namespace Assets.Foundation.UI
         {
             if (root == null)
             {
+                var layout = GameObject.Find("UILayout");
+                if (layout == null)
+                {
+                    layout = new GameObject();
+                    layout.name = "UILayout";
+                    var hLayout = layout.AddComponent<HorizontalLayoutGroup>();
+                    hLayout.padding.left = HorizontalOffset;
+                    hLayout.padding.right = HorizontalOffset;
+
+                    var canvas = layout.AddComponent<Canvas>();
+                    canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+                    var canvasScaler = layout.AddComponent<CanvasScaler>();
+                    canvasScaler.scaleFactor = 1;
+                    canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ConstantPixelSize;
+                    var raycaster = layout.AddComponent<GraphicRaycaster>();
+                    raycaster.ignoreReversedGraphics = true;
+                }
+
                 root = GameObject.Find("UI");
                 if (root == null)
                 {
                     root = new GameObject();
                     root.name = "UI";
-                    var canvas = root.AddComponent<Canvas>();
-                    canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-                    var canvasScaler = root.AddComponent<CanvasScaler>();
-                    canvasScaler.scaleFactor = 1;
-                    canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ConstantPixelSize;
-                    var raycaster = root.AddComponent<GraphicRaycaster>();
-                    raycaster.ignoreReversedGraphics = true;
+                    layout.AddChild(root);
+
+                    var rectTransform = root.AddComponent<RectTransform>();
+                    rectTransform.anchorMin = Vector2.zero;
+                    rectTransform.anchorMax = Vector2.one;
+                    root.AddComponent<CanvasRenderer>();
                 }
             }
         }
@@ -73,6 +92,7 @@ namespace Assets.Foundation.UI
                 rect.anchorMin = Vector2.zero;
                 rect.anchorMax = Vector2.one;
                 rect.pivot = Vector2.zero;
+
                 rect.offsetMin = Vector2.zero;
                 rect.offsetMax = Vector2.zero;
                 //rect.sizeDelta = Vector2.zero;
