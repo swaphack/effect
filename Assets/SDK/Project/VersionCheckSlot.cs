@@ -74,10 +74,10 @@ namespace Assets.SDK.Project
             string url = _config.HostUrl;
             UnityWebRequest request = HttpUtility.DoGet(url, fields);
             yield return request.Send();
-#if UNITY_IOS
+#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
             if (request.isNetworkError)
 #else
-            if (request.isError)
+            if (request.isNetworkError)
 #endif
             {
                 Debug.LogError(request.error);
