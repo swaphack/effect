@@ -137,9 +137,10 @@
     <Compile Include="Assets\Foundation\Events\TouchBehaviour.cs" />
     <Compile Include="Assets\Foundation\Events\TouchManager.cs" />
     <Compile Include="Assets\Foundation\Events\TouchScrollBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Extensions\ExtAction.cs" />
-    <Compile Include="Assets\Foundation\Extensions\ExtNode.cs" />
-    <Compile Include="Assets\Foundation\Extensions\ExtUI.cs" />
+    <Compile Include="Assets\Foundation\Extensions\ActionExtensions.cs" />
+    <Compile Include="Assets\Foundation\Extensions\ComponentExtensions.cs" />
+    <Compile Include="Assets\Foundation\Extensions\NodeExtensions.cs" />
+    <Compile Include="Assets\Foundation\Extensions\UIExtensions.cs" />
     <Compile Include="Assets\Foundation\Fluid\Water.cs" />
     <Compile Include="Assets\Foundation\Managers\Client.cs" />
     <Compile Include="Assets\Foundation\Managers\EnumeratorManager.cs" />
@@ -184,7 +185,9 @@
     <Compile Include="Assets\Home\AppDetail.cs" />
     <Compile Include="Assets\Home\AppMain.cs" />
     <Compile Include="Assets\Home\Logic\Role.cs" />
+    <Compile Include="Assets\Home\UI\MainCity.cs" />
     <Compile Include="Assets\Home\UI\MainUI.cs" />
+    <Compile Include="Assets\Home\UI\RoleControlUI.cs" />
     <Compile Include="Assets\SDK\App\AppDetail.cs" />
     <Compile Include="Assets\SDK\App\AppInstance.cs" />
     <Compile Include="Assets\SDK\App\ResourceType.cs" />
