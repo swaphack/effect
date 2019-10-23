@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Assets.Editor.Tools.GameDesign
 {
+    /// <summary>
+    /// 对象创建
+    /// </summary>
     public class ObjectCreator : UIWindow
     {
         private Transform _transform;
