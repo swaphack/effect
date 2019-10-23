@@ -8,7 +8,7 @@ namespace Assets.Editor.Tools.GameDesign
         [MenuItem("GameDesign/Object Creator")]
         public static void ShowObjectCreator()
         {
-            EditorWindow.GetWindow<ObjectCreator>();
+            EditorWindow.GetWindow<GameObjectCreator>();
         }
     }
 }

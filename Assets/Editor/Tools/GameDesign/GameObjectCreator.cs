@@ -9,7 +9,7 @@ namespace Assets.Editor.Tools.GameDesign
     /// <summary>
     /// 对象创建
     /// </summary>
-    public class ObjectCreator : UIWindow
+    public class GameObjectCreator : UIWindow
     {
         private Transform _transform;
         private int _width = 100;

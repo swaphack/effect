@@ -1,17 +1,12 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Assets.Editor.Widgets;
+using UnityEngine;
 
-public class MaterialSetting : MonoBehaviour
+namespace Assets.Editor.Tools.GameDesign
 {
-    // Use this for initialization
-    void Start()
+    public class MaterialSetting : UIWindow
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        protected override void InitUI(UIWidget layout)
+        {
+        }
     }
 }
