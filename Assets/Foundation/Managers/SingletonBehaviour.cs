@@ -1,6 +1,6 @@
-﻿using Assets.SDK.App;
-using UnityEngine;
+﻿using UnityEngine;
 using Assets.Foundation.Extensions;
+using Assets.App;
 
 namespace Assets.Foundation.Managers
 {

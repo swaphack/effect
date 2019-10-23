@@ -77,7 +77,7 @@ namespace Assets.SDK.Project
 #if UNITY_IOS
             if (request.isNetworkError)
 #else
-            if (request.isError)
+            if (request.isNetworkError)
 #endif
             {
                 Debug.LogError(request.error);

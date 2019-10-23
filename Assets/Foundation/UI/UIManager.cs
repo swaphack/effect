@@ -3,9 +3,7 @@ using UnityEngine.UI;
 using Assets.Foundation.Managers;
 using Assets.Foundation.DataAccess;
 using Assets.Foundation.Extensions;
-using System.IO;
-using Assets.Foundation.Data;
-using Assets.SDK.Project;
+using Assets.App;
 
 namespace Assets.Foundation.UI
 {
@@ -15,8 +13,6 @@ namespace Assets.Foundation.UI
     public class UIManager : SingletonBehaviour<UIManager>
     {
         public GameObject root;
-
-        private int HorizontalOffset = 85;
 
         private bool _init = false;
 
@@ -41,8 +37,9 @@ namespace Assets.Foundation.UI
                     layout = new GameObject();
                     layout.name = "UILayout";
                     var hLayout = layout.AddComponent<HorizontalLayoutGroup>();
-                    hLayout.padding.left = HorizontalOffset;
-                    hLayout.padding.right = HorizontalOffset;
+                    var safeAreaInsets = Device.Instance.SafeAreaInsets;
+                    hLayout.padding.left = safeAreaInsets.left;
+                    hLayout.padding.right = safeAreaInsets.right;
 
                     var canvas = layout.AddComponent<Canvas>();
                     canvas.renderMode = RenderMode.ScreenSpaceOverlay;

@@ -13,7 +13,7 @@ namespace Assets.Editor.Inspectors
             UseDefaultInspector = true;
         }
 
-        protected override void InitUI(UIDisplay layout)
+        protected override void InitUI(UIWidget layout)
         {
             UIText text = GetTarget<UIText>();
 

@@ -1,6 +1,6 @@
 ﻿using Assets.Editor.EGUI;
 using Assets.Editor.Widgets;
-using UnityEngine;
+using UnityEditor;
 
 namespace Assets.Editor.UIDesign
 {
@@ -9,7 +9,13 @@ namespace Assets.Editor.UIDesign
     /// </summary>
     public class DesignWindow : UIWindow
     {
-        protected override void InitUI(UIDisplay layout)
+        [MenuItem("UIDesign/DesignWindow")]
+        private static void ShowUIDesign()
+        {
+            EditorWindow.GetWindow<DesignWindow>();
+        }
+
+        protected override void InitUI(UIWidget layout)
         {
 
         }

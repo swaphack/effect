@@ -90,7 +90,7 @@ namespace Assets.Foundation.DataAccess
                         return true;
                     }
 #else
-                    if (_www.isError)
+                    if (_www.isNetworkError)
                     {
                         return true;
                     }

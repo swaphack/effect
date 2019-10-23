@@ -13,7 +13,7 @@ namespace Assets.Editor.Widgets
         /// <summary>
         /// 布局
         /// </summary>
-        private UIDisplay _layout;
+        private UIWidget _layout;
 
         private Rect _lastRect;
 
@@ -41,11 +41,11 @@ namespace Assets.Editor.Widgets
         {
             this.titleContent = new GUIContent(this.GetType().Name);
 
-            _layout = new UIDisplay();
-            
+            _layout = new UIWidget();
+            _layout.Direction = LayoutDirection.Vertical;
         }
 
-        protected virtual void InitUI(UIDisplay layout)
+        protected virtual void InitUI(UIWidget layout)
         {
  
         }

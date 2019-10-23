@@ -16,7 +16,7 @@ namespace Assets.Editor.Scenes
             _behaviour = (MonoBehaviour)target;
         }
 
-        protected override void InitSceneGUI(UIDisplay layout)
+        protected override void InitSceneGUI(UIWidget layout)
         {
             EVerticalLayout vLayout = new EVerticalLayout();
             {
@@ -33,7 +33,7 @@ namespace Assets.Editor.Scenes
             layout.Add(vLayout);
         }
 
-        protected override void InitSceneWidget(UIDisplay layout)
+        protected override void InitSceneWidget(UIWidget layout)
         {
             Transform transform = _behaviour.transform;
             {

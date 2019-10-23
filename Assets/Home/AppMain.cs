@@ -1,24 +1,17 @@
 ﻿using Assets.Foundation.UI;
 using Assets.Home.UI;
-using Assets.SDK.App;
-using Assets.Foundation.DataAccess;
-using Assets.Foundation.Device;
+using Assets.App;
+using Assets.Foundation.Devices;
 using Assets.Foundation.Events;
-using Assets.Foundation.Managers;
 using UnityEngine;
+using Assets.Foundation.SimpleEffect;
 
 namespace Assets.Home
 {
     public class AppMain : AppInstance
     {
-        protected override void Init()
+        private void Start()
         {
-        	UIManager.Init();
-            DeviceManager.Init();
-            TouchManager.Init();
-
-            //UIManager.ShowUI<MainCity>();
-
             var role = GameObject.Find("Role");
             if (role != null)
             {
@@ -26,6 +19,14 @@ namespace Assets.Home
 
                 UIManager.ShowUI<RoleControlUI>(role);
             }
+        }
+
+        protected override void Init()
+        {
+            UIManager.Init();
+            InputManager.Init();
+            TouchManager.Init();
+            AppTime.Init();
         }
     }
 }

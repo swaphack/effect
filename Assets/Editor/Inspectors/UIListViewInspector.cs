@@ -57,7 +57,7 @@ namespace Assets.Editor.Inspectors
             }
         }
 
-        protected override void InitUI(UIDisplay layout)
+        protected override void InitUI(UIWidget layout)
         {
             UIListView listView = GetTarget<UIListView>();
 

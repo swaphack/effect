@@ -1,4 +1,5 @@
 ﻿using Assets.Editor.EGUI;
+using Assets.Editor.Widgets;
 using UnityEditor;
 
 namespace Assets.Editor.Scenes
@@ -8,11 +9,11 @@ namespace Assets.Editor.Scenes
         /// <summary>
         /// 场景布局
         /// </summary>
-        private UIDisplay _sceneGUILayout;
+        private UIWidget _sceneGUILayout;
             /// <summary>
         /// 场景物件
         /// </summary>
-        private UIDisplay _sceneWidgets;
+        private UIWidget _sceneWidgets;
 
         /// <summary>
         /// 布局是否有修改
@@ -36,8 +37,10 @@ namespace Assets.Editor.Scenes
 
         public SceneHandle()
         {
-            _sceneGUILayout = new UIDisplay();
-            _sceneWidgets = new UIDisplay();
+            _sceneGUILayout = new UIWidget();
+            _sceneGUILayout.Direction = LayoutDirection.Vertical;
+            _sceneWidgets = new UIWidget();
+            _sceneWidgets.Direction = LayoutDirection.Vertical;
             Dirty = true;
         }
 
@@ -64,7 +67,7 @@ namespace Assets.Editor.Scenes
         /// 初始化场景ui
         /// </summary>
         /// <param name="layout"></param>
-        protected virtual void InitSceneGUI(UIDisplay layout)
+        protected virtual void InitSceneGUI(UIWidget layout)
         {
 
         }
@@ -73,7 +76,7 @@ namespace Assets.Editor.Scenes
         /// 初始化场景物件
         /// </summary>
         /// <param name="layout"></param>
-        protected virtual void InitSceneWidget(UIDisplay layout)
+        protected virtual void InitSceneWidget(UIWidget layout)
         {
 
         }

@@ -9,6 +9,23 @@ namespace Assets.Foundation.Events
     /// </summary>
     public abstract class TouchBehaviour : EventBehaviour, ITouchProtocol
     {
+        private bool _useCollier = false;
+
+        /// <summary>
+        /// 使用碰撞
+        /// </summary>
+        public bool UseCollider
+        {
+            get
+            {
+                return _useCollier;
+            }
+            protected set
+            {
+                _useCollier = value;
+            }
+        }
+
         /// <summary>
         /// 目标
         /// </summary>
@@ -24,6 +41,8 @@ namespace Assets.Foundation.Events
         {
             if (TouchManager.Instance != null)
             {
+                Debug.LogFormat("UpdateEventStatus status: {0}", status.ToString());
+
                 if (status)
                 {
                     TouchManager.Instance.AddBehaviour(this);
@@ -32,16 +51,6 @@ namespace Assets.Foundation.Events
                 {
                     TouchManager.Instance.RemoveBehaviour(this);
                 }
-            }
-        }
-
-        protected void ShowTouchInfos(Touch[] touches)
-        {
-            for(var i = 0 ; i < touches.Length; i++)
-            {
-                var touch  = touches[i];
-                Debug.LogFormat("Touch fingerId : {0}, phase : {1}, position : {2}", 
-                    touch.fingerId, touch.phase, touch.position);
             }
         }
 

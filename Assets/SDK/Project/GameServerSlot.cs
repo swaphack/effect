@@ -1,4 +1,4 @@
-﻿using Assets.Foundation.Managers;
+﻿using Assets.Foundation.Protocol;
 using System.Collections;
 using System;
 

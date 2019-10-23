@@ -79,6 +79,26 @@ namespace Assets.Foundation.Events
             return null;
         }
 
+        private void DispatchTouchEvents(GameObject go, Touch[] touches)
+        {
+            if (touches == null || touches.Length == 0)
+            {
+                return;
+            }
+
+            foreach (var item in _behaviours)
+            {
+                if (item.Value.UseCollider && item.Value.Target == go)
+                {
+                    item.Value.DispatchTouches(touches);
+                }
+                else
+                {
+                    item.Value.DispatchTouches(touches);
+                }
+            }
+        }
+
         public void DispatchTouch(Touch touch)
         {
             DispatchTouches(new Touch[1] { touch });
@@ -94,6 +114,7 @@ namespace Assets.Foundation.Events
             {
                 return;
             }
+            
 
             var touch = touches[0];
 
@@ -102,11 +123,8 @@ namespace Assets.Foundation.Events
                 if (!_touchInfos.ContainsKey(touch.fingerId))
                 {
                     var go = GetHitTarget(touch);
-                    if (go != null)
-                    {
 
-                        _touchInfos.Add(touch.fingerId, new TouchInfo(touch.fingerId, go));
-                    }
+                    _touchInfos.Add(touch.fingerId, new TouchInfo(touch.fingerId, go));
                 }
             }
 
@@ -114,17 +132,7 @@ namespace Assets.Foundation.Events
             {
                 var touchInfo = _touchInfos[touch.fingerId];
                 var go = touchInfo.target;
-                if (go == null)
-                {
-                    return;
-                }
-                if (!_behaviours.ContainsKey(go))
-                {
-                    return;
-                }
-
-                var behaviour = _behaviours[go];
-                behaviour.DispatchTouches(touches);
+                DispatchTouchEvents(go, touches);
             }
 
             if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)

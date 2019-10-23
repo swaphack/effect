@@ -8,6 +8,10 @@ namespace Assets.Foundation.Events
     public interface ITouchProtocol
     {
         /// <summary>
+        /// 使用碰撞
+        /// </summary>
+        bool UseCollider { get; }
+        /// <summary>
         /// 目标
         /// </summary>
         GameObject Target { get; }

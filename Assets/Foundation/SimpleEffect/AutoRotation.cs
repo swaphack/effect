@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.App;
+using UnityEngine;
 
 namespace Assets.Foundation.SimpleEffect
 {
@@ -10,15 +11,42 @@ namespace Assets.Foundation.SimpleEffect
         /// <summary>
         /// 旋转轴
         /// </summary>
-        public Vector3 Axis = Vector3.up;
+        [SerializeField]
+        private Vector3 _axis = Vector3.right;
+
+        public Vector3 Axis
+        {
+            get
+            {
+                return _axis;
+            }
+            set
+            {
+                _axis = value;
+            }
+        }
+
         /// <summary>
-        /// 旋转角度
+        /// 每秒旋转角度
         /// </summary>
-        public float Angle = 30.0f;
+        [SerializeField]
+        private float _anglePerSecond = 0.00417f;
+
+        public float AnglePerSecond
+        {
+            get
+            {
+                return _anglePerSecond;
+            }
+            set
+            {
+                _anglePerSecond = value;
+            }
+        }
 
         void Update()
         {
-            this.transform.Rotate(Axis, Time.deltaTime * Angle);
+            this.transform.Rotate(Axis, Time.deltaTime * AnglePerSecond * AppTime.Instance.TimeScale);
         }
     }
 }

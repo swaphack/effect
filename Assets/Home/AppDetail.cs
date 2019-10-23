@@ -1,4 +1,4 @@
-﻿using Assets.SDK.App;
+﻿using Assets.App;
 
 namespace Assets.Home
 {

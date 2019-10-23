@@ -80,19 +80,16 @@ namespace Assets.Foundation.Events
 
         public void DispatchScale(float scaleDelta)
         {
-            Debug.LogFormat("ScrollManager Dispatch Scale {0}", scaleDelta);
 
             GameObject go = GetHitTarget(Input.mousePosition);
             if (go == null)
             {
                 return;
             }
-            Debug.LogFormat("ScrollManager target {0}", go.name);
             if (!_behaviours.ContainsKey(go))
             {
                 return;
             }
-            Debug.LogFormat("ScrollManager target {0} behaviour", go.name);
             var behaviour = _behaviours[go];
             behaviour.DoScale(scaleDelta);
         }
@@ -106,12 +103,8 @@ namespace Assets.Foundation.Events
             List<RaycastResult> results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(pointer, results);
 
-            Debug.LogFormat("behaviour count {0}", _behaviours.Count);
-
             foreach (var item in results)
             {
-                Debug.LogFormat("GetHitTarget target {0}", item.gameObject.name);
-
                 if (_behaviours.ContainsKey(item.gameObject))
                 {
                     return item.gameObject;
@@ -123,7 +116,6 @@ namespace Assets.Foundation.Events
 
         public void DispatchTouches(Touch[] touches)
         {
-            Debug.LogFormat("ScrollManager Dispatch Touches");
 
             if (touches == null || touches.Length == 0)
             {
@@ -133,8 +125,6 @@ namespace Assets.Foundation.Events
 
             var touch = touches[0];
 
-            Debug.LogFormat("first touch pos {0} ,phase {1}", touch.position, touch.phase);
-
             if (touch.phase == TouchPhase.Began)
             {
                 if (!_touchInfos.ContainsKey(touch.fingerId))
@@ -142,7 +132,6 @@ namespace Assets.Foundation.Events
                     var go = GetHitTarget(touch.position);
                     if (go != null)
                     {
-
                         _touchInfos.Add(touch.fingerId, new TouchInfo(touch.fingerId, touch.position, go));
                     }
                 }
@@ -170,7 +159,6 @@ namespace Assets.Foundation.Events
                     return;
                 }
                 var secondTouch = touches[1];
-                Debug.LogFormat("second touch pos {0} ,phase {1}", secondTouch.position, secondTouch.phase);
 
                 SetSecondTouch(touchInfo, touch, secondTouch);
             }
@@ -197,9 +185,6 @@ namespace Assets.Foundation.Events
                 || secondTouch.phase == TouchPhase.Ended)
             {
                 float dt = info.GetDiff(touch.position, secondTouch.position);
-
-                Debug.LogFormat("touch diff {0}", dt);
-
                 var behaviour = _behaviours[info.target];
                 behaviour.DoScale(dt);
             }

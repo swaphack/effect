@@ -14,7 +14,7 @@ namespace Assets.Editor.Inspectors
         {
         }
 
-        protected override void InitUI(UIDisplay layout)
+        protected override void InitUI(UIWidget layout)
         {
             UIImage image = this.GetTarget<UIImage>();
             /*

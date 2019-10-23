@@ -1,8 +1,6 @@
 ﻿using Assets.Editor.EGUI;
-using Assets.Editor.Widgets;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Reflection;
 
 namespace Assets.Editor.Widgets
@@ -824,6 +822,62 @@ namespace Assets.Editor.Widgets
             EObjectField objectField = new EObjectField();
             objectField.TargetType = typeof(UnityEngine.Sprite);
             objectField.Target = GetValue<UnityEngine.Sprite>();
+            objectField.TriggerHandler = (Widget w) =>
+            {
+                this.SetValue(objectField.Target);
+            };
+            this.AddField(objectField);
+        }
+    }
+
+    /// <summary>
+    /// GameObject控件
+    /// </summary>
+    public class UIGameObjectFieldWidget : UIFieldWidget
+    {
+        public UIGameObjectFieldWidget(string name, Object value)
+            : base(name, value)
+        {
+        }
+
+        public UIGameObjectFieldWidget(Object target, FieldInfo fieldInfo)
+            : base(target, fieldInfo)
+        {
+        }
+
+        protected override void InitField()
+        {
+            EObjectField objectField = new EObjectField();
+            objectField.TargetType = typeof(UnityEngine.GameObject);
+            objectField.Target = GetValue<UnityEngine.GameObject>();
+            objectField.TriggerHandler = (Widget w) =>
+            {
+                this.SetValue(objectField.Target);
+            };
+            this.AddField(objectField);
+        }
+    }
+
+    /// <summary>
+    /// Transform控件
+    /// </summary>
+    public class UITransformFieldWidget : UIFieldWidget
+    {
+        public UITransformFieldWidget(string name, Object value)
+            : base(name, value)
+        {
+        }
+
+        public UITransformFieldWidget(Object target, FieldInfo fieldInfo)
+            : base(target, fieldInfo)
+        {
+        }
+
+        protected override void InitField()
+        {
+            EObjectField objectField = new EObjectField();
+            objectField.TargetType = typeof(UnityEngine.Transform);
+            objectField.Target = GetValue<UnityEngine.Transform>();
             objectField.TriggerHandler = (Widget w) =>
             {
                 this.SetValue(objectField.Target);

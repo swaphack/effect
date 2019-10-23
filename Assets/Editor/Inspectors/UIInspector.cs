@@ -15,7 +15,7 @@ namespace Assets.Editor.Inspectors
         /// <summary>
         /// 布局
         /// </summary>
-        private UIDisplay _layout;
+        private UIWidget _layout;
 
         /// <summary>
         /// 布局是否有修改
@@ -47,12 +47,13 @@ namespace Assets.Editor.Inspectors
 
         public UIInspector()
         {
-            _layout = new UIDisplay();
+            _layout = new UIWidget();
+            _layout.Direction = LayoutDirection.Vertical;
             Dirty = true;
             UseDefaultInspector = false;
         }
 
-        protected virtual void InitUI(UIDisplay layout)
+        protected virtual void InitUI(UIWidget layout)
         {
             var widget = UIWidgetHelper.CreateWidget(target.GetType().Name, target);
             if (widget != null)
@@ -88,16 +89,6 @@ namespace Assets.Editor.Inspectors
             {
                 _layout.Draw();
             }
-        }
-
-        private void OnEnable()
-        {
-            InspectorUtility.AddTargetInspector(target, this);
-        }
-
-        private void OnDisable()
-        {
-            InspectorUtility.RemoveTargetInspector(target);
         }
     }
 }
