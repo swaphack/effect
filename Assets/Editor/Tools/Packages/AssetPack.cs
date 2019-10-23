@@ -17,7 +17,7 @@ namespace Assets.Editor.Tools.Packages
             WindowsEditor = BuildTarget.StandaloneWindows64,
             WindowsPlayer = BuildTarget.StandaloneWindows64,
             StandaloneWindows64 = BuildTarget.StandaloneWindows64,
-            StandaloneOSXIntel64 = BuildTarget.StandaloneOSXIntel64,
+            StandaloneOSX = BuildTarget.StandaloneOSX,
         };
 
         private struct PlatformItem
