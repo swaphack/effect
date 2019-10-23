@@ -1,3 +1,8 @@
 /*.suo
 /Temp
 /app
+/Library
+/Logs
+/Packages
+/obj
+/ProjectSettings

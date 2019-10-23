@@ -11,10 +11,10 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{F4CDAFEB-8CBA-AB5F-87BB-75E7D30EF762}</ProjectGuid>
+    <ProjectGuid>{719066EA-3F29-C2B2-5886-7D351A0E0FDD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -24,7 +24,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2019_2_9;UNITY_2019_2;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CROSS_PLATFORM_INPUT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2019_2_9;UNITY_2019_2;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CROSS_PLATFORM_INPUT;NET_4_6;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -47,124 +47,119 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Foundation\Actions\ActionBase.cs" />
-    <Compile Include="Assets\Foundation\Actions\ActionBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Actions\ActionInterval.cs" />
-    <Compile Include="Assets\Foundation\Actions\ActionManager.cs" />
-    <Compile Include="Assets\Foundation\Actions\ActionSet.cs" />
-    <Compile Include="Assets\Foundation\Actions\ActionTrack.cs" />
-    <Compile Include="Assets\Foundation\Actions\ActionTransform.cs" />
-    <Compile Include="Assets\Foundation\Actions\CallFunc.cs" />
-    <Compile Include="Assets\Foundation\Actions\IAction.cs" />
-    <Compile Include="Assets\Foundation\Actions\IActionBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Actions\Repeate.cs" />
-    <Compile Include="Assets\Foundation\Controller\DirectionController.cs" />
-    <Compile Include="Assets\Foundation\Creator\ObjectBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Creator\ObjectProperty.cs" />
-    <Compile Include="Assets\Foundation\Data\DataHelper.cs" />
-    <Compile Include="Assets\Foundation\Data\DByteReader.cs" />
-    <Compile Include="Assets\Foundation\Data\DByteWriter.cs" />
-    <Compile Include="Assets\Foundation\Data\DJsonReader.cs" />
-    <Compile Include="Assets\Foundation\Data\DJsonWriter.cs" />
-    <Compile Include="Assets\Foundation\Data\DManifestReader.cs" />
-    <Compile Include="Assets\Foundation\Data\DXmlReader.cs" />
-    <Compile Include="Assets\Foundation\Data\DXmlWriter.cs" />
-    <Compile Include="Assets\Foundation\Data\IObjectReader.cs" />
-    <Compile Include="Assets\Foundation\Data\IObjectWriter.cs" />
-    <Compile Include="Assets\Foundation\Data\IPairReader.cs" />
-    <Compile Include="Assets\Foundation\Data\IPairWriter.cs" />
-    <Compile Include="Assets\Foundation\DataAccess\AccessType.cs" />
-    <Compile Include="Assets\Foundation\DataAccess\BundleManager.cs" />
-    <Compile Include="Assets\Foundation\DataAccess\DownloadManager.cs" />
-    <Compile Include="Assets\Foundation\DataAccess\FilePath.cs" />
-    <Compile Include="Assets\Foundation\DataAccess\IFileItem.cs" />
-    <Compile Include="Assets\Foundation\DataAccess\InnerResource.cs" />
-    <Compile Include="Assets\Foundation\DataAccess\InnerStream.cs" />
-    <Compile Include="Assets\Foundation\DataAccess\ResourceLoad.cs" />
-    <Compile Include="Assets\Foundation\DataAccess\StorageFile.cs" />
-    <Compile Include="Assets\Foundation\DataAccess\UserDefault.cs" />
-    <Compile Include="Assets\Foundation\DataAccess\ZipResource.cs" />
-    <Compile Include="Assets\Foundation\Device\DeviceManager.cs" />
-    <Compile Include="Assets\Foundation\Device\Keyboard.cs" />
-    <Compile Include="Assets\Foundation\Device\Mouse.cs" />
-    <Compile Include="Assets\Foundation\Device\TouchScreen.cs" />
-    <Compile Include="Assets\Foundation\Effects\CameraSnapshot.cs" />
-    <Compile Include="Assets\Foundation\Effects\MapScale.cs" />
-    <Compile Include="Assets\Foundation\Effects\Mirror.cs" />
-    <Compile Include="Assets\Foundation\Effects\PressButton.cs" />
-    <Compile Include="Assets\Foundation\Effects\Weather.cs" />
-    <Compile Include="Assets\Foundation\Events\EventBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Events\IScrollProtocol.cs" />
-    <Compile Include="Assets\Foundation\Events\ITouchProtocol.cs" />
-    <Compile Include="Assets\Foundation\Events\ScrollBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Events\ScrollManager.cs" />
-    <Compile Include="Assets\Foundation\Events\TouchBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Events\TouchManager.cs" />
-    <Compile Include="Assets\Foundation\Events\TouchScrollBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Extensions\ActionExtensions.cs" />
-    <Compile Include="Assets\Foundation\Extensions\ComponentExtensions.cs" />
-    <Compile Include="Assets\Foundation\Extensions\NodeExtensions.cs" />
-    <Compile Include="Assets\Foundation\Extensions\UIExtensions.cs" />
-    <Compile Include="Assets\Foundation\Fluid\Water.cs" />
-    <Compile Include="Assets\Foundation\Managers\Client.cs" />
-    <Compile Include="Assets\Foundation\Managers\EnumeratorManager.cs" />
-    <Compile Include="Assets\Foundation\Managers\MessageManager.cs" />
-    <Compile Include="Assets\Foundation\Managers\Singleton.cs" />
-    <Compile Include="Assets\Foundation\Managers\SingletonBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Managers\SingletonCreator.cs" />
-    <Compile Include="Assets\Foundation\Protocol\MessageHeader.cs" />
-    <Compile Include="Assets\Foundation\Protocol\PacketReader.cs" />
-    <Compile Include="Assets\Foundation\Protocol\PacketWriter.cs" />
-    <Compile Include="Assets\Foundation\Scene\InformationBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Scene\LinkBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Schedulers\IScheduler.cs" />
-    <Compile Include="Assets\Foundation\Schedulers\Scheduler.cs" />
-    <Compile Include="Assets\Foundation\Schedulers\SchedulerLimit.cs" />
-    <Compile Include="Assets\Foundation\Schedulers\SchedulerMananger.cs" />
-    <Compile Include="Assets\Foundation\SimpleEffect\AutoMove.cs" />
-    <Compile Include="Assets\Foundation\SimpleEffect\AutoRotation.cs" />
-    <Compile Include="Assets\Foundation\SimpleEffect\FocusTarget.cs" />
-    <Compile Include="Assets\Foundation\TextFormat\FieldParser.cs" />
-    <Compile Include="Assets\Foundation\TextFormat\IFieldParse.cs" />
-    <Compile Include="Assets\Foundation\TextFormat\IniFormat.cs" />
-    <Compile Include="Assets\Foundation\TextFormat\JsonFormat.cs" />
-    <Compile Include="Assets\Foundation\TextFormat\ManifestFormat.cs" />
-    <Compile Include="Assets\Foundation\TextFormat\TextParser.cs" />
-    <Compile Include="Assets\Foundation\Tool\FileUtility.cs" />
-    <Compile Include="Assets\Foundation\Tool\HttpUtility.cs" />
-    <Compile Include="Assets\Foundation\Tool\XmlUtility.cs" />
-    <Compile Include="Assets\Foundation\UI\UIAction.cs" />
-    <Compile Include="Assets\Foundation\UI\UIFile.cs" />
-    <Compile Include="Assets\Foundation\UI\UIFrame.cs" />
-    <Compile Include="Assets\Foundation\UI\UIGrideScrollView.cs" />
-    <Compile Include="Assets\Foundation\UI\UIImage.cs" />
-    <Compile Include="Assets\Foundation\UI\UIListView.cs" />
-    <Compile Include="Assets\Foundation\UI\UIManager.cs" />
-    <Compile Include="Assets\Foundation\UI\UIMessage.cs" />
-    <Compile Include="Assets\Foundation\UI\UIScrollText.cs" />
-    <Compile Include="Assets\Foundation\UI\UIScrollView.cs" />
-    <Compile Include="Assets\Foundation\UI\UIText.cs" />
-    <Compile Include="Assets\Foundation\UI\UITouchPanel.cs" />
-    <Compile Include="Assets\Foundation\UI\UIVideo.cs" />
-    <Compile Include="Assets\Home\AppDetail.cs" />
-    <Compile Include="Assets\Home\AppMain.cs" />
-    <Compile Include="Assets\Home\Logic\Role.cs" />
-    <Compile Include="Assets\Home\UI\MainCity.cs" />
-    <Compile Include="Assets\Home\UI\MainUI.cs" />
-    <Compile Include="Assets\Home\UI\RoleControlUI.cs" />
-    <Compile Include="Assets\SDK\App\AppDetail.cs" />
-    <Compile Include="Assets\SDK\App\AppInstance.cs" />
-    <Compile Include="Assets\SDK\App\ResourceType.cs" />
-    <Compile Include="Assets\SDK\Project\ABManifest.cs" />
-    <Compile Include="Assets\SDK\Project\ConfigHelper.cs" />
-    <Compile Include="Assets\SDK\Project\GameDetail.cs" />
-    <Compile Include="Assets\SDK\Project\GameServerMessage.cs" />
-    <Compile Include="Assets\SDK\Project\GameServerSlot.cs" />
-    <Compile Include="Assets\SDK\Project\GameWorkflow.cs" />
-    <Compile Include="Assets\SDK\Project\LoginServerSlot.cs" />
-    <Compile Include="Assets\SDK\Project\VersionCheckSlot.cs" />
-    <Compile Include="Assets\SDK\Project\VersionUpdateSlot.cs" />
-    <Compile Include="Assets\SDK\Project\Workflow.cs" />
+    <Compile Include="Assets\Editor\DataAccess\EditorResource.cs" />
+    <Compile Include="Assets\Editor\EGUI\BArea.cs" />
+    <Compile Include="Assets\Editor\EGUI\BBox.cs" />
+    <Compile Include="Assets\Editor\EGUI\BButton.cs" />
+    <Compile Include="Assets\Editor\EGUI\BLabel.cs" />
+    <Compile Include="Assets\Editor\EGUI\BPasswordField.cs" />
+    <Compile Include="Assets\Editor\EGUI\BRepeatButton.cs" />
+    <Compile Include="Assets\Editor\EGUI\BScrollbar.cs" />
+    <Compile Include="Assets\Editor\EGUI\BScrollView.cs" />
+    <Compile Include="Assets\Editor\EGUI\BSelectionGrid.cs" />
+    <Compile Include="Assets\Editor\EGUI\BSlider.cs" />
+    <Compile Include="Assets\Editor\EGUI\BSpace.cs" />
+    <Compile Include="Assets\Editor\EGUI\BText.cs" />
+    <Compile Include="Assets\Editor\EGUI\BTextArea.cs" />
+    <Compile Include="Assets\Editor\EGUI\BTextField.cs" />
+    <Compile Include="Assets\Editor\EGUI\BTexture.cs" />
+    <Compile Include="Assets\Editor\EGUI\BToggle.cs" />
+    <Compile Include="Assets\Editor\EGUI\BToolbar.cs" />
+    <Compile Include="Assets\Editor\EGUI\BWindow.cs" />
+    <Compile Include="Assets\Editor\EGUI\EBoundsField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EColorField.cs" />
+    <Compile Include="Assets\Editor\EGUI\ECurveField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EDelayedDoubleField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EDelayedFloatField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EDelayedIntField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EDelayedTextField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EDoubleField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EDropdownButton.cs" />
+    <Compile Include="Assets\Editor\EGUI\EEnumMaskField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EEnumPopup.cs" />
+    <Compile Include="Assets\Editor\EGUI\EFadeGroup.cs" />
+    <Compile Include="Assets\Editor\EGUI\EFloatField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EFoldout.cs" />
+    <Compile Include="Assets\Editor\EGUI\EHelpBox.cs" />
+    <Compile Include="Assets\Editor\EGUI\EHorizontalLine.cs" />
+    <Compile Include="Assets\Editor\EGUI\EInspectorTitlebar.cs" />
+    <Compile Include="Assets\Editor\EGUI\EIntField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EIntPopup.cs" />
+    <Compile Include="Assets\Editor\EGUI\EIntSlider.cs" />
+    <Compile Include="Assets\Editor\EGUI\EKnob.cs" />
+    <Compile Include="Assets\Editor\EGUI\ELabelField.cs" />
+    <Compile Include="Assets\Editor\EGUI\ELayerField.cs" />
+    <Compile Include="Assets\Editor\EGUI\ELayout.cs" />
+    <Compile Include="Assets\Editor\EGUI\ELongField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EMaskField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EMinMaxSlider.cs" />
+    <Compile Include="Assets\Editor\EGUI\EObjectField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EPasswordField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EPopup.cs" />
+    <Compile Include="Assets\Editor\EGUI\EPrefixLabel.cs" />
+    <Compile Include="Assets\Editor\EGUI\EPreviewTexture.cs" />
+    <Compile Include="Assets\Editor\EGUI\EPropertyField.cs" />
+    <Compile Include="Assets\Editor\EGUI\ERect.cs" />
+    <Compile Include="Assets\Editor\EGUI\ERectField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EScrollView.cs" />
+    <Compile Include="Assets\Editor\EGUI\ESelectableLabel.cs" />
+    <Compile Include="Assets\Editor\EGUI\ESeparator.cs" />
+    <Compile Include="Assets\Editor\EGUI\ESlider.cs" />
+    <Compile Include="Assets\Editor\EGUI\ESpace.cs" />
+    <Compile Include="Assets\Editor\EGUI\ETagField.cs" />
+    <Compile Include="Assets\Editor\EGUI\ETextArea.cs" />
+    <Compile Include="Assets\Editor\EGUI\ETextField.cs" />
+    <Compile Include="Assets\Editor\EGUI\EToggle.cs" />
+    <Compile Include="Assets\Editor\EGUI\EToggleGroup.cs" />
+    <Compile Include="Assets\Editor\EGUI\EToggleLeft.cs" />
+    <Compile Include="Assets\Editor\EGUI\EVector2Field.cs" />
+    <Compile Include="Assets\Editor\EGUI\EVector3Field.cs" />
+    <Compile Include="Assets\Editor\EGUI\EVector4Field.cs" />
+    <Compile Include="Assets\Editor\EGUI\IWidget.cs" />
+    <Compile Include="Assets\Editor\EGUI\Layout.cs" />
+    <Compile Include="Assets\Editor\EGUI\LayoutDirection.cs" />
+    <Compile Include="Assets\Editor\EGUI\LayoutOption.cs" />
+    <Compile Include="Assets\Editor\EGUI\UIDisplay.cs" />
+    <Compile Include="Assets\Editor\EGUI\Widget.cs" />
+    <Compile Include="Assets\Editor\Inspectors\InspectorUtility.cs" />
+    <Compile Include="Assets\Editor\Inspectors\ObjectEditor.cs" />
+    <Compile Include="Assets\Editor\Inspectors\UIImageInspector.cs" />
+    <Compile Include="Assets\Editor\Inspectors\UIInspector.cs" />
+    <Compile Include="Assets\Editor\Inspectors\UIListViewInspector.cs" />
+    <Compile Include="Assets\Editor\Inspectors\UITextInspector.cs" />
+    <Compile Include="Assets\Editor\Scenes\InformationHandle.cs" />
+    <Compile Include="Assets\Editor\Scenes\LinkerHandle.cs" />
+    <Compile Include="Assets\Editor\Scenes\SceneDraw.cs" />
+    <Compile Include="Assets\Editor\Scenes\SceneEvent.cs" />
+    <Compile Include="Assets\Editor\Scenes\SceneHandle.cs" />
+    <Compile Include="Assets\Editor\Scenes\SceneShape.cs" />
+    <Compile Include="Assets\Editor\Scenes\SceneWidget.cs" />
+    <Compile Include="Assets\Editor\UIDesign\DesignWindow.cs" />
+    <Compile Include="Assets\Editor\UIDesign\UDImage.cs" />
+    <Compile Include="Assets\Editor\UIDesign\UDTransform.cs" />
+    <Compile Include="Assets\Editor\Widgets\IKeyValueRecord.cs" />
+    <Compile Include="Assets\Editor\Widgets\UIFieldWidget.cs" />
+    <Compile Include="Assets\Editor\Widgets\UIFolder.cs" />
+    <Compile Include="Assets\Editor\Widgets\UIWidget.cs" />
+    <Compile Include="Assets\Editor\Widgets\UIWidgetHelper.cs" />
+    <Compile Include="Assets\Editor\Widgets\UIWindow.cs" />
+    <Compile Include="Assets\Editor\Widgets\WidgetUtility.cs" />
+    <Compile Include="Assets\Editor\Windows\ContextExtensions.cs" />
+    <Compile Include="Assets\Editor\Windows\Editors\EditorStyleViewer.cs" />
+    <Compile Include="Assets\Editor\Windows\RenderExtensions.cs" />
+    <Compile Include="Assets\Editor\Windows\TestW.cs" />
+    <Compile Include="Assets\Editor\Windows\ToolExtensions.cs" />
+    <Compile Include="Assets\Editor\Windows\Tools\BundlePack.cs" />
+    <Compile Include="Assets\Editor\Windows\Tools\ClassViewer.cs" />
+    <Compile Include="Assets\Editor\Windows\Tools\ImageSetting.cs" />
+    <Compile Include="Assets\Editor\Windows\Tools\TextureDisplay.cs" />
+    <Compile Include="Assets\Editor\Windows\UIExtensions.cs" />
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>H:/GitLib/effect/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>H:/GitLib/effect/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>H:/GitLib/effect/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -375,8 +370,23 @@
     <Reference Include="UnityEditor">
       <HintPath>H:/Program Files/Unity Engines/2019.2.9f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>H:/Program Files/Unity Engines/2019.2.9f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>H:/Program Files/Unity Engines/2019.2.9f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>H:/Program Files/Unity Engines/2019.2.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>H:/Program Files/Unity Engines/2019.2.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="icsharpcode.sharpziplib">
       <HintPath>H:/GitLib/effect/Assets/Plugins/icsharpcode.sharpziplib.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>H:/GitLib/effect/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>H:/Program Files/Unity Engines/2019.2.9f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -732,6 +742,12 @@
     <Reference Include="Boo.Lang">
       <HintPath>H:/Program Files/Unity Engines/2019.2.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{F4CDAFEB-8CBA-AB5F-87BB-75E7D30EF762}</Project>
+      <Name>Assembly-CSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
