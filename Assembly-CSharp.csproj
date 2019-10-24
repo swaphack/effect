@@ -193,7 +193,6 @@
     <Compile Include="Assets\SDK\Project\VersionCheckSlot.cs" />
     <Compile Include="Assets\SDK\Project\VersionUpdateSlot.cs" />
     <Compile Include="Assets\SDK\Project\Workflow.cs" />
-    <Compile Include="Assets\Server\GameSever.cs" />
     <None Include="Assets\Shaders\ImageEffectShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/lingan/Projects/GitHub/effect/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

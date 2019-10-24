@@ -89,6 +89,7 @@
     <Compile Include="Assets\Editor\Tools\Packages\AssetPack.cs" />
     <Compile Include="Assets\Editor\Tools\Packages\ImageSetting.cs" />
     <Compile Include="Assets\Editor\Tools\Packages\PackageMenu.cs" />
+    <Compile Include="Assets\Editor\Tools\Server\GameSever.cs" />
     <Compile Include="Assets\Editor\Tools\UIExtensions.cs" />
     <Compile Include="Assets\Editor\UIDesign\DesignWindow.cs" />
     <Compile Include="Assets\Editor\UIDesign\UDImage.cs" />
