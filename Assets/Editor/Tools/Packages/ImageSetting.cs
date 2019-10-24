@@ -1,5 +1,4 @@
-﻿using Assets.Editor.EGUI;
-using Assets.Editor.Widgets;
+﻿using Assets.Editor.Widgets;
 using UnityEditor;
 using UnityEngine;
 
@@ -19,7 +18,7 @@ namespace Assets.Editor.Tools
             public TextureImporterType textureType;
             public int maxTextureSize;
             public TextureImporterCompression textureCompression;
-            public bool sRGBTexture;
+            public bool sRGGUITexture;
             public TextureImporterAlphaSource alphaSource;
             public SpriteImportMode spriteMode;
         }
@@ -47,7 +46,7 @@ namespace Assets.Editor.Tools
         public ImageSetting()
         {
             setting = new SettingParams();
-            setting.sRGBTexture = true;
+            setting.sRGGUITexture = true;
             setting.alphaSource = TextureImporterAlphaSource.FromInput;
             setting.alphaIsTransparency = true;
             setting.anisoLevel = 0;
@@ -56,7 +55,7 @@ namespace Assets.Editor.Tools
             setting.textureType = TextureImporterType.Sprite;
             setting.maxTextureSize = 1024;
             setting.textureCompression = TextureImporterCompression.Compressed;
-            setting.sRGBTexture = true;
+            setting.sRGGUITexture = true;
             setting.alphaSource = TextureImporterAlphaSource.FromInput;
             setting.spriteMode = SpriteImportMode.Single;
         }
@@ -107,7 +106,7 @@ namespace Assets.Editor.Tools
 
         protected override void InitUI(UIWidget layout)
         {
-            EVerticalLayout vLayout = new EVerticalLayout();
+            EditorVerticalLayout vLayout = new EditorVerticalLayout();
             layout.Add(vLayout);
             
             UIIntPopupFieldWidget textureType = new UIIntPopupFieldWidget("Texture Type", setting.textureType);
@@ -129,12 +128,12 @@ namespace Assets.Editor.Tools
             vLayout.Add(spriteMode);
 
 
-            UIBooleanFieldWidget sRGBTexture = new UIBooleanFieldWidget("sRGBTexture", setting.sRGBTexture);
-            sRGBTexture.OnValueChanged = (object value) =>
+            UIBooleanFieldWidget sRGGUITexture = new UIBooleanFieldWidget("sRGGUITexture", setting.sRGGUITexture);
+            sRGGUITexture.OnValueChanged = (object value) =>
             {
-                setting.sRGBTexture = (bool)value;
+                setting.sRGGUITexture = (bool)value;
             };
-            vLayout.Add(sRGBTexture);
+            vLayout.Add(sRGGUITexture);
 
             UIIntPopupFieldWidget alphaSource = new UIIntPopupFieldWidget("Alpha Source", setting.alphaSource);
             alphaSource.Describes = AlphaSourceString;
@@ -198,10 +197,10 @@ namespace Assets.Editor.Tools
             };
             vLayout.Add(maxTextureSize);
 
-            EHorizontalLine line = new EHorizontalLine();
+            EditorHorizontalLine line = new EditorHorizontalLine();
             vLayout.Add(line);
 
-            BButton btn = new BButton();
+            GUIButton btn = new GUIButton();
             btn.Text = "Format";
             btn.TriggerHandler = (Widget w) =>
             {

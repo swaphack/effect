@@ -29,12 +29,12 @@ namespace Assets.Foundation.Events
         /// </summary>
         /// <param name="behaviour"></param>
         public void AddBehaviour(ITouchProtocol behaviour)
-        { 
+        {
             if (behaviour == null)
             {
                 return;
             }
-            _behaviours.Add(behaviour.Target, behaviour);
+            _behaviours[behaviour.Target] = behaviour;
         }
         /// <summary>
         /// 移除触摸处理

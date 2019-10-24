@@ -32,7 +32,7 @@ namespace Assets.SDK.Project
                 client.EndRecv();
             };
 
-            MessageManager.Instance.AddHand((int)GameServerMessage.MessageID.GAME_SERVER_DETAIL, this.UppackMessage);
+            MessageManager.Instance.AddHand((int)GameServerMessage.MessageID.GAME_SEditorRVEditorR_DEditorTAIL, this.UppackMessage);
 
             yield return null;
         }

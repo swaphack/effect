@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.EGUI
+namespace Assets.Editor.Widgets
 {
     /// <summary>
     /// gui事件

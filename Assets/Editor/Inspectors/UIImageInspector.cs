@@ -1,5 +1,4 @@
-﻿using Assets.Editor.EGUI;
-using Assets.Editor.Widgets;
+﻿using Assets.Editor.Widgets;
 using Assets.Foundation.UI;
 using UnityEditor;
 using UnityEngine;
@@ -54,7 +53,7 @@ namespace Assets.Editor.Inspectors
             };
             layout.Add(raycastTarget);
 
-            BButton btn = new BButton();
+            GUIButton btn = new GUIButton();
             btn.Text = "SetNativeSize";
             btn.TriggerHandler = (Widget w) => 
             {

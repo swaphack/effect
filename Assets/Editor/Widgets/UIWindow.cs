@@ -1,7 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using System.IO;
-using Assets.Editor.EGUI;
 
 namespace Assets.Editor.Widgets
 {

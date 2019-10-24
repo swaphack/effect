@@ -33,7 +33,11 @@ namespace Assets.Foundation.DataAccess
         /// <param name="bundle"></param>
         public void Add(string path, AssetBundle bundle)
         {
-            _assetBundles.Add(path, bundle);
+            if (string.IsNullOrEmpty(path) || bundle == null)
+            {
+                return;
+            }
+            _assetBundles[path] = bundle;
 
             string[] assetNames = bundle.GetAllAssetNames();
             if (assetNames != null && assetNames.Length > 0)

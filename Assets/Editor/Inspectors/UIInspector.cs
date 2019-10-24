@@ -1,5 +1,4 @@
-﻿using Assets.Editor.EGUI;
-using Assets.Editor.Widgets;
+﻿using Assets.Editor.Widgets;
 using Assets.Foundation.Data;
 using System;
 using System.Collections.Generic;

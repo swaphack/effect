@@ -140,6 +140,10 @@ namespace Assets.Foundation.DataAccess
                 var item = XmlUtility.ReadObjectByNodeAttribute(node);
                 if (item.Key != null)
                 {
+                    if (this._values.ContainsKey(item.Key))
+                    {
+                        Debug.LogErrorFormat("UserDefault has same key : {0}", item.Key);
+                    }
                     this._values.Add(item.Key, item.Value);
                 }
 

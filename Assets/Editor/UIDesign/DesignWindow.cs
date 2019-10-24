@@ -1,5 +1,4 @@
-﻿using Assets.Editor.EGUI;
-using Assets.Editor.Widgets;
+﻿using Assets.Editor.Widgets;
 using UnityEditor;
 
 namespace Assets.Editor.UIDesign

@@ -1,5 +1,4 @@
-﻿using Assets.Editor.EGUI;
-using Assets.Editor.Widgets;
+﻿using Assets.Editor.Widgets;
 using Assets.Foundation.Scene;
 using UnityEditor;
 using UnityEngine;
@@ -18,7 +17,7 @@ namespace Assets.Editor.Scenes
 
         protected override void InitSceneGUI(UIWidget layout)
         {
-            EVerticalLayout vLayout = new EVerticalLayout();
+            EditorVerticalLayout vLayout = new EditorVerticalLayout();
             {
                 vLayout.Add(new UILabelFieldWidget("Name", _behaviour.name));
                 vLayout.Add(new UILabelFieldWidget("Tag", _behaviour.tag));

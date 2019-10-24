@@ -31,14 +31,7 @@ namespace Assets.Foundation.Actions
             {
                 return;
             }
-            if (_actions.ContainsKey(obj))
-            {
-                _actions[obj] = ab;
-            }
-            else
-            {
-                _actions.Add(obj, ab);
-            }
+            _actions[obj] = ab;
         }
 
         public void RemoveAllBehaviours()

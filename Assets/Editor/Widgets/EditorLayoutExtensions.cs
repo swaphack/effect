@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.EGUI
+namespace Assets.Editor.Widgets
 {
-    public abstract class ELayout : Layout
+    public abstract class EditorLayout : Layout
     {
     }
 
-    public class EFadeGroup : ELayout
+    public class EFadeGroup : EditorLayout
     {
         private float _value;
 
@@ -35,7 +35,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EScrollView : ELayout
+    public class EditorScrollView : EditorLayout
     {
         /// <summary>
         /// 位置
@@ -66,7 +66,7 @@ namespace Assets.Editor.EGUI
             set { _alwaysShowVertical = value; }
         }
 
-        public EScrollView()
+        public EditorScrollView()
         {
         }
 
@@ -89,9 +89,9 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 水平布局
     /// </summary>
-    public class EHorizontalLayout : ELayout
+    public class EditorHorizontalLayout : EditorLayout
     {
-        public EHorizontalLayout()
+        public EditorHorizontalLayout()
         {
         }
 
@@ -109,9 +109,9 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 垂直布局
     /// </summary>
-    public class EVerticalLayout : ELayout
+    public class EditorVerticalLayout : EditorLayout
     {
-        public EVerticalLayout()
+        public EditorVerticalLayout()
         {
         }
 
@@ -126,7 +126,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ESeparator : Widget
+    public class EditorSeparator : Widget
     {
         protected override void OnDraw()
         {
@@ -134,7 +134,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ESpace : Widget
+    public class EditorSpace : Widget
     {
         protected override void OnDraw()
         {
@@ -142,7 +142,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ESlider : Widget
+    public class EditorSlider : Widget
     {
         /// <summary>
         /// 当前值
@@ -185,7 +185,7 @@ namespace Assets.Editor.EGUI
         protected override void OnDraw()
         {
             float value = EditorGUILayout.Slider(Content, Value, MinValue, MaxValue, Option.Values);
-            if (value != Value)
+            if (!Mathf.Approximately(value, Value))
             {
                 Value = value;
                 this.DipatchEvent();
@@ -193,7 +193,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ETagField : Widget
+    public class EditorTagField : Widget
     {
         protected override void OnDraw()
         {
@@ -207,7 +207,7 @@ namespace Assets.Editor.EGUI
     }
 
 
-    public class ETextArea : BText
+    public class EditorTextArea : GUIText
     {
         protected override void InitStyle()
         {
@@ -225,7 +225,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ETextField : BText
+    public class EditorTextField : GUIText
     {
         protected override void InitStyle()
         {
@@ -242,7 +242,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EToggle : Widget
+    public class EditorToggle : Widget
     {
         private bool _value;
 
@@ -264,10 +264,10 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EToggleGroup : Widget
+    public class EditorToggleGroup : Widget
     {
         private bool _value;
-        private List<EToggle> _toggles;
+        private List<EditorToggle> _toggles;
 
         public bool Value
         {
@@ -304,16 +304,16 @@ namespace Assets.Editor.EGUI
             }
         }
 
-        public EToggleGroup()
+        public EditorToggleGroup()
         {
-            _toggles = new List<EToggle>();
+            _toggles = new List<EditorToggle>();
         }
 
         /// <summary>
         /// 添加控件
         /// </summary>
         /// <param name="widget"></param>
-        public void Add(EToggle toggle)
+        public void Add(EditorToggle toggle)
         {
             if (toggle == null)
             {
@@ -332,7 +332,7 @@ namespace Assets.Editor.EGUI
         /// 移除控件
         /// </summary>
         /// <param name="toggle"></param>
-        public void Remove(EToggle toggle)
+        public void Remove(EditorToggle toggle)
         {
             if (toggle == null)
             {
@@ -379,7 +379,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EToggleLeft : EToggle
+    public class EditorToggleLeft : EditorToggle
     {
         protected override void OnDraw()
         {
@@ -392,7 +392,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EVector2Field : Widget
+    public class EditorVector2Field : Widget
     {
         private Vector2 _value;
 
@@ -414,7 +414,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EVector3Field : Widget
+    public class EditorVector3Field : Widget
     {
         private Vector3 _value;
 
@@ -437,7 +437,7 @@ namespace Assets.Editor.EGUI
     }
 
 
-    public class EVector4Field : Widget
+    public class EditorVector4Field : Widget
     {
         private Vector4 _value;
 

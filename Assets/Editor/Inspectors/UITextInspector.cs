@@ -1,5 +1,4 @@
-﻿using Assets.Editor.EGUI;
-using Assets.Editor.Widgets;
+﻿using Assets.Editor.Widgets;
 using Assets.Foundation.UI;
 using UnityEditor;
 
@@ -17,7 +16,7 @@ namespace Assets.Editor.Inspectors
         {
             UIText text = GetTarget<UIText>();
 
-            BButton btn = new BButton();
+            GUIButton btn = new GUIButton();
             btn.Text = "Format";
             btn.TriggerHandler = (Widget w) => 
             {

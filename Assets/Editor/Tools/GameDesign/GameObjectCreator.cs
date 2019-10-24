@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Assets.Editor.EGUI;
 using Assets.Editor.Widgets;
 using UnityEditor;
 using UnityEngine;
@@ -81,7 +80,7 @@ namespace Assets.Editor.Tools.GameDesign
             };
             layout.Add(count);
 
-            BButton btn = new BButton();
+            GUIButton btn = new GUIButton();
             btn.Text = "Create";
             btn.TriggerHandler = (Widget w) =>
             {

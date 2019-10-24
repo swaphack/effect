@@ -66,6 +66,10 @@ namespace Assets.Foundation.Actions
             if (action == null) {
                 return;
             }
+            if (_actions.Contains(action))
+            {
+                return;
+            }
             this.AddToUpdate();
             action.InitWithTarget(this);
             _actions.Add(action);

@@ -1,5 +1,4 @@
-﻿using Assets.Editor.EGUI;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Editor.Widgets
 {

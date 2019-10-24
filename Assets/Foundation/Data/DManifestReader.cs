@@ -37,6 +37,10 @@ namespace Assets.Foundation.Data
 
             public Node(string key, Dictionary<string, Node> value)
             {
+                if (string.IsNullOrEmpty(key))
+                {
+                    return;
+                }
                 Key = key;
                 if (value == null)
                     Map = new Dictionary<string,Node>();

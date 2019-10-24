@@ -1,5 +1,4 @@
-﻿using Assets.Editor.EGUI;
-using Assets.Editor.Widgets;
+﻿using Assets.Editor.Widgets;
 using Assets.Foundation.UI;
 using UnityEditor;
 using UnityEngine;
@@ -61,7 +60,7 @@ namespace Assets.Editor.Tools.EditorControl
         /// <returns></returns>
         private Widget CreateImagePreviewWidget(string[] allpath)
         {
-            EScrollView scrollView = new EScrollView();
+            EditorScrollView scrollView = new EditorScrollView();
             scrollView.InnerSpace = InnerSpace;
 
             if (allpath == null || allpath.Length == 0)
@@ -75,18 +74,18 @@ namespace Assets.Editor.Tools.EditorControl
             w -= InnerSpace;
             int count = (int)(w / (ImageSize.x + InnerSpace));
 
-            EHorizontalLayout hLayout = null;
+            EditorHorizontalLayout hLayout = null;
 
             for (int i = 0; i < allpath.Length; i++)
             {
                 if (i % count == 0)
                 {
-                    hLayout = new EHorizontalLayout();
+                    hLayout = new EditorHorizontalLayout();
                     hLayout.InnerSpace = InnerSpace;
                     scrollView.Add(hLayout);
                 }
 
-                EVerticalLayout vLayout = new EVerticalLayout();
+                EditorVerticalLayout vLayout = new EditorVerticalLayout();
                 vLayout.Option.Width = ImageSize.x;
                 hLayout.Add(vLayout);
 
@@ -95,7 +94,7 @@ namespace Assets.Editor.Tools.EditorControl
 
                     string name = fullpath.Substring(fullpath.LastIndexOf('/') + 1);
 
-                    BButton button = new BButton();
+                    GUIButton button = new GUIButton();
                     button.Option.Width = ImageSize.x;
                     button.Option.Height = ImageSize.y;
                     button.ImagePosition = ImagePosition.ImageAbove;
@@ -108,7 +107,7 @@ namespace Assets.Editor.Tools.EditorControl
                     };
                     vLayout.Add(button);
                     
-                    var label = new BLabel();
+                    var label = new GUILabel();
                     label.Option.Height = 25;
                     label.Option.Width = ImageSize.x;
                     label.Text = name;
@@ -124,7 +123,7 @@ namespace Assets.Editor.Tools.EditorControl
         {
             string express = string.Format("*{0}*.png", _searchExpress);
 
-            ETextField textField = new ETextField();
+            EditorTextField textField = new EditorTextField();
             textField.Text = _searchExpress;
             textField.TriggerHandler = (Widget w) =>
             {

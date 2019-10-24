@@ -1,6 +1,4 @@
-﻿using Assets.Editor.EGUI;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEditor;
 
 namespace Assets.Editor.Widgets
 {
@@ -18,18 +16,18 @@ namespace Assets.Editor.Widgets
             set { textField.Text = value; }
         }
 
-        private BTextField textField;
-        private BButton button;
+        private GUITextField textField;
+        private GUIButton button;
 
         public UIFolder()
         {
-            EHorizontalLayout layout = new EHorizontalLayout();
+            EditorHorizontalLayout layout = new EditorHorizontalLayout();
             this.Add(layout);
 
-            textField = new BTextField();
+            textField = new GUITextField();
             layout.Add(textField);
 
-            button = new BButton();
+            button = new GUIButton();
             button.TriggerHandler = this.OnClick;
             layout.Add(button);
             

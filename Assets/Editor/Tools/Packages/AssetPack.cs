@@ -1,5 +1,4 @@
-﻿using Assets.Editor.EGUI;
-using Assets.Editor.Widgets;
+﻿using Assets.Editor.Widgets;
 using Assets.Foundation.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -62,15 +61,15 @@ namespace Assets.Editor.Tools.Packages
 
         protected override void InitUI(UIWidget layout)
         {
-            EVerticalLayout innerLayout = new EVerticalLayout();
+            EditorVerticalLayout innerLayout = new EditorVerticalLayout();
             innerLayout.InnerSpace = 10;
             layout.Add(innerLayout);
 
             {
-                EHorizontalLayout hLayout = new EHorizontalLayout();
+                EditorHorizontalLayout hLayout = new EditorHorizontalLayout();
                 hLayout.InnerSpace = 10;
 
-                EPrefixLabel label = new EPrefixLabel();
+                EditorPrefixLabel label = new EditorPrefixLabel();
                 label.Text = "Asset Path :";
                 hLayout.Add(label);
 
@@ -82,10 +81,10 @@ namespace Assets.Editor.Tools.Packages
                 innerLayout.Add(hLayout);
             }
             {
-                EHorizontalLayout hLayout = new EHorizontalLayout();
+                EditorHorizontalLayout hLayout = new EditorHorizontalLayout();
                 hLayout.InnerSpace = 10;
 
-                EPrefixLabel label = new EPrefixLabel();
+                EditorPrefixLabel label = new EditorPrefixLabel();
                 label.Text = "Out Path :";
                 hLayout.Add(label);
 
@@ -100,7 +99,7 @@ namespace Assets.Editor.Tools.Packages
                 VerticalLayout vLayout = new VerticalLayout();
                 vLayout.InnerSpace = 10;
 
-                EIntPopup popup = new EIntPopup();
+                EditorIntPopup popup = new EditorIntPopup();
                 popup.Text = "Choose Platform :";
                 popup.Value = platformIndex;
                 popup.TriggerHandler = (Widget w) => 
@@ -110,12 +109,12 @@ namespace Assets.Editor.Tools.Packages
 
                 for (int i = 0; i < PlatformInfo.Count; i++)
                 {
-                    popup.Add(new EIntPopup.DisplayItem(PlatformInfo[i].name, PlatformInfo[i].index));
+                    popup.Add(new EditorIntPopup.DisplayItem(PlatformInfo[i].name, PlatformInfo[i].index));
                 }
                 
                 vLayout.Add(popup);
 
-                BButton button = new BButton();
+                GUIButton button = new GUIButton();
                 button.Text = "Pack";
                 button.TriggerHandler = (Widget w) =>
                 {

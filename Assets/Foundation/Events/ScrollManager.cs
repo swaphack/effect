@@ -55,14 +55,7 @@ namespace Assets.Foundation.Events
                 return;
             }
 
-            if (_behaviours.ContainsKey(behaviour.Target))
-            {
-                _behaviours[behaviour.Target] = behaviour;
-            }
-            else
-            {
-                _behaviours.Add(behaviour.Target, behaviour);
-            }
+            _behaviours[behaviour.Target] = behaviour;
         }
         /// <summary>
         /// 移除触摸处理
@@ -132,7 +125,7 @@ namespace Assets.Foundation.Events
                     var go = GetHitTarget(touch.position);
                     if (go != null)
                     {
-                        _touchInfos.Add(touch.fingerId, new TouchInfo(touch.fingerId, touch.position, go));
+                        _touchInfos[touch.fingerId] = new TouchInfo(touch.fingerId, touch.position, go);
                     }
                 }
             }

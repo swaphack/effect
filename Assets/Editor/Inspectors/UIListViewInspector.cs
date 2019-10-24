@@ -1,5 +1,4 @@
 ﻿
-using Assets.Editor.EGUI;
 using Assets.Editor.Widgets;
 using Assets.Foundation.UI;
 using System;
@@ -96,7 +95,7 @@ namespace Assets.Editor.Inspectors
             };
             layout.Add(direction);
 
-            BButton btn = new BButton();
+            GUIButton btn = new GUIButton();
             btn.Text = "Format";
             btn.TriggerHandler = (Widget w) =>
             {

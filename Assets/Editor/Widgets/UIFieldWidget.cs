@@ -1,5 +1,4 @@
-﻿using Assets.Editor.EGUI;
-using System;
+﻿using System;
 using System.Collections;
 using System.Reflection;
 
@@ -105,7 +104,7 @@ namespace Assets.Editor.Widgets
         {
             InnerSpace = 0;
 
-            BLabel label = new BLabel();
+            GUILabel label = new GUILabel();
             label.FontSize = 9;
             label.Text = Name;
             this.AddLabel(label);
@@ -149,7 +148,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EToggle toggle = new EToggle();
+            EditorToggle toggle = new EditorToggle();
             toggle.Value = GetValue<Boolean>();
             toggle.TriggerHandler = (Widget w) =>
             {
@@ -176,7 +175,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EIntField intField = new EIntField();
+            EditorIntField intField = new EditorIntField();
             intField.Value = this.GetValue<int>();
             intField.TriggerHandler = (Widget w) =>
             {
@@ -203,7 +202,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            ELongField longField = new ELongField();
+            EditorLongField longField = new EditorLongField();
             longField.Value = this.GetValue<long>();
             longField.TriggerHandler = (Widget w) =>
             {
@@ -230,7 +229,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EFloatField floatField = new EFloatField();
+            EditorFloatField floatField = new EditorFloatField();
             floatField.Value = this.GetValue<float>();
             floatField.TriggerHandler = (Widget w) =>
             {
@@ -257,7 +256,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EDoubleField doubleField = new EDoubleField();
+            EditorDoubleField doubleField = new EditorDoubleField();
             doubleField.Value = this.GetValue<double>();
             doubleField.TriggerHandler = (Widget w) =>
             {
@@ -283,7 +282,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            ELabelField labelField = new ELabelField();
+            EditorLabelField labelField = new EditorLabelField();
             labelField.Text = this.GetStringValue();
             labelField.TriggerHandler = (Widget w) =>
             {
@@ -309,7 +308,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            ETextField textField = new ETextField();
+            EditorTextField textField = new EditorTextField();
             textField.Text = this.GetStringValue();
             textField.TriggerHandler = (Widget w) =>
             {
@@ -336,7 +335,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            ETextArea textField = new ETextArea();
+            EditorTextArea textField = new EditorTextArea();
             textField.Text = this.GetStringValue();
             textField.TriggerHandler = (Widget w) =>
             {
@@ -403,7 +402,7 @@ namespace Assets.Editor.Widgets
 
             foreach (var item in keys)
             {
-                EVerticalLayout vl = new EVerticalLayout();
+                EditorVerticalLayout vl = new EditorVerticalLayout();
                 this.AddField(vl);
                 {
                     var field = UIWidgetHelper.CreateWidget("Key", item);
@@ -473,7 +472,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EEnumPopup popup = new EEnumPopup();
+            EditorEnumPopup popup = new EditorEnumPopup();
             popup.Value = this.GetValue<Enum>();
             popup.TriggerHandler = (Widget w) =>
             {
@@ -500,7 +499,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EVector2Field field = new EVector2Field();
+            EditorVector2Field field = new EditorVector2Field();
             field.Value = this.GetValue<UnityEngine.Vector2>();
             field.TriggerHandler = (Widget w) =>
             {
@@ -527,7 +526,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EVector3Field field = new EVector3Field();
+            EditorVector3Field field = new EditorVector3Field();
             field.Value = this.GetValue<UnityEngine.Vector3>();
             field.TriggerHandler = (Widget w) =>
             {
@@ -554,7 +553,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EVector4Field field = new EVector4Field();
+            EditorVector4Field field = new EditorVector4Field();
             field.Value = this.GetValue<UnityEngine.Vector4>();
             field.TriggerHandler = (Widget w) =>
             {
@@ -581,7 +580,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EBoundsField field = new EBoundsField();
+            EditorBoundsField field = new EditorBoundsField();
             field.Bounds = this.GetValue<UnityEngine.Bounds>();
             field.TriggerHandler = (Widget w) =>
             {
@@ -632,7 +631,7 @@ namespace Assets.Editor.Widgets
         {
         }
 
-        private EIntPopup _intPopup;
+        private EditorIntPopup _intPopup;
         protected override void BeginDraw()
         {
             base.BeginDraw();
@@ -642,7 +641,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EIntPopup intPopup = new EIntPopup();
+            EditorIntPopup intPopup = new EditorIntPopup();
             intPopup.Value = this.GetValue<int>();
             intPopup.TriggerHandler = (Widget w) =>
             {
@@ -695,7 +694,7 @@ namespace Assets.Editor.Widgets
         {
         }
 
-        private EIntSlider _intSlider;
+        private EditorIntSlider _intSlider;
         protected override void BeginDraw()
         {
             base.BeginDraw();
@@ -706,7 +705,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EIntSlider intSlider = new EIntSlider();
+            EditorIntSlider intSlider = new EditorIntSlider();
             
             intSlider.Value = this.GetValue<int>();
             intSlider.TriggerHandler = (Widget w) =>
@@ -736,7 +735,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EColorField colorField = new EColorField();
+            EditorColorField colorField = new EditorColorField();
             colorField.Color = GetValue<UnityEngine.Color>();
             colorField.TriggerHandler = (Widget w) =>
             {
@@ -763,7 +762,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EObjectField objectField = new EObjectField();
+            EditorObjectField objectField = new EditorObjectField();
             objectField.TargetType = typeof(UnityEngine.Material);
             objectField.Target = GetValue<UnityEngine.Material>();
             objectField.TriggerHandler = (Widget w) =>
@@ -791,7 +790,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EObjectField objectField = new EObjectField();
+            EditorObjectField objectField = new EditorObjectField();
             objectField.TargetType = typeof(UnityEngine.Texture);
             objectField.Target = GetValue<UnityEngine.Texture>();
             objectField.TriggerHandler = (Widget w) =>
@@ -819,7 +818,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EObjectField objectField = new EObjectField();
+            EditorObjectField objectField = new EditorObjectField();
             objectField.TargetType = typeof(UnityEngine.Sprite);
             objectField.Target = GetValue<UnityEngine.Sprite>();
             objectField.TriggerHandler = (Widget w) =>
@@ -847,7 +846,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EObjectField objectField = new EObjectField();
+            EditorObjectField objectField = new EditorObjectField();
             objectField.TargetType = typeof(UnityEngine.GameObject);
             objectField.Target = GetValue<UnityEngine.GameObject>();
             objectField.TriggerHandler = (Widget w) =>
@@ -875,7 +874,7 @@ namespace Assets.Editor.Widgets
 
         protected override void InitField()
         {
-            EObjectField objectField = new EObjectField();
+            EditorObjectField objectField = new EditorObjectField();
             objectField.TargetType = typeof(UnityEngine.Transform);
             objectField.Target = GetValue<UnityEngine.Transform>();
             objectField.TriggerHandler = (Widget w) =>

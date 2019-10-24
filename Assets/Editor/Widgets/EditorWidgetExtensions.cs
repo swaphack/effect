@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.EGUI
+namespace Assets.Editor.Widgets
 {
-    public class EBoundsField : Widget
+    public class EditorBoundsField : Widget
     {
         private Bounds _bounds;
 
@@ -21,7 +21,7 @@ namespace Assets.Editor.EGUI
             }
         }
 
-        public EBoundsField()
+        public EditorBoundsField()
         {
             _bounds = new Bounds();
         }
@@ -37,7 +37,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EColorField : Widget
+    public class EditorColorField : Widget
     {
         private Color _color;
 
@@ -53,7 +53,7 @@ namespace Assets.Editor.EGUI
             }
         }
 
-        public EColorField()
+        public EditorColorField()
         {
             _color = new Color();
         }
@@ -69,7 +69,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ECurveField : Widget
+    public class EditorCurveField : Widget
     {
         private AnimationCurve _animationCurve;
 
@@ -81,7 +81,7 @@ namespace Assets.Editor.EGUI
             }
         }
 
-        public ECurveField()
+        public EditorCurveField()
         {
             _animationCurve = new AnimationCurve();
         }
@@ -97,7 +97,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EDelayedDoubleField : Widget
+    public class EditorDelayedDoubleField : Widget
     {
         private double _value;
 
@@ -119,7 +119,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EDelayedFloatField : Widget
+    public class EditorDelayedFloatField : Widget
     {
         private float _value;
 
@@ -141,7 +141,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EDelayedIntField : Widget
+    public class EditorDelayedIntField : Widget
     {
         private int _value;
 
@@ -163,7 +163,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EDelayedTextField : Widget
+    public class EditorDelayedTextField : Widget
     {
 
         protected override void OnDraw()
@@ -177,7 +177,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EDoubleField : Widget
+    public class EditorDoubleField : Widget
     {
         private double _value;
 
@@ -199,7 +199,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EDropdownButton : Widget
+    public class EditorDropdownButton : Widget
     {
         private FocusType _value;
 
@@ -222,7 +222,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EEnumPopup : Widget
+    public class EditorEnumPopup : Widget
     {
         private Enum _value;
 
@@ -244,7 +244,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EFloatField : Widget
+    public class EditorFloatField : Widget
     {
         private float _value;
 
@@ -266,7 +266,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EFoldout : Widget
+    public class EditorFoldout : Widget
     {
         private bool _foldout;
 
@@ -297,7 +297,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EHelpBox : Widget
+    public class EditorHelpBox : Widget
     {
         private string _message;
         private MessageType _type;
@@ -322,7 +322,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EHorizontalLine : ERect
+    public class EditorHorizontalLine : EditorRect
     {
         /// <summary>
         /// 填充
@@ -349,7 +349,7 @@ namespace Assets.Editor.EGUI
             set { _thickness = value; }
         }
 
-        public EHorizontalLine()
+        public EditorHorizontalLine()
         {
             _padding = 0;
             _thickness = 1;
@@ -366,7 +366,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EInspectorTitlebar : Widget
+    public class EditorInspectorTitlebar : Widget
     {
 
         private bool _foldout;
@@ -407,7 +407,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EIntField : Widget
+    public class EditorIntField : Widget
     {
         private int _value;
         public int Value
@@ -428,7 +428,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EIntPopup : Widget
+    public class EditorIntPopup : Widget
     {
         public class DisplayItem
         {
@@ -462,7 +462,7 @@ namespace Assets.Editor.EGUI
             set { _value = value; }
         }
 
-        public EIntPopup()
+        public EditorIntPopup()
         {
             _displayItems = new List<DisplayItem>();
         }
@@ -552,7 +552,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EIntSlider : Widget
+    public class EditorIntSlider : Widget
     {
         /// <summary>
         /// 当前值
@@ -603,7 +603,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EKnob : Widget
+    public class EditorKnob : Widget
     {
         public Vector2 _knobSize;
         
@@ -681,7 +681,7 @@ namespace Assets.Editor.EGUI
     }
 
 
-    public class ELabelField : BText
+    public class EditorLabelField : GUIText
     {
         protected override void InitStyle()
         {
@@ -694,7 +694,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ELayerField : Widget
+    public class EditorLayerField : Widget
     {
         private int _value;
         public int Value
@@ -715,7 +715,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ELongField : Widget
+    public class EditorLongField : Widget
     {
         /// <summary>
         /// 当前选中项
@@ -742,7 +742,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EMaskField : Widget
+    public class EditorMaskField : Widget
     {
         /// <summary>
         /// 当前选中项
@@ -783,7 +783,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EMinMaxSlider : Widget
+    public class EditorMinMaxSlider : Widget
     {
         /// <summary>
         /// 最小限定值
@@ -842,7 +842,7 @@ namespace Assets.Editor.EGUI
     }
 
 
-    public class EObjectField : Widget
+    public class EditorObjectField : Widget
     {
         private UnityEngine.Object _target;
         private Type _targetType;
@@ -869,7 +869,7 @@ namespace Assets.Editor.EGUI
             set { _allowSceneObjects = value; }
         }
 
-        public EObjectField()
+        public EditorObjectField()
         {
             AllowSceneObjects = true;
         }
@@ -886,7 +886,7 @@ namespace Assets.Editor.EGUI
     }
 
 
-    public class EPasswordField : Widget
+    public class EditorPasswordField : Widget
     {
         private string _password;
 
@@ -909,7 +909,7 @@ namespace Assets.Editor.EGUI
     }
 
 
-    public class EPopup : Widget
+    public class EditorPopup : Widget
     {
         /// <summary>
         /// 当前选中项
@@ -949,9 +949,9 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class EPrefixLabel : Widget
+    public class EditorPrefixLabel : Widget
     {
-        public EPrefixLabel()
+        public EditorPrefixLabel()
         {
         }
 
@@ -965,7 +965,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 图片预览
     /// </summary>
-    public class EPreviewTexture : Widget
+    public class EditorPreviewTexture : Widget
     {
         private Rect _position;
         private Texture _image;
@@ -1004,7 +1004,7 @@ namespace Assets.Editor.EGUI
             set { _imageAspect = value; }
         }
 
-        public EPreviewTexture()
+        public EditorPreviewTexture()
         {
             ScaleMode = UnityEngine.ScaleMode.ScaleToFit;
         }
@@ -1015,7 +1015,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ETextureAlpha : Widget
+    public class EditorTextureAlpha : Widget
     {
         private Rect _position;
         private Texture _image;
@@ -1052,7 +1052,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ETextureTransparent : Widget
+    public class EditorTextureTransparent : Widget
     {
         private Rect _position;
         private Texture _image;
@@ -1090,7 +1090,7 @@ namespace Assets.Editor.EGUI
     }
 
 
-    public class EPropertyField : Widget
+    public class EditorPropertyField : Widget
     {
         private SerializedProperty _value;
         private bool _includeChildren;
@@ -1123,7 +1123,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 绘制矩形
     /// </summary>
-    public class ERect : Widget
+    public class EditorRect : Widget
     {
         /// <summary>
         /// 矩形位置和大小
@@ -1151,7 +1151,7 @@ namespace Assets.Editor.EGUI
             set { _rect = value; }
         }
 
-        public ERect()
+        public EditorRect()
         {
             _color = Color.gray;
             _rect = new Rect();
@@ -1163,7 +1163,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ERectField : Widget
+    public class EditorRectField : Widget
     {
         private Rect _value;
 
@@ -1185,18 +1185,12 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class ESelectableLabel : Widget
+    public class EditorSelectableLabel : Widget
     {
         protected override void OnDraw()
         {
             EditorGUILayout.SelectableLabel(Text, Option.Values);
         }
     }
-
-
-
-
-
-
 
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Editor.EGUI
+namespace Assets.Editor.Widgets
 {
     /// <summary>
     /// 控件接口

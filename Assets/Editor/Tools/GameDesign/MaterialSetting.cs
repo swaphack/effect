@@ -1,5 +1,4 @@
 ﻿using Assets.Editor.Widgets;
-using UnityEngine;
 
 namespace Assets.Editor.Tools.GameDesign
 {
@@ -7,6 +6,8 @@ namespace Assets.Editor.Tools.GameDesign
     {
         protected override void InitUI(UIWidget layout)
         {
+            EditorPreviewTexture texture = new EditorPreviewTexture();
+
         }
     }
 }

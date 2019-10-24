@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Editor.EGUI
+namespace Assets.Editor.Widgets
 {
     /// <summary>
     /// 布局

@@ -1,13 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Editor.EGUI
+namespace Assets.Editor.Widgets
 {
-
     /// <summary>
     /// 空白控件
     /// </summary>
-    public class BSpace : IWidget
+    public class GUISpace : IWidget
     {
         private float _pixels;
 
@@ -44,7 +43,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 自适应的空白控件
     /// </summary>
-    public class FlexibleSpace : IWidget
+    public class GUIFlexibleSpace : IWidget
     {
         public void Draw()
         {
@@ -70,7 +69,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 盒子
     /// </summary>
-    public class BBox : Widget
+    public class GUIBox : Widget
     {
         protected override void OnDraw()
         {
@@ -81,9 +80,9 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 按钮
     /// </summary>
-    public class BButton : Widget
+    public class GUIButton : Widget
     {
-        public BButton()
+        public GUIButton()
         {
             
         }
@@ -100,7 +99,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 文本
     /// </summary>
-    public abstract class BText : Widget
+    public abstract class GUIText : Widget
     {
         /// <summary>
         /// 最大字符长度
@@ -214,7 +213,7 @@ namespace Assets.Editor.EGUI
             get { return _fontSize; }
             set { _fontSize = value; }
         }
-        public BText()
+        public GUIText()
         {
             Alignment = TextAnchor.MiddleLeft;
             RichText = false;
@@ -243,7 +242,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 文本
     /// </summary>
-    public class BLabel : BText
+    public class GUILabel : GUIText
     {
         protected override void InitStyle()
         {
@@ -259,7 +258,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 密码输入框
     /// </summary>
-    public class BPasswordField : BText
+    public class GUIPasswordField : GUIText
     {
         /// <summary>
         /// 掩码
@@ -318,7 +317,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 文本区域
     /// </summary>
-    public class BTextArea : BText
+    public class GUITextArea : GUIText
     {
         /// <summary>
         /// 文本最大长度
@@ -349,7 +348,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class BTextField : BText
+    public class GUITextField : GUIText
     {
         /// <summary>
         /// 文本最大长度
@@ -383,7 +382,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 按住后会重复执行单击操作的按钮
     /// </summary>
-    public class BRepeatButton : BButton
+    public class GUIRepeatButton : GUIButton
     {
         protected override void OnDraw()
         {
@@ -397,7 +396,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 滑动条
     /// </summary>
-    public abstract class BScrollbar : Widget
+    public abstract class GUIScrollbar : Widget
     {
         /// <summary>
         /// 当前值
@@ -451,7 +450,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 水平滑动条
     /// </summary>
-    public class HorizontalScrollbar : BScrollbar
+    public class GUIHorizontalScrollbar : GUIScrollbar
     {
         protected override void OnDraw()
         {
@@ -467,7 +466,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 垂直滑动条
     /// </summary>
-    public class VerticalScrollbar : BScrollbar
+    public class GUIVerticalScrollbar : GUIScrollbar
     {
         protected override void OnDraw()
         {
@@ -483,7 +482,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 选中格子
     /// </summary>
-    public class BSelectionGrid : Widget
+    public class GUISelectionGrid : Widget
     {
         /// <summary>
         /// 选中索引
@@ -537,7 +536,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 滑杆条
     /// </summary>
-    public class BSlider : Widget
+    public class GUISlider : Widget
     {
         /// <summary>
         /// 当前值
@@ -586,7 +585,7 @@ namespace Assets.Editor.EGUI
             get { return _thumb; }
         }
 
-        public BSlider()
+        public GUISlider()
         {
             _thumb = new GUIStyle();
         }
@@ -595,7 +594,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 水平滑杆
     /// </summary>
-    public class HorizontalSlider : BSlider
+    public class GUIHorizontalSlider : GUISlider
     {
         protected override void OnDraw()
         {
@@ -611,7 +610,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 垂直滑杆
     /// </summary>
-    public class VerticalSlider : BSlider
+    public class GUIVerticalSlider : GUISlider
     {
         protected override void OnDraw()
         {
@@ -624,7 +623,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class BTexture : Widget
+    public class GUITexture : Widget
     {
         private Rect _position;
         private Texture _image;
@@ -667,7 +666,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    class BTextureWithTexCoords : Widget
+    public class GUITextureWithTexCoords : Widget
     {
         private Rect _position;
         private Texture _image;
@@ -705,7 +704,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class BToggle : Widget
+    public class GUIToggle : Widget
     {
         /// <summary>
         /// 是否选中
@@ -729,7 +728,7 @@ namespace Assets.Editor.EGUI
     }
 
 
-    public class BToolbar : Widget
+    public class GUIToolbar : Widget
     {
         /// <summary>
         /// 选中索引
@@ -769,7 +768,7 @@ namespace Assets.Editor.EGUI
     /// <summary>
     /// 窗口
     /// </summary>
-    public class BWindow : Widget
+    public class GUIWindow : Widget
     {
         /// <summary>
         /// 编号

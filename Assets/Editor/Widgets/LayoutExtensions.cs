@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Editor.EGUI
+namespace Assets.Editor.Widgets
 {
     /// <summary>
     /// 区域
@@ -35,7 +35,7 @@ namespace Assets.Editor.EGUI
         }
     }
 
-    public class BScrollView : Layout
+    public class GUIScrollView : Layout
     {
         /// <summary>
         /// 位置
@@ -75,16 +75,16 @@ namespace Assets.Editor.EGUI
             set { _alwaysShowVertical = value; }
         }
 
-        private GUIStyle HorizontalScrollbar
+        private GUIStyle GUIHorizontalScrollbar
         {
             get { return _horizontalScrollbar; }
         }
-        private GUIStyle VerticalScrollbar
+        private GUIStyle GUIVerticalScrollbar
         {
             get { return _verticalScrollbar; }
         }
 
-        public BScrollView()
+        public GUIScrollView()
         {
             _horizontalScrollbar = new GUIStyle();
             _verticalScrollbar = new GUIStyle();
@@ -92,7 +92,7 @@ namespace Assets.Editor.EGUI
 
         protected override void BeginDraw()
         {
-            Vector2 pos = GUILayout.BeginScrollView(ScrollPosition, AlwaysShowHorizontal, AlwaysShowVertical, HorizontalScrollbar, VerticalScrollbar, Option.Values);
+            Vector2 pos = GUILayout.BeginScrollView(ScrollPosition, AlwaysShowHorizontal, AlwaysShowVertical, GUIHorizontalScrollbar, GUIVerticalScrollbar, Option.Values);
             if (pos != ScrollPosition)
             {
                 ScrollPosition = pos;
