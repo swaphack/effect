@@ -16,5 +16,17 @@ namespace Assets.Editor.Tools.GameDesign
         {
             EditorWindow.GetWindow<GameObjectLayout>();
         }
+
+        [MenuItem("GameDesign/Material Setting")]
+        public static void ShowMaterialSetting()
+        {
+            EditorWindow.GetWindow<MaterialSetting>();
+        }
+
+        [MenuItem("GameDesign/Shader Setting")]
+        public static void ShowShaderSetting()
+        {
+            EditorWindow.GetWindow<ShaderSetting>();
+        }
     }
 }

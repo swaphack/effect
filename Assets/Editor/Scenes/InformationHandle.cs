@@ -1,12 +1,10 @@
 ﻿
-using Assets.Foundation.Scene;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Editor.Scenes
 {
-    [CustomEditor(typeof(InformationBehaviour))]
     public class InformationHandle : UnityEditor.Editor
     {
         private List<UnityEditor.Editor> _allEditors = new List<UnityEditor.Editor>();
@@ -22,10 +20,12 @@ namespace Assets.Editor.Scenes
             {
                 for (int i = 0; i < children.Length; i++)
                 {
+                    /*
                     if (children[i].GetType() != typeof(InformationBehaviour))
                     {
                         _allEditors.Add(UnityEditor.Editor.CreateEditor(children[i]));
                     }
+                    */
                 }
             }
         }

@@ -1,5 +1,5 @@
 ﻿using Assets.Foundation.DataAccess;
-using Assets.Foundation.Managers;
+using Assets.Foundation.Common;
 using System.Reflection;
 
 namespace Assets.Home.Logic

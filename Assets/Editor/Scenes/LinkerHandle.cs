@@ -1,11 +1,8 @@
 ﻿using Assets.Editor.Widgets;
-using Assets.Foundation.Scene;
-using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Editor.Scenes
 {
-    [CustomEditor(typeof(LinkBehaviour))]
     public class LinkerHandle : SceneHandle
     {
         private MonoBehaviour _behaviour;

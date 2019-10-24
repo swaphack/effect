@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Reflection;
+using UnityEngine;
 
 namespace Assets.Editor.Widgets
 {
@@ -32,7 +33,7 @@ namespace Assets.Editor.Widgets
             }
         }
 
-        public Object Value
+        public object Value
         {
             get
             {
@@ -62,12 +63,12 @@ namespace Assets.Editor.Widgets
             this.InitWidget();
         }
 
-        public UIFieldWidget(string name, Object value)
+        public UIFieldWidget(string name, object value)
             :this(new CommonRecord(name, value))
         { 
         }
 
-        public UIFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIFieldWidget(object target, FieldInfo fieldInfo)
             : this(new FieldRecord(target, fieldInfo))
         { 
         }
@@ -136,12 +137,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIBooleanFieldWidget : UIFieldWidget
     {
-        public UIBooleanFieldWidget(string name, Object value)
+        public UIBooleanFieldWidget(string name, object value)
             :base(name,  value)
         { 
         }
 
-        public UIBooleanFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIBooleanFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         { 
         }
@@ -163,12 +164,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIIntFieldWidget : UIFieldWidget
     {
-        public UIIntFieldWidget(string name, Object value)
+        public UIIntFieldWidget(string name, object value)
             :base(name,  value)
         { 
         }
 
-        public UIIntFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIIntFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         { 
         }
@@ -190,12 +191,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UILongFieldWidget : UIFieldWidget
     {
-        public UILongFieldWidget(string name, Object value)
+        public UILongFieldWidget(string name, object value)
             : base(name,  value)
         {
         }
 
-        public UILongFieldWidget(Object target, FieldInfo fieldInfo)
+        public UILongFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -217,12 +218,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIFloatFieldWidget : UIFieldWidget
     {
-        public UIFloatFieldWidget(string name, Object value)
+        public UIFloatFieldWidget(string name, object value)
             :base(name,  value)
         { 
         }
 
-        public UIFloatFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIFloatFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         { 
         }
@@ -244,12 +245,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIDoubleFieldWidget : UIFieldWidget
     {
-        public UIDoubleFieldWidget(string name, Object value)
+        public UIDoubleFieldWidget(string name, object value)
             :base(name,  value)
         { 
         }
 
-        public UIDoubleFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIDoubleFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         { 
         }
@@ -270,12 +271,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UILabelFieldWidget : UIFieldWidget
     {
-        public UILabelFieldWidget(string name, Object value)
+        public UILabelFieldWidget(string name, object value)
             : base(name,  value)
         {
         }
 
-        public UILabelFieldWidget(Object target, FieldInfo fieldInfo)
+        public UILabelFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -296,12 +297,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UITextFieldWidget : UIFieldWidget
     {
-        public UITextFieldWidget(string name, Object value)
+        public UITextFieldWidget(string name, object value)
             :base(name,  value)
         { 
         }
 
-        public UITextFieldWidget(Object target, FieldInfo fieldInfo)
+        public UITextFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         { 
         }
@@ -323,12 +324,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UITextAreaWidget : UIFieldWidget
     {
-        public UITextAreaWidget(string name, Object value)
+        public UITextAreaWidget(string name, object value)
             : base(name, value)
         {
         }
 
-        public UITextAreaWidget(Object target, FieldInfo fieldInfo)
+        public UITextAreaWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -350,13 +351,13 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIListFieldWidget : UIFieldWidget
     {
-        public UIListFieldWidget(string name, Object value)
+        public UIListFieldWidget(string name, object value)
             :base(name,  value)
         {
             Direction = LayoutDirection.Vertical;
         }
 
-        public UIListFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIListFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
             Direction = LayoutDirection.Vertical;
@@ -383,13 +384,13 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIDictionaryFieldWidget : UIFieldWidget
     {
-        public UIDictionaryFieldWidget(string name, Object value)
+        public UIDictionaryFieldWidget(string name, object value)
             :base(name,  value)
         {
             Direction = LayoutDirection.Vertical;
         }
 
-        public UIDictionaryFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIDictionaryFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
             Direction = LayoutDirection.Vertical;
@@ -427,13 +428,13 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIObjectFieldWidget : UIFieldWidget
     {
-        public UIObjectFieldWidget(string name, Object value)
+        public UIObjectFieldWidget(string name, object value)
             :base(name,  value)
         {
             Direction = LayoutDirection.Vertical;
         }
 
-        public UIObjectFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIObjectFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
             Direction = LayoutDirection.Vertical;
@@ -460,12 +461,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIEnumFieldWidget : UIFieldWidget
     {
-        public UIEnumFieldWidget(string name, Object value)
+        public UIEnumFieldWidget(string name, object value)
             :base(name,  value)
         {
         }
 
-        public UIEnumFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIEnumFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -487,12 +488,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIVector2FieldWidget : UIFieldWidget
     {
-        public UIVector2FieldWidget(string name, Object value)
+        public UIVector2FieldWidget(string name, object value)
             : base(name,  value)
         {
         }
 
-        public UIVector2FieldWidget(Object target, FieldInfo fieldInfo)
+        public UIVector2FieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -514,12 +515,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIVector3FieldWidget : UIFieldWidget
     {
-        public UIVector3FieldWidget(string name, Object value)
+        public UIVector3FieldWidget(string name, object value)
             : base(name,  value)
         {
         }
 
-        public UIVector3FieldWidget(Object target, FieldInfo fieldInfo)
+        public UIVector3FieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -541,12 +542,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIVector4FieldWidget : UIFieldWidget
     {
-        public UIVector4FieldWidget(string name, Object value)
+        public UIVector4FieldWidget(string name, object value)
             : base(name,  value)
         {
         }
 
-        public UIVector4FieldWidget(Object target, FieldInfo fieldInfo)
+        public UIVector4FieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -568,12 +569,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIBoundsFieldWidget : UIFieldWidget
     {
-        public UIBoundsFieldWidget(string name, Object value)
+        public UIBoundsFieldWidget(string name, object value)
             : base(name,  value)
         {
         }
 
-        public UIBoundsFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIBoundsFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -621,12 +622,12 @@ namespace Assets.Editor.Widgets
             set { _indexs = value; }
         }
 
-        public UIIntPopupFieldWidget(string name, Object value)
+        public UIIntPopupFieldWidget(string name, object value)
             : base(name, value)
         {
         }
 
-        public UIIntPopupFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIIntPopupFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -684,12 +685,12 @@ namespace Assets.Editor.Widgets
             set { _maxValue = value; }
         }
 
-        public UIIntSlideFieldWidget(string name, Object value)
+        public UIIntSlideFieldWidget(string name, object value)
             : base(name, value)
         {
         }
 
-        public UIIntSlideFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIIntSlideFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -723,12 +724,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIColorFieldWidget : UIFieldWidget
     {
-        public UIColorFieldWidget(string name, Object value)
+        public UIColorFieldWidget(string name, object value)
             : base(name, value)
         {
         }
 
-        public UIColorFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIColorFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -750,12 +751,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIMaterialFieldWidget : UIFieldWidget
     {
-        public UIMaterialFieldWidget(string name, Object value)
+        public UIMaterialFieldWidget(string name, object value)
             : base(name, value)
         {
         }
 
-        public UIMaterialFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIMaterialFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -774,16 +775,44 @@ namespace Assets.Editor.Widgets
     }
 
     /// <summary>
-    /// Texture控件
+    /// Shader控件
     /// </summary>
-    public class UITextureFieldWidget : UIFieldWidget
+    public class UIShaderFieldWidget : UIFieldWidget
     {
-        public UITextureFieldWidget(string name, Object value)
+        public UIShaderFieldWidget(string name, object value)
             : base(name, value)
         {
         }
 
-        public UITextureFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIShaderFieldWidget(object target, FieldInfo fieldInfo)
+            : base(target, fieldInfo)
+        {
+        }
+
+        protected override void InitField()
+        {
+            EditorObjectField objectField = new EditorObjectField();
+            objectField.TargetType = typeof(UnityEngine.Shader);
+            objectField.Target = GetValue<UnityEngine.Shader>();
+            objectField.TriggerHandler = (Widget w) =>
+            {
+                this.SetValue(objectField.Target);
+            };
+            this.AddField(objectField);
+        }
+    }
+
+    /// <summary>
+    /// Texture控件
+    /// </summary>
+    public class UITextureFieldWidget : UIFieldWidget
+    {
+        public UITextureFieldWidget(string name, object value)
+            : base(name, value)
+        {
+        }
+
+        public UITextureFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -806,12 +835,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UISpriteFieldWidget : UIFieldWidget
     {
-        public UISpriteFieldWidget(string name, Object value)
+        public UISpriteFieldWidget(string name, object value)
             : base(name, value)
         {
         }
 
-        public UISpriteFieldWidget(Object target, FieldInfo fieldInfo)
+        public UISpriteFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -830,16 +859,16 @@ namespace Assets.Editor.Widgets
     }
 
     /// <summary>
-    /// GameObject控件
+    /// Gameobject控件
     /// </summary>
-    public class UIGameObjectFieldWidget : UIFieldWidget
+    public class UIGameobjectFieldWidget : UIFieldWidget
     {
-        public UIGameObjectFieldWidget(string name, Object value)
+        public UIGameobjectFieldWidget(string name, object value)
             : base(name, value)
         {
         }
 
-        public UIGameObjectFieldWidget(Object target, FieldInfo fieldInfo)
+        public UIGameobjectFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }
@@ -862,12 +891,12 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UITransformFieldWidget : UIFieldWidget
     {
-        public UITransformFieldWidget(string name, Object value)
+        public UITransformFieldWidget(string name, object value)
             : base(name, value)
         {
         }
 
-        public UITransformFieldWidget(Object target, FieldInfo fieldInfo)
+        public UITransformFieldWidget(object target, FieldInfo fieldInfo)
             : base(target, fieldInfo)
         {
         }

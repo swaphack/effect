@@ -1,6 +1,8 @@
-﻿using Assets.Foundation.Managers;
+﻿using Assets.Foundation.Common;
+using Assets.Foundation.Net;
 using Assets.Foundation.Protocol;
 using Assets.Foundation.Tool;
+using Assets.SDK.Project;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,7 +43,7 @@ namespace Assets.Foundation.UI
             }
 
             var t = new T();
-            MessageManager.Instance.AddHand(t.ID, this.UnpackMessage);
+            Client.Instance.AddHand(t.ID, this.UnpackMessage);
             _handlers.Add(t.ID, callback);
             _types.Add(t.ID, t);
         }
@@ -81,13 +83,13 @@ namespace Assets.Foundation.UI
         /// </summary>
         public void RemoveAllMessageHands()
         {
-            if (!SingletonBehaviour.isValid<MessageManager>())
+            if (!SingletonBehaviour.isValid<Client>())
             {
                 return;
             }
             foreach (var item in _handlers)
             {
-                MessageManager.Instance.RemoveHand(item.Key, this.UnpackMessage);
+                Client.Instance.RemoveHand(item.Key, this.UnpackMessage);
             }
         }
     }

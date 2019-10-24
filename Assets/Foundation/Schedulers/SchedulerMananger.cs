@@ -1,4 +1,4 @@
-﻿using Assets.Foundation.Managers;
+﻿using Assets.Foundation.Common;
 using System.Collections.Generic;
 using UnityEngine;
 

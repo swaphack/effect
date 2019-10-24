@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Assets.Foundation.Managers;
+using Assets.Foundation.Common;
 using Assets.Foundation.DataAccess;
 using Assets.Foundation.Extensions;
 using Assets.App;

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Assets.Foundation.Managers;
+using Assets.Foundation.Common;
 
 #if UNITY_EDITOR
 using UnityEditor;

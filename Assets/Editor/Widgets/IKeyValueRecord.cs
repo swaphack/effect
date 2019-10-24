@@ -12,7 +12,7 @@ namespace Assets.Editor.Widgets
         /// <summary>
         /// 值
         /// </summary>
-        Object Value { get; set; }
+        object Value { get; set; }
 
     }
 
@@ -29,7 +29,7 @@ namespace Assets.Editor.Widgets
         /// <summary>
         /// 值
         /// </summary>
-        private Object _value;
+        private object _value;
 
         /// <summary>
         /// 名称
@@ -42,13 +42,13 @@ namespace Assets.Editor.Widgets
         /// <summary>
         /// 值
         /// </summary>
-        public Object Value
+        public object Value
         {
             get { return _value; }
             set { _value = value; }
         }
 
-        public CommonRecord(string name, Object value)
+        public CommonRecord(string name, object value)
         {
             _name = name;
             _value = value;

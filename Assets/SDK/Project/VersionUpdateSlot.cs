@@ -1,5 +1,5 @@
 ﻿using Assets.Foundation.DataAccess;
-using Assets.Foundation.Managers;
+using Assets.Foundation.Common;
 using Assets.Foundation.Tool;
 using System;
 using System.Collections;

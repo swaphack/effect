@@ -1,4 +1,5 @@
-﻿using Assets.Foundation.Managers;
+﻿using Assets.Foundation.Common;
+using Assets.Foundation.Net;
 using Assets.Foundation.Protocol;
 using System;
 using System.Collections;
@@ -16,23 +17,9 @@ namespace Assets.SDK.Project
             State = WorkState.Start;
 
             Client client = Client.Instance;
-            client.SetRemote(GameDetail.LoginServerAddress, GameDetail.LoginServerPort);
-
-            client.RecvBuffHand = (byte[] buff) =>
-            {
-                MessageManager.Instance.AddBuff(buff);
-            };
-            
-            client.ConnectCallback = (Client c) =>
-            {// 连接
-                client.StartRecv();
-            };
-            client.DisconnectCallback = (Client c) =>
-            {// 断开连接
-                client.EndRecv();
-            };
-
-            MessageManager.Instance.AddHand((int)GameServerMessage.MessageID.GAME_SEditorRVEditorR_DEditorTAIL, this.UppackMessage);
+            client.SetEndPoint(GameDetail.LoginServerAddress, GameDetail.LoginServerPort);
+            client.AddHand((int)GameServerMessage.MessageID.GAME_SEditorRVEditorR_DEditorTAIL, this.UppackMessage);
+            client.StartConnect();
 
             yield return null;
         }
@@ -56,8 +43,9 @@ namespace Assets.SDK.Project
         {
             State = WorkState.Update;
 
-            Client.Instance.Disconnect();
-            Client.Instance.Connect();
+            Client client = Client.Instance;
+            client.Disconnect();
+            client.StartConnect();
 
             yield return null;
         }

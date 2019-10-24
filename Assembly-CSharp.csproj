@@ -2,20 +2,18 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{F4CDAFEB-8CBA-AB5F-87BB-75E7D30EF762}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
@@ -81,6 +79,9 @@
     <Compile Include="Assets\Foundation\Actions\IAction.cs" />
     <Compile Include="Assets\Foundation\Actions\IActionBehaviour.cs" />
     <Compile Include="Assets\Foundation\Actions\Repeate.cs" />
+    <Compile Include="Assets\Foundation\Common\Singleton.cs" />
+    <Compile Include="Assets\Foundation\Common\SingletonBehaviour.cs" />
+    <Compile Include="Assets\Foundation\Common\SingletonCreator.cs" />
     <Compile Include="Assets\Foundation\Controller\DirectionController.cs" />
     <Compile Include="Assets\Foundation\Controller\ViewController.cs" />
     <Compile Include="Assets\Foundation\Controller\WalkController.cs" />
@@ -129,17 +130,19 @@
     <Compile Include="Assets\Foundation\Extensions\NodeExtensions.cs" />
     <Compile Include="Assets\Foundation\Extensions\UIExtensions.cs" />
     <Compile Include="Assets\Foundation\Fluid\Water.cs" />
-    <Compile Include="Assets\Foundation\Managers\EnumeratorManager.cs" />
-    <Compile Include="Assets\Foundation\Managers\Singleton.cs" />
-    <Compile Include="Assets\Foundation\Managers\SingletonBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Managers\SingletonCreator.cs" />
-    <Compile Include="Assets\Foundation\Protocol\Client.cs" />
+    <Compile Include="Assets\Foundation\Net\IProcess.cs" />
+    <Compile Include="Assets\Foundation\Net\Messages.cs" />
+    <Compile Include="Assets\Foundation\Net\NetBufferStream.cs" />
+    <Compile Include="Assets\Foundation\Net\NetClient.cs" />
+    <Compile Include="Assets\Foundation\Net\NetClientPool.cs" />
+    <Compile Include="Assets\Foundation\Net\NetDelegate.cs" />
+    <Compile Include="Assets\Foundation\Net\NetServer.cs" />
+    <Compile Include="Assets\Foundation\Net\NetSocket.cs" />
+    <Compile Include="Assets\Foundation\Net\RemoteAddress.cs" />
     <Compile Include="Assets\Foundation\Protocol\MessageHeader.cs" />
-    <Compile Include="Assets\Foundation\Protocol\MessageManager.cs" />
     <Compile Include="Assets\Foundation\Protocol\PacketReader.cs" />
     <Compile Include="Assets\Foundation\Protocol\PacketWriter.cs" />
-    <Compile Include="Assets\Foundation\Scene\InformationBehaviour.cs" />
-    <Compile Include="Assets\Foundation\Scene\LinkBehaviour.cs" />
+    <Compile Include="Assets\Foundation\Scene\EnumeratorManager.cs" />
     <Compile Include="Assets\Foundation\Schedulers\IScheduler.cs" />
     <Compile Include="Assets\Foundation\Schedulers\Scheduler.cs" />
     <Compile Include="Assets\Foundation\Schedulers\SchedulerLimit.cs" />
@@ -180,6 +183,7 @@
     <Compile Include="Assets\SDK\IOS\CSharpxIOS.cs" />
     <Compile Include="Assets\SDK\IOS\DeviceIOS.cs" />
     <Compile Include="Assets\SDK\Project\ABManifest.cs" />
+    <Compile Include="Assets\SDK\Project\Client.cs" />
     <Compile Include="Assets\SDK\Project\ConfigHelper.cs" />
     <Compile Include="Assets\SDK\Project\GameDetail.cs" />
     <Compile Include="Assets\SDK\Project\GameServerMessage.cs" />
@@ -189,6 +193,8 @@
     <Compile Include="Assets\SDK\Project\VersionCheckSlot.cs" />
     <Compile Include="Assets\SDK\Project\VersionUpdateSlot.cs" />
     <Compile Include="Assets\SDK\Project\Workflow.cs" />
+    <Compile Include="Assets\Server\GameSever.cs" />
+    <None Include="Assets\Shaders\ImageEffectShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/lingan/Projects/GitHub/effect/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

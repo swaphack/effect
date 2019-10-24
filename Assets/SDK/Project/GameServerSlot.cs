@@ -1,6 +1,7 @@
 ﻿using Assets.Foundation.Protocol;
 using System.Collections;
 using System;
+using Assets.Foundation.Net;
 
 namespace Assets.SDK.Project
 {
@@ -14,20 +15,7 @@ namespace Assets.SDK.Project
             State = WorkState.Start;
 
             Client client = Client.Instance;
-            client.SetRemote(GameDetail.GameServerAddress, GameDetail.GameServerPort);
-            client.RecvBuffHand = (byte[] buff) =>
-            {
-                MessageManager.Instance.AddBuff(buff);
-            };
-
-            client.ConnectCallback = (Client c) =>
-            {// 连接
-                client.StartRecv();
-            };
-            client.DisconnectCallback = (Client c) =>
-            {// 断开连接
-                client.EndRecv();
-            };
+            client.SetEndPoint(GameDetail.GameServerAddress, GameDetail.GameServerPort);
 
             yield return null;
         }
@@ -35,8 +23,11 @@ namespace Assets.SDK.Project
         public override IEnumerator DoEvent()
         {
             State = WorkState.Update;
-            Client.Instance.Disconnect();
-            Client.Instance.Connect();
+
+            Client client = Client.Instance;
+            
+            client.Disconnect();
+            client.StartConnect();
 
             yield return null;
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Networking;
-using Assets.Foundation.Managers;
+using Assets.Foundation.Common;
 
 namespace Assets.Foundation.DataAccess
 {

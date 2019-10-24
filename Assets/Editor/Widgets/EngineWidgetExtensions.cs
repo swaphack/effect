@@ -217,7 +217,7 @@ namespace Assets.Editor.Widgets
         {
             Alignment = TextAnchor.MiddleLeft;
             RichText = false;
-            Color = Color.white;
+            Color = Color.black;
             Clipping = UnityEngine.TextClipping.Overflow;
             FontSize = 14;
         }
@@ -793,7 +793,7 @@ namespace Assets.Editor.Widgets
         /// <summary>
         /// 位置
         /// </summary>
-        public Rect ClientRect
+        public Rect NetClientRect
         {
             get { return _clientRect; }
             set { _clientRect = value; }
@@ -809,10 +809,10 @@ namespace Assets.Editor.Widgets
 
         protected override void OnDraw()
         {
-            Rect rect = GUILayout.Window(ID, ClientRect, Func, Content, Option.Values);
-            if (rect != ClientRect)
+            Rect rect = GUILayout.Window(ID, NetClientRect, Func, Content, Option.Values);
+            if (rect != NetClientRect)
             {
-                ClientRect = rect;
+                NetClientRect = rect;
                 this.DipatchEvent();
             }
         }

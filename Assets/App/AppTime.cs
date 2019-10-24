@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Assets.Foundation.Managers;
+using Assets.Foundation.Common;
 
 namespace Assets.App
 {
