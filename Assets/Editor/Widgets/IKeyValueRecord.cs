@@ -67,12 +67,12 @@ namespace Assets.Editor.Widgets
         /// <summary>
         /// 对象
         /// </summary>
-        private Object _object;
+        private object _object;
 
         /// <summary>
         /// 值
         /// </summary>
-        public Object Value
+        public object Value
         {
             get { return _fieldInfo.GetValue(_object); }
             set { _fieldInfo.SetValue(_object, value); }
@@ -86,7 +86,7 @@ namespace Assets.Editor.Widgets
             get { return _fieldInfo.Name; }
         }
 
-        public FieldRecord(Object obj, FieldInfo fieldInfo)
+        public FieldRecord(object obj, FieldInfo fieldInfo)
         {
             _object = obj;
             _fieldInfo = fieldInfo;

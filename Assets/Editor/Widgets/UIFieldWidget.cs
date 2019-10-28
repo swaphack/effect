@@ -115,8 +115,9 @@ namespace Assets.Editor.Widgets
 
         protected void AddLabel(Widget w)
         {
-            w.Option.Width = 1;
-            w.Option.ExpandWidth = false;
+            w.Option.MinWidth = 50;
+            w.Option.MaxWidth = 150;
+            w.Option.ExpandWidth = true;
             this.Add(w);
         }
 
@@ -450,6 +451,11 @@ namespace Assets.Editor.Widgets
                 var field = UIWidgetHelper.CreateWidget(obj, item);
                 if (field != null)
                 {
+                    field.OnValueChanged = (object value) =>
+                    {
+                        item.SetValue(obj, value);
+                        Value = obj;
+                    };
                     this.AddField(field);
                 }
             }

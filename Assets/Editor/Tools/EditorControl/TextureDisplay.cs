@@ -1,4 +1,5 @@
-﻿using Assets.Editor.Widgets;
+﻿using Assets.Editor.DataAccess;
+using Assets.Editor.Widgets;
 using Assets.Foundation.UI;
 using UnityEditor;
 using UnityEngine;
@@ -131,7 +132,7 @@ namespace Assets.Editor.Tools.EditorControl
             };
             layout.Add(textField);
 
-            string[] allpath = WidgetUtility.GetFilePaths(WidgetUtility.EditorRoot, express);
+            string[] allpath = EditorAssets.GetFilePaths(EditorAssets.Root, express);
             layout.Add(CreateImagePreviewWidget(allpath));
         }
     }

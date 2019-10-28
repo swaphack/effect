@@ -34,6 +34,50 @@ namespace Assets.SDK.Project
             return (T)obj;
         }
 
+        /// <summary>
+        /// 从节点加载对象
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public static T LoadFromXmlDocument<T>(XmlDocument doc)
+        {
+            T t = default(T);
+            if (doc == null || doc.HasChildNodes == false)
+            {
+                return t;
+            }
+
+            var desc = doc.FirstChild;
+            if (desc == null)
+            {
+                return t;
+            }
+            var root = desc.NextSibling;
+            if (root == null)
+            {
+                return t;
+            }
+            return LoadFromXmlNode<T>(root.FirstChild);
+        }
+
+        public static void SaveToXmlFile<T>(T target, string filepath)
+        {
+            if (string.IsNullOrEmpty(filepath))
+            {
+                return;
+            }
+            
+            XmlDocument doc = new XmlDocument();
+            var version = doc.CreateXmlDeclaration("1.0", null, null);
+            doc.AppendChild(version);
+            var root = doc.CreateElement("root");
+            doc.AppendChild(root);
+            DXmlWriter writer = new DXmlWriter(root);
+            writer.Write(target.GetType().Name, target);
+            doc.Save(filepath);
+        }
+
 
         /// <summary>
         /// 从resources目录下读取文件，转成对象
@@ -46,12 +90,8 @@ namespace Assets.SDK.Project
             var asset = Resources.Load<TextAsset>(url);
             var doc = new XmlDocument();
             doc.LoadXml(asset.text);
-            var root = doc.FirstChild;
-            if (root == null)
-            {
-                return default(T);
-            }
-            return LoadFromXmlNode<T>(root.NextSibling);
+
+            return LoadFromXmlDocument<T>(doc);
         }
 
         /// <summary>
@@ -63,13 +103,7 @@ namespace Assets.SDK.Project
         public static T LoadFromXmlFile<T>(string fullpath)
         {
             var doc = XmlUtility.LoadFromFile(fullpath);
-            var root = doc.FirstChild;
-            if (root == null)
-            {
-                return default(T);
-            }
-
-            return LoadFromXmlNode<T>(root.NextSibling);
+            return LoadFromXmlDocument<T>(doc);
         }
 
         /// <summary>
@@ -82,12 +116,7 @@ namespace Assets.SDK.Project
         {
             var doc = new XmlDocument();
             doc.LoadXml(xml);
-            var root = doc.FirstChild;
-            if (root == null)
-            {
-                return default(T);
-            }
-            return LoadFromXmlNode<T>(root.NextSibling);
+            return LoadFromXmlDocument<T>(doc);
         }
 
         /// <summary>
@@ -99,13 +128,7 @@ namespace Assets.SDK.Project
         public static T LoadFromXmlBytes<T>(byte[] data)
         {
             var doc = XmlUtility.LoadFromBuff(data);
-            var root = doc.FirstChild;
-            if (root == null)
-            {
-                return default(T);
-            }
-
-            return LoadFromXmlNode<T>(root.NextSibling);
+            return LoadFromXmlDocument<T>(doc);
         }
     }
 }

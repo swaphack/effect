@@ -1,4 +1,5 @@
-﻿using Assets.Editor.Widgets;
+﻿using Assets.Editor.DataAccess;
+using Assets.Editor.Widgets;
 using Assets.Foundation.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -75,7 +76,7 @@ namespace Assets.Editor.Tools.Packages
 
                 bundleFolder.Text = "Open";
                 string bundles = FilePath.BundlesPath;
-                bundleFolder.Filepath = Path.Combine(WidgetUtility.EditorRoot, bundles).Replace("\\", "/");
+                bundleFolder.Filepath = Path.Combine(EditorAssets.Root, bundles).Replace("\\", "/");
                 hLayout.Add(bundleFolder);
 
                 innerLayout.Add(hLayout);
@@ -88,7 +89,7 @@ namespace Assets.Editor.Tools.Packages
                 label.Text = "Out Path :";
                 hLayout.Add(label);
 
-                outputFolder.Filepath = Path.Combine(WidgetUtility.EditorRoot, "Output").Replace("\\", "/");
+                outputFolder.Filepath = Path.Combine(EditorAssets.Root, "Output").Replace("\\", "/");
                 outputFolder.Text = "Open";
                 hLayout.Add(outputFolder);
 
@@ -135,7 +136,7 @@ namespace Assets.Editor.Tools.Packages
 
         private void SetBuildPath(ref AssetBundleBuild build, string output, string path, string name, BuildTarget target)
         {
-            string[] files = WidgetUtility.GetFilePaths(path, "*");
+            string[] files = EditorAssets.GetFilePaths(path, "*");
             build.assetBundleName = name + ".unity3d";
             build.assetNames = files;
         }

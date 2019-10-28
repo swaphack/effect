@@ -43,7 +43,7 @@ namespace Assets.Foundation.UI
             }
 
             var t = new T();
-            Client.Instance.AddHand(t.ID, this.UnpackMessage);
+            Client.Instance.AddMessageParse(t.ID, this.UnpackMessage);
             _handlers.Add(t.ID, callback);
             _types.Add(t.ID, t);
         }
@@ -89,7 +89,7 @@ namespace Assets.Foundation.UI
             }
             foreach (var item in _handlers)
             {
-                Client.Instance.RemoveHand(item.Key, this.UnpackMessage);
+                Client.Instance.RemoveMessageParse(item.Key, this.UnpackMessage);
             }
         }
     }

@@ -172,6 +172,10 @@ namespace Assets.Foundation.Data
             {
                 var field = listField[i];
                 var value = field.GetValue(obj);
+                if (value == null)
+                {
+                    value = DataHelper.Create(field.FieldType);
+                }
                 if (!writer.Write(field.Name, value))
                 {
                     return false;

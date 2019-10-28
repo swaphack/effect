@@ -12,14 +12,14 @@ namespace Assets.SDK.Project
     {
         private NetClient _client;
         
-        private Messages _messages;
+        private NetMessage _message;
 
         public Client()
         {
             _client = new NetClient();
-            _messages = new Messages();
+            _message = new NetMessage();
 
-            _client.BufferStream.OnBuffReceived = _messages.AddBuffer;
+            _client.BufferStream.OnBuffReceived = _message.AddBuffer;
             _client.OnStatusChanged = OnNetStatusChanged;
         }
 
@@ -31,7 +31,7 @@ namespace Assets.SDK.Project
         void Update()
         {
             _client.Process();
-            _messages.Process();
+            _message.Process();
         }
 
         public void StartConnect()
@@ -44,14 +44,14 @@ namespace Assets.SDK.Project
             _client.SetServerAddress(ip, port);
         }
 
-        public void AddHand(int msgID, NetMessageDelegate hand)
+        public void AddMessageParse(int msgID, NetMessageDelegate hand)
         {
-            _messages.AddHand(msgID, hand);
+            _message.AddMessageParse(msgID, hand);
         }
 
-        public void RemoveHand(int msgID, NetMessageDelegate hand)
+        public void RemoveMessageParse(int msgID, NetMessageDelegate hand)
         {
-            _messages.RemoveHand(msgID, hand);
+            _message.RemoveMessageParse(msgID, hand);
         }
 
         public void Disconnect()

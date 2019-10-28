@@ -8,32 +8,9 @@ using UnityEngine.Networking;
 namespace Assets.SDK.Project
 {
     /// <summary>
-    /// 游戏清单
-    /// </summary>
-    public struct GameMainConfig
-    {
-        /// <summary>
-        /// 游戏编号
-        /// </summary>
-        public long GameID;
-        /// <summary>
-        /// 主版本号
-        /// </summary>
-        public int MainVersion;
-        /// <summary>
-        /// 子版本号
-        /// </summary>
-        public int SubVersion;
-        /// <summary>
-        /// 官网地址
-        /// </summary>
-        public string HostUrl;
-    }
-
-    /// <summary>
     /// 版本检查
     /// </summary>
-    class VersionCheckSlot : WorkSlot
+    internal class VersionCheckSlot : WorkSlot
     {
         /// <summary>
         /// 存放在Resources目录下的路径
@@ -43,11 +20,11 @@ namespace Assets.SDK.Project
         /// <summary>
         /// 清单
         /// </summary>
-        private GameMainConfig _config;
+        private VersionDetail _config;
 
         public override IEnumerator Init(object data)
         {
-            _config = ConfigHelper.LoadFromXmlResource<GameMainConfig>(ConfigPath);
+            _config = ConfigHelper.LoadFromXmlResource<VersionDetail>(ConfigPath);
 
             GameDetail.GameID = _config.GameID;
             GameDetail.MainVersion = _config.MainVersion;
@@ -73,12 +50,8 @@ namespace Assets.SDK.Project
             fields.Remove("HostUrl");
             string url = _config.HostUrl;
             UnityWebRequest request = HttpUtility.DoGet(url, fields);
-            yield return request.Send();
-#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+            yield return request.SendWebRequest();
             if (request.isNetworkError)
-#else
-            if (request.isNetworkError)
-#endif
             {
                 Debug.LogError(request.error);
             }

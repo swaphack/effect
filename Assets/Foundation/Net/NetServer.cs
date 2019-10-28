@@ -15,6 +15,14 @@ namespace Assets.Foundation.Net
         /// </summary>
         private NetClientPool _clientPool;
 
+        public NetClientPool ClientPool
+        {
+            get
+            {
+                return _clientPool;
+            }
+        }
+
         public NetServer()
         {
             this.InitClientPool();

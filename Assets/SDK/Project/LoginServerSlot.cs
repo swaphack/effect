@@ -18,7 +18,7 @@ namespace Assets.SDK.Project
 
             Client client = Client.Instance;
             client.SetEndPoint(GameDetail.LoginServerAddress, GameDetail.LoginServerPort);
-            client.AddHand((int)GameServerMessage.MessageID.GAME_SEditorRVEditorR_DEditorTAIL, this.UppackMessage);
+            client.AddMessageParse((int)GameServerMessage.MessageID.GAME_SEditorRVEditorR_DEditorTAIL, this.UppackMessage);
             client.StartConnect();
 
             yield return null;

@@ -8,6 +8,19 @@ namespace Assets.Foundation.Net
     {
         private HashSet<NetClient> _clients = new HashSet<NetClient>();
         private Socket _socket;
+        private NetClientDelegate _clientStatusChanged;
+
+        public NetClientDelegate OnClientStatusChanged
+        {
+            get
+            {
+                return _clientStatusChanged;
+            }
+            set
+            {
+                _clientStatusChanged = value;
+            }
+        }
 
         public NetClientPool(Socket s)
         {
@@ -34,6 +47,11 @@ namespace Assets.Foundation.Net
                 return;
             }
 
+            if (OnClientStatusChanged != null)
+            {
+                OnClientStatusChanged(client);
+            }
+
             _clients.Add(client);
         }
 
@@ -46,6 +64,11 @@ namespace Assets.Foundation.Net
             if (client == null)
             {
                 return;
+            }
+
+            if (OnClientStatusChanged != null)
+            {
+                OnClientStatusChanged(client);
             }
 
             _clients.Remove(client);

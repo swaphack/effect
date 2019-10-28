@@ -18,120 +18,137 @@ namespace Assets.Editor.Widgets
         {
             var type = value.GetType();
             TypeCode code = Type.GetTypeCode(type);
+            UIFieldWidget widget = null;
             switch (code)
             {
                 case TypeCode.Boolean:
-                    return new UIBooleanFieldWidget(name, value);
+                    widget = new UIBooleanFieldWidget(name, value); break;
                 case TypeCode.Char:
-                    return new UITextFieldWidget(name, value);
+                    widget = new UITextFieldWidget(name, value); break;
                 case TypeCode.SByte:
                 case TypeCode.Byte:
                 case TypeCode.Int16:
                 case TypeCode.UInt16:
                 case TypeCode.Int32:
                 case TypeCode.UInt32:
-                    return new UIIntFieldWidget(name, value);
+                    widget = new UIIntFieldWidget(name, value); break;
                 case TypeCode.Int64:
                 case TypeCode.UInt64:
-                    return new UILongFieldWidget(name, value);
+                    widget = new UILongFieldWidget(name, value); break;
                 case TypeCode.Single:
-                    return new UIFloatFieldWidget(name, value);
+                    widget = new UIFloatFieldWidget(name, value); break;
                 case TypeCode.Double:
-                    return new UIDoubleFieldWidget(name, value);
+                    widget = new UIDoubleFieldWidget(name, value); break;
                 case TypeCode.String:
-                    return new UITextFieldWidget(name, value);
+                    widget = new UITextFieldWidget(name, value); break;
                 case TypeCode.Object:
                     if (type.IsGenericType)
                     {
                         if (typeof(List<>) == type.GetGenericTypeDefinition())
                         {
-                            return new UIListFieldWidget(name, value);
+                            widget = new UIListFieldWidget(name, value);
                         }
                         else if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
                         {
-                            return new UIDictionaryFieldWidget(name, value);
+                            widget = new UIDictionaryFieldWidget(name, value);
                         }
                     }
                     else
                     {
                         if (type == typeof(Enum))
                         {
-                            return new UIEnumFieldWidget(name, value);
+                            widget = new UIEnumFieldWidget(name, value);
                         }
                         else if (type == typeof(UnityEngine.Vector2))
                         {
-                            return new UIVector2FieldWidget(name, value);
+                            widget = new UIVector2FieldWidget(name, value);
                         }
                         else if (type == typeof(UnityEngine.Vector3))
                         {
-                            return new UIVector3FieldWidget(name, value);
+                            widget = new UIVector3FieldWidget(name, value);
                         }
                         else if (type == typeof(UnityEngine.Vector4))
                         {
-                            return new UIVector4FieldWidget(name, value);
+                            widget = new UIVector4FieldWidget(name, value);
                         }
                         else if (type == typeof(UnityEngine.Bounds))
                         {
-                            return new UIBoundsFieldWidget(name, value);
+                            widget = new UIBoundsFieldWidget(name, value);
                         }
                         else
                         {
-                            return new UIObjectFieldWidget(name, value);
+                            widget = new UIObjectFieldWidget(name, value);
                         }
                     }
                     break;
                 default:
                     break;
             }
-            return null;
+            if (widget != null)
+            {
+                widget.OnValueChanged = (object val) =>
+                {
+                    value = val;
+                };
+            }
+            return widget;
         }
 
-        public static UIFieldWidget CreateWidget(Object target, FieldInfo fieldInfo)
+        public static UIFieldWidget CreateWidget(object target, FieldInfo fieldInfo)
         {
             var type = fieldInfo.FieldType;
             TypeCode code = Type.GetTypeCode(type);
+            UIFieldWidget widget = null;
             switch (code)
             {
                 case TypeCode.Boolean:
-                    return new UIBooleanFieldWidget(target, fieldInfo);
+                    widget = new UIBooleanFieldWidget(target, fieldInfo);break;
                 case TypeCode.Char:
-                    return new UITextFieldWidget(target, fieldInfo);
+                    widget = new UITextFieldWidget(target, fieldInfo); break;
                 case TypeCode.SByte:
                 case TypeCode.Byte:
                 case TypeCode.Int16:
                 case TypeCode.UInt16:
                 case TypeCode.Int32:
                 case TypeCode.UInt32:
-                    return new UIIntFieldWidget(target, fieldInfo);
+                    widget = new UIIntFieldWidget(target, fieldInfo); break;
                 case TypeCode.Int64:
                 case TypeCode.UInt64:
+                    widget = new UILongFieldWidget(target, fieldInfo); break;
                 case TypeCode.Single:
-                    return new UIFloatFieldWidget(target, fieldInfo);
+                    widget = new UIFloatFieldWidget(target, fieldInfo); break;
                 case TypeCode.Double:
-                    return new UIDoubleFieldWidget(target, fieldInfo);
+                    widget = new UIDoubleFieldWidget(target, fieldInfo); break;
                 case TypeCode.String:
-                    return new UITextFieldWidget(target, fieldInfo);
+                    widget = new UITextFieldWidget(target, fieldInfo); break;
                 case TypeCode.Object:
                     if (type.IsGenericType)
                     {
                         if (typeof(List<>) == type.GetGenericTypeDefinition())
                         {
-                            return new UIListFieldWidget(target, fieldInfo);
+                            widget = new UIListFieldWidget(target, fieldInfo);
                         }
                         else if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
                         {
-                            return new UIDictionaryFieldWidget(target, fieldInfo);
+                            widget = new UIDictionaryFieldWidget(target, fieldInfo);
                         }
                     }
                     else
                     {
-                        return new UIObjectFieldWidget(target, fieldInfo);
+                        widget = new UIObjectFieldWidget(target, fieldInfo);
                     }
                     break;
                 default:
                     break;
             }
-            return null;
+            if (widget != null)
+            {
+                widget.OnValueChanged = (object value) =>
+                {
+                    fieldInfo.SetValue(target, value);
+                };
+            }
+            return widget;
         }
     }
 }

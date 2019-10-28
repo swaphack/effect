@@ -4,8 +4,6 @@ using System.Net.Sockets;
 
 namespace Assets.Foundation.Net
 {
-    public delegate void NetStatusDelegate(NetSocket client);
-
     public class NetSocket
     {
         /// <summary>
@@ -117,6 +115,11 @@ namespace Assets.Foundation.Net
             }, this);
         }
 
+        public void ShutDown()
+        {
+            _socket.Shutdown(SocketShutdown.Both);
+        }
+
         public void Close()
         {
             _socket.Close();
@@ -124,7 +127,9 @@ namespace Assets.Foundation.Net
 
         public void Bind()
         {
-            EndPoint endPoint = new DnsEndPoint(_serverAddress.IP, _serverAddress.Port);
+            IPAddress ipAddress = IPAddress.Parse(_serverAddress.IP);
+
+            IPEndPoint endPoint = new IPEndPoint(ipAddress, _serverAddress.Port);
 
             _socket.Bind(endPoint);
         }

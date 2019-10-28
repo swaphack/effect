@@ -81,6 +81,10 @@
     <Compile Include="Assets\Editor\Tools\EditorControl\EditorStyleViewer.cs" />
     <Compile Include="Assets\Editor\Tools\EditorControl\TextureDisplay.cs" />
     <Compile Include="Assets\Editor\Tools\EffectExtensions.cs" />
+    <Compile Include="Assets\Editor\Tools\GameDeploy\GameDeployMenu.cs" />
+    <Compile Include="Assets\Editor\Tools\GameDeploy\GameServer.cs" />
+    <Compile Include="Assets\Editor\Tools\GameDeploy\TestServer.cs" />
+    <Compile Include="Assets\Editor\Tools\GameDeploy\VersionSetting.cs" />
     <Compile Include="Assets\Editor\Tools\GameDesign\GameDesignMenu.cs" />
     <Compile Include="Assets\Editor\Tools\GameDesign\GameObjectCreator.cs" />
     <Compile Include="Assets\Editor\Tools\GameDesign\GameObjectLayout.cs" />
@@ -89,7 +93,6 @@
     <Compile Include="Assets\Editor\Tools\Packages\AssetPack.cs" />
     <Compile Include="Assets\Editor\Tools\Packages\ImageSetting.cs" />
     <Compile Include="Assets\Editor\Tools\Packages\PackageMenu.cs" />
-    <Compile Include="Assets\Editor\Tools\Server\GameSever.cs" />
     <Compile Include="Assets\Editor\Tools\UIExtensions.cs" />
     <Compile Include="Assets\Editor\UIDesign\DesignWindow.cs" />
     <Compile Include="Assets\Editor\UIDesign\UDImage.cs" />
@@ -97,7 +100,6 @@
     <Compile Include="Assets\Editor\Widgets\EditorLayoutExtensions.cs" />
     <Compile Include="Assets\Editor\Widgets\EditorWidgetExtensions.cs" />
     <Compile Include="Assets\Editor\Widgets\EngineWidgetExtensions.cs" />
-    <Compile Include="Assets\Editor\Widgets\EngineWidgetUtility.cs" />
     <Compile Include="Assets\Editor\Widgets\IKeyValueRecord.cs" />
     <Compile Include="Assets\Editor\Widgets\IWidget.cs" />
     <Compile Include="Assets\Editor\Widgets\Layout.cs" />

@@ -38,17 +38,17 @@ namespace Assets.Foundation.Net
         /// <summary>
         /// 接收数据处理
         /// </summary>
-        private NetBufferDelegate _buffReceivedFunc;
+        private NetBufferDelegate _buffReceived;
 
         public NetBufferDelegate OnBuffReceived
         {
             get
             {
-                return _buffReceivedFunc;
+                return _buffReceived;
             }
             set
             {
-                _buffReceivedFunc = value;
+                _buffReceived = value;
             }
         }
 

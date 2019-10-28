@@ -131,11 +131,12 @@
     <Compile Include="Assets\Foundation\Extensions\UIExtensions.cs" />
     <Compile Include="Assets\Foundation\Fluid\Water.cs" />
     <Compile Include="Assets\Foundation\Net\IProcess.cs" />
-    <Compile Include="Assets\Foundation\Net\Messages.cs" />
     <Compile Include="Assets\Foundation\Net\NetBufferStream.cs" />
     <Compile Include="Assets\Foundation\Net\NetClient.cs" />
     <Compile Include="Assets\Foundation\Net\NetClientPool.cs" />
     <Compile Include="Assets\Foundation\Net\NetDelegate.cs" />
+    <Compile Include="Assets\Foundation\Net\NetMessage.cs" />
+    <Compile Include="Assets\Foundation\Net\NetMultiMessage.cs" />
     <Compile Include="Assets\Foundation\Net\NetServer.cs" />
     <Compile Include="Assets\Foundation\Net\NetSocket.cs" />
     <Compile Include="Assets\Foundation\Net\RemoteAddress.cs" />
@@ -190,9 +191,12 @@
     <Compile Include="Assets\SDK\Project\GameServerSlot.cs" />
     <Compile Include="Assets\SDK\Project\GameWorkflow.cs" />
     <Compile Include="Assets\SDK\Project\LoginServerSlot.cs" />
+    <Compile Include="Assets\SDK\Project\UpdateDetail.cs" />
     <Compile Include="Assets\SDK\Project\VersionCheckSlot.cs" />
+    <Compile Include="Assets\SDK\Project\VersionDetail.cs" />
     <Compile Include="Assets\SDK\Project\VersionUpdateSlot.cs" />
     <Compile Include="Assets\SDK\Project\Workflow.cs" />
+    <None Include="Assets\Resources\App\VersionDetail.xml" />
     <None Include="Assets\Shaders\ImageEffectShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/lingan/Projects/GitHub/effect/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

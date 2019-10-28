@@ -54,7 +54,8 @@ namespace Assets.Editor.Inspectors
 
         protected virtual void InitUI(UIWidget layout)
         {
-            var widget = UIWidgetHelper.CreateWidget(target.GetType().Name, target);
+            object t = target;
+            var widget = UIWidgetHelper.CreateWidget(target.GetType().Name, t);
             if (widget != null)
             {
                 layout.Add(widget);
