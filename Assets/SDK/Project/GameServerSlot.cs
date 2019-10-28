@@ -10,32 +10,22 @@ namespace Assets.SDK.Project
     /// </summary>
     class GameServerSlot : WorkSlot
     {
-        public override IEnumerator Init(Object data)
+        public override void Init()
         {
-            State = WorkState.Start;
-
             Client client = Client.Instance;
             client.SetEndPoint(GameDetail.GameServerAddress, GameDetail.GameServerPort);
-
-            yield return null;
         }
 
-        public override IEnumerator DoEvent()
+        public override void DoEvent()
         {
-            State = WorkState.Update;
-
             Client client = Client.Instance;
             
             client.Disconnect();
             client.StartConnect();
-
-            yield return null;
         }
 
-        public override IEnumerator Finish()
+        public override void Finish()
         {
-            State = WorkState.End;
-            yield return null;
         }
     }
 }

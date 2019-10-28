@@ -1,4 +1,4 @@
-﻿using Assets.Editor.Tools.EditorControl;
+﻿using Assets.Editor.GameEditor;
 using UnityEditor;
 
 namespace Assets.Editor.Tools
@@ -8,7 +8,7 @@ namespace Assets.Editor.Tools
         [MenuItem("CONTEXT/Image/SelectTexture")]
         private static void SelectTexture()
         {
-            EditorWindow.GetWindow<TextureDisplay>();
+            EditorWindow.GetWindow<TextureSelectWindow>();
         }
     }
 }

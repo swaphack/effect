@@ -178,12 +178,12 @@ namespace Assets.Foundation.DataAccess
         }
          * */
 
-        void LoadAssetBundle()
+        private void LoadAssetBundle()
         {
             string configPath = FilePath.GetBundleManifestPath();
 
             WWW www = new WWW(configPath);
-            while (!www.isDone) { };
+            while (!www.isDone) { }
             if (!string.IsNullOrEmpty(www.error))
             {
                 return;

@@ -12,16 +12,12 @@ namespace Assets.SDK.Project
     /// </summary>
     class LoginServerSlot : WorkSlot
     {
-        public override IEnumerator Init(Object data)
+        public override void Init()
         {
-            State = WorkState.Start;
-
             Client client = Client.Instance;
             client.SetEndPoint(GameDetail.LoginServerAddress, GameDetail.LoginServerPort);
-            client.AddMessageParse((int)GameServerMessage.MessageID.GAME_SEditorRVEditorR_DEditorTAIL, this.UppackMessage);
+            client.AddMessageParse((int)GameServerMessage.MessageID.GAME_SERVER_MESSAGE_INFO, this.UppackMessage);
             client.StartConnect();
-
-            yield return null;
         }
 
         private void UppackMessage(byte[] data)
@@ -39,20 +35,17 @@ namespace Assets.SDK.Project
             State = WorkState.End;
         }
 
-        public override IEnumerator DoEvent()
+        public override void DoEvent()
         {
             State = WorkState.Update;
 
             Client client = Client.Instance;
             client.Disconnect();
             client.StartConnect();
-
-            yield return null;
         }
 
-        public override IEnumerator Finish()
+        public override void Finish()
         {
-            yield return null;
         }
     }
 }

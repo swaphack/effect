@@ -1,4 +1,5 @@
-﻿using Assets.Foundation.Tool;
+﻿using Assets.Foundation.Common;
+using Assets.Foundation.Tool;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,56 +16,66 @@ namespace Assets.SDK.Project
         /// <summary>
         /// 存放在Resources目录下的路径
         /// </summary>
-        public const string ConfigPath = "Config/GameMainConfig";
+        private string _configPath;
 
         /// <summary>
         /// 清单
         /// </summary>
         private VersionDetail _config;
 
-        public override IEnumerator Init(object data)
+        public VersionCheckSlot()
         {
-            _config = ConfigHelper.LoadFromXmlResource<VersionDetail>(ConfigPath);
+            _configPath = string.Format("App/{0}", _config.GetType().Name);
+        }
+
+        public override void Init()
+        {
+            _config = ConfigHelper.LoadFromXmlResource<VersionDetail>(_configPath);
 
             GameDetail.GameID = _config.GameID;
             GameDetail.MainVersion = _config.MainVersion;
             GameDetail.SubVersion = _config.SubVersion;
-
-            State = WorkState.Start;
-            yield return null;
+            this.MoveNext();
         }
 
         /// <summary>
         /// 检查版本
         /// </summary>
         /// <returns></returns>
-        public override IEnumerator DoEvent()
+        public override void DoEvent()
         {
-            State = WorkState.Update;
             Dictionary<string, string> fields = new Dictionary<string, string>();
+            /*
             var fieldInfos = _config.GetType().GetFields();
             foreach (var item in fieldInfos)
             {
                 fields.Add(item.Name, Convert.ToString(item.GetValue(_config)));
             }
             fields.Remove("HostUrl");
+            */
             string url = _config.HostUrl;
+            EnumeratorManager.Instance.Add(this.Download(url, null));
+        }
+
+        private IEnumerator Download(string url, Dictionary<string, string> fields)
+        {
             UnityWebRequest request = HttpUtility.DoGet(url, fields);
             yield return request.SendWebRequest();
             if (request.isNetworkError)
             {
                 Debug.LogError(request.error);
+                this.MoveNext();
             }
             else if (request.isDone)
             {
                 Data = request.downloadHandler.text;
-                State = WorkState.End;
+                this.MoveNext();
             }
         }
 
-        public override IEnumerator Finish()
+        public override void Finish()
         {
-            yield return null;
+            this.MoveNext();
         }
     }
 }

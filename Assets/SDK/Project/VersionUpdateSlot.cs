@@ -14,42 +14,45 @@ namespace Assets.SDK.Project
         /// <summary>
         /// 存放在Resources目录下的路径
         /// </summary>
-        public const string ConfigPath = "Config/GameUpdateConfig";
+        private string _configPath;
 
         private UpdateDetail _config;
 
         private string _tempUrl;
         private string _bundleUrl;
-        public override IEnumerator Init(object data)
-        {
-            State = WorkState.Start;
 
-            _config = ConfigHelper.LoadFromXmlText<UpdateDetail>((string)data);
+        public VersionUpdateSlot()
+        {
+            _configPath = string.Format("{0}/App/{1}.xml", FilePath.PersistentDataPath, _config.GetType().Name);
+        }
+
+        public override void Init()
+        {
+            _config = ConfigHelper.LoadFromXmlText<UpdateDetail>((string)Data);
 
             GameDetail.LoginServerAddress = _config.ServerAddress;
             GameDetail.LoginServerPort = _config.ServerPort;
 
-            var localConfig = ConfigHelper.LoadFromXmlFile<UpdateDetail>(ConfigPath);
+            var localConfig = ConfigHelper.LoadFromXmlFile<UpdateDetail>(_configPath);
             if (localConfig.MainVersion == _config.MainVersion && localConfig.SubVersion == _config.SubVersion)
             {
-                State = WorkState.End;
-                yield return null;
+                this.MoveTo(WorkState.End);
+                return;
             }
 
             _tempUrl = Path.Combine(FilePath.TemporaryCachePath, string.Format("{0}-{1}.zip", _config.MainVersion, _config.SubVersion));
             _bundleUrl = Path.Combine(FilePath.PersistentDataPath, FilePath.BundlesPath);
 
-            
-            yield return null;
+            Debug.Log(_tempUrl);
+            Debug.Log(_bundleUrl);
+
+            this.MoveNext();
         }
 
-        public override IEnumerator DoEvent()
+        public override void DoEvent()
         {
-            State = WorkState.Update;
-
             string url = _config.AssetBundleUrl;
             DownloadManager.Instance.AddTask(url, _tempUrl, this.OnDownloading);
-            yield return null;
         }
 
         private void OnDownloading(string error, string url, float progress)
@@ -57,21 +60,23 @@ namespace Assets.SDK.Project
             if (!string.IsNullOrEmpty(error))
             {
                 Debug.LogError(error);
-                State = WorkState.End;
+                this.MoveNext();
                 return;
             }
+            Debug.LogFormat("Downloading percent {0}", progress * 100);
+
             if (progress == 1)
             {
                 SingletonBehaviour.GetInstance<ZipResource>().AddTask(new ZipResource.LoadTask(_tempUrl, _bundleUrl, (IFileItem item) =>
                 {
-                    State = WorkState.End;
+                    this.MoveNext();
                 }));
             }           
         }
 
-        public override IEnumerator Finish()
+        public override void Finish()
         {
-            yield return null;
+            this.MoveNext();
         }
     }
 }

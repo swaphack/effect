@@ -8,12 +8,6 @@ namespace Assets.Editor.UIDesign
     /// </summary>
     public class DesignWindow : UIWindow
     {
-        [MenuItem("UIDesign/DesignWindow")]
-        private static void ShowUIDesign()
-        {
-            EditorWindow.GetWindow<DesignWindow>();
-        }
-
         protected override void InitUI(UIWidget layout)
         {
 

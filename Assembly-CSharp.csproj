@@ -79,6 +79,8 @@
     <Compile Include="Assets\Foundation\Actions\IAction.cs" />
     <Compile Include="Assets\Foundation\Actions\IActionBehaviour.cs" />
     <Compile Include="Assets\Foundation\Actions\Repeate.cs" />
+    <Compile Include="Assets\Foundation\Common\FileLogHandler.cs" />
+    <Compile Include="Assets\Foundation\Common\LogHandlers.cs" />
     <Compile Include="Assets\Foundation\Common\Singleton.cs" />
     <Compile Include="Assets\Foundation\Common\SingletonBehaviour.cs" />
     <Compile Include="Assets\Foundation\Common\SingletonCreator.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="Assets\SDK\Project\Workflow.cs" />
     <None Include="Assets\Resources\App\VersionDetail.xml" />
     <None Include="Assets\Shaders\ImageEffectShader.shader" />
+    <None Include="Assets\Resources\App\UpdateDetail.xml" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/lingan/Projects/GitHub/effect/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

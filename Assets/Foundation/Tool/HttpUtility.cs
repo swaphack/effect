@@ -26,6 +26,10 @@ namespace Assets.Foundation.Tool
         }
         public static UnityWebRequest DoPost(string url, Dictionary<string, string> formFields)
         {
+            if (formFields == null || formFields.Count == 0)
+            {
+                return UnityWebRequest.Post(url, "");
+            }
             Dictionary<string, string> newFields = new Dictionary<string, string>();
             foreach (var item in formFields)
             {
@@ -37,6 +41,11 @@ namespace Assets.Foundation.Tool
 
         public static UnityWebRequest DoGet(string url, Dictionary<string, string> formFields)
         {
+            if (formFields == null || formFields.Count == 0)
+            {
+                return UnityWebRequest.Get(url);
+            }
+
             string values = "";
             foreach(var item in formFields)
             {

@@ -44,6 +44,10 @@ namespace Assets.Foundation.DataAccess
         {
             get
             {
+                if (_stream == null)
+                {
+                    return 0;
+                }
                 return Stream.Length;
             }
         }
@@ -55,7 +59,11 @@ namespace Assets.Foundation.DataAccess
         {
             get
             {
-                return Stream.Position;
+                if (_stream == null)
+                {
+                    return 0;
+                }
+                return _stream.Position;
             }
         }
 
@@ -117,32 +125,68 @@ namespace Assets.Foundation.DataAccess
         /// <param name="length"></param>
         public void Append(byte[] data, long offset, long length)
         {
+            if (_stream == null)
+            {
+                return;
+            }
             if (data == null || data.Length == 0)
             {
                 return;
             }
 
-            Stream.Write(data, (int)offset, (int)length);
+            _stream.Write(data, (int)offset, (int)length);
+        }
+
+        /// <summary>
+        /// 追加数据
+        /// </summary>
+        /// <param name="text"></param>
+        public void Append(string text)
+        {
+            if (text == null)
+            {
+                return;
+            }
+
+            byte[] data = Encoding.UTF8.GetBytes(text);
+            if (data.Length == 0)
+            {
+                return;
+            }
+            Append(data, 0, data.Length);
         }
 
         public void SeekEnd()
         {
-            Stream.Position = Stream.Length;
+            if (_stream == null)
+            {
+                return;
+            }
+
+            _stream.Position = Stream.Length;
         }
 
         public void SeekBegin()
         {
-            Stream.Position = 0;
+            if (_stream == null)
+            {
+                return;
+            }
+            _stream.Position = 0;
         }
 
         public void Seek(int positon)
         {
+            if (_stream == null)
+            {
+                return;
+            }
             if (positon < 0 || positon > Stream.Length)
             {
                 return;
             }
 
-            Stream.Position = positon;
+            _stream.Position = positon;
         }
     }
 }

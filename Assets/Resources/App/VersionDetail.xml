@@ -2,8 +2,8 @@
 <root>
   <VersionDetail>
     <GameID>35</GameID>
-    <MainVersion>0</MainVersion>
-    <SubVersion>555</SubVersion>
-    <HostUrl>https://www.baidu.com</HostUrl>
+    <MainVersion>1</MainVersion>
+    <SubVersion>1</SubVersion>
+    <HostUrl>http://127.0.0.1:8080</HostUrl>
   </VersionDetail>
 </root>

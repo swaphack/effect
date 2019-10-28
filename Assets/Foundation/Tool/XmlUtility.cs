@@ -46,6 +46,12 @@ namespace Assets.Foundation.Tool
             {
                 return null;
             }
+
+            if (!File.Exists(filepath))
+            {
+                return null;
+            }
+
             var doc = new XmlDocument();
             doc.Load(filepath);
             return doc;

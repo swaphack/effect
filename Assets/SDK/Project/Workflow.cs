@@ -13,6 +13,7 @@ namespace Assets.SDK.Project
         Start,
         Update,
         End,
+        Finish,
     }
 
     public delegate void FinishWorkFunc(IWorkSlot slot);
@@ -22,24 +23,32 @@ namespace Assets.SDK.Project
         /// <summary>
         /// 数据
         /// </summary>
-        Object Data { get; }
+        object Data { get; set; }
         /// <summary>
         /// 状态
         /// </summary>
         WorkState State { get; }
         /// <summary>
+        /// 所属工作流
+        /// </summary>
+        Workflow Group{ get; set; }
+        /// <summary>
+        /// 下一步
+        /// </summary>
+        void MoveNext();
+        /// <summary>
         /// 初始化
         /// </summary>
-        IEnumerator Init(Object data);
+        void Init();
         /// <summary>
         /// 执行事件
         /// </summary>
         /// <returns></returns>
-        IEnumerator DoEvent();
+        void DoEvent();
         /// <summary>
         /// 结束
         /// </summary>
-        IEnumerator Finish();
+        void Finish();
     }
 
     public abstract class WorkSlot : IWorkSlot
@@ -49,9 +58,13 @@ namespace Assets.SDK.Project
         /// </summary>
         private WorkState _state;
         /// <summary>
+        /// 状态
+        /// </summary>
+        private Workflow _group;
+        /// <summary>
         /// 数据
         /// </summary>
-        private Object _data;
+        private object _data;
         /// <summary>
         /// 状态
         /// </summary>
@@ -70,31 +83,76 @@ namespace Assets.SDK.Project
         /// <summary>
         /// 数据
         /// </summary>
-        public Object Data
+        public object Data
         {
             get
             {
                 return _data;
             }
-            protected set
+            set
             {
                 _data = value;
             }
         }
 
+        public Workflow Group
+        {
+            get
+            {
+                return _group;
+            }
+            set
+            {
+                _group = value;
+            }
+        }
         /// <summary>
         /// 初始化
         /// </summary>
-        public abstract IEnumerator Init(Object data);
+        public abstract void Init();
         /// <summary>
         /// 执行事件
         /// </summary>
         /// <returns></returns>
-        public abstract IEnumerator DoEvent();
+        public abstract void DoEvent();
         /// <summary>
         /// 结束
         /// </summary>
-        public abstract IEnumerator Finish();
+        public abstract void Finish();
+
+        public void MoveTo(WorkState state)
+        {
+            State = state;
+            this.MoveNext();
+        }
+
+        public void MoveNext()
+        {
+            if (State == WorkState.None)
+            {
+                State = WorkState.Start;
+                this.Init();
+            }
+            else if(State == WorkState.Start)
+            {
+                State = WorkState.Update;
+                this.DoEvent();
+            }
+            else if (State == WorkState.Update)
+            {
+                State = WorkState.End;
+                this.Finish();
+            }
+            else if (State == WorkState.End)
+            {
+                State = WorkState.Finish;
+                if (_group != null)
+                {
+                    _group.RemoveWorkSlot(this);
+                    _group.MoveNext(Data);
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -109,56 +167,43 @@ namespace Assets.SDK.Project
         /// <summary>
         /// 数据
         /// </summary>
-        private Object _data;
+        private object _data;
 
         public Workflow()
         {
             _events = new List<IWorkSlot>();
         }
 
-        public void AddWork(IWorkSlot e)
+        public void AddWorkSlot(IWorkSlot e)
         {
             if (e == null)
             {
                 return;
             }
             _events.Add(e);
+            e.Group = this;
         }
 
-        public IEnumerator UpdateWorkflow()
+        public void RemoveWorkSlot(IWorkSlot e)
+        {
+            if (e == null)
+            {
+                return;
+            }
+
+            _events.Remove(e);
+        }
+
+        public void MoveNext(object data)
         {
             if (_events.Count == 0)
             {
-                yield return null;
+                return;
             }
 
             var e = _events[0];
-            switch (e.State)
-            {
-                case WorkState.None: 
-                    {
-                        yield return e.Init(_data);
-                        break;
-                    }
-                case WorkState.Start:
-                    {
-                        yield return e.DoEvent();
-                        break;
-                    }
-                case WorkState.Update:
-                    {
-                        break;
-                    }
-                case WorkState.End:
-                    {
-                        yield return e.Finish();
-                        _data = e.Data;
-                        break;
-                    }
-                default:
-                    yield return null;
-                    break;
-            }
-        }
+            e.Data = data;
+            e.MoveNext();
+        }   
     }
 }

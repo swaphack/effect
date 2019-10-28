@@ -17,9 +17,9 @@ namespace Assets.SDK.Project
 
         public GameWorkflow()
         {
-            this.AddWork(new VersionCheckSlot());
-            this.AddWork(new VersionUpdateSlot());
-            this.AddWork(new LoginServerSlot());
+            this.AddWorkSlot(new VersionCheckSlot());
+            this.AddWorkSlot(new VersionUpdateSlot());
+            this.AddWorkSlot(new LoginServerSlot());
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Assets.SDK.Project
         /// <returns></returns>
         public void Start()
         {
-            EnumeratorManager.Instance.Add(this.UpdateWorkflow());
+            this.MoveNext(null);
         }
     }
 }

@@ -142,6 +142,11 @@ namespace Assets.Foundation.DataAccess
                 long count = length - offset;
                 _position = length;
                 this._localFile.Append(_www.downloadHandler.data, offset, count);
+                this._localFile.Save();
+                if (_www.downloadProgress == 1)
+                {
+                    this._localFile.Dispose();
+                }
                 if (_callback != null)
                 {
                     _callback(_www.error, url, _www.downloadProgress);

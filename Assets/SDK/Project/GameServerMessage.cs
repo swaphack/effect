@@ -10,11 +10,11 @@ namespace Assets.SDK.Project
             /// <summary>
             /// 游戏服务器信息
             /// </summary>
-            GAME_SEditorRVEditorR_DEditorTAIL = 1,
+            GAME_SERVER_MESSAGE_INFO = 1,
             /// <summary>
             /// 游戏服务器登陆
             /// </summary>
-            GAME_SEditorRVEditorR_LOGIN = 1,
+            GAME_SERVER_MESSAGE_LOGIN= 1,
         }
 
         public GameServerMessage(MessageID id)
@@ -40,7 +40,7 @@ namespace Assets.SDK.Project
         public int Port;
 
         public GameServerDetail()
-            : base(MessageID.GAME_SEditorRVEditorR_DEditorTAIL)
+            : base(MessageID.GAME_SERVER_MESSAGE_INFO)
         {
         }
     }
@@ -68,7 +68,7 @@ namespace Assets.SDK.Project
         public int PlatformType;
 
         public GameServerLogin()
-            : base(MessageID.GAME_SEditorRVEditorR_LOGIN)
+            : base(MessageID.GAME_SERVER_MESSAGE_LOGIN)
         {
         }
     }

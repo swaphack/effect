@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<root>
+  <UpdateDetail>
+    <ServerAddress>127.0.0.1</ServerAddress>
+    <ServerPort>8080</ServerPort>
+    <AssetBundleUrl>127.0.0.1:8080/Updates/1_2.zip</AssetBundleUrl>
+    <MainVersion>1</MainVersion>
+    <SubVersion>2</SubVersion>
+  </UpdateDetail>
+</root>
