@@ -67,6 +67,8 @@ namespace Assets.SDK.Project
             {
                 return;
             }
+
+            FileUtility.AutoCreateFile(filepath);
             
             XmlDocument doc = new XmlDocument();
             var version = doc.CreateXmlDeclaration("1.0", null, null);

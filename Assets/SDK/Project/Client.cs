@@ -25,7 +25,15 @@ namespace Assets.SDK.Project
 
         private void OnNetStatusChanged(NetSocket s)
         {
-
+            if (s.Connected)
+            {
+                Debug.LogFormat("Socket Status : {0}", "Connected To Sever");
+            }
+            else
+            {
+                Debug.LogFormat("Socket Status : {0}", "Disconnected To Sever");
+            }
+            
         }
 
         void Update()

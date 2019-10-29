@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using UnityEngine;
 
 namespace Assets.Foundation.Net
 {
@@ -90,12 +91,26 @@ namespace Assets.Foundation.Net
         /// </summary>
         public void Connect()
         {
-            _socket.BeginConnect(_serverAddress.IP, _serverAddress.Port, (IAsyncResult ret) => {
-                if (ret.IsCompleted)
-                {
-                    this.StatusChanged();
-                }
-            }, this);
+            if (!_serverAddress.IsValid)
+            {
+                this.StatusChanged();
+                return;
+            }
+            try
+            {
+                _socket.BeginConnect(_serverAddress.IP, _serverAddress.Port, (IAsyncResult ret) => {
+                    if (ret.IsCompleted)
+                    {
+                        _socket.EndConnect(ret);
+                        this.StatusChanged();
+                    }
+                }, this);
+            }
+            catch (SocketException e)
+            {
+                Debug.Log(e.Message);
+                this.StatusChanged();
+            }
         }
 
         /// <summary>
@@ -110,6 +125,7 @@ namespace Assets.Foundation.Net
             _socket.BeginDisconnect(true, (IAsyncResult ret) => {
                 if (ret.IsCompleted)
                 {
+                    _socket.EndDisconnect(ret);
                     this.StatusChanged();
                 }
             }, this);

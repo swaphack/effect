@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 
 namespace Assets.Foundation.Net
 {
@@ -37,6 +38,24 @@ namespace Assets.Foundation.Net
             set
             {
                 _port = value;
+            }
+        }
+
+        public bool IsValid
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(IP))
+                {
+                    return false;
+                }
+                IPHostEntry hostEntry = Dns.GetHostEntry(IP);
+                if (hostEntry == null || hostEntry.AddressList == null || hostEntry.AddressList.Length == 0)
+                {
+                    return false;
+                }
+
+                return true;
             }
         }
 

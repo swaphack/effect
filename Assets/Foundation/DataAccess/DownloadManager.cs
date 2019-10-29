@@ -42,7 +42,7 @@ namespace Assets.Foundation.DataAccess
             /// <summary>
             /// 是否初始化
             /// </summary>
-            private bool _init;
+            private bool _bInit;
             /// <summary>
             /// 请求地址
             /// </summary>
@@ -66,6 +66,11 @@ namespace Assets.Foundation.DataAccess
                     return _local;
                 }
             }
+
+            /// <summary>
+            /// 下载是否完成
+            /// </summary>
+            private bool _bFinish;
 
 
             public UnityWebRequest WWW
@@ -118,38 +123,46 @@ namespace Assets.Foundation.DataAccess
                 this._localFile = new StorageFile(local);
                 this._localFile.SeekEnd();
 
-                this._init = false;
+                this._bInit = false;
+                this._bFinish = false;
                 this._position = 0;
                 this._www.SetRequestHeader("Range", string.Format("bytes={0}-", this._localFile.Length));
             }
 
             public void InitTask()
             {
-                if (_init == false)
+                if (_bInit == false)
                 {
-                    _init = true;
+                    _bInit = true;
                 }
                 if (_www != null)
                 {
-                    _www.Send();
+                    _www.SendWebRequest();
                 }
             }
 
             public void ProgressTask()
             {
+                if (_bFinish)
+                {
+                    return;
+                }
                 long offset = _position;
                 long length = _www.downloadHandler.data.Length;
                 long count = length - offset;
                 _position = length;
                 this._localFile.Append(_www.downloadHandler.data, offset, count);
                 this._localFile.Save();
-                if (_www.downloadProgress == 1)
-                {
-                    this._localFile.Dispose();
-                }
+                
                 if (_callback != null)
                 {
                     _callback(_www.error, url, _www.downloadProgress);
+                }
+
+                if (_www.downloadProgress >= 1)
+                {
+                    this.Dispose();
+                    _bFinish = true;
                 }
             }
 

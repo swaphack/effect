@@ -84,7 +84,9 @@ namespace Assets.Foundation.Net
                 return;
             }
 
-            _sendStream.BeginWrite(buff, offset, count, null, null);
+            _sendStream.BeginWrite(buff, offset, count, (IAsyncResult ret)=> {
+                if (ret.IsCompleted) _sendStream.EndWrite(ret);
+            }, null);
         }
 
         /// <summary>
@@ -100,7 +102,9 @@ namespace Assets.Foundation.Net
                 return;
             }
 
-            _recvStream.BeginWrite(buff, offset, count, null, null);
+            _recvStream.BeginWrite(buff, offset, count, (IAsyncResult ret) => {
+                if (ret.IsCompleted) _recvStream.EndWrite(ret);
+            }, null);
         }
 
         private void OnEndSend(IAsyncResult ret)

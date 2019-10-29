@@ -28,8 +28,17 @@ namespace Assets.SDK.Project
 
         public override void Init()
         {
-            _config = ConfigHelper.LoadFromXmlText<UpdateDetail>((string)Data);
+            if (Data == null)
+            {
+                _config = ConfigHelper.LoadFromXmlFile<UpdateDetail>(_configPath);
+                GameDetail.LoginServerAddress = _config.ServerAddress;
+                GameDetail.LoginServerPort = _config.ServerPort;
 
+                this.MoveTo(WorkState.End);
+                return;
+            }
+
+            _config = ConfigHelper.LoadFromXmlText<UpdateDetail>((string)Data);
             GameDetail.LoginServerAddress = _config.ServerAddress;
             GameDetail.LoginServerPort = _config.ServerPort;
 
@@ -39,6 +48,8 @@ namespace Assets.SDK.Project
                 this.MoveTo(WorkState.End);
                 return;
             }
+
+            ConfigHelper.SaveToXmlFile<UpdateDetail>(_config, _configPath);
 
             _tempUrl = Path.Combine(FilePath.TemporaryCachePath, string.Format("{0}-{1}.zip", _config.MainVersion, _config.SubVersion));
             _bundleUrl = Path.Combine(FilePath.PersistentDataPath, FilePath.BundlesPath);
@@ -63,9 +74,10 @@ namespace Assets.SDK.Project
                 this.MoveNext();
                 return;
             }
-            Debug.LogFormat("Downloading percent {0}", progress * 100);
 
-            if (progress == 1)
+            Debug.LogFormat("Downloading {0} percent {1}", url, progress * 100);
+
+            if (progress >= 1)
             {
                 SingletonBehaviour.GetInstance<ZipResource>().AddTask(new ZipResource.LoadTask(_tempUrl, _bundleUrl, (IFileItem item) =>
                 {

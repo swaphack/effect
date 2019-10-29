@@ -25,27 +25,27 @@ namespace Assets.SDK.Project
             GameServerDetail msg = new GameServerDetail();
             if (!msg.Unpack(data))
             {
-                State = WorkState.End;
+                this.MoveTo(WorkState.End);
                 return;
             }
 
             GameDetail.GameServerAddress = msg.IP;
             GameDetail.GameServerPort = msg.Port;
 
-            State = WorkState.End;
+            this.MoveNext();
         }
 
         public override void DoEvent()
         {
-            State = WorkState.Update;
-
             Client client = Client.Instance;
             client.Disconnect();
             client.StartConnect();
+            this.MoveNext();
         }
 
         public override void Finish()
         {
+            this.MoveNext();
         }
     }
 }

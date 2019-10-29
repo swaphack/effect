@@ -1,8 +1,10 @@
 ﻿using Assets.Foundation.Common;
+using Assets.Foundation.DataAccess;
 using Assets.Foundation.Tool;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -30,7 +32,16 @@ namespace Assets.SDK.Project
 
         public override void Init()
         {
-            _config = ConfigHelper.LoadFromXmlResource<VersionDetail>(_configPath);
+            var externalPath = string.Format("{0}.xml", Path.Combine(FilePath.PersistentDataPath, _configPath));
+            if (File.Exists(externalPath))
+            {
+                _config = ConfigHelper.LoadFromXmlFile<VersionDetail>(externalPath);
+            }
+            else
+            {
+                _config = ConfigHelper.LoadFromXmlResource<VersionDetail>(_configPath);
+                ConfigHelper.SaveToXmlFile<VersionDetail>(_config, externalPath);
+            }
 
             GameDetail.GameID = _config.GameID;
             GameDetail.MainVersion = _config.MainVersion;
@@ -63,7 +74,7 @@ namespace Assets.SDK.Project
             yield return request.SendWebRequest();
             if (request.isNetworkError)
             {
-                Debug.LogError(request.error);
+                Debug.Log(request.error);
                 this.MoveNext();
             }
             else if (request.isDone)
