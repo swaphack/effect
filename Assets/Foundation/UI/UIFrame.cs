@@ -67,10 +67,11 @@ namespace Assets.Foundation.UI
         /// 长按操作
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="func"></param>
-        public void BindPressEvent(string name, UnityAction func)
+        /// <param name="press"></param>
+        /// <param name="up"></param>
+        public void BindPressEvent(string name, UnityAction pressFunc, UnityAction upFunc = null)
         {
-            if (string.IsNullOrEmpty(name) || func == null)
+            if (string.IsNullOrEmpty(name))
             {
                 return;
             }
@@ -82,7 +83,14 @@ namespace Assets.Foundation.UI
             }
 
             var pressButton = btn.gameObject.AddComponent<PressButton>();
-            pressButton.PressCallBack.AddListener(func);
+            if (pressFunc != null)
+            {
+                pressButton.PressCallBack.AddListener(pressFunc);
+            }
+            if (upFunc != null)
+            {
+                pressButton.UpCallBack.AddListener(upFunc);
+            }
         }
 
         public T GetModule<T>() where T : Component

@@ -74,6 +74,9 @@
     <Compile Include="Assets\Editor\GameDesign\GameDesignMenu.cs" />
     <Compile Include="Assets\Editor\GameDesign\Settings\MaterialSettingWindow.cs" />
     <Compile Include="Assets\Editor\GameDesign\Settings\ShaderSettingWindow.cs" />
+    <Compile Include="Assets\Editor\GameDesign\Terrains\ExportTerrainWindow.cs" />
+    <Compile Include="Assets\Editor\GameDesign\Terrains\Object2TerrainWindow.cs" />
+    <Compile Include="Assets\Editor\GameDesign\Terrains\TerrainToMeshWindow.cs" />
     <Compile Include="Assets\Editor\GameEditor\EditorStyleViewer.cs" />
     <Compile Include="Assets\Editor\GameEditor\GameEditorMenu.cs" />
     <Compile Include="Assets\Editor\GameEditor\Layouts\LayoutWindow.cs" />

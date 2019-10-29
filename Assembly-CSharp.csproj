@@ -85,6 +85,9 @@
     <Compile Include="Assets\Foundation\Common\SingletonBehaviour.cs" />
     <Compile Include="Assets\Foundation\Common\SingletonCreator.cs" />
     <Compile Include="Assets\Foundation\Controller\DirectionController.cs" />
+    <Compile Include="Assets\Foundation\Controller\FirstPersonView.cs" />
+    <Compile Include="Assets\Foundation\Controller\ForceController.cs" />
+    <Compile Include="Assets\Foundation\Controller\ThirdPersonView.cs" />
     <Compile Include="Assets\Foundation\Controller\ViewController.cs" />
     <Compile Include="Assets\Foundation\Controller\WalkController.cs" />
     <Compile Include="Assets\Foundation\Data\DataHelper.cs" />
@@ -199,7 +202,8 @@
     <Compile Include="Assets\SDK\Project\VersionUpdateSlot.cs" />
     <Compile Include="Assets\SDK\Project\Workflow.cs" />
     <None Include="Assets\Resources\App\VersionDetail.xml" />
-    <None Include="Assets\Shaders\ImageEffectShader.shader" />
+    <None Include="Assets\Shaders\Environment\LightedTerrain.shader" />
+    <None Include="Assets\Shaders\Environment\TerrainSimple.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/lingan/Projects/GitHub/effect/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

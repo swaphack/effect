@@ -25,7 +25,7 @@ namespace Assets.Home.UI
         {
             this.BindPressEvent("Left", TurnLeft);
             this.BindPressEvent("Right", TurnRight);
-            this.BindPressEvent("Forward", MoveForward);
+            this.BindPressEvent("Forward", MoveForward, this.EndAcceleration);
             this.BindPressEvent("Back", MoveBack);
         }
 
@@ -55,7 +55,7 @@ namespace Assets.Home.UI
             {
                 return;
             }
-
+            _target.CreateComponent<DirectionController>().Acceleration += 0.01f;
             _target.CreateComponent<DirectionController>().MoveForward();
         }
 
@@ -65,8 +65,12 @@ namespace Assets.Home.UI
             {
                 return;
             }
+            _target.CreateComponent<DirectionController>().Reset();
+        }
 
-            _target.CreateComponent<DirectionController>().MoveBack();
+        protected void EndAcceleration()
+        {
+            _target.CreateComponent<DirectionController>().Acceleration = 0;
         }
 
         protected override void InitLogic()

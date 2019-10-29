@@ -17,6 +17,7 @@ namespace Assets.Foundation.Effects
         private float timePointerDown = 0;
 
         private UnityEvent _pressCallBack;
+        private UnityEvent _upCallBack;
         /// <summary>
         /// 长按事件
         /// </summary>
@@ -26,9 +27,19 @@ namespace Assets.Foundation.Effects
             set { _pressCallBack = value; }
         }
 
+        /// <summary>
+        /// 放开长按事件
+        /// </summary>
+        public UnityEvent UpCallBack
+        {
+            get { return _upCallBack; }
+            set { _upCallBack = value; }
+        }
+
         public PressButton()
         {
             _pressCallBack = new UnityEvent();
+            _upCallBack = new UnityEvent();
         }
 
         void Update()
@@ -49,6 +60,7 @@ namespace Assets.Foundation.Effects
         public void OnPointerUp(PointerEventData eventData)
         {
             isPointerDown = false;
+            UpCallBack.Invoke();
         }
     }
 }

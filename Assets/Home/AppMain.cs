@@ -7,6 +7,8 @@ using UnityEngine;
 using Assets.SDK.Project;
 using Assets.Foundation.Common;
 using Assets.Foundation.DataAccess;
+using Assets.Foundation.Controller;
+using Assets.Foundation.Extensions;
 
 namespace Assets.Home
 {
@@ -17,12 +19,10 @@ namespace Assets.Home
             var role = GameObject.Find("Role");
             if (role != null)
             {
-                //UIManager.ShowUI<MainUI>(role);
-
                 UIManager.ShowUI<RoleControlUI>(role);
             }
 
-            new GameWorkflow().Start();
+            //new GameWorkflow().Start();
 
         }
 

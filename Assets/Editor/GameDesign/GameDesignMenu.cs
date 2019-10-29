@@ -1,4 +1,5 @@
 ﻿using Assets.Editor.GameDesign.Settings;
+using Assets.Editor.GameDesign.Terrains;
 using UnityEditor;
 using UnityEngine;
 
@@ -17,5 +18,25 @@ namespace Assets.Editor.GameDesign
         {
             EditorWindow.GetWindow<ShaderSettingWindow>();
         }
+
+        [MenuItem("Game Design/Terrains/Object2Terrain")]
+        public static void OpenObject2TerrainWindow()
+        {
+            EditorWindow.GetWindow<Object2TerrainWindow>(true);
+        }
+
+        [MenuItem("Game Design/Terrains/Export Terrain")]
+        public static void OpenExportTerrainWindow()
+        {
+            EditorWindow.GetWindow<ExportTerrainWindow>(true);
+        }
+
+        /*
+        [MenuItem("Game Design/Terrains/Terrain2Mesh")]
+        public static void OpenTerrain2MeshWindow()
+        {
+            EditorWindow.GetWindow<Terrain2MeshWindow>(true);
+        }
+        */
     }
 }

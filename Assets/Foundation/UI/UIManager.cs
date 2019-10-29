@@ -4,6 +4,7 @@ using Assets.Foundation.Common;
 using Assets.Foundation.DataAccess;
 using Assets.Foundation.Extensions;
 using Assets.App;
+using UnityEngine.EventSystems;
 
 namespace Assets.Foundation.UI
 {
@@ -61,6 +62,16 @@ namespace Assets.Foundation.UI
                     rectTransform.anchorMin = Vector2.zero;
                     rectTransform.anchorMax = Vector2.one;
                     root.AddComponent<CanvasRenderer>();
+                }
+
+                var eventSystem = GameObject.Find("EventSystem");
+                if (eventSystem == null)
+                {
+                    eventSystem = new GameObject();
+                    eventSystem.name = "EventSystem";
+
+                    eventSystem.AddComponent<EventSystem>();
+                    eventSystem.AddComponent<StandaloneInputModule>();
                 }
             }
         }
