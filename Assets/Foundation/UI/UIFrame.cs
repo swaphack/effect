@@ -67,8 +67,8 @@ namespace Assets.Foundation.UI
         /// 长按操作
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="press"></param>
-        /// <param name="up"></param>
+        /// <param name="pressFunc"></param>
+        /// <param name="upFunc"></param>
         public void BindPressEvent(string name, UnityAction pressFunc, UnityAction upFunc = null)
         {
             if (string.IsNullOrEmpty(name))

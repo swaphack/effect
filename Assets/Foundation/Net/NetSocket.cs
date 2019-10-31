@@ -8,44 +8,16 @@ namespace Assets.Foundation.Net
     public class NetSocket
     {
         /// <summary>
-        /// 客户端连接
-        /// </summary>
-        private Socket _socket;
-        /// <summary>
         /// 服务端地址
         /// </summary>
         private RemoteAddress _serverAddress;
-        /// <summary>
-        /// 状态改变时处理
-        /// </summary>
-        private NetStatusDelegate _connectStatusChanged;
 
-        public Socket Socket
-        {
-            get
-            {
-                return _socket;
-            }
-            protected set
-            {
-                _socket = value;
-            }
-        }
+        public Socket Socket { get; protected set; }
 
         /// <summary>
         /// 状态改变时处理
         /// </summary>
-        public NetStatusDelegate OnStatusChanged
-        {
-            get
-            {
-                return _connectStatusChanged;
-            }
-            set
-            {
-                _connectStatusChanged = value;
-            }
-        }
+        public NetStatusDelegate OnStatusChanged { get; set; }
 
         /// <summary>
         /// 是否连接
@@ -54,26 +26,23 @@ namespace Assets.Foundation.Net
         {
             get
             {
-                if (_socket == null)
+                if (Socket == null)
                 {
                     return false;
                 }
 
-                return _socket.Connected;
+                return Socket.Connected;
             }
         }
 
         public NetSocket()
         {
-            _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 
         private void StatusChanged()
         {
-            if (_connectStatusChanged != null)
-            {
-                _connectStatusChanged(this);
-            }
+            OnStatusChanged?.Invoke(this);
         }
 
         /// <summary>
@@ -98,10 +67,10 @@ namespace Assets.Foundation.Net
             }
             try
             {
-                _socket.BeginConnect(_serverAddress.IP, _serverAddress.Port, (IAsyncResult ret) => {
+                Socket.BeginConnect(_serverAddress.IP, _serverAddress.Port, (IAsyncResult ret) => {
                     if (ret.IsCompleted)
                     {
-                        _socket.EndConnect(ret);
+                        Socket.EndConnect(ret);
                         this.StatusChanged();
                     }
                 }, this);
@@ -122,10 +91,10 @@ namespace Assets.Foundation.Net
             {
                 return;
             }
-            _socket.BeginDisconnect(true, (IAsyncResult ret) => {
+            Socket.BeginDisconnect(true, (IAsyncResult ret) => {
                 if (ret.IsCompleted)
                 {
-                    _socket.EndDisconnect(ret);
+                    Socket.EndDisconnect(ret);
                     this.StatusChanged();
                 }
             }, this);
@@ -133,12 +102,12 @@ namespace Assets.Foundation.Net
 
         public void ShutDown()
         {
-            _socket.Shutdown(SocketShutdown.Both);
+            Socket.Shutdown(SocketShutdown.Both);
         }
 
         public void Close()
         {
-            _socket.Close();
+            Socket.Close();
         }
 
         public void Bind()
@@ -147,12 +116,12 @@ namespace Assets.Foundation.Net
 
             IPEndPoint endPoint = new IPEndPoint(ipAddress, _serverAddress.Port);
 
-            _socket.Bind(endPoint);
+            Socket.Bind(endPoint);
         }
 
         public void Listen(int backlog)
         {
-            _socket.Listen(backlog);
+            Socket.Listen(backlog);
         }
     }
 }

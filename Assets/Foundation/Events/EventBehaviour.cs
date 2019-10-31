@@ -4,12 +4,7 @@ namespace Assets.Foundation.Events
 {
     public abstract class EventBehaviour : MonoBehaviour
     {
-        private bool _bEventEnable = true;
-        public bool IsEventEnable
-        {
-            get { return _bEventEnable; }
-            set { _bEventEnable = value; }
-        }
+        public bool IsEventEnable { get; set; } = true;
         private void Start()
         {
             UpdateEventStatus(IsEventEnable);

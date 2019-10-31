@@ -13,19 +13,7 @@ namespace Assets.Foundation.Data
     /// </summary>
     public class DByteWriter : IObjectWriter
     {
-        private MemoryStream _stream;
-
-        public MemoryStream Stream
-        {
-            get
-            {
-                return _stream;
-            }
-            protected set
-            {
-                _stream = value;
-            }
-        }
+        public MemoryStream Stream { get; protected set; }
 
         public const int DEFAULT_LENGTH = 1024;
 
@@ -46,13 +34,13 @@ namespace Assets.Foundation.Data
         /// <returns></returns>
         public byte[] ToBytes()
         {
-            if (_stream == null)
+            if (Stream == null)
             {
                 return null;
             }
-            var value = new byte[_stream.Length];
-            var bytes = _stream.ToArray();
-            Array.Copy(bytes, value, _stream.Length);
+            var value = new byte[Stream.Length];
+            var bytes = Stream.ToArray();
+            Array.Copy(bytes, value, Stream.Length);
             return value;
         }
 

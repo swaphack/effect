@@ -8,38 +8,9 @@ namespace Assets.Foundation.Net
     /// </summary>
     public struct RemoteAddress
     {
-        /// <summary>
-        /// 地址
-        /// </summary>
-        private string _ip;
-        /// <summary>
-        /// 端口
-        /// </summary>
-        private int _port;
+        public string IP { get; set; }
 
-        public string IP
-        {
-            get
-            {
-                return _ip;
-            }
-            set
-            {
-                _ip = value;
-            }
-        }
-
-        public int Port
-        {
-            get
-            {
-                return _port;
-            }
-            set
-            {
-                _port = value;
-            }
-        }
+        public int Port { get; set; }
 
         public bool IsValid
         {
@@ -61,8 +32,8 @@ namespace Assets.Foundation.Net
 
         public RemoteAddress(string ip, int port)
         {
-            _ip = ip;
-            _port = port;
+            IP = ip;
+            Port = port;
         }
     }
 }

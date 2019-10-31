@@ -54,7 +54,7 @@ namespace Assets.Foundation.DataAccess
         public class LoadTask : Task
         {
             private ResourceRequest _request;
-            public LoadTask(string path, ResourceFunc hand)
+            public LoadTask(string path, ResourceItemDelegate hand)
             {
                 this._item = new ResourceItem(path);
                 this._callback = hand;

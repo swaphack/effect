@@ -12,19 +12,7 @@ namespace Assets.Foundation.Data
     /// </summary>
     public class DByteReader : IObjectReader
     {
-        private MemoryStream _stream;
-
-        public MemoryStream Stream
-        {
-            get
-            {
-                return _stream;
-            }
-            protected set
-            {
-                _stream = value;
-            }
-        }
+        public MemoryStream Stream { get; protected set; }
 
         public DByteReader(byte[] buff)
         {
@@ -32,7 +20,7 @@ namespace Assets.Foundation.Data
             {
                 return;
             }
-            _stream = new MemoryStream(buff);
+            Stream = new MemoryStream(buff);
         }
 
 

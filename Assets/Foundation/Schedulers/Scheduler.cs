@@ -8,54 +8,29 @@ namespace Assets.Foundation.Schedulers
     /// <summary>
     /// 调度器回调处理
     /// </summary>
-    public delegate void SchedulerFunc();
+    public delegate void SchedulerDelegate();
 
     public class Scheduler : IScheduler, IDisposable
     {
-        /// <summary>
-        /// 当前时间
-        /// </summary>
-        private float _currentTime;
-        /// <summary>
-        /// 间隔
-        /// </summary>
-        private float _interval;
-        /// <summary>
-        /// 回调事件
-        /// </summary>
-        private SchedulerFunc _callback;
+        public float CurrentTime { get; set; }
 
-        public float CurrentTime
-        {
-            get { return _currentTime; }
-            set { _currentTime = value; }
-        }
-        
-        public float Interval
-        {
-            get { return _interval; }
-            set { _interval = value; }
-        }
-        
-        public SchedulerFunc Callback
-        {
-            get { return _callback; }
-            set { _callback = value; }
-        }
+        public float Interval { get; set; }
 
-        public Scheduler(float interval, SchedulerFunc callback)
+        public SchedulerDelegate Callback { get; set; }
+
+        public Scheduler(float interval, SchedulerDelegate callback)
         {
-            _interval = interval;
-            _callback = callback;
+            Interval = interval;
+            Callback = callback;
         }
 
         protected void DoCallback()
         {
-            if (_callback == null)
+            if (Callback == null)
             {
                 return;
             }
-            var func = _callback;
+            var func = Callback;
 
             func();
         }
@@ -73,14 +48,14 @@ namespace Assets.Foundation.Schedulers
 
         public void OnTimeUp(float dt)
         {
-            _currentTime += dt;
-            if (_currentTime < _interval)
+            CurrentTime += dt;
+            if (CurrentTime < Interval)
             {
                 return;
             }
 
             OnTriggerEvent();
-            _currentTime -= _interval;
+            CurrentTime -= Interval;
         }
     }
 }

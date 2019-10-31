@@ -35,22 +35,7 @@ namespace Assets.Foundation.Net
 
         private Socket _socket;
 
-        /// <summary>
-        /// 接收数据处理
-        /// </summary>
-        private NetBufferDelegate _buffReceived;
-
-        public NetBufferDelegate OnBuffReceived
-        {
-            get
-            {
-                return _buffReceived;
-            }
-            set
-            {
-                _buffReceived = value;
-            }
-        }
+        public NetBufferDelegate OnBuffReceived { get; set; }
 
         public NetBufferStream(NetClient client)
         {

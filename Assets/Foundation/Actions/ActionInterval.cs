@@ -7,62 +7,33 @@ namespace Assets.Foundation.Actions
     /// </summary>
     public class ActionInterval : ActionBase
     {
-        /// <summary>
-        /// 当前经过的时间
-        /// </summary>
-        private float _currentTime;
-        /// <summary>
-        /// 总时长
-        /// </summary>
-        private float _totalTime;
-
         public override bool IsDone
         {
             get
             {
-                return _currentTime >= _totalTime;
+                return CurrentTime >= TotalTime;
             }
         }
 
-        public float CurrentTime 
-        {
-            get
-            {
-                return _currentTime;
-            }
-            protected set
-            {
-                _currentTime = value;
-            }
-        }
+        public float CurrentTime { get; protected set; }
 
-        public float TotalTime 
-        {
-            get
-            {
-                return _totalTime;
-            }
-            set
-            {
-                _totalTime = value;
-            }
-        }
+        public float TotalTime { get; set; }
 
         public override void Reset()
         {
             base.Reset();
-            _currentTime = 0;
+            CurrentTime = 0;
         }
 
         public override void Update(float dt)
         {
-            if (_totalTime == 0)
+            if (TotalTime == 0)
             {
                 return;
             }
 
-            _currentTime += dt;
-            float percent = _currentTime / _totalTime;
+            CurrentTime += dt;
+            float percent = CurrentTime / TotalTime;
             this.DoInterval(dt);
             this.DoStep(percent);
         }

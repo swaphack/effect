@@ -1,8 +1,4 @@
 ﻿using Assets.Foundation.Actions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,37 +17,19 @@ namespace Assets.Foundation.UI
     /// </summary>
     public abstract class SliderAction : UIAction
     {
-        /// <summary>
-        /// 开始值
-        /// </summary>
-        private float _source;
 
         /// <summary>
         /// 差距
         /// </summary>
-        private float _different;
-
+        protected float Different { get; set; }
+        /// <summary>
+        /// 开始值
+        /// </summary>
+        public float Source { get; set; }
         /// <summary>
         /// 结束值
         /// </summary>
-        private float _destination;
-        protected float Different
-        {
-            get { return _different; }
-            set { _different = value; }
-        }
-
-        public float Source
-        {
-            get { return _source; }
-            set { _source = value; }
-        }
-
-        public float Destination
-        {
-            get { return _destination; }
-            set { _destination = value; }
-        }
+        public float Destination { get; set; }
     }
 
     /// <summary>
@@ -146,42 +124,17 @@ namespace Assets.Foundation.UI
             Height = 1,
         }
 
-        /// <summary>
-        /// 图片进度条形状
-        /// </summary>
-        private Image.FillMethod _shape;
-        /// <summary>
-        /// 圆形开始位置
-        /// </summary>
-        private OriginCircle _originCircle;
-        /// <summary>
-        /// 条形开始位置
-        /// </summary>
-        private OriginBar _originBar;
-        
-        public Image.FillMethod Shape
-        {
-            get { return _shape; }
-            set { _shape = value; }
-        }
+        public Image.FillMethod Shape { get; set; }
 
-        public ImageProgress.OriginBar BarOrigin
-        {
-            get { return _originBar; }
-            set { _originBar = value; }
-        }
+        public OriginBar BarOrigin { get; set; }
 
-        public ImageProgress.OriginCircle CircleOrigin
-        {
-            get { return _originCircle; }
-            set { _originCircle = value; }
-        }
+        public OriginCircle CircleOrigin { get; set; }
 
         public ImageProgress()
         {
             Shape = Image.FillMethod.Horizontal;
-            BarOrigin = ImageProgress.OriginBar.Low;
-            CircleOrigin = ImageProgress.OriginCircle.Bottom;
+            BarOrigin = OriginBar.Low;
+            CircleOrigin = OriginCircle.Bottom;
         }
     }
 

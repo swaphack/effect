@@ -14,9 +14,9 @@ namespace Assets.Foundation.Data
     {
         public class Node 
         {
-            public string Key;
-            public string Value;
-            public Dictionary<string, Node> Map;
+            public string Key { get; set; }
+            public string Value { get; set; }
+            public Dictionary<string, Node> Map { get; private set; }
 
             public Node()
             {
@@ -67,23 +67,7 @@ namespace Assets.Foundation.Data
         /// <summary>
         /// 根节点
         /// </summary>
-        private Node _root;
-
-        /// <summary>
-        /// 根节点
-        /// </summary>
-        public Node Root 
-        {
-            get
-            {
-                return _root;
-            }
-        }
-
-        public DManifestReader()
-        {
-            
-        }
+        public Node Root { get; private set; }
 
         /// <summary>
         /// 解析文本
@@ -94,8 +78,8 @@ namespace Assets.Foundation.Data
             ManifestFormat format = new ManifestFormat();
             format.Read(text);
 
-            _root = new Node();
-            this.Parse(format.Root, _root);
+            Root = new Node();
+            this.Parse(format.Root, Root);
         }
 
         /// <summary>

@@ -10,21 +10,21 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class UIFieldWidget : UIWidget, IKeyValueRecord
     {
-        public delegate void FieldValueFunc(object value);
+        public delegate void FieldValueDelegate(object value);
 
         /// <summary>
         /// 控件信息
         /// </summary>
         private IKeyValueRecord _record;
         /// <summary>
-        /// 值改变时的回调
+        /// 值改变时的处理
         /// </summary>
-        private FieldValueFunc _valueChangedFunc;
-        public FieldValueFunc OnValueChanged
-        {
-            get { return _valueChangedFunc; }
-            set { _valueChangedFunc = value; }
-        }
+        public FieldValueDelegate OnValueChanged { get; set; }
+        /// <summary>
+        /// 值改变时的内部处理
+        /// </summary>
+        protected FieldValueDelegate OnInternalValueChanged { get; set; }
+
         public string Name
         {
             get
@@ -50,10 +50,8 @@ namespace Assets.Editor.Widgets
                     return;
                 }
                 _record.Value = value;
-                if (OnValueChanged != null)
-                {
-                    OnValueChanged(value);
-                }
+                OnInternalValueChanged?.Invoke(value);
+                OnValueChanged?.Invoke(value);
             }
         }
 
@@ -121,9 +119,22 @@ namespace Assets.Editor.Widgets
             this.Add(w);
         }
 
+        private Widget _fieldWidget;
+
+        public T GetFieldWidget<T>() where T : Widget
+        {
+            if (_fieldWidget is T)
+            {
+                return (T)_fieldWidget;
+            }
+
+            return null;
+        }
+
         protected void AddField(Widget w)
         {
             w.Option.ExpandWidth = true;
+            _fieldWidget = w;
             this.Add(w);
         }
 
@@ -285,10 +296,10 @@ namespace Assets.Editor.Widgets
         protected override void InitField()
         {
             EditorLabelField labelField = new EditorLabelField();
-            labelField.Text = this.GetStringValue();
+            labelField.Value = this.GetStringValue();
             labelField.TriggerHandler = (Widget w) =>
             {
-                this.SetValue(labelField.Text);
+                this.SetValue(labelField.Value);
             };
             this.AddField(labelField);
         }
@@ -311,10 +322,10 @@ namespace Assets.Editor.Widgets
         protected override void InitField()
         {
             EditorTextField textField = new EditorTextField();
-            textField.Text = this.GetStringValue();
+            textField.Value = this.GetStringValue();
             textField.TriggerHandler = (Widget w) =>
             {
-                this.SetValue(textField.Text);
+                this.SetValue(textField.Value);
             };
             this.AddField(textField);
         }
@@ -338,10 +349,10 @@ namespace Assets.Editor.Widgets
         protected override void InitField()
         {
             EditorTextArea textField = new EditorTextArea();
-            textField.Text = this.GetStringValue();
+            textField.Value = this.GetStringValue();
             textField.TriggerHandler = (Widget w) =>
             {
-                this.SetValue(textField.Text);
+                this.SetValue(textField.Value);
             };
             this.AddField(textField);
         }

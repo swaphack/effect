@@ -19,7 +19,7 @@ namespace Assets.Editor.GameDesign
             EditorWindow.GetWindow<ShaderSettingWindow>();
         }
 
-        [MenuItem("Game Design/Terrains/Object2Terrain")]
+        [MenuItem("Game Design/Terrains/Create Terrain")]
         public static void OpenObject2TerrainWindow()
         {
             EditorWindow.GetWindow<Object2TerrainWindow>(true);

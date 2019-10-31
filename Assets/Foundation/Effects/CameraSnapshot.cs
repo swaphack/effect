@@ -19,16 +19,16 @@ namespace Assets.Foundation.Effects
             {
                 Destroy(_texture2D);
             }
-            var camera = this.GetComponent<Camera>();
+            var tempCamera = this.GetComponent<Camera>();
 
-            RenderTexture rt = camera.targetTexture;
+            RenderTexture rt = tempCamera.targetTexture;
             if (rt == null)
             {
                 rt = new RenderTexture(Screen.width, Screen.height, 32);
                 rt.name = "Snapshot Texture";
                 rt.dimension = TextureDimension.Tex2D;
                 rt.format = RenderTextureFormat.ARGB32;
-                camera.targetTexture = rt;
+                tempCamera.targetTexture = rt;
             }
             RenderTexture.active = rt;
 

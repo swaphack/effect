@@ -8,18 +8,10 @@ namespace Assets.Foundation.Actions
     /// </summary>
     public class ActionSet : ActionBase
     {
-        private List<IAction> _actions;
-
-        protected List<IAction> Actions
-        {
-            get 
-            {
-                return _actions;
-            }
-        }
+        protected List<IAction> Actions { get; }
         public ActionSet()
         {
-            _actions = new List<IAction>();
+            Actions = new List<IAction>();
         }
 
         public void Add(IAction action)
@@ -28,7 +20,7 @@ namespace Assets.Foundation.Actions
             {
                 return;
             }
-            _actions.Add(action);
+            Actions.Add(action);
         }
 
         public void Append(IAction[] actions)
@@ -37,7 +29,7 @@ namespace Assets.Foundation.Actions
             {
                 return;
             }
-            _actions.AddRange(actions);
+            Actions.AddRange(actions);
         }
 
         public void Append(List<IAction> actions)
@@ -46,7 +38,7 @@ namespace Assets.Foundation.Actions
             {
                 return;
             }
-            _actions.AddRange(actions);
+            Actions.AddRange(actions);
         }
 
         public void Remove(IAction action)
@@ -55,12 +47,12 @@ namespace Assets.Foundation.Actions
             {
                 return;
             }
-            _actions.Remove(action);
+            Actions.Remove(action);
         }
 
         public void RemoveAllActions()
         {
-            _actions.Clear();
+            Actions.Clear();
         }
 
         public override bool IsDone

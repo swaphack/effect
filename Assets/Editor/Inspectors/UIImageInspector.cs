@@ -9,10 +9,6 @@ namespace Assets.Editor.Inspectors
     [CustomEditor(typeof(UIImage))]
     class UIImageInspector : UIInspector
     {
-        public UIImageInspector()
-        {
-        }
-
         protected override void InitUI(UIWidget layout)
         {
             UIImage image = this.GetTarget<UIImage>();

@@ -21,19 +21,7 @@ namespace Assets.Foundation.Net
         /// </summary>
         private Dictionary<int, List<NetMessageDelegate>> _msgHandlers = new Dictionary<int, List<NetMessageDelegate>>();
 
-        private NetIDMessageDelegate _receiveMessage;
-
-        public NetIDMessageDelegate OnReceiveMessage
-        {
-            get
-            {
-                return _receiveMessage;
-            }
-            set
-            {
-                _receiveMessage = value;
-            }
-        }
+        public NetIDMessageDelegate OnReceiveMessage { get; set; }
 
         /// <summary>
         /// 添加消息处理
@@ -98,10 +86,7 @@ namespace Assets.Foundation.Net
                 return;
             }
 
-            if (OnReceiveMessage != null)
-            {
-                OnReceiveMessage(msgID, data);
-            }
+            OnReceiveMessage?.Invoke(msgID, data);
 
             if (!_msgHandlers.ContainsKey(msgID))
             {

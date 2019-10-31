@@ -9,15 +9,7 @@ namespace Assets.Foundation.Net
     /// </summary>
     public class NetClient : NetSocket, IProcess
     {
-        private NetBufferStream _buffStream;
-
-        public NetBufferStream BufferStream
-        {
-            get
-            {
-                return _buffStream;
-            }
-        }
+        public NetBufferStream BufferStream { get; private set; }
 
         public NetClient()
         {
@@ -31,7 +23,7 @@ namespace Assets.Foundation.Net
 
         private void InitBuffStream()
         {
-            _buffStream = new NetBufferStream(this);
+            BufferStream = new NetBufferStream(this);
         }
 
         /// <summary>
@@ -46,7 +38,7 @@ namespace Assets.Foundation.Net
 
         public void Process()
         {
-            _buffStream.Process();
+            BufferStream.Process();
         }
     }
 }

@@ -71,19 +71,11 @@ namespace Assets.Editor.Widgets
 
     public class EditorCurveField : Widget
     {
-        private AnimationCurve _animationCurve;
-
-        public AnimationCurve AnimationCurve
-        {
-            get
-            {
-                return _animationCurve;
-            }
-        }
+        public AnimationCurve AnimationCurve { get; private set; }
 
         public EditorCurveField()
         {
-            _animationCurve = new AnimationCurve();
+            AnimationCurve = new AnimationCurve();
         }
 
         protected override void OnDraw()
@@ -91,7 +83,7 @@ namespace Assets.Editor.Widgets
             AnimationCurve animationCurve = EditorGUILayout.CurveField(Content, AnimationCurve, Option.Values);
             if (animationCurve != AnimationCurve)
             {
-                _animationCurve = animationCurve;
+                AnimationCurve = animationCurve;
                 this.DipatchEvent();
             }
         }
@@ -99,14 +91,7 @@ namespace Assets.Editor.Widgets
 
     public class EditorDelayedDoubleField : Widget
     {
-        private double _value;
-
-        public double Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public double Value { get; set; }
 
         protected override void OnDraw()
         {
@@ -121,14 +106,7 @@ namespace Assets.Editor.Widgets
 
     public class EditorDelayedFloatField : Widget
     {
-        private float _value;
-
-        public float Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public float Value { get; set; }
 
         protected override void OnDraw()
         {
@@ -143,14 +121,7 @@ namespace Assets.Editor.Widgets
 
     public class EditorDelayedIntField : Widget
     {
-        private int _value;
-
-        public int Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public int Value { get; set; }
 
         protected override void OnDraw()
         {
@@ -165,7 +136,6 @@ namespace Assets.Editor.Widgets
 
     public class EditorDelayedTextField : Widget
     {
-
         protected override void OnDraw()
         {
             string value = EditorGUILayout.DelayedTextField(Content, Text, Option.Values);
@@ -179,14 +149,7 @@ namespace Assets.Editor.Widgets
 
     public class EditorDoubleField : Widget
     {
-        private double _value;
-
-        public double Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public double Value { get; set; }
 
         protected override void OnDraw()
         {
@@ -201,14 +164,7 @@ namespace Assets.Editor.Widgets
 
     public class EditorDropdownButton : Widget
     {
-        private FocusType _value;
-
-        public FocusType Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public FocusType Value { get; set; }
 
         protected override void OnDraw()
         {
@@ -224,14 +180,7 @@ namespace Assets.Editor.Widgets
 
     public class EditorEnumPopup : Widget
     {
-        private Enum _value;
-
-        public Enum Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public Enum Value { get; set; }
 
         protected override void OnDraw()
         {
@@ -246,14 +195,7 @@ namespace Assets.Editor.Widgets
 
     public class EditorFloatField : Widget
     {
-        private float _value;
-
-        public float Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public float Value { get; set; }
 
         protected override void OnDraw()
         {
@@ -268,23 +210,9 @@ namespace Assets.Editor.Widgets
 
     public class EditorFoldout : Widget
     {
-        private bool _foldout;
+        public bool Foldout { get; set; }
 
-        private bool _toggleOnLabelClick;
-
-        public bool Foldout
-        {
-            get { return _foldout; }
-
-            set { _foldout = value; }
-        }
-
-        public bool ToggleOnLabelClick
-        {
-            get { return _toggleOnLabelClick; }
-
-            set { _toggleOnLabelClick = value; }
-        }
+        public bool ToggleOnLabelClick { get; set; }
 
         protected override void OnDraw()
         {
@@ -299,22 +227,9 @@ namespace Assets.Editor.Widgets
 
     public class EditorHelpBox : Widget
     {
-        private string _message;
-        private MessageType _type;
+        public string Message { get; set; }
 
-        public string Message
-        {
-            get { return _message; }
-
-            set { _message = value; }
-        }
-
-        public MessageType Type
-        {
-            get { return _type; }
-
-            set { _type = value; }
-        }
+        public MessageType Type { get; set; }
 
         protected override void OnDraw()
         {
@@ -327,32 +242,16 @@ namespace Assets.Editor.Widgets
         /// <summary>
         /// 填充
         /// </summary>
-        private float _padding;
+        public float Padding { get; set; }
         /// <summary>
         /// 厚度
         /// </summary>
-        private float _thickness;
-        /// <summary>
-        /// 填充
-        /// </summary>
-        public float Padding
-        {
-            get { return _padding; }
-            set { _padding = value; }
-        }
-        /// <summary>
-        /// 厚度
-        /// </summary>
-        public float Thickness
-        {
-            get { return _thickness; }
-            set { _thickness = value; }
-        }
+        public float Thickness { get; set; }
 
         public EditorHorizontalLine()
         {
-            _padding = 0;
-            _thickness = 1;
+            Padding = 0;
+            Thickness = 1;
         }
 
         protected override void BeginDraw()
@@ -368,33 +267,11 @@ namespace Assets.Editor.Widgets
 
     public class EditorInspectorTitlebar : Widget
     {
+        public bool Foldout { get; set; }
 
-        private bool _foldout;
+        public bool Expandable { get; set; }
 
-        private bool _expandable;
-
-        private UnityEngine.Object[] _targetObjs;
-
-        public bool Foldout
-        {
-            get { return _foldout; }
-
-            set { _foldout = value; }
-        }
-
-        public bool Expandable
-        {
-            get { return _expandable; }
-
-            set { _expandable = value; }
-        }
-
-        public UnityEngine.Object[] TargetObjs
-        {
-            get { return _targetObjs; }
-
-            set { _targetObjs = value; }
-        }
+        public UnityEngine.Object[] TargetObjs { get; set; }
 
         protected override void OnDraw()
         {
@@ -409,13 +286,7 @@ namespace Assets.Editor.Widgets
 
     public class EditorIntField : Widget
     {
-        private int _value;
-        public int Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public int Value { get; set; }
 
         protected override void OnDraw()
         {
@@ -432,8 +303,8 @@ namespace Assets.Editor.Widgets
     {
         public class DisplayItem
         {
-            public GUIContent item;
-            public int value;
+            public GUIContent item { get; set; }
+            public int value { get; set; }
 
             public DisplayItem(GUIContent item, int value)
             {
@@ -447,20 +318,11 @@ namespace Assets.Editor.Widgets
             }
         }
 
-        /// <summary>
-        /// 当前值
-        /// </summary>
-        private int _value;
-
         private List<DisplayItem> _displayItems;
         /// <summary>
         /// 当前值
         /// </summary>
-        public int Value
-        {
-            get { return _value; }
-            set { _value = value; }
-        }
+        public int Value { get; set; }
 
         public EditorIntPopup()
         {
@@ -554,43 +416,19 @@ namespace Assets.Editor.Widgets
 
     public class EditorIntSlider : Widget
     {
-        /// <summary>
-        /// 当前值
-        /// </summary>
-        private int _value;
-        /// <summary>
-        /// 最小值
-        /// </summary>
-        private int _minValue;
-        /// <summary>
-        /// 最大值
-        /// </summary>
-        private int _maxValue = 100;
 
         /// <summary>
         /// 当前值
         /// </summary>
-        public int Value
-        {
-            get { return _value; }
-            set { _value = value; }
-        }
+        public int Value { get; set; }
         /// <summary>
         /// 最小值
         /// </summary>
-        public int MinValue
-        {
-            get { return _minValue; }
-            set { _minValue = value; }
-        }
+        public int MinValue { get; set; }
         /// <summary>
         /// 最大值
         /// </summary>
-        public int MaxValue
-        {
-            get { return _maxValue; }
-            set { _maxValue = value; }
-        }
+        public int MaxValue { get; set; } = 100;
 
         protected override void OnDraw()
         {
@@ -605,51 +443,24 @@ namespace Assets.Editor.Widgets
 
     public class EditorKnob : Widget
     {
-        public Vector2 _knobSize;
-        
-        public float _value;
-        
-        public float _minValue;
-        
-        public float _maxValue;
-        
-        public string _unit;
-        
-        public Color _backgroundColor;
-        
-        public Color _activeColor;
-        
-        public bool _showValue;
-        
+        private Vector2 _knobSize;
+        private Color _backgroundColor;
+
+        private Color _activeColor;
+
         public Vector2 KnobSize
         {
             get { return _knobSize; }
             set { _knobSize = value; }
         }
 
-        public float Value
-        {
-            get { return _value; }
-            set { _value = value; }
-        }
+        public float Value { get; set; }
 
-        public float MinValue
-        {
-            get { return _minValue; }
-            set { _minValue = value; }
-        }
+        public float MinValue { get; set; }
 
-        public string Unit
-        {
-            get { return _unit; }
-            set { _unit = value; }
-        }
+        public string Unit { get; set; }
 
-        public float MaxValue
-        {
-            get { return _maxValue; }
-            set { _maxValue = value; }
-        }
+        public float MaxValue { get; set; }
 
         public Color BackgroundColor
         {
@@ -663,11 +474,7 @@ namespace Assets.Editor.Widgets
             set { _activeColor = value; }
         }
 
-        public bool ShowValue
-        {
-            get { return _showValue; }
-            set { _showValue = value; }
-        }
+        public bool ShowValue { get; set; }
 
         protected override void OnDraw()
         {
@@ -696,13 +503,7 @@ namespace Assets.Editor.Widgets
 
     public class EditorLayerField : Widget
     {
-        private int _value;
-        public int Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public int Value { get; set; }
 
         protected override void OnDraw()
         {
@@ -720,16 +521,7 @@ namespace Assets.Editor.Widgets
         /// <summary>
         /// 当前选中项
         /// </summary>
-        private long _value;
-        /// <summary>
-        /// 当前选中项
-        /// </summary>
-        public long Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public long Value { get; set; }
 
         protected override void OnDraw()
         {
@@ -744,33 +536,15 @@ namespace Assets.Editor.Widgets
 
     public class EditorMaskField : Widget
     {
-        /// <summary>
-        /// 当前选中项
-        /// </summary>
-        private int _mask;
-        /// <summary>
-        /// 显示项
-        /// </summary>
-        private string[] _displayedOptions;
 
         /// <summary>
         /// 当前选中项
         /// </summary>
-        public int Mask
-        {
-            get { return _mask; }
-
-            set { _mask = value; }
-        }
+        public int Mask { get; set; }
         /// <summary>
         /// 显示项
         /// </summary>
-        public string[] DisplayedOptions
-        {
-            get { return _displayedOptions; }
-
-            set { _displayedOptions = value; }
-        }
+        public string[] DisplayedOptions { get; set; }
 
         protected override void OnDraw()
         {
@@ -786,14 +560,6 @@ namespace Assets.Editor.Widgets
     public class EditorMinMaxSlider : Widget
     {
         /// <summary>
-        /// 最小限定值
-        /// </summary>
-        private float _minLimit;
-        /// <summary>
-        /// 最大限定值
-        /// </summary>
-        private float _maxLimit;
-        /// <summary>
         /// 最小值
         /// </summary>
         private float _minValue;
@@ -805,19 +571,11 @@ namespace Assets.Editor.Widgets
         /// <summary>
         /// 最小限定值
         /// </summary>
-        public float MinLimit
-        {
-            get { return _minLimit; }
-            set { _minLimit = value; }
-        }
+        public float MinLimit { get; set; }
         /// <summary>
         /// 最大限定值
         /// </summary>
-        public float MaxLimit
-        {
-            get { return _maxLimit; }
-            set { _maxLimit = value; }
-        }
+        public float MaxLimit { get; set; }
         /// <summary>
         /// 最小值
         /// </summary>
@@ -844,30 +602,11 @@ namespace Assets.Editor.Widgets
 
     public class EditorObjectField : Widget
     {
-        private UnityEngine.Object _target;
-        private Type _targetType;
-        private bool _allowSceneObjects;
+        public UnityEngine.Object Target { get; set; }
 
-        public UnityEngine.Object Target
-        {
-            get { return _target; }
+        public Type TargetType { get; set; }
 
-            set { _target = value; }
-        }
-
-        public Type TargetType
-        {
-            get { return _targetType; }
-
-            set { _targetType = value; }
-        }
-
-        public bool AllowSceneObjects
-        {
-            get { return _allowSceneObjects; }
-
-            set { _allowSceneObjects = value; }
-        }
+        public bool AllowSceneObjects { get; set; }
 
         public EditorObjectField()
         {
@@ -888,14 +627,7 @@ namespace Assets.Editor.Widgets
 
     public class EditorPasswordField : Widget
     {
-        private string _password;
-
-        public string Password
-        {
-            get { return _password; }
-
-            set { _password = value; }
-        }
+        public string Password { get; set; }
 
         protected override void OnDraw()
         {
@@ -914,29 +646,11 @@ namespace Assets.Editor.Widgets
         /// <summary>
         /// 当前选中项
         /// </summary>
-        private int _selectedIndex;
+        public int SelectedIndex { get; set; }
         /// <summary>
         /// 显示项
         /// </summary>
-        private GUIContent[] _displayedOptions;
-        /// <summary>
-        /// 当前选中项
-        /// </summary>
-        public int SelectedIndex
-        {
-            get { return _selectedIndex; }
-
-            set { _selectedIndex = value; }
-        }
-        /// <summary>
-        /// 显示项
-        /// </summary>
-        public GUIContent[] DisplayedOptions
-        {
-            get { return _displayedOptions; }
-
-            set { _displayedOptions = value; }
-        }
+        public GUIContent[] DisplayedOptions { get; set; }
 
         protected override void OnDraw()
         {
@@ -968,11 +682,6 @@ namespace Assets.Editor.Widgets
     public class EditorPreviewTexture : Widget
     {
         private Rect _position;
-        private Texture _image;
-        private Material _mat;
-        
-        private ScaleMode _scaleMode;
-        private float _imageAspect;
 
         public UnityEngine.Rect Position
         {
@@ -980,29 +689,13 @@ namespace Assets.Editor.Widgets
             set { _position = value; }
         }
 
-        public UnityEngine.Texture Image
-        {
-            get { return _image; }
-            set { _image = value; }
-        }
+        public UnityEngine.Texture Image { get; set; }
 
-        public UnityEngine.Material Mat
-        {
-            get { return _mat; }
-            set { _mat = value; }
-        }
+        public UnityEngine.Material Mat { get; set; }
 
-        public UnityEngine.ScaleMode ScaleMode
-        {
-            get { return _scaleMode; }
-            set { _scaleMode = value; }
-        }
+        public UnityEngine.ScaleMode ScaleMode { get; set; }
 
-        public float ImageAspect
-        {
-            get { return _imageAspect; }
-            set { _imageAspect = value; }
-        }
+        public float ImageAspect { get; set; }
 
         public EditorPreviewTexture()
         {
@@ -1018,9 +711,6 @@ namespace Assets.Editor.Widgets
     public class EditorTextureAlpha : Widget
     {
         private Rect _position;
-        private Texture _image;
-        private ScaleMode _scaleMode;
-        private float _imageAspect;
 
         public UnityEngine.Rect Position
         {
@@ -1028,23 +718,11 @@ namespace Assets.Editor.Widgets
             set { _position = value; }
         }
 
-        public UnityEngine.Texture Image
-        {
-            get { return _image; }
-            set { _image = value; }
-        }
+        public UnityEngine.Texture Image { get; set; }
 
-        public UnityEngine.ScaleMode ScaleMode
-        {
-            get { return _scaleMode; }
-            set { _scaleMode = value; }
-        }
+        public UnityEngine.ScaleMode ScaleMode { get; set; }
 
-        public float ImageAspect
-        {
-            get { return _imageAspect; }
-            set { _imageAspect = value; }
-        }
+        public float ImageAspect { get; set; }
 
         protected override void OnDraw()
         {
@@ -1055,9 +733,6 @@ namespace Assets.Editor.Widgets
     public class EditorTextureTransparent : Widget
     {
         private Rect _position;
-        private Texture _image;
-        private ScaleMode _scaleMode;
-        private float _imageAspect;
 
         public UnityEngine.Rect Position
         {
@@ -1065,23 +740,11 @@ namespace Assets.Editor.Widgets
             set { _position = value; }
         }
 
-        public UnityEngine.Texture Image
-        {
-            get { return _image; }
-            set { _image = value; }
-        }
+        public UnityEngine.Texture Image { get; set; }
 
-        public UnityEngine.ScaleMode ScaleMode
-        {
-            get { return _scaleMode; }
-            set { _scaleMode = value; }
-        }
+        public UnityEngine.ScaleMode ScaleMode { get; set; }
 
-        public float ImageAspect
-        {
-            get { return _imageAspect; }
-            set { _imageAspect = value; }
-        }
+        public float ImageAspect { get; set; }
 
         protected override void OnDraw()
         {
@@ -1092,22 +755,9 @@ namespace Assets.Editor.Widgets
 
     public class EditorPropertyField : Widget
     {
-        private SerializedProperty _value;
-        private bool _includeChildren;
+        public SerializedProperty Value { get; set; }
 
-        public SerializedProperty Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
-
-        public bool IncludeChildren
-        {
-            get { return _includeChildren; }
-
-            set { _includeChildren = value; }
-        }
+        public bool IncludeChildren { get; set; }
 
         protected override void OnDraw()
         {

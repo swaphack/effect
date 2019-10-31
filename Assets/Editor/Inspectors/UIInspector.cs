@@ -16,33 +16,11 @@ namespace Assets.Editor.Inspectors
         /// </summary>
         private UIWidget _layout;
 
+        public bool UseDefaultInspector { get; set; }
         /// <summary>
         /// 布局是否有修改
         /// </summary>
-        private bool _dirty;
-        /// <summary>
-        /// 是否使用默认布局
-        /// </summary>
-        private bool _useDefaultInspector = false;
-        public bool UseDefaultInspector
-        {
-            get { return _useDefaultInspector; }
-            set { _useDefaultInspector = value; }
-        }
-        /// <summary>
-        /// 布局是否有修改
-        /// </summary>
-        public bool Dirty
-        {
-            get
-            {
-                return _dirty;
-            }
-            set
-            {
-                _dirty = value;
-            }
-        }
+        public bool Dirty { get; set; }
 
         public UIInspector()
         {

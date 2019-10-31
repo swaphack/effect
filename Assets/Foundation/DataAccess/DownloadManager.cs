@@ -27,10 +27,7 @@ namespace Assets.Foundation.DataAccess
             /// 回调
             /// </summary>
             private Callback _callback;
-            /// <summary>
-            /// http下载
-            /// </summary>
-            private UnityWebRequest _www;
+
             /// <summary>
             /// 本地文件
             /// </summary>
@@ -43,29 +40,9 @@ namespace Assets.Foundation.DataAccess
             /// 是否初始化
             /// </summary>
             private bool _bInit;
-            /// <summary>
-            /// 请求地址
-            /// </summary>
-            private string _url;
-            /// <summary>
-            /// 本地保存地址
-            /// </summary>
-            private string _local;
 
-            public string url
-            {
-                get 
-                {
-                    return _url;
-                }
-            }
-            public string local
-            {
-                get
-                {
-                    return _local;
-                }
-            }
+            public string url { get; }
+            public string local { get; }
 
             /// <summary>
             /// 下载是否完成
@@ -73,38 +50,29 @@ namespace Assets.Foundation.DataAccess
             private bool _bFinish;
 
 
-            public UnityWebRequest WWW
-            {
-                get
-                {
-                    return _www;
-                }
-            }
+            public UnityWebRequest WWW { get; private set; }
 
             public bool IsDone
             {
                 get
                 {
-                    if (_www == null)
+                    if (WWW == null)
                     {
                         return false;
                     }
-#if UNITY_IOS
-                    if (_www.isNetworkError)
+                    if (WWW.isNetworkError)
                     {
                         return true;
                     }
-#else
-                    if (_www.isNetworkError)
+                    if (WWW.isHttpError)
                     {
                         return true;
                     }
-#endif
-                    if (!_www.isDone)
+                    if (!WWW.isDone)
                     {
                         return false;
                     }
-                    if (this._position != _www.downloadHandler.data.Length)
+                    if (this._position != WWW.downloadHandler.data.Length)
                     {
                         return false;
                     }
@@ -116,17 +84,17 @@ namespace Assets.Foundation.DataAccess
 
             public Task(string url, string local, Callback callback)
             {
-                this._url = url;
-                this._local = local;
+                this.url = url;
+                this.local = local;
                 this._callback = callback;
-                this._www = UnityWebRequest.Get(url);
+                this.WWW = UnityWebRequest.Get(url);
                 this._localFile = new StorageFile(local);
                 this._localFile.SeekEnd();
 
                 this._bInit = false;
                 this._bFinish = false;
                 this._position = 0;
-                this._www.SetRequestHeader("Range", string.Format("bytes={0}-", this._localFile.Length));
+                this.WWW.SetRequestHeader("Range", string.Format("bytes={0}-", this._localFile.Length));
             }
 
             public void InitTask()
@@ -135,9 +103,9 @@ namespace Assets.Foundation.DataAccess
                 {
                     _bInit = true;
                 }
-                if (_www != null)
+                if (WWW != null)
                 {
-                    _www.SendWebRequest();
+                    WWW.SendWebRequest();
                 }
             }
 
@@ -148,18 +116,15 @@ namespace Assets.Foundation.DataAccess
                     return;
                 }
                 long offset = _position;
-                long length = _www.downloadHandler.data.Length;
+                long length = WWW.downloadHandler.data.Length;
                 long count = length - offset;
                 _position = length;
-                this._localFile.Append(_www.downloadHandler.data, offset, count);
+                this._localFile.Append(WWW.downloadHandler.data, offset, count);
                 this._localFile.Save();
-                
-                if (_callback != null)
-                {
-                    _callback(_www.error, url, _www.downloadProgress);
-                }
 
-                if (_www.downloadProgress >= 1)
+                _callback?.Invoke(WWW.error, url, WWW.downloadProgress);
+
+                if (WWW.downloadProgress >= 1)
                 {
                     this.Dispose();
                     _bFinish = true;
@@ -168,10 +133,10 @@ namespace Assets.Foundation.DataAccess
 
             public void Dispose()
             {
-                if (_www != null)
+                if (WWW != null)
                 {
-                    _www.Dispose();
-                    _www = null;
+                    WWW.Dispose();
+                    WWW = null;
                 }
                 if (_localFile != null)
                 {

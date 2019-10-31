@@ -18,151 +18,57 @@ namespace Assets.Editor.Widgets
     public abstract class Widget : IWidget
     {
         /// <summary>
-        /// 图片路径
-        /// </summary>
-        private string _imagePath;
-        /// <summary>
-        /// 图片和文字的位置关系
-        /// </summary>
-        private ImagePosition _imagePosition;
-        /// <summary>
-        /// 文本
-        /// </summary>
-        private string _text;
-        /// <summary>
-        /// 提示
-        /// </summary>
-        private string _tooltip;
-        /// <summary>
         /// 布局参数
         /// </summary>
-        private LayoutOption _option;
-        /// <summary>
-        /// 控件内容
-        /// </summary>
-        private GUIContent _content;
-        /// <summary>
-        /// 布局参数
-        /// </summary>
-        public LayoutOption Option
-        {
-            get {
-                return _option; 
-            }
-        }
+        public LayoutOption Option { get; }
 
         /// <summary>
         /// 控件内容
         /// </summary>
-        public GUIContent Content
-        {
-            get
-            {
-                return _content;
-            }
-        }
+        public GUIContent Content { get; }
 
         /// <summary>
         /// 内容
         /// </summary>
-        public string Text
-        {
-            get
-            {
-                return _text;
-            }
-            set
-            {
-                _text = value;
-            }
-        }
+        public string Text { get; set; }
 
         /// <summary>
         /// 图片路径
         /// </summary>
-        public string ImagePath
-        {
-            get
-            {
-                return _imagePath;
-            }
-            set
-            {
-                _imagePath = value;
-            }
-        }
+        public string ImagePath { get; set; }
 
         /// <summary>
         /// 图片和文字的位置关系
         /// </summary>
-        public ImagePosition ImagePosition
-        {
-            get
-            {
-                return _imagePosition;
-            }
-            set
-            {
-                _imagePosition = value;
-            }
-
-        }
+        public ImagePosition ImagePosition { get; set; }
 
         /// <summary>
         /// 提示
         /// </summary>
-        public string Tooltip
-        {
-            get
-            {
-                return _tooltip;
-            }
-            set
-            {
-                _tooltip = value;
-            }
-        }
+        public string Tooltip { get; set; }
 
         /// <summary>
         /// 触发事件
         /// </summary>
-        private WidgetEvent _triggerHandler;
-
-        /// <summary>
-        /// 触发事件
-        /// </summary>
-        public WidgetEvent TriggerHandler
-        {
-            get
-            {
-                return _triggerHandler;
-            }
-            set
-            {
-                _triggerHandler = value;
-            }
-        }
+        public WidgetEvent TriggerHandler { get; set; }
 
         /// <summary>
         /// 派发事件
         /// </summary>
         protected void DipatchEvent()
         {
-            if (_triggerHandler != null)
-            {
-                _triggerHandler(this);
-            }
+            TriggerHandler?.Invoke(this);
         }
 
-        private bool _initContent = false;
-        private bool _initStyle = false;
+        private bool _initContent;
+        private bool _initStyle;
 
 
         public Widget()
         {
             ImagePosition = ImagePosition.ImageAbove;
-            _option = new LayoutOption();
-            _content = new GUIContent();
+            Option = new LayoutOption();
+            Content = new GUIContent();
         }
 
         public void Draw()
@@ -199,10 +105,10 @@ namespace Assets.Editor.Widgets
 
         protected virtual void UpdateContent()
         {
-            var texture = AssetDatabase.LoadAssetAtPath<Texture>(_imagePath);
-            _content.image = texture;
-            _content.text = _text;
-            _content.tooltip = _tooltip;
+            var texture = AssetDatabase.LoadAssetAtPath<Texture>(ImagePath);
+            Content.image = texture;
+            Content.text = Text;
+            Content.tooltip = Tooltip;
         }
 
         protected virtual void InitStyle()
@@ -224,6 +130,15 @@ namespace Assets.Editor.Widgets
         protected virtual void EndDraw()
         {
         }
+
+        private GUIStyle _style;
+
+        protected GUIStyle Style
+        {
+            get { return _style; }
+            set { _style = value; }
+        }
+
         /*
         public GUIStyleState ActiveState
         {

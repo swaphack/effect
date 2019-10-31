@@ -15,7 +15,7 @@ namespace Assets.Foundation.UI
     {
         public GameObject root;
 
-        private bool _init = false;
+        private bool _init;
 
         public override void Initialize()
         {
@@ -153,7 +153,7 @@ namespace Assets.Foundation.UI
                 return;
             }
 
-            var instance = GameObject.Instantiate(go);
+            var instance = Instantiate(go);
             int begin = temp.Path.LastIndexOf("/") + 1;
             instance.name = temp.Path.Substring(begin, temp.Path.Length - begin);
             var frame = instance.AddComponent<T>();

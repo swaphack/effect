@@ -1,5 +1,4 @@
-﻿using System;
-using Assets.Foundation.Data;
+﻿using Assets.Foundation.Data;
 
 namespace Assets.Foundation.Protocol
 {
@@ -20,7 +19,7 @@ namespace Assets.Foundation.Protocol
             return _method.ToBytes();
         }
 
-        public void WriteObject(Object value)
+        public void WriteObject(object value)
         {
             _method.Write(value);
         }

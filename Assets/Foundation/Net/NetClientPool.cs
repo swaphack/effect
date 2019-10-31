@@ -8,19 +8,8 @@ namespace Assets.Foundation.Net
     {
         private HashSet<NetClient> _clients = new HashSet<NetClient>();
         private Socket _socket;
-        private NetClientDelegate _clientStatusChanged;
 
-        public NetClientDelegate OnClientStatusChanged
-        {
-            get
-            {
-                return _clientStatusChanged;
-            }
-            set
-            {
-                _clientStatusChanged = value;
-            }
-        }
+        public NetClientDelegate OnClientStatusChanged { get; set; }
 
         public NetClientPool(Socket s)
         {

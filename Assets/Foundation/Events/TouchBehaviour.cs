@@ -9,22 +9,10 @@ namespace Assets.Foundation.Events
     /// </summary>
     public abstract class TouchBehaviour : EventBehaviour, ITouchProtocol
     {
-        private bool _useCollier = false;
-
         /// <summary>
         /// 使用碰撞
         /// </summary>
-        public bool UseCollider
-        {
-            get
-            {
-                return _useCollier;
-            }
-            protected set
-            {
-                _useCollier = value;
-            }
-        }
+        public bool UseCollider { get; protected set; } = false;
 
         /// <summary>
         /// 目标

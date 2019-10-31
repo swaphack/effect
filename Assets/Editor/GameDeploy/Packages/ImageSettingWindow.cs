@@ -25,22 +25,22 @@ namespace Assets.Editor.GameDeploy.Packages
         private SettingParams setting;
 
 
-        private int[] TextureIntArray = new int[] { 0, 1, 2, 8, 7, 4, 6, 10 };
-        private string[] TextureTypeString = new string[] { "Default", "Normal Map", "GUI", "Sprite", "Cursor", "Cookie", "Lightmap", "Single Channel" };
+        private int[] TextureIntArray = { 0, 1, 2, 8, 7, 4, 6, 10 };
+        private string[] TextureTypeString = { "Default", "Normal Map", "GUI", "Sprite", "Cursor", "Cookie", "Lightmap", "Single Channel" };
 
-        private int[] SizeIntArray = new int[] { 32, 64, 128, 256, 512, 1024, 2048, 4096 };
-        private string[] MaxSizeString = new string[] { "32", "64", "128", "256", "512", "1024", "2048", "4096" };
+        private int[] SizeIntArray = { 32, 64, 128, 256, 512, 1024, 2048, 4096 };
+        private string[] MaxSizeString = { "32", "64", "128", "256", "512", "1024", "2048", "4096" };
 
         /// <summary>
         /// 临时存储int[]
         /// </summary>
-        private int[] IntArray = new int[] { 0, 1, 2, 3, 4, 5, 6, 7 };
+        private int[] IntArray = { 0, 1, 2, 3, 4, 5, 6, 7 };
 
-        private string[] AlphaSourceString = new string[] { "None", "FromInput", "FromGrayScale" };
-        private string[] FilterModeString = new string[] { "Point", "Bilinear", "Trilinear" };
-        private string[] WrapModeString = new string[] { "Repeat", "Clamp" };
-        private string[] FormatString = new string[] { "Uncompressed", "Compressed", "CompressedHQ", "CompressedLQ" };
-        private string[] SpriteModeString = new string[] { "None", "Single", "Multiple", "Polygon" };
+        private string[] AlphaSourceString = { "None", "FromInput", "FromGrayScale" };
+        private string[] FilterModeString = { "Point", "Bilinear", "Trilinear" };
+        private string[] WrapModeString = { "Repeat", "Clamp" };
+        private string[] FormatString = { "Uncompressed", "Compressed", "CompressedHQ", "CompressedLQ" };
+        private string[] SpriteModeString = { "None", "Single", "Multiple", "Polygon" };
 
 
         public ImageSettingWindow()

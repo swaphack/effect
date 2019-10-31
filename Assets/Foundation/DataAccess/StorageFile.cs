@@ -12,30 +12,9 @@ namespace Assets.Foundation.DataAccess
     /// </summary>
     public class StorageFile : IDisposable
     {
-        /// <summary>
-        /// 完整路径
-        /// </summary>
-        private string _fullpath;
-        /// <summary>
-        /// 文件流
-        /// </summary>
-        private FileStream _stream;
+        public string Fullpath { get; }
 
-        public string Fullpath
-        {
-            get
-            {
-                return _fullpath;
-            }
-        }
-
-        protected FileStream Stream
-        {
-            get
-            {
-                return _stream;
-            }
-        }
+        protected FileStream Stream { get; private set; }
 
         /// <summary>
         /// 文件长度
@@ -44,7 +23,7 @@ namespace Assets.Foundation.DataAccess
         {
             get
             {
-                if (_stream == null)
+                if (Stream == null)
                 {
                     return 0;
                 }
@@ -59,29 +38,29 @@ namespace Assets.Foundation.DataAccess
         {
             get
             {
-                if (_stream == null)
+                if (Stream == null)
                 {
                     return 0;
                 }
-                return _stream.Position;
+                return Stream.Position;
             }
         }
 
         public StorageFile(string fullpath)
         {
-            _fullpath = fullpath;
+            Fullpath = fullpath;
             FileUtility.AutoCreateFile(fullpath);
-            _stream = new FileStream(fullpath, FileMode.OpenOrCreate);
+            Stream = new FileStream(fullpath, FileMode.OpenOrCreate);
         }
 
         public byte[] ToBytes()
         {
-            long pos = _stream.Position;
-            int length = (int)_stream.Length;
+            long pos = Stream.Position;
+            int length = (int)Stream.Length;
             byte[] buff = new byte[length];
-            _stream.Position = 0;
-            _stream.Read(buff, 0, length);
-            _stream.Position = pos;
+            Stream.Position = 0;
+            Stream.Read(buff, 0, length);
+            Stream.Position = pos;
             return buff;
         }
 
@@ -96,11 +75,11 @@ namespace Assets.Foundation.DataAccess
         /// </summary>
         public void Save()
         {
-            if (_stream == null)
+            if (Stream == null)
             {
                 return;
             }
-            _stream.Flush();
+            Stream.Flush();
         }
 
         /// <summary>
@@ -108,13 +87,13 @@ namespace Assets.Foundation.DataAccess
         /// </summary>
         public void Dispose()
         {
-            if (_stream == null)
+            if (Stream == null)
             {
                 return;
             }
-            _stream.Close();
-            _stream.Dispose();
-            _stream = null;
+            Stream.Close();
+            Stream.Dispose();
+            Stream = null;
         }
 
         /// <summary>
@@ -125,7 +104,7 @@ namespace Assets.Foundation.DataAccess
         /// <param name="length"></param>
         public void Append(byte[] data, long offset, long length)
         {
-            if (_stream == null)
+            if (Stream == null)
             {
                 return;
             }
@@ -134,7 +113,7 @@ namespace Assets.Foundation.DataAccess
                 return;
             }
 
-            _stream.Write(data, (int)offset, (int)length);
+            Stream.Write(data, (int)offset, (int)length);
         }
 
         /// <summary>
@@ -158,26 +137,26 @@ namespace Assets.Foundation.DataAccess
 
         public void SeekEnd()
         {
-            if (_stream == null)
+            if (Stream == null)
             {
                 return;
             }
 
-            _stream.Position = Stream.Length;
+            Stream.Position = Stream.Length;
         }
 
         public void SeekBegin()
         {
-            if (_stream == null)
+            if (Stream == null)
             {
                 return;
             }
-            _stream.Position = 0;
+            Stream.Position = 0;
         }
 
         public void Seek(int positon)
         {
-            if (_stream == null)
+            if (Stream == null)
             {
                 return;
             }
@@ -186,7 +165,7 @@ namespace Assets.Foundation.DataAccess
                 return;
             }
 
-            _stream.Position = positon;
+            Stream.Position = positon;
         }
     }
 }

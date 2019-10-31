@@ -29,10 +29,7 @@ namespace Assets.Foundation.UI
 
         private void DispatchTextChangedEvent()
         {
-            if (OnTextChanged != null)
-            {
-                OnTextChanged(this);
-            }
+            OnTextChanged?.Invoke(this);
         }
 
         /// <summary>
@@ -41,13 +38,9 @@ namespace Assets.Foundation.UI
         /// <param name="text"></param>
         public void SetString(string text)
         {
-            var font = this.font;
 
             Vector2 extents = new Vector2(rectTransform.rect.width, 0);
             TextGenerationSettings setting = GetGenerationSettings(extents);
-
-            TextGenerator cachedTextGenerator = this.cachedTextGenerator;
-            TextGenerator cachedTextGeneratorForLayout = this.cachedTextGeneratorForLayout;
 
             float newHeight = cachedTextGeneratorForLayout.GetPreferredHeight(text, setting);
             rectTransform.SetHeight(newHeight);

@@ -65,25 +65,15 @@ namespace Assets.Foundation.TextFormat
                 }
             }
         }
-        /// <summary>
-        /// 根节点
-        /// </summary>
-        private TextLine _root;
 
         /// <summary>
         /// 根节点
         /// </summary>
-        public TextLine Root
-        {
-            get
-            {
-                return _root;
-            }
-        }
+        public TextLine Root { get; private set; }
 
         public ManifestFormat()
         {
-            _root = new TextLine();
+            Root = new TextLine();
         }
 
         /// <summary>
@@ -106,9 +96,9 @@ namespace Assets.Foundation.TextFormat
 
         public void Read(string text)
         {
-            _root = new TextLine();
+            Root = new TextLine();
 
-            var tempNode = _root;
+            var tempNode = Root;
 
             using (TextReader reader = new StringReader(text))
             {

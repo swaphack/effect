@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<root>
+    <MemberType>
+        <Item Type="Float" CodeType="float"/>
+        <Item Type="Float2" CodeType="float2"/>
+        <Item Type="Float3" CodeType="floa3"/>
+        <Item Type="Float4" CodeType="float4"/>
+        <Item Type="Sampler2D" CodeType="sampler2D"/>
+        <Item Type="Sampler3D" CodeType="sampler3D"/>
+        <Item Type="SamplerCube" CodeType="samplerCUBE"/>
+        <Item Type="Half" CodeType="half"/>
+        <Item Type="Half2" CodeType="half2"/>
+        <Item Type="Half3" CodeType="half3"/>
+        <Item Type="Half4" CodeType="half4"/>
+        <Item Type="Fixed" CodeType="fixed"/>
+        <Item Type="Fixed2" CodeType="fixed2"/>
+        <Item Type="Fixed3" CodeType="fixed3"/>
+        <Item Type="Fixed4" CodeType="fixed4"/>
+    </MemberType>
+</root>

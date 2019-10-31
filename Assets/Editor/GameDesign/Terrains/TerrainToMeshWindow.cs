@@ -147,10 +147,10 @@ namespace Assets.Editor.GameDesign.Terrains
             if (!mat)
                 mat = new Material(Shader.Find("Custom/Environment/TerrainSimple"));
 
-            for (int i = 0; i < terrainData.splatPrototypes.Length; i++)
+            for (int i = 0; i < terrainData.terrainLayers.Length; i++)
             {
-                var sp = terrainData.splatPrototypes[i];
-                mat.SetTexture("_Texture" + i, sp.texture);
+                var sp = terrainData.terrainLayers[i];
+                mat.SetTexture("_Texture" + i, sp.diffuseTexture);
             }
 
             t.parent = terrainObj.transform.parent;

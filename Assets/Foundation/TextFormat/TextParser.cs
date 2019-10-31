@@ -14,26 +14,13 @@ namespace Assets.Foundation.TextFormat
         /// 待处理的文本
         /// </summary>
         private string _text;
-        /// <summary>
-        /// 解析后的树形结构
-        /// </summary>
-        private object _tree;
+
         /// <summary>
         /// 字符解析
         /// </summary>
         private List<IFieldParse> _funcs;
 
-        public object Tree
-        {
-            get
-            {
-                return _tree;
-            }
-            protected set
-            {
-                _tree = value;
-            }
-        }
+        public object Tree { get; protected set; }
 
         public override string ToString()
         {

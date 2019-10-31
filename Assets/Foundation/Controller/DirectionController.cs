@@ -16,7 +16,7 @@ namespace Assets.Foundation.Controller
         /// 移动加速度
         /// </summary>
         [SerializeField]
-        private float _acceleration = 0.0f;
+        private float _acceleration = 0.1f;
         /// <summary>
         /// 旋转速度
         /// </summary>

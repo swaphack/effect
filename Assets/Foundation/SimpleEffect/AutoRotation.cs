@@ -1,4 +1,5 @@
-﻿using Assets.App;
+﻿using System;
+using Assets.App;
 using UnityEngine;
 
 namespace Assets.Foundation.SimpleEffect
@@ -46,7 +47,7 @@ namespace Assets.Foundation.SimpleEffect
 
         void Update()
         {
-            this.transform.Rotate(Axis, Time.deltaTime * AnglePerSecond * AppTime.Instance.TimeScale);
+            this.transform.Rotate(Axis, Time.deltaTime * AnglePerSecond);
         }
     }
 }

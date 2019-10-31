@@ -11,8 +11,8 @@ namespace Assets.Foundation.Events
     {
         private struct TouchInfo
         {
-            public int fingerId;
-            public GameObject target;
+            public int fingerId { get; set; }
+            public GameObject target { get; set; }
 
             public TouchInfo(int fingerId, GameObject target)
             {

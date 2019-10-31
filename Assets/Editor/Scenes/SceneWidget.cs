@@ -23,7 +23,7 @@ namespace Assets.Editor.Scenes
 
         public SceneWidget()
         {
-            Color = Handles.color;
+            _color = Handles.color;
         }
 
         public virtual void Draw()
@@ -38,37 +38,27 @@ namespace Assets.Editor.Scenes
     public class SceneCamera : SceneWidget
     {
         private Rect _position;
-        private Camera _camera;
-        private DrawCameraMode _drawMode;
 
         public Rect Position
         {
             get { return _position; }
             set { _position = value; }
         }
-        
-        public Camera Camera
-        {
-            get { return _camera; }
-            set { _camera = value; }
-        }
-        
-        public DrawCameraMode DrawMode
-        {
-            get { return _drawMode; }
-            set { _drawMode = value; }
-        }
+
+        public Camera Camera { get; set; }
+
+        public DrawCameraMode DrawMode { get; set; }
 
         public SceneCamera()
         {
-            _camera = Camera.main;
-            _drawMode = DrawCameraMode.Normal;
+            Camera = Camera.main;
+            DrawMode = DrawCameraMode.Normal;
         }
 
         public void Set(Rect position, Camera camera)
         {
             _position = position;
-            _camera = camera;
+            Camera = camera;
 
             Handles.SetCamera(position, camera);
         }

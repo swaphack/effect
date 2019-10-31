@@ -12,42 +12,14 @@ namespace Assets.App
         private bool _bPause = false;
 
         private bool _bFocus = false;
+
         /// <summary>
         /// 是否保存日志，使用文件记录
         /// </summary>
-        private bool _bSaveDebug = false;
-        /// <summary>
-        /// 是否保存日志，使用文件记录
-        /// </summary>
-        public bool IsSaveDebug
-        {
-            get
-            {
-                return _bSaveDebug;
-            }
-            set
-            {
-                _bSaveDebug = value;
-            }
-        }
+        public bool IsSaveDebug { get; set; } = false;
+        public static AppInstance App { get; private set; }
 
-        private static AppInstance _app;
-        public static AppInstance App
-        {
-            get { return _app; }
-        }
-        /// <summary>
-        /// 退出应用，防止重新生成
-        /// </summary>
-        private static bool _bQuit = false;
-
-        public static bool IsQuit
-        {
-            get
-            {
-                return _bQuit;
-            }
-        }
+        public static bool IsQuit { get; private set; }
 
         private void OnEnable()
         {
@@ -133,7 +105,7 @@ namespace Assets.App
 
             Debug.Log("On Application Awake");
 
-            _app = this;
+            App = this;
 
             this.Init();
         }
@@ -152,7 +124,7 @@ namespace Assets.App
 
         protected virtual void Exit()
         {
-            _bQuit = true;
+            IsQuit = true;
         }
     }
 }

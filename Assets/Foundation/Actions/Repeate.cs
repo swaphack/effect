@@ -8,38 +8,10 @@ namespace Assets.Foundation.Actions
     public class Repeate : ActionBase
     {
         private int _count = 0;
-        /// <summary>
-        /// 重复次数，0-表示循环
-        /// </summary>
-        private int _repeateCount = 0;
-        /// <summary>
-        /// 目标动作
-        /// </summary>
-        private IAction _action;
 
-        public int RepeateCount
-        {
-            get
-            {
-                return _repeateCount;
-            }
-            set
-            {
-                _repeateCount = value;
-            }
-        }
+        public int RepeateCount { get; set; } = 0;
 
-        public IAction Action
-        {
-            get
-            {
-                return _action;
-            }
-            set
-            {
-                _action = value;
-            }
-        }
+        public IAction Action { get; set; }
 
         public override bool IsDone
         {

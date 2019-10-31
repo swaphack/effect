@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<root>
+    <TexDefaultName>
+        <Item Type="None" Name="" />
+        <Item Type="White" Name="white" />
+        <Item Type="Black" Name="black" />
+        <Item Type="Gray" Name="gray" />
+        <Item Type="Bump" Name="bump" />
+    </TexDefaultName>
+            
+    <PropertyType>
+        <Item Type="Int" ShaderType="Int" MemberType="Float" DefaultValue="0"/>
+        <Item Type="Float" ShaderType="Float" MemberType="Float" DefaultValue="0"/>
+        <Item Type="Range" ShaderType="Range" ShaderTypeParams="{0},{1}" MemberType="Float" DefaultValue="0"/>
+        <Item Type="Color" ShaderType="Color" MemberType="Float4" DefaultValue="(1.0,1.0,1.0,1.0)"/>
+        <Item Type="Texture2D" ShaderType="2D" MemberType="Sampler2D" DefaultValue="&quot;white&quot;{}"/>
+        <Item Type="Texture3D" ShaderType="3D" MemberType="Sampler3D" DefaultValue="&quot;white&quot;{}"/>
+        <Item Type="Vector" ShaderType="Vector" MemberType="Float4" DefaultValue="(1.0,1.0,1.0,1.0)"/>
+        <Item Type="Cube" ShaderType="Cube" MemberType="SamplerCube" DefaultValue="&quot;white&quot;{}"/>
+        <Item Type="Rect" ShaderType="Rect" MemberType="Sampler2D" DefaultValue="&quot;white&quot;{}"/> 
+    </PropertyType>
+</root>

@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Editor.GameEditor
+namespace Assets.Editor
 {
     /// <summary>
     /// 图片展示

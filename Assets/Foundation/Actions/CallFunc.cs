@@ -10,28 +10,13 @@ namespace Assets.Foundation.Actions
     /// </summary>
     public class CallFunc : ActionInterval
     {
-        public delegate void Func();
+        public delegate void CallFuncDelegate();
 
-        private Func _callback;
-
-        public Func Callback 
-        {
-            get 
-            {
-                return _callback;
-            }
-            set
-            {
-                _callback = value;
-            }
-        }
+        public CallFuncDelegate Callback { get; set; }
 
         protected virtual void Step(float percent)
         {
-            if (_callback != null) 
-            {
-                _callback();
-            }
+            Callback?.Invoke();
             CurrentTime = TotalTime;
         }
     }
@@ -41,28 +26,13 @@ namespace Assets.Foundation.Actions
     /// </summary>
     public class CallFuncN : ActionInterval
     {
-        public delegate void Func(Object obj);
+        public delegate void CallFuncNDelegate(Object obj);
 
-        private Func _callback;
-
-        public Func Callback
-        {
-            get
-            {
-                return _callback;
-            }
-            set
-            {
-                _callback = value;
-            }
-        }
+        public CallFuncNDelegate Callback { get; set; }
 
         protected virtual void Step(float percent)
         {
-            if (_callback != null)
-            {
-                _callback(Target);
-            }
+            Callback?.Invoke(Target);
             CurrentTime = TotalTime;
         }
     }

@@ -8,64 +8,39 @@ namespace Assets.Foundation.Actions
     /// </summary>
     public class ActionBase : IAction
     {
-        /// <summary>
-        /// 对象
-        /// </summary>
-        private Component _target;
-        /// <summary>
-        /// 是否正在播放动作
-        /// </summary>
-        private bool _playing;
-
         public ActionBase()
         {
-            _playing = true;
+            IsPlaying = true;
         }
 
-        public Component Target
-        {
-            get
-            {
-                return _target;
-            }
-            protected set
-            {
-                _target = value;
-            }
-        }
+        public Component Target { get; protected set; }
 
         public T GetTarget<T>() where T : Component
         {
-            if (_target == null)
+            if (Target == null)
             {
                 return null;
             }
-            return _target.GetComponent<T>();
+            return Target.GetComponent<T>();
         }
 
-        public bool IsPlaying
-        {
-            get
-            {
-                return _playing;
-            }
-        }
+        public bool IsPlaying { get; private set; }
 
         public virtual bool IsDone { get { return true; } }
 
         public void Pause()
         {
-            _playing = false;
+            IsPlaying = false;
         }
 
         public void Resume()
         {
-            _playing = true;
+            IsPlaying = true;
         }
 
         public virtual void Reset()
         {
-            _playing = true;
+            IsPlaying = true;
         }
 
         public virtual void Update(float dt)
@@ -75,7 +50,7 @@ namespace Assets.Foundation.Actions
 
         public virtual void InitWithTarget(Component target)
         {
-            _target = target;
+            Target = target;
         }
     }
 }

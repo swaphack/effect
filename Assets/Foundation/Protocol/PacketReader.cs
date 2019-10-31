@@ -1,7 +1,5 @@
-﻿
+﻿using Assets.Foundation.Data;
 
-using Assets.Foundation.Data;
-using System;
 namespace Assets.Foundation.Protocol
 {
     /// <summary>
@@ -15,7 +13,7 @@ namespace Assets.Foundation.Protocol
             _method = new DByteReader(buff);
         }
 
-        public Object ReadObject(Object obj)
+        public object ReadObject(object obj)
         {
             if (obj == null)
             {
@@ -32,7 +30,7 @@ namespace Assets.Foundation.Protocol
         public T ReadObject<T>()
         {
             T t = default(T);
-            var obj = (Object)t;
+            var obj = (object)t;
             if (!_method.Read(ref obj))
             {
                 return t;

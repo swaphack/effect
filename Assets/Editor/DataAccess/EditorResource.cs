@@ -28,9 +28,8 @@ namespace Assets.Editor.DataAccess
             /// <summary>
             /// 资源路径
             /// </summary>
-            public string path { get { return _path; } }
+            public string path { get; }
 
-            private string _path;
             private object _object;
 
             public object Object
@@ -43,12 +42,12 @@ namespace Assets.Editor.DataAccess
 
             public ResourceItem(string path)
             {
-                _path = path;
+                this.path = path;
             }
         }
         public class LoadTask : Task
         {
-            public LoadTask(string path, ResourceLoad.ResourceFunc hand)
+            public LoadTask(string path, ResourceLoad.ResourceItemDelegate hand)
             {
                 this._item = new ResourceItem(path);
                 this._callback = hand;
@@ -65,7 +64,7 @@ namespace Assets.Editor.DataAccess
 
             public override void DoCallback()
             {
-                this.GetItem<ResourceItem>().Object = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(this._item.path);
+                this.GetItem<ResourceItem>().Object = AssetDatabase.LoadAssetAtPath<Object>(this._item.path);
 
                 base.DoCallback();
             }

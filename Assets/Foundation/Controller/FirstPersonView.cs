@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Assets.Foundation.Controller
 {
+    /// <summary>
+    /// 第一人称视角
+    /// </summary>
     public class FirstPersonView : MonoBehaviour
     {
         /// <summary>

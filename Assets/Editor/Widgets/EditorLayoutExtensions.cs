@@ -5,20 +5,14 @@ using UnityEngine;
 
 namespace Assets.Editor.Widgets
 {
+    
     public abstract class EditorLayout : Layout
     {
     }
 
     public class EFadeGroup : EditorLayout
     {
-        private float _value;
-
-        public float Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public float Value { get; set; }
 
         protected override void BeginDraw()
         {
@@ -41,34 +35,14 @@ namespace Assets.Editor.Widgets
         /// 位置
         /// </summary>
         private Vector2 _scrollPosition;
-        /// <summary>
-        /// 是否总显示水平滑条
-        /// </summary>
-        private bool _alwaysShowHorizontal;
-        /// <summary>
-        /// 是否总显示垂直滑条
-        /// </summary>
-        private bool _alwaysShowVertical;
 
         private Vector2 ScrollPosition
         {
             get { return _scrollPosition; }
             set { _scrollPosition = value; }
         }
-        private bool AlwaysShowHorizontal
-        {
-            get { return _alwaysShowHorizontal; }
-            set { _alwaysShowHorizontal = value; }
-        }
-        private bool AlwaysShowVertical
-        {
-            get { return _alwaysShowVertical; }
-            set { _alwaysShowVertical = value; }
-        }
-
-        public EditorScrollView()
-        {
-        }
+        private bool AlwaysShowHorizontal { get; set; }
+        private bool AlwaysShowVertical { get; set; }
 
         protected override void BeginDraw()
         {
@@ -144,43 +118,19 @@ namespace Assets.Editor.Widgets
 
     public class EditorSlider : Widget
     {
-        /// <summary>
-        /// 当前值
-        /// </summary>
-        private float _value;
-        /// <summary>
-        /// 最小值
-        /// </summary>
-        private float _minValue;
-        /// <summary>
-        /// 最大值
-        /// </summary>
-        private float _maxValue = 100;
 
         /// <summary>
         /// 当前值
         /// </summary>
-        public float Value
-        {
-            get { return _value; }
-            set { _value = value; }
-        }
+        public float Value { get; set; }
         /// <summary>
         /// 最小值
         /// </summary>
-        public float MinValue
-        {
-            get { return _minValue; }
-            set { _minValue = value; }
-        }
+        public float MinValue { get; set; }
         /// <summary>
         /// 最大值
         /// </summary>
-        public float MaxValue
-        {
-            get { return _maxValue; }
-            set { _maxValue = value; }
-        }
+        public float MaxValue { get; set; } = 100;
 
         protected override void OnDraw()
         {
@@ -244,14 +194,7 @@ namespace Assets.Editor.Widgets
 
     public class EditorToggle : Widget
     {
-        private bool _value;
-
-        public bool Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public bool Value { get; set; }
 
         protected override void OnDraw()
         {
@@ -266,15 +209,9 @@ namespace Assets.Editor.Widgets
 
     public class EditorToggleGroup : Widget
     {
-        private bool _value;
         private List<EditorToggle> _toggles;
 
-        public bool Value
-        {
-            get { return _value; }
-
-            set { _value = value; }
-        }
+        public bool Value { get; set; }
 
         public int Count 
         {
@@ -312,7 +249,7 @@ namespace Assets.Editor.Widgets
         /// <summary>
         /// 添加控件
         /// </summary>
-        /// <param name="widget"></param>
+        /// <param name="toggle"></param>
         public void Add(EditorToggle toggle)
         {
             if (toggle == null)

@@ -16,30 +16,20 @@ namespace Assets.Foundation.Effects
         //按下时刻
         private float timePointerDown = 0;
 
-        private UnityEvent _pressCallBack;
-        private UnityEvent _upCallBack;
         /// <summary>
         /// 长按事件
         /// </summary>
-        public UnityEvent PressCallBack
-        {
-            get { return _pressCallBack; }
-            set { _pressCallBack = value; }
-        }
+        public UnityEvent PressCallBack { get; set; }
 
         /// <summary>
         /// 放开长按事件
         /// </summary>
-        public UnityEvent UpCallBack
-        {
-            get { return _upCallBack; }
-            set { _upCallBack = value; }
-        }
+        public UnityEvent UpCallBack { get; set; }
 
         public PressButton()
         {
-            _pressCallBack = new UnityEvent();
-            _upCallBack = new UnityEvent();
+            PressCallBack = new UnityEvent();
+            UpCallBack = new UnityEvent();
         }
 
         void Update()

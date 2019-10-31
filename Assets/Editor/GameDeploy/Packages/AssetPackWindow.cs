@@ -22,9 +22,9 @@ namespace Assets.Editor.GameDeploy.Packages
 
         private struct PlatformItem
         {
-            public string name;
-            public int index;
-            public int value;
+            public string name { get; set; }
+            public int index { get; set; }
+            public int value { get; set; }
 
             public PlatformItem(int idx, string n, int v)
             {

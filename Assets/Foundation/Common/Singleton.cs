@@ -4,28 +4,28 @@ namespace Assets.Foundation.Common
 {
     public class Singleton<T> where T : class
     {
-        private static T mInstance;
-		private static readonly object mLock = new object();
+        private static T _sInstance;
+		private static readonly object _sLock = new object();
  
 		public static T Instance
 		{
 			get
 			{
-				lock (mLock)
+				lock (_sLock)
 				{
-					if (mInstance == null)
+					if (_sInstance == null)
 					{
-						mInstance = SingletonCreator.CreateSingleton<T>();
+                        _sInstance = SingletonCreator.CreateSingleton<T>();
 					}
 				}
  
-				return mInstance;
+				return _sInstance;
 			}
 		}
  
 		public static void Dispose()
 		{
-			mInstance = null;
+            _sInstance = null;
 		}
     }
 }

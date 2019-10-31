@@ -124,11 +124,8 @@ namespace Assets.Editor.GameDesign.Terrains
 
             EditorUtility.ClearProgressBar();
 
-            if (cleanUp != null)
-            {
 
-                cleanUp();
-            }
+            cleanUp?.Invoke();
         }
 
         void ShowProgressBar(float progress, float maxProgress)

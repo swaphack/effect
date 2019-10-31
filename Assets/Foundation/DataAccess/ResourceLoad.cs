@@ -13,7 +13,7 @@ namespace Assets.Foundation.DataAccess
         /// 资源加载事件处理
         /// </summary>
         /// <param name="item"></param>
-        public delegate void ResourceFunc(IFileItem item);
+        public delegate void ResourceItemDelegate(IFileItem item);
         /// <summary>
         /// 任务
         /// </summary>
@@ -22,7 +22,7 @@ namespace Assets.Foundation.DataAccess
             /// <summary>
             /// 资源加载回调
             /// </summary>
-            protected ResourceFunc _callback;
+            protected ResourceItemDelegate _callback;
             /// <summary>
             /// 资源项
             /// </summary>
@@ -31,7 +31,7 @@ namespace Assets.Foundation.DataAccess
             /// <summary>
             /// 资源加载回调
             /// </summary>
-            public ResourceFunc callback
+            public ResourceItemDelegate Callback
             {
                 get
                 {
@@ -72,10 +72,7 @@ namespace Assets.Foundation.DataAccess
             /// </summary>
             public virtual void DoCallback()
             {
-                if (_callback != null)
-                {
-                    _callback(_item);
-                }
+                _callback?.Invoke(_item);
             }
             /// <summary>
             /// 结束

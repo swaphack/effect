@@ -14,7 +14,7 @@ namespace Assets.Editor.Scenes
             MonoBehaviour obj = (MonoBehaviour)target;
             Component[] children = obj.gameObject.GetComponents<Component>();
 
-            _allEditors.Add(UnityEditor.Editor.CreateEditor(obj.gameObject));
+            _allEditors.Add(CreateEditor(obj.gameObject));
 
             if (children != null && children.Length != 0)
             {

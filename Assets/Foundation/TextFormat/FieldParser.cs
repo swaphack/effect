@@ -10,22 +10,13 @@ namespace Assets.Foundation.TextFormat
     /// </summary>
     public class FieldParser : IFieldParse
     {
-        /// <summary>
-        /// 关键字
-        /// </summary>
-        private string _keyword;
-        /// <summary>
-        /// 解析方法
-        /// </summary>
-        private ParseFieldFunc _func;
-
-        public ParseFieldFunc Func { get { return _func; } }
-        public string KeyWord { get { return _keyword; } }
+        public ParseFieldFunc Func { get; }
+        public string KeyWord { get; }
 
         public FieldParser(string key, ParseFieldFunc func)
         {
-            this._keyword = key;
-            this._func = func;
+            this.KeyWord = key;
+            this.Func = func;
         }
 
         public bool Match(string str, int offset, ref int count)

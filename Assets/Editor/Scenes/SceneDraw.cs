@@ -10,12 +10,7 @@ namespace Assets.Editor.Scenes
     }
     public class AAConvexPolygon : SceneDraw
     {
-        private Vector3[] _points;
-        public Vector3[] Points
-        {
-            get { return _points; }
-            set { _points = value; }
-        }
+        public Vector3[] Points { get; set; }
         public override void Draw()
         {
             base.Draw();
@@ -26,25 +21,13 @@ namespace Assets.Editor.Scenes
 
     public class AAPolyLine : SceneDraw
     {
-        private float _width;
-        
-        private Vector3[] _points;
+        public float Width { get; set; }
 
-        public float Width
-        {
-            get { return _width; }
-            set { _width = value; }
-        }
-
-        public Vector3[] Points
-        {
-            get { return _points; }
-            set { _points = value; }
-        }
+        public Vector3[] Points { get; set; }
 
         public AAPolyLine()
         {
-            _width = 1;
+            Width = 1;
         }
 
         public override void Draw()
@@ -59,7 +42,6 @@ namespace Assets.Editor.Scenes
     {
         private Vector3 _point1;
         private Vector3 _point2;
-        private float _screenSpaceSize;
 
         public Vector3 Point1
         {
@@ -72,16 +54,12 @@ namespace Assets.Editor.Scenes
             get { return _point2; }
             set { _point2 = value; }
         }
-        
-        public float ScreenSpaceSize
-        {
-            get { return _screenSpaceSize; }
-            set { _screenSpaceSize = value; }
-        }
+
+        public float ScreenSpaceSize { get; set; }
 
         public DottedLine()
         {
-            _screenSpaceSize = 1;
+            ScreenSpaceSize = 1;
             _point1 = Vector3.zero;
             _point2 = Vector3.zero;
         }
@@ -96,24 +74,13 @@ namespace Assets.Editor.Scenes
 
     public class DottedLines : SceneDraw
     {
-        private Vector3[] _lineSegments;
-        private float _screenSpaceSize;
+        public Vector3[] LineSegments { get; set; }
 
-        public Vector3[] LineSegments
-        {
-            get { return _lineSegments; }
-            set { _lineSegments = value; }
-        }
-
-        public float ScreenSpaceSize
-        {
-            get { return _screenSpaceSize; }
-            set { _screenSpaceSize = value; }
-        }
+        public float ScreenSpaceSize { get; set; }
 
         public DottedLines()
         {
-            _screenSpaceSize = 1;
+            ScreenSpaceSize = 1;
         }
 
         public override void Draw()
@@ -128,7 +95,6 @@ namespace Assets.Editor.Scenes
     {
         private Vector3 _point1;
         private Vector3 _point2;
-        private float _screenSpaceSize;
 
         public Vector3 Point1
         {
@@ -142,15 +108,11 @@ namespace Assets.Editor.Scenes
             set { _point2 = value; }
         }
 
-        public float ScreenSpaceSize
-        {
-            get { return _screenSpaceSize; }
-            set { _screenSpaceSize = value; }
-        }
+        public float ScreenSpaceSize { get; set; }
 
         public Line()
         {
-            _screenSpaceSize = 1;
+            ScreenSpaceSize = 1;
             _point1 = Vector3.zero;
             _point2 = Vector3.zero;
         }
@@ -165,24 +127,13 @@ namespace Assets.Editor.Scenes
 
     public class Lines : SceneDraw
     {
-        private Vector3[] _lineSegments;
-        private float _screenSpaceSize;
+        public Vector3[] LineSegments { get; set; }
 
-        public Vector3[] LineSegments
-        {
-            get { return _lineSegments; }
-            set { _lineSegments = value; }
-        }
-
-        public float ScreenSpaceSize
-        {
-            get { return _screenSpaceSize; }
-            set { _screenSpaceSize = value; }
-        }
+        public float ScreenSpaceSize { get; set; }
 
         public Lines()
         {
-            _screenSpaceSize = 1;
+            ScreenSpaceSize = 1;
         }
 
         public override void Draw()
@@ -195,17 +146,7 @@ namespace Assets.Editor.Scenes
 
     public class PolyLine : SceneDraw
     {
-        private Vector3[] _points;
-
-        public Vector3[] Points
-        {
-            get { return _points; }
-            set { _points = value; }
-        }
-
-        public PolyLine()
-        {
-        }
+        public Vector3[] Points { get; set; }
 
         public override void Draw()
         {
@@ -235,40 +176,27 @@ namespace Assets.Editor.Scenes
     public abstract class EdgeDraw : CenterDraw
     {
         private Vector3 _normal;
-        private float _radius;
-        
+
         public Vector3 Normal
         {
             get { return _normal; }
             set { _normal = value; }
         }
-        
-        public float Radius
-        {
-            get { return _radius; }
-            set { _radius = value; }
-        }
-        public EdgeDraw()
-        {
-        }
+
+        public float Radius { get; set; }
     }
 
     public class SolidArc : EdgeDraw
     {
         private Vector3 _from;
-        private float _angle;
 
         public Vector3 From
         {
             get { return _from; }
             set { _from = value; }
         }
-        
-        public float Angle
-        {
-            get { return _angle; }
-            set { _angle = value; }
-        }
+
+        public float Angle { get; set; }
 
         public override void Draw()
         {
@@ -291,7 +219,6 @@ namespace Assets.Editor.Scenes
     public class WireArc : EdgeDraw
     {
         private Vector3 _from;
-        private float _angle;
 
         public Vector3 From
         {
@@ -299,11 +226,7 @@ namespace Assets.Editor.Scenes
             set { _from = value; }
         }
 
-        public float Angle
-        {
-            get { return _angle; }
-            set { _angle = value; }
-        }
+        public float Angle { get; set; }
 
         public override void Draw()
         {

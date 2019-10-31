@@ -10,11 +10,11 @@ namespace Assets.Foundation.Protocol
         /// <summary>
         /// 消息长度
         /// </summary>
-        public int Length;
+        public int Length { get; set; }
         /// <summary>
         /// 消息编号
         /// </summary>
-        public int ID;
+        public int ID { get; set; }
 
         public MessageHeader()
         { 

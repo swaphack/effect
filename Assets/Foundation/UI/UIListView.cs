@@ -15,22 +15,7 @@ namespace Assets.Foundation.UI
         /// <summary>
         /// 滚动方向
         /// </summary>
-        private ScrollDirection _direction;
-
-        /// <summary>
-        /// 滚动方向
-        /// </summary>
-        public ScrollDirection Direction
-        {
-            get 
-            { 
-                return _direction; 
-            }
-            set 
-            { 
-                _direction = value;
-            }
-        }
+        public ScrollDirection Direction { get; set; }
 
         public UIListView()
         {

@@ -62,7 +62,7 @@ namespace Assets.Foundation.Schedulers
                 return;
             }
 
-            Scheduler[] schedulers = new Scheduler[] { };
+            Scheduler[] schedulers = { };
            
             _schedulers.CopyTo(schedulers, 0);
 

@@ -1,4 +1,4 @@
-﻿using Assets.Editor.GameEditor;
+﻿using Assets.Editor;
 using UnityEditor;
 
 namespace Assets.Editor.Tools

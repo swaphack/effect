@@ -12,12 +12,12 @@ namespace Assets.Foundation.Events
     {
         private struct TouchInfo
         {
-            public int firstId;
-            public int secondId;
-            public Vector2 firstPos;
-            public Vector2 secondPos;
+            public int firstId { get; set; }
+            public int secondId { get; set; }
+            public Vector2 firstPos { get; set; }
+            public Vector2 secondPos { get; set; }
 
-            public GameObject target;
+            public GameObject target { get; set; }
 
             public TouchInfo(int fingerId, Vector2 firstPos, GameObject target)
             {

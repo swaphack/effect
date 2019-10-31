@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using ICSharpCode.SharpZipLib.Checksums;
 using ICSharpCode.SharpZipLib.Zip;
 using System.Collections;
-using UnityEngine;
 
 namespace Assets.Foundation.DataAccess
 {
@@ -23,31 +20,23 @@ namespace Assets.Foundation.DataAccess
             /// <summary>
             /// 资源路径
             /// </summary>
-            private string _path;
+            public string path { get; }
             /// <summary>
             /// 目标路径
             /// </summary>
-            private string _destPath;
-            /// <summary>
-            /// 资源路径
-            /// </summary>
-            public string path { get { return _path; } }
-            /// <summary>
-            /// 目标路径
-            /// </summary>
-            public string destPath { get { return _destPath; } }
+            public string destPath { get; }
 
             public ResourceItem(string path, string destPath)
             {
-                _path = path;
-                _destPath = destPath;
+                this.path = path;
+                this.destPath = destPath;
             }
         }
 
         public class LoadTask : Task
         {
             private ZipInputStream _zipInputStream;
-            public LoadTask(string path, string destPath, ResourceFunc hand)
+            public LoadTask(string path, string destPath, ResourceItemDelegate hand)
             {
                 this._item = new ResourceItem(path, destPath);
 

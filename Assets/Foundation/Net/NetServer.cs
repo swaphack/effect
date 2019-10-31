@@ -10,18 +10,8 @@ namespace Assets.Foundation.Net
     public class NetServer : NetSocket, IProcess
     {
         public const int BLACK_LOG = 1000;
-        /// <summary>
-        /// 客户端池
-        /// </summary>
-        private NetClientPool _clientPool;
 
-        public NetClientPool ClientPool
-        {
-            get
-            {
-                return _clientPool;
-            }
-        }
+        public NetClientPool ClientPool { get; private set; }
 
         public NetServer()
         {
@@ -30,7 +20,7 @@ namespace Assets.Foundation.Net
 
         protected void InitClientPool()
         {
-            _clientPool = new NetClientPool(this);
+            ClientPool = new NetClientPool(this);
         }
 
         public void StartListen()
@@ -45,10 +35,10 @@ namespace Assets.Foundation.Net
                 Socket s = Socket.EndAccept(ar);
                 var client = new NetClient();
                 client.SetSocket(s);
-                _clientPool.AddClient(client);
+                ClientPool.AddClient(client);
             }, this);
 
-            _clientPool.Process();
+            ClientPool.Process();
         }
     }
 }
