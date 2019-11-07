@@ -4,10 +4,15 @@ using Game.Algorithm.Structure;
 using Game.Mathematics.Geometry2D;
 using UnityEngine;
 
+<<<<<<< HEAD
 /*
 namespace Game.ComputationalGeometry.LineSegments
 {
     
+=======
+namespace Game.ComputationalGeometry.LineSegments
+{
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
     /// <summary>
     /// 相交
     /// </summary>
@@ -28,6 +33,7 @@ namespace Game.ComputationalGeometry.LineSegments
             }
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// 比较器
         /// </summary>
@@ -39,6 +45,8 @@ namespace Game.ComputationalGeometry.LineSegments
             }
         }
 
+=======
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
         private DoubleKeyDictionary<Vector2, VertexSegment2D> _upLineSegment = new DoubleKeyDictionary<Vector2, VertexSegment2D>();
         private DoubleKeyDictionary<Vector2, VertexSegment2D> _lowLineSegment = new DoubleKeyDictionary<Vector2, VertexSegment2D>();
         private SortedSet<Vector2> _sortedVertexes;
@@ -121,7 +129,11 @@ namespace Game.ComputationalGeometry.LineSegments
 
             if (allSeg.Count != 0)
             {
+<<<<<<< HEAD
                 yield return allSeg;
+=======
+                return allSeg;
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
             }
 
             var deleteSeg = new SortedSet<VertexSegment2D>();
@@ -136,9 +148,14 @@ namespace Game.ComputationalGeometry.LineSegments
                     _statusTree.Remove(ary[i]);
                 }
             }
+<<<<<<< HEAD
             
             var addSeg = new SortedSet<VertexSegment2D>();
             containsList.Reverse();
+=======
+
+            var addSeg = new SortedSet<VertexSegment2D>();
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
             addSeg.UnionWith(upList);
             addSeg.UnionWith(containsList);
             if(addSeg.Count > 0)
@@ -150,7 +167,13 @@ namespace Game.ComputationalGeometry.LineSegments
                     _statusTree.Add(ary[i]);
                 }
             }
+<<<<<<< HEAD
         }        
     }
 }
 */
+=======
+        }
+    }
+}
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b

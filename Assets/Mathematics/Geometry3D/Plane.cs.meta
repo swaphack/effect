@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f8fc80ff2d0cb4ec3b1b1bf1dd12540a
+=======
+<<<<<<< HEAD:Assets/ComputationalGeometry/LineSegments/VertexSegment2D.cs.meta
+guid: 30614b7c61d904e07b42654568f7dbda
+=======
+guid: f8fc80ff2d0cb4ec3b1b1bf1dd12540a
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b:Assets/Mathematics/Geometry3D/Plane.cs.meta
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: dd42b90cb23c54b01acc4c4f8e6fc561
+=======
+<<<<<<< HEAD:Assets/Mathematics/Geometry3D.meta
+guid: 257e3169cfc234a4ead1e95070e0a596
+=======
+guid: dd42b90cb23c54b01acc4c4f8e6fc561
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b:Assets/Mathematics.meta
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

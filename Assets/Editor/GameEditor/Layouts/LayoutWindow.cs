@@ -261,7 +261,7 @@ namespace Game.Editor.Layouts
             layout.Add(hlayout2);
 
             GUIButton left = new GUIButton();
-            left.ImagePath = EditorAssets.GetResourcePath("Icons/layout_alignment_left.png");
+            left.ImagePath = EditorGame.GetResourcePath("Icons/layout_alignment_left.png");
             left.TriggerHandler = (Widget w) =>
             {
                 this.OrderBy(TextAlignment.Left);
@@ -269,7 +269,7 @@ namespace Game.Editor.Layouts
             hlayout2.Add(left);
 
             GUIButton center = new GUIButton();
-            center.ImagePath = EditorAssets.GetResourcePath("Icons/layout_alignment_center.png");
+            center.ImagePath = EditorGame.GetResourcePath("Icons/layout_alignment_center.png");
             center.TriggerHandler = (Widget w) =>
             {
                 this.OrderBy(TextAlignment.Center);
@@ -277,7 +277,7 @@ namespace Game.Editor.Layouts
             hlayout2.Add(center);
 
             GUIButton right = new GUIButton();
-            right.ImagePath = EditorAssets.GetResourcePath("Icons/layout_alignment_right.png");
+            right.ImagePath = EditorGame.GetResourcePath("Icons/layout_alignment_right.png");
             right.TriggerHandler = (Widget w) =>
             {
                 this.OrderBy(TextAlignment.Right);

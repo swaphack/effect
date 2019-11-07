@@ -76,7 +76,7 @@ namespace Game.Editor.GameDeploy.Packages
 
                 bundleFolder.Text = "Open";
                 string bundles = FilePath.BundlesPath;
-                bundleFolder.Filepath = Path.Combine(EditorAssets.Root, bundles).Replace("\\", "/");
+                bundleFolder.Filepath = Path.Combine(EditorGame.Root, bundles).Replace("\\", "/");
                 hLayout.Add(bundleFolder);
 
                 innerLayout.Add(hLayout);
@@ -89,7 +89,7 @@ namespace Game.Editor.GameDeploy.Packages
                 label.Text = "Out Path :";
                 hLayout.Add(label);
 
-                outputFolder.Filepath = Path.Combine(EditorAssets.Root, "Output").Replace("\\", "/");
+                outputFolder.Filepath = Path.Combine(EditorGame.Root, "Output").Replace("\\", "/");
                 outputFolder.Text = "Open";
                 hLayout.Add(outputFolder);
 
@@ -136,7 +136,11 @@ namespace Game.Editor.GameDeploy.Packages
 
         private void SetBuildPath(ref AssetBundleBuild build, string output, string path, string filename, BuildTarget target)
         {
+<<<<<<< HEAD
             string[] files = EditorAssets.GetFilePaths(path, "*");
+=======
+            string[] files = EditorGame.GetFilePaths(path, "*");
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
             build.assetBundleName = filename + ".unity3d";
             build.assetNames = files;
         }

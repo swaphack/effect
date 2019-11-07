@@ -45,6 +45,7 @@ namespace Game.ComputationalGeometry.Convex
                     var a = upList[upList.Count - 3];
                     var b = upList[upList.Count - 2];
                     var c = upList[upList.Count - 1];
+<<<<<<< HEAD
                     if (Utility2D.GetPointPosition(c, a, b) != 1)
                     {
                         upList.Remove(b);
@@ -53,6 +54,12 @@ namespace Game.ComputationalGeometry.Convex
                     {
                         break;
                     }
+=======
+                    if (Utility2D.GetPointPosition(a, b, c) != 1)
+                    {
+                        upList.Remove(b);
+                    }
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
                 }
             }
 
@@ -60,7 +67,11 @@ namespace Game.ComputationalGeometry.Convex
             lowerList.Add(points[points.Length - 1]);
             lowerList.Add(points[points.Length - 2]);
 
+<<<<<<< HEAD
             for (var i = points.Length - 3; i >= 0; i--)
+=======
+            for (var i = 2; i < points.Length; i++)
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
             {
                 lowerList.Add(points[i]);
                 while (lowerList.Count >= 3)
@@ -68,6 +79,7 @@ namespace Game.ComputationalGeometry.Convex
                     var a = lowerList[lowerList.Count - 3];
                     var b = lowerList[lowerList.Count - 2];
                     var c = lowerList[lowerList.Count - 1];
+<<<<<<< HEAD
                     if (Utility2D.GetPointPosition(c, a, b) != 1)
                     {
                         lowerList.Remove(b);
@@ -76,6 +88,12 @@ namespace Game.ComputationalGeometry.Convex
                     {
                         break;
                     }
+=======
+                    if (Utility2D.GetPointPosition(a, b, c) != 1)
+                    {
+                        lowerList.Remove(b);
+                    }
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
                 }
             }
 
@@ -87,4 +105,8 @@ namespace Game.ComputationalGeometry.Convex
             return upList.ToArray();
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
 }

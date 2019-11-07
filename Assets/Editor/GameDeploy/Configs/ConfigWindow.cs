@@ -23,7 +23,7 @@ namespace Game.Editor.GameDeploy.Configs
         /// </summary>
         private void Load()
         {
-            TextAsset textAsset = EditorAssets.LoadAssetAtPath<TextAsset>(_fullpath);
+            TextAsset textAsset = EditorGame.LoadAssetAtPath<TextAsset>(_fullpath);
             if (textAsset != null)
             {
                 _config = ConfigHelper.LoadFromXmlText<T>(textAsset.text);
@@ -40,7 +40,7 @@ namespace Game.Editor.GameDeploy.Configs
         private void OnEnable()
         {
             var fileName = _config.GetType().Name;
-            _fullpath = Path.Combine(EditorAssets.Root, string.Format("Resources/App/{0}.xml", fileName));
+            _fullpath = Path.Combine(EditorGame.Root, string.Format("Resources/App/{0}.xml", fileName));
             this.Load();
         }
 

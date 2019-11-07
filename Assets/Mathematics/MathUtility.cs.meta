@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Mathematics/MathUtility.cs.meta
 guid: 1b4ed264268104421aaa51cf87d34ecf
+=======
+guid: 060a69016128f43e294eb4da68c9d6f4
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b:Assets/Mathematics/Geometry3D/Ray.cs.meta
+=======
+guid: 1b4ed264268104421aaa51cf87d34ecf
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

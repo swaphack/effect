@@ -64,9 +64,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Algorithm\Structure\AVLTree.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Algorithm\Structure\BinarySortTree.cs" />
     <Compile Include="Assets\Algorithm\Structure\BinaryTree.cs" />
     <Compile Include="Assets\Algorithm\Structure\DoubleKeyDictionary.cs" />
+=======
+    <Compile Include="Assets\Algorithm\Structure\BinaryTree.cs" />
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
     <Compile Include="Assets\Algorithm\Structure\Value.cs" />
     <Compile Include="Assets\App\AppDetail.cs" />
     <Compile Include="Assets\App\AppInstance.cs" />
@@ -198,7 +202,13 @@
     <Compile Include="Assets\Mathematics\Algebra\Detaminate.cs" />
     <Compile Include="Assets\Mathematics\Algebra\Matrix.cs" />
     <Compile Include="Assets\Mathematics\Algebra\Vector.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Mathematics\Geometry2D\LineSegment2D.cs" />
+=======
+    <Compile Include="Assets\ComputationalGeometry\Convex\Convex2D.cs" />
+    <Compile Include="Assets\Mathematics\Geometry2D\LineSegment2D.cs" />
+    <Compile Include="Assets\ComputationalGeometry\LineSegments\Intersection2D.cs" />
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
     <Compile Include="Assets\Mathematics\Geometry2D\Polygon2D.cs" />
     <Compile Include="Assets\Mathematics\Geometry2D\Utility2D.cs" />
     <Compile Include="Assets\Mathematics\Geometry3D\Cube.cs" />
@@ -836,6 +846,10 @@
     <Reference Include="Boo.Lang">
       <HintPath>/Users/lingan/Applications/2019.2.9f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+    <Compile Include="Assets\Algorithm\Structure\BinarySortTree.cs" />
+    <Compile Include="Assets\ComputationalGeometry\LineSegments\VertexSegment2D.cs" />
+    <Compile Include="Assets\Algorithm\Structure\DoubleKeyDictionary.cs" />
+    <Compile Include="Assets\ComputationalGeometry\LineSegments\IntersectionStatusTree.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

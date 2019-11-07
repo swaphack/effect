@@ -20,6 +20,7 @@ namespace Game.Mathematics.Algebra
         /// <summary>
         /// 求和
         /// </summary>
+<<<<<<< HEAD
         public float Sum { get; }
 
         public Detaminate(float[] value, int order)
@@ -49,6 +50,36 @@ namespace Game.Mathematics.Algebra
             }
 
             return value;
+=======
+        public float Sum
+        {
+            get
+            {
+                float value = 0;
+                for (var i = 0; i < Order; i++)
+                {
+                    float right = 0;
+                    float left = 0;
+
+                    int index = 0;
+                    while (index < Order)
+                    {
+                        right += this[index % Order, (i + index) % Order];
+                        left += this[index % Order, (i - index + Order) % Order];
+                        index += 1;
+                    }
+                    value += right - left;
+                }
+
+                return value;
+            }
+        }
+
+        public Detaminate(float[] value, int order)
+        {
+            Value = value;
+            Order = order;
+>>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
         }
 
         /// <summary>

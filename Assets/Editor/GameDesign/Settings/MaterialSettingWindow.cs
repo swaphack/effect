@@ -8,7 +8,7 @@ namespace Game.Editor.GameDesign.Settings
     {
         protected override void InitUI(UIWidget layout)
         {
-            var tex = EditorAssets.LoadAssetAtPath<Texture>(EditorAssets.GetResourcePath("Textures/wooden-box.png"));
+            var tex = EditorGame.LoadAssetAtPath<Texture>(EditorGame.GetResourcePath("Textures/wooden-box.png"));
             var shader = Shader.Find("UI/Default");
             var mat = new Material(shader);
 

@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Mathematics/Geometry2D/LineSegment2D.cs.meta
 guid: af2234ae4b591489c8b10d6cb06b1fb9
 =======
 guid: 59e0df10027f44805ba28cf7cc30e5a1
 >>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b:Assets/Algorithm/structure/Tree.cs.meta
-=======
-guid: af2234ae4b591489c8b10d6cb06b1fb9
->>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
