@@ -1,9 +1,9 @@
-﻿using Assets.Foundation.Common;
+﻿using Game.Foundation.Common;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Assets.Foundation.Events
+namespace Game.Foundation.Events
 {
     /// <summary>
     /// 缩放管理

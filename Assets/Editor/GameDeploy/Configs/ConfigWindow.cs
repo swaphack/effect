@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
-using Assets.Editor.DataAccess;
-using Assets.Editor.Widgets;
-using Assets.SDK.Project;
+using Game.Editor.DataAccess;
+using Game.Editor.Widgets;
+using Game.SDK.Project;
 using UnityEngine;
 
-namespace Assets.Editor.GameDeploy.Configs
+namespace Game.Editor.GameDeploy.Configs
 {
     public class ConfigWindow<T> : UIWindow where T : new()
     {

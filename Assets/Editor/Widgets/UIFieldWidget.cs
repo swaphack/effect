@@ -3,7 +3,7 @@ using System.Collections;
 using System.Reflection;
 using UnityEngine;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     /// <summary>
     /// 属性字段控件

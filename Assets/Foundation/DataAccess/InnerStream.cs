@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.IO;
 
-namespace Assets.Foundation.DataAccess
+namespace Game.Foundation.DataAccess
 {
     /// <summary>
     /// 内部流加载
@@ -31,9 +31,8 @@ namespace Assets.Foundation.DataAccess
             /// <summary>
             /// 资源路径
             /// </summary>
-            public string path { get { return _path; } }
+            public string path { get; }
 
-            private string _path;
             private WWW _www;
 
             public WWW www
@@ -46,7 +45,7 @@ namespace Assets.Foundation.DataAccess
 
             public ResourceItem(string path)
             {
-                _path = path;
+                this.path = path;
             }
         }
         public class LoadTask : Task

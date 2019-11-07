@@ -1,14 +1,14 @@
-﻿using Assets.Foundation.Events;
+﻿using Game.Foundation.Events;
 using UnityEngine;
 
-namespace Assets.Foundation.Devices
+namespace Game.Foundation.Devices
 {
     /// <summary>
     /// 鼠标
     /// </summary>
     public class Mouse : MonoBehaviour
     {
-        private float _lastUpdateTime = 0;
+        private float _lastUpdateTime;
         private Vector2 _lastTouchPosition = Vector2.zero;
 
         private Vector2 GetVector2(Vector3 pos)

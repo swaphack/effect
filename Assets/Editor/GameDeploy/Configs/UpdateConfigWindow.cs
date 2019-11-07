@@ -1,7 +1,7 @@
 ﻿using System;
-using Assets.SDK.Project;
+using Game.SDK.Project;
 
-namespace Assets.Editor.GameDeploy.Configs
+namespace Game.Editor.GameDeploy.Configs
 {
     /// <summary>
     /// 版本设置界面

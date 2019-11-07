@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Assets.Foundation.Common;
+using Game.Foundation.Common;
 
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-namespace Assets.Foundation.DataAccess
+namespace Game.Foundation.DataAccess
 {
     /// <summary>
     /// 文件路径信息

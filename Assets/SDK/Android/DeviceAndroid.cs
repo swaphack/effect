@@ -1,8 +1,8 @@
 ﻿using System;
-using Assets.App;
+using Game.App;
 using UnityEngine;
 
-namespace Assets.SDK.Android
+namespace Game.SDK.Android
 {
     public class DeviceAndroid : Device
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Editor.ShaderLab
+namespace Game.Editor.ShaderLab
 {
     /// <summary>
     ///  变量类型

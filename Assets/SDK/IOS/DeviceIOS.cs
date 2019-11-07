@@ -1,9 +1,9 @@
 ﻿using System;
-using Assets.App;
+using Game.App;
 using UnityEngine;
 using System.Runtime.InteropServices;
 
-namespace Assets.SDK.IOS
+namespace Game.SDK.IOS
 {
     /// <summary>
     /// ios 设备信息

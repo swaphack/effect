@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Assets.Foundation.Data
+namespace Game.Foundation.Data
 {
     /// <summary>
     /// 将对象转为字节
@@ -146,7 +146,7 @@ namespace Assets.Foundation.Data
             {
                 return false;
             }
-            var lst = (IList)value;
+            var lst = value;
             var eKey = lst.GetEnumerator();
 
             if (!this.Write(lst.Count))
@@ -169,7 +169,7 @@ namespace Assets.Foundation.Data
             {
                 return false;
             }
-            var map = (IDictionary)value;
+            var map = value;
             var e = map.GetEnumerator();
             var keys = map.Keys;
             if (!this.Write(keys.Count))
@@ -312,7 +312,7 @@ namespace Assets.Foundation.Data
                             var temp = (IList)obj;
                             return this.Write(temp);
                         }
-                        else if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
+                        if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
                         {
                             var temp = (IDictionary)obj;
                             return this.Write(temp);

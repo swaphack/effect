@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Foundation.Controller
+namespace Game.Foundation.Controller
 {
     /// <summary>
     /// 第一人称视角

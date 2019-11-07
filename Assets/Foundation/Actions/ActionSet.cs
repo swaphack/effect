@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace Assets.Foundation.Actions
+namespace Game.Foundation.Actions
 {
     /// <summary>
     /// 动作集合，处理多个动作
@@ -98,7 +98,7 @@ namespace Assets.Foundation.Actions
     /// </summary>
     public class Sequence : ActionSet
     {
-        private int _lastDoneIndex = 0;
+        private int _lastDoneIndex;
 
         public override void Reset()
         {

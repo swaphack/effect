@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Xml;
 using System.IO;
-using Assets.Foundation.Protocol;
-using Assets.Foundation.Data;
+using Game.Foundation.Protocol;
+using Game.Foundation.Data;
 
-namespace Assets.Foundation.Tool
+namespace Game.Foundation.Tool
 {
     /// <summary>
     /// xml工具
     /// </summary>
-    public class XmlUtility
+    public static class XmlUtility
     {
         public static XmlDocument LoadFromStream(Stream stream)
         {
@@ -42,7 +42,7 @@ namespace Assets.Foundation.Tool
 
         public static XmlDocument LoadFromFile(string filepath)
         {
-            if (filepath == null || filepath.Length == 0)
+            if (string.IsNullOrEmpty(filepath))
             {
                 return null;
             }

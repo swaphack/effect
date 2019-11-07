@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Assets.Foundation.Common;
+using Game.Foundation.Common;
 using System.IO;
-using Assets.SDK.Project;
+using Game.SDK.Project;
 
-namespace Assets.Foundation.DataAccess
+namespace Game.Foundation.DataAccess
 {
     /// <summary>
     /// 资源包管理
@@ -182,24 +182,26 @@ namespace Assets.Foundation.DataAccess
         {
             string configPath = FilePath.GetBundleManifestPath();
 
-            WWW www = new WWW(configPath);
-            while (!www.isDone) { }
-            if (!string.IsNullOrEmpty(www.error))
+            using (WWW www = new WWW(configPath))
             {
-                return;
-            }
-            ABManifest manifest = new ABManifest();
-            manifest.Read(www.text);
-            var names = manifest.GetAllAssetBundles();
-            if (names == null || names.Count == 0)
-            {
-                return;
-            }
+                while (!www.isDone) { }
+                if (!string.IsNullOrEmpty(www.error))
+                {
+                    return;
+                }
+                ABManifest manifest = new ABManifest();
+                manifest.Read(www.text);
+                var names = manifest.GetAllAssetBundles();
+                if (names == null || names.Count == 0)
+                {
+                    return;
+                }
 
-            for (int i = 0; i < names.Count; i++)
-            {
-                string fullpath = Path.Combine(FilePath.GetBundlePath(), names[i]);
-                this.LoadFromFile(fullpath);
+                for (int i = 0; i < names.Count; i++)
+                {
+                    string fullpath = Path.Combine(FilePath.GetBundlePath(), names[i]);
+                    this.LoadFromFile(fullpath);
+                }
             }
         }
     }

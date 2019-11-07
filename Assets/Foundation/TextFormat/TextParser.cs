@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Foundation.TextFormat
+namespace Game.Foundation.TextFormat
 {
     /// <summary>
     /// 文本字符格式解析
@@ -42,10 +42,7 @@ namespace Assets.Foundation.TextFormat
             {
                 return;
             }
-            else
-            {
-                _funcs.Add(func);
-            }
+            _funcs.Add(func);
         }
 
         public bool Parse(string text)

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     public interface IWidgetValue
     {

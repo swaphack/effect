@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Foundation.SimpleEffect
+namespace Game.Foundation.SimpleEffect
 {
     /// <summary>
     /// 方向跟随目标移动

@@ -2,7 +2,7 @@
 using System.IO;
 using System;
 
-namespace Assets.Foundation.Net
+namespace Game.Foundation.Net
 {
     /// <summary>
     /// 服务端

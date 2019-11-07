@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Foundation.Actions
+namespace Game.Foundation.Actions
 {
     /// <summary>
     /// 回调处理动作

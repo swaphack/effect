@@ -1,11 +1,11 @@
-﻿using Assets.Foundation.Data;
-using Assets.Foundation.TextFormat;
+﻿using Game.Foundation.Data;
+using Game.Foundation.TextFormat;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
     /// <summary>
     /// 主文件解析

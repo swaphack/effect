@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Xml;
 using UnityEngine;
-using Assets.Foundation.DataAccess;
-using Assets.Foundation.Tool;
+using Game.Foundation.DataAccess;
+using Game.Foundation.Tool;
 using System.Collections.Generic;
 using System.Collections;
-using Assets.Foundation.Common;
+using Game.Foundation.Common;
 
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
     /// <summary>
     /// 工作流程

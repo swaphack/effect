@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace Assets.Foundation.Data
+namespace Game.Foundation.Data
 {
     public interface IObjectReader
     {

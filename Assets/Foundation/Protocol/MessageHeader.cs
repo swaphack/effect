@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Foundation.Protocol
+namespace Game.Foundation.Protocol
 {
     /// <summary>
     /// 消息头

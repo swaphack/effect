@@ -1,8 +1,8 @@
-﻿using Assets.Editor.DataAccess;
-using Assets.Editor.Widgets;
+﻿using Game.Editor.DataAccess;
+using Game.Editor.Widgets;
 using UnityEngine;
 
-namespace Assets.Editor.GameDesign.Settings
+namespace Game.Editor.GameDesign.Settings
 {
     public class MaterialSettingWindow : UIWindow
     {

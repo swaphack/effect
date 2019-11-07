@@ -1,8 +1,8 @@
-﻿using Assets.Foundation.Common;
+﻿using Game.Foundation.Common;
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace Assets.Foundation.Events
+namespace Game.Foundation.Events
 {
     /// <summary>
     /// 单点管理
@@ -101,7 +101,7 @@ namespace Assets.Foundation.Events
 
         public void DispatchTouch(Touch touch)
         {
-            DispatchTouches(new Touch[1] { touch });
+            DispatchTouches(new Touch[] { touch });
         }
 
         /// <summary>

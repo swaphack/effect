@@ -93,7 +93,6 @@
     <Compile Include="Assets\Editor\Scenes\SceneHandle.cs" />
     <Compile Include="Assets\Editor\Scenes\SceneShape.cs" />
     <Compile Include="Assets\Editor\Scenes\SceneWidget.cs" />
-    <Compile Include="Assets\Editor\ShaderLab\IText.cs" />
     <Compile Include="Assets\Editor\ShaderLab\ShaderDocument.cs" />
     <Compile Include="Assets\Editor\ShaderLab\ShaderEditorWindow.cs" />
     <Compile Include="Assets\Editor\ShaderLab\ShaderFuction.cs" />

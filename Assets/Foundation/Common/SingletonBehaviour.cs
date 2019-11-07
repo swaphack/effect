@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using Assets.Foundation.Extensions;
-using Assets.App;
+using Game.Foundation.Extensions;
+using Game.App;
 
-namespace Assets.Foundation.Common
+namespace Game.Foundation.Common
 {
     public interface ISingletonBehaviour
     {
@@ -12,7 +12,7 @@ namespace Assets.Foundation.Common
     /// <summary>
     /// 单例
     /// </summary>
-    public class SingletonBehaviour
+    public static class SingletonBehaviour
     {
         public static GameObject getRoot()
         {

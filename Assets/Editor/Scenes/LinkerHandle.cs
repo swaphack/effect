@@ -1,7 +1,7 @@
-﻿using Assets.Editor.Widgets;
+﻿using Game.Editor.Widgets;
 using UnityEngine;
 
-namespace Assets.Editor.Scenes
+namespace Game.Editor.Scenes
 {
     public class LinkerHandle : SceneHandle
     {

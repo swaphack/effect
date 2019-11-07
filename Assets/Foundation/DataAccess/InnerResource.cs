@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using System;
-using Assets.Foundation.Extensions;
+using Game.Foundation.Extensions;
 
-namespace Assets.Foundation.DataAccess
+namespace Game.Foundation.DataAccess
 {
     /// <summary>
     /// 内部资源加载

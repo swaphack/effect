@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Foundation.SimpleEffect
+namespace Game.Foundation.SimpleEffect
 {
     /// <summary>
     /// 自动行走

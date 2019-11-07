@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Foundation.Net
+namespace Game.Foundation.Net
 {
     public interface IProcess
     {

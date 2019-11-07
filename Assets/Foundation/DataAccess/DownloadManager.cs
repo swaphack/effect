@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Networking;
-using Assets.Foundation.Common;
+using Game.Foundation.Common;
 
-namespace Assets.Foundation.DataAccess
+namespace Game.Foundation.DataAccess
 {
     /// <summary>
     /// 下载

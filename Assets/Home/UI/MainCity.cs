@@ -1,11 +1,11 @@
-using Assets.Foundation.UI;
-using Assets.Home.Logic;
+using Game.Foundation.UI;
+using Game.Home.Logic;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Home.UI
+namespace Game.Home.UI
 {
     public class MainCity : UIFile
     {

@@ -1,13 +1,13 @@
-﻿using Assets.Foundation.Common;
-using Assets.Foundation.Net;
-using Assets.Foundation.Protocol;
-using Assets.Foundation.Tool;
-using Assets.SDK.Project;
+﻿using Game.Foundation.Common;
+using Game.Foundation.Net;
+using Game.Foundation.Protocol;
+using Game.Foundation.Tool;
+using Game.SDK.Project;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Foundation.UI
+namespace Game.Foundation.UI
 {
     /// <summary>
     /// ui消息控件

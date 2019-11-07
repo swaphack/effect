@@ -1,13 +1,9 @@
-﻿using Assets.Foundation.Controller;
-using Assets.Foundation.Extensions;
-using Assets.Foundation.UI;
-using Assets.Home.Logic;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Game.Foundation.Controller;
+using Game.Foundation.Extensions;
+using Game.Foundation.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Assets.Home.UI
+namespace Game.Home.UI
 {
     public class RoleControlUI : UIFile
     {

@@ -1,11 +1,11 @@
 ﻿using System;
-using Assets.Editor.GameDeploy.Configs;
-using Assets.Editor.GameDeploy.Packages;
+using Game.Editor.GameDeploy.Configs;
+using Game.Editor.GameDeploy.Packages;
 using UnityEditor;
 
-namespace Assets.Editor.Tools.GameDeploy
+namespace Game.Editor.Tools.GameDeploy
 {
-    public class GameDeployMenu
+    public static class GameDeployMenu
     {
         [MenuItem("Game Deploy/Configs/Version")]
         public static void ShowVersionConfigWindow()

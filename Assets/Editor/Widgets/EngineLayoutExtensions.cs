@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     /// <summary>
     /// 区域

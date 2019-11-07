@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 
-namespace Assets.Foundation.Effects
+namespace Game.Foundation.Effects
 {
     class PressButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
@@ -11,10 +11,10 @@ namespace Assets.Foundation.Effects
         private float timeLongPress = 0.1f;
 
         //是否按下
-        private bool isPointerDown = false;
+        private bool isPointerDown;
 
         //按下时刻
-        private float timePointerDown = 0;
+        private float timePointerDown;
 
         /// <summary>
         /// 长按事件

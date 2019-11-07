@@ -1,4 +1,4 @@
-﻿using Assets.Foundation.TextFormat;
+﻿using Game.Foundation.TextFormat;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Assets.Foundation.Data
+namespace Game.Foundation.Data
 {
     public class DJsonReader : IObjectReader
     {
@@ -470,7 +470,7 @@ namespace Assets.Foundation.Data
                             var temp = (IList)obj;
                             return this.Read(ref temp);
                         }
-                        else if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
+                        if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
                         {
                             var temp = (IDictionary)obj;
                             return this.Read(ref temp);

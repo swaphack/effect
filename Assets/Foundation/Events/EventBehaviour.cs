@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Foundation.Events
+namespace Game.Foundation.Events
 {
     public abstract class EventBehaviour : MonoBehaviour
     {

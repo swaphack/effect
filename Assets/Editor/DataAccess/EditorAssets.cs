@@ -1,10 +1,11 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.DataAccess
+namespace Game.Editor.DataAccess
 {
     public static class EditorAssets
     {
@@ -74,12 +75,12 @@ namespace Assets.Editor.DataAccess
 
             string appRoot = System.Environment.CurrentDirectory;
 
-            if (path.StartsWith(appRoot))
+            if (path.StartsWith(appRoot, StringComparison.Ordinal))
             {
                 path = path.Substring(appRoot.Length+1);
             }
 
-            if (!path.StartsWith("Assets/"))
+            if (!path.StartsWith("Assets/", StringComparison.Ordinal))
             {
                 path = string.Format("Assets/{0}", path);
             }
@@ -113,12 +114,12 @@ namespace Assets.Editor.DataAccess
         /// <typeparam name="T"></typeparam>
         /// <param name="path"></param>
         /// <returns></returns>
-        public static T LoadAssetAtPath<T>(string path) where T : Object
+        public static T LoadAssetAtPath<T>(string path) where T : UnityEngine.Object
         {
             string fullpath = GetAssetPath(path);
             if (string.IsNullOrEmpty(fullpath))
             {
-                return null;
+                return default(T);
             }
             return AssetDatabase.LoadAssetAtPath<T>(fullpath);
         }

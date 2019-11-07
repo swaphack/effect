@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Assets.Editor.DataAccess;
-using Assets.Editor.Widgets;
+using Game.Editor.DataAccess;
+using Game.Editor.Widgets;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.Layouts
+namespace Game.Editor.Layouts
 {
     public class LayoutWindow : UIWindow
     {

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 
-namespace Assets.Foundation.Actions
+namespace Game.Foundation.Actions
 {
     /// <summary>
     /// 基础动作

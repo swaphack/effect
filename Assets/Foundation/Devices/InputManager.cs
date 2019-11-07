@@ -1,7 +1,7 @@
-﻿using Assets.Foundation.Common;
+﻿using Game.Foundation.Common;
 using UnityEngine;
 
-namespace Assets.Foundation.Devices
+namespace Game.Foundation.Devices
 {
     /// <summary>
     /// 设备管理

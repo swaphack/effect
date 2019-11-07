@@ -1,7 +1,7 @@
 ﻿
-using Assets.Foundation.Protocol;
+using Game.Foundation.Protocol;
 
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
     public class GameServerMessage : MessageHeader
     {

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Assets.Foundation.Common;
+using Game.Foundation.Common;
 
-namespace Assets.Foundation.Actions
+namespace Game.Foundation.Actions
 {
     /// <summary>
     ///  动作管理

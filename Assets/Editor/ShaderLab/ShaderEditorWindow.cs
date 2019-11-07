@@ -1,7 +1,7 @@
 ﻿using System;
-using Assets.Editor.Widgets;
+using Game.Editor.Widgets;
 
-namespace Assets.Editor.ShaderLab
+namespace Game.Editor.ShaderLab
 {
     public class ShaderEditorWindow : UIWindow
     {

@@ -1,8 +1,8 @@
 ﻿using System;
-using Assets.App;
+using Game.App;
 using UnityEngine;
 
-namespace Assets.Foundation.SimpleEffect
+namespace Game.Foundation.SimpleEffect
 {
     /// <summary>
     /// 自动旋转

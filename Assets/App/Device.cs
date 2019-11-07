@@ -1,8 +1,8 @@
 ﻿using System;
-using Assets.SDK.IOS;
+using Game.SDK.IOS;
 using UnityEngine;
 
-namespace Assets.App
+namespace Game.App
 {
     /// <summary>
     /// 设备信息

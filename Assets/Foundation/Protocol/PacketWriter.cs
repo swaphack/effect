@@ -1,6 +1,6 @@
-﻿using Assets.Foundation.Data;
+﻿using Game.Foundation.Data;
 
-namespace Assets.Foundation.Protocol
+namespace Game.Foundation.Protocol
 {
     /// <summary>
     /// 写入包数据

@@ -1,7 +1,7 @@
-﻿using Assets.Foundation.Events;
+﻿using Game.Foundation.Events;
 using UnityEngine;
 
-namespace Assets.Foundation.Controller
+namespace Game.Foundation.Controller
 {
     public class ViewController : SingleTouchBehaviour
     {

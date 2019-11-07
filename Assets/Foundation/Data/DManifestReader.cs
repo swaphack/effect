@@ -1,11 +1,11 @@
-﻿using Assets.Foundation.TextFormat;
+﻿using Game.Foundation.TextFormat;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Foundation.Data
+namespace Game.Foundation.Data
 {
     /// <summary>
     /// u3d AssetBundleManifest配置

@@ -1,8 +1,8 @@
-﻿using Assets.Foundation.Actions;
+﻿using Game.Foundation.Actions;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Foundation.UI
+namespace Game.Foundation.UI
 {
     public class UIAction : ActionInterval
     {
@@ -130,7 +130,7 @@ namespace Assets.Foundation.UI
 
         public OriginCircle CircleOrigin { get; set; }
 
-        public ImageProgress()
+        protected ImageProgress()
         {
             Shape = Image.FillMethod.Horizontal;
             BarOrigin = OriginBar.Low;

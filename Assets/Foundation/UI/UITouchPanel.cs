@@ -1,7 +1,7 @@
-﻿using Assets.Foundation.Events;
+﻿using Game.Foundation.Events;
 using UnityEngine;
 
-namespace Assets.Foundation.UI
+namespace Game.Foundation.UI
 {
     public class UITouchPanel : SingleTouchBehaviour
     {

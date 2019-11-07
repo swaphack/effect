@@ -5,7 +5,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 
-namespace Assets.Foundation.Data
+namespace Game.Foundation.Data
 {
     /// <summary>
     /// 将字节转为对象
@@ -371,7 +371,7 @@ namespace Assets.Foundation.Data
                             var temp = (IList)obj;
                             return this.Read(ref temp);
                         }
-                        else if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
+                        if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
                         {
                             var temp = (IDictionary)obj;
                             return this.Read(ref temp);

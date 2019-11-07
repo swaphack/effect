@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     /// <summary>
     /// 布局
@@ -49,7 +49,7 @@ namespace Assets.Editor.Widgets
             }
         }
 
-        public Layout()
+        protected Layout()
         {
             _padding = 2;
             _innerSpace = 1;
@@ -257,9 +257,6 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class HorizontalLayout : Layout
     {
-        public HorizontalLayout()
-        {
-        }
 
         protected override void BeginDraw()
         {
@@ -277,9 +274,6 @@ namespace Assets.Editor.Widgets
     /// </summary>
     public class VerticalLayout : Layout
     {
-        public VerticalLayout()
-        {
-        }
         protected override void BeginDraw()
         {
             GUILayout.BeginVertical(Option.Values);

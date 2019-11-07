@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     public interface IKeyValueRecord
     {

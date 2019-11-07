@@ -1,10 +1,10 @@
-﻿using Assets.Editor.GameDesign.Objects;
-using Assets.Editor.Layouts;
+﻿using Game.Editor.GameDesign.Objects;
+using Game.Editor.Layouts;
 using UnityEditor;
 
-namespace Assets.Editor
+namespace Game.Editor
 {
-    public class GameEditorMenu
+    public static class GameEditorMenu
     {
         [MenuItem("Game Editor/Object Creator")]
         public static void ShowCreatorWindow()

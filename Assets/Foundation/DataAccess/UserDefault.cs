@@ -1,6 +1,6 @@
-﻿using Assets.Foundation.Common;
-using Assets.Foundation.Protocol;
-using Assets.Foundation.Tool;
+﻿using Game.Foundation.Common;
+using Game.Foundation.Protocol;
+using Game.Foundation.Tool;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Xml;
 using UnityEngine;
 
-namespace Assets.Foundation.DataAccess
+namespace Game.Foundation.DataAccess
 {
     /// <summary>
     /// 用户默认文件
@@ -61,10 +61,7 @@ namespace Assets.Foundation.DataAccess
             {
                 return _values[key];
             }
-            else
-            {
-                return null;
-            }
+            return null;
         }
 
         /// <summary>
@@ -85,10 +82,7 @@ namespace Assets.Foundation.DataAccess
             {
                 return (T)obj;
             }
-            else
-            {
-                return default(T);
-            }
+            return default(T);
         }
 
         /// <summary>

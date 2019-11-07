@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Foundation.Effects
+namespace Game.Foundation.Effects
 {
     [RequireComponent(typeof(ParticleSystem))]
     public class Weather : MonoBehaviour

@@ -1,10 +1,10 @@
-﻿using Assets.Foundation.Common;
-using Assets.Foundation.Protocol;
+﻿using Game.Foundation.Common;
+using Game.Foundation.Protocol;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Assets.Foundation.Net
+namespace Game.Foundation.Net
 {
     /// <summary>
     /// 接收到的数据

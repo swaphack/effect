@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     
     public abstract class EditorLayout : Layout

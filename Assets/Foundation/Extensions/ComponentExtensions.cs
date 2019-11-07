@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Foundation.Extensions
+namespace Game.Foundation.Extensions
 {
     public static class ComponentExtensions
     {

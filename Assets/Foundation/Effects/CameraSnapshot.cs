@@ -2,7 +2,7 @@
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-namespace Assets.Foundation.Effects
+namespace Game.Foundation.Effects
 {
     /// <summary>
     /// 相机快照

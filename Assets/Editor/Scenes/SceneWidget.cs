@@ -1,9 +1,9 @@
-﻿using Assets.Editor.Widgets;
+﻿using Game.Editor.Widgets;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Assets.Editor.Scenes
+namespace Game.Editor.Scenes
 {
     /// <summary>
     /// 场景控件

@@ -1,8 +1,6 @@
-﻿using Assets.Foundation.DataAccess;
-using Assets.Foundation.Common;
-using System.Reflection;
+﻿using Game.Foundation.DataAccess;
 
-namespace Assets.Home.Logic
+namespace Game.Home.Logic
 {
     /// <summary>
     /// 资源

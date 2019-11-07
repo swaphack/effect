@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Assets.Foundation.Net
+namespace Game.Foundation.Net
 {
     public class NetMultiMessage : IProcess
     {

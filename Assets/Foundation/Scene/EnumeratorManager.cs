@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 
-namespace Assets.Foundation.Common
+namespace Game.Foundation.Common
 {
     /// <summary>
     /// 迭代器管理，延迟通知事件

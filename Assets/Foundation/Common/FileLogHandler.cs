@@ -1,8 +1,8 @@
 ﻿using System;
-using Assets.Foundation.DataAccess;
+using Game.Foundation.DataAccess;
 using UnityEngine;
 
-namespace Assets.Foundation.Common
+namespace Game.Foundation.Common
 {
     /// <summary>
     /// 文件日志处理
@@ -38,7 +38,7 @@ namespace Assets.Foundation.Common
 
             string textContext = context == null ? "" : context.ToString();
 
-            string text = string.Format("[{0}] {1} {2}", "Exception", textContext, exception.ToString());
+            string text = string.Format("[{0}] {1} {2}", "Exception", textContext, exception);
             this.AppendLog(text);
         }
 

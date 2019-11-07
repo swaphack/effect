@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
 
-namespace Assets.Foundation.Net
+namespace Game.Foundation.Net
 {
     public class NetSocket
     {

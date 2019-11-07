@@ -2,7 +2,7 @@
 
 using UnityEditor;
 using UnityEngine;
-namespace Assets.Editor.Scenes
+namespace Game.Editor.Scenes
 {
     public abstract class SceneShape: SceneWidget
     {
@@ -25,7 +25,7 @@ namespace Assets.Editor.Scenes
         public float Size { get; set; }
         public EventType EventType { get; set; }
 
-        public SceneShape(int controlID, Vector3 position, Quaternion rotation, float size = 1, EventType eventType = EventType.Repaint)
+        protected SceneShape(int controlID, Vector3 position, Quaternion rotation, float size = 1, EventType eventType = EventType.Repaint)
         {
             ControlID = controlID;
             _position = position;

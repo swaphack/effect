@@ -1,10 +1,10 @@
-﻿using Assets.Editor.Widgets;
-using Assets.Foundation.UI;
+﻿using Game.Editor.Widgets;
+using Game.Foundation.UI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Editor.Inspectors
+namespace Game.Editor.Inspectors
 {
     [CustomEditor(typeof(UIImage))]
     class UIImageInspector : UIInspector

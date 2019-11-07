@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Foundation.TextFormat
+namespace Game.Foundation.TextFormat
 {
     /// <summary>
     /// json文本读取
@@ -124,10 +124,7 @@ namespace Assets.Foundation.TextFormat
                     {
                         return false;
                     }
-                    else
-                    {
-                        temp[key] = GetTempText();
-                    }
+                    temp[key] = GetTempText();
                 }
             } while (false);
             return true;
@@ -221,12 +218,12 @@ namespace Assets.Foundation.TextFormat
         private string GetTempText()
         {
             string text = _tempText;
-            if (text.StartsWith("\""))
+            if (text.StartsWith("\"", StringComparison.Ordinal))
             {
                 text = text.TrimStart('\"');
             }
 
-            if (text.EndsWith("\""))
+            if (text.EndsWith("\"", StringComparison.Ordinal))
             {
                 text = text.TrimEnd('\"');
             }

@@ -1,7 +1,7 @@
-﻿using Assets.Foundation.Events;
+﻿using Game.Foundation.Events;
 using UnityEngine;
 
-namespace Assets.Foundation.Effects
+namespace Game.Foundation.Effects
 {
     /// <summary>
     /// 地图缩放
@@ -50,10 +50,6 @@ namespace Assets.Foundation.Effects
         {
             get { return _content; }
             set { _content = value; }
-        }
-
-        public MapScale()
-        {
         }
 
         protected override void UpdateEventStatus(bool status)

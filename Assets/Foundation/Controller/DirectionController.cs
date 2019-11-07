@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Foundation.Controller
+namespace Game.Foundation.Controller
 {
     /// <summary>
     /// 方向控制

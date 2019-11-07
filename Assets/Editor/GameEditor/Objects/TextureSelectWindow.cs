@@ -1,11 +1,11 @@
-﻿using Assets.Editor.DataAccess;
-using Assets.Editor.Widgets;
-using Assets.Foundation.UI;
+﻿using Game.Editor.DataAccess;
+using Game.Editor.Widgets;
+using Game.Foundation.UI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Editor
+namespace Game.Editor
 {
     /// <summary>
     /// 图片展示
@@ -93,7 +93,7 @@ namespace Assets.Editor
                 {
                     string fullpath = allpath[i];
 
-                    string name = fullpath.Substring(fullpath.LastIndexOf('/') + 1);
+                    string filename = fullpath.Substring(fullpath.LastIndexOf('/') + 1);
 
                     GUIButton button = new GUIButton();
                     button.Option.Width = ImageSize.x;
@@ -111,7 +111,7 @@ namespace Assets.Editor
                     var label = new GUILabel();
                     label.Option.Height = 25;
                     label.Option.Width = ImageSize.x;
-                    label.Text = name;
+                    label.Text = filename;
                     label.FontSize = 10;
                     label.Alignment = TextAnchor.MiddleCenter;
                     vLayout.Add(label);

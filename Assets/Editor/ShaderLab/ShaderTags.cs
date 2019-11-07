@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Assets.Editor.ShaderLab
+namespace Game.Editor.ShaderLab
 {
     public class ShaderTags
     {

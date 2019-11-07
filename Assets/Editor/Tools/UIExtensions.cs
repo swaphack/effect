@@ -1,12 +1,12 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using Assets.Foundation.Extensions;
-using Assets.Foundation.UI;
+using Game.Foundation.Extensions;
+using Game.Foundation.UI;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.Rendering;
 
-namespace Assets.Editor.Tools
+namespace Game.Editor.Tools
 {
     class UIExtensions
     {

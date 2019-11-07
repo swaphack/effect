@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Foundation.Net
+namespace Game.Foundation.Net
 {
     /// <summary>
     /// 接收buffer处理

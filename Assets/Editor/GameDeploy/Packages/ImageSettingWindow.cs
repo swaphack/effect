@@ -1,8 +1,8 @@
-﻿using Assets.Editor.Widgets;
+﻿using Game.Editor.Widgets;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.GameDeploy.Packages
+namespace Game.Editor.GameDeploy.Packages
 {
     /// <summary>
     /// 图片纹理设置

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Assets.Foundation.Data
+namespace Game.Foundation.Data
 {
-    public class DataHelper
+    public static class DataHelper
     {
         /// <summary>
         /// 根据类型，创建对象

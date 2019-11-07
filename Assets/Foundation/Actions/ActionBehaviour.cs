@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Assets.Foundation.Extensions;
+using Game.Foundation.Extensions;
 
-namespace Assets.Foundation.Actions
+namespace Game.Foundation.Actions
 {
     /// <summary>
     /// 动作行为

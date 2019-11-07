@@ -1,10 +1,10 @@
-﻿using Assets.Foundation.DataAccess;
-using Assets.Foundation.Common;
+﻿using Game.Foundation.DataAccess;
+using Game.Foundation.Common;
 using System.Collections;
 using System.IO;
 using UnityEngine;
 
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
     /// <summary>
     /// 版本更新
