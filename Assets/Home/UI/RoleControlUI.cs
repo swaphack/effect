@@ -1,12 +1,6 @@
 ﻿using Game.Foundation.Controller;
 using Game.Foundation.Extensions;
 using Game.Foundation.UI;
-<<<<<<< HEAD
-=======
-using Game.Home.Logic;
-using System.Collections;
-using System.Collections.Generic;
->>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
 using UnityEngine;
 
 namespace Game.Home.UI

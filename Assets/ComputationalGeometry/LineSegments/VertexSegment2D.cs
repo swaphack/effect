@@ -9,7 +9,6 @@ namespace Game.ComputationalGeometry.LineSegments
     /// </summary>
     public class VertexSegment2D
     {
-<<<<<<< HEAD
         /// <summary>
         /// 上端点
         /// </summary>
@@ -26,12 +25,6 @@ namespace Game.ComputationalGeometry.LineSegments
         /// 是否水平线
         /// </summary>
         public bool IsHorizontalLine { get; }
-=======
-        public Vector2 Up { get; }
-        public Vector2 Low { get; }
-
-        public LineSegment2D Line { get; }
->>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
 
         /// <summary>
         /// Vector2比较
@@ -41,13 +34,8 @@ namespace Game.ComputationalGeometry.LineSegments
             if (x.y > y.y) return -1;
             if (x.y < y.y) return 1;
             if (x.x < y.x) return -1;
-<<<<<<< HEAD
             if (x.x >= y.x) return 1;
             return 1;
-=======
-            if (x.x > y.x) return 1;
-            return 0;
->>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
         };
 
         /// <summary>
@@ -62,11 +50,8 @@ namespace Game.ComputationalGeometry.LineSegments
         {
             Line = line;
 
-<<<<<<< HEAD
             IsHorizontalLine = Mathf.Approximately(Line.Src.x, line.Dest.x);
 
-=======
->>>>>>> eca791581e64b360c5edaa8138c8ad2da80cf39b
             int ret = Vector2Compare(line.Src, line.Dest);
             if (ret < 0)
             {
