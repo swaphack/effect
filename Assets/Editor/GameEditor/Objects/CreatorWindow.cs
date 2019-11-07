@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Assets.Editor.Widgets;
+using Game.Editor.Widgets;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.GameDesign.Objects
+namespace Game.Editor.GameDesign.Objects
 {
     /// <summary>
     /// 对象创建

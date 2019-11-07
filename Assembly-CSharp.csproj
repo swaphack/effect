@@ -63,6 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Algorithm\Structure\AVLTree.cs" />
+    <Compile Include="Assets\Algorithm\Structure\BinaryTree.cs" />
+    <Compile Include="Assets\Algorithm\Structure\Value.cs" />
     <Compile Include="Assets\App\AppDetail.cs" />
     <Compile Include="Assets\App\AppInstance.cs" />
     <Compile Include="Assets\App\AppTime.cs" />
@@ -135,9 +138,6 @@
     <Compile Include="Assets\Foundation\Extensions\NodeExtensions.cs" />
     <Compile Include="Assets\Foundation\Extensions\UIExtensions.cs" />
     <Compile Include="Assets\Foundation\Fluid\Water.cs" />
-    <Compile Include="Assets\Foundation\Geometry\Shape.cs" />
-    <Compile Include="Assets\Foundation\Geometry\ShapeTexture.cs" />
-    <Compile Include="Assets\Foundation\Geometry\ShapeVertex.cs" />
     <Compile Include="Assets\Foundation\Net\IProcess.cs" />
     <Compile Include="Assets\Foundation\Net\NetBufferStream.cs" />
     <Compile Include="Assets\Foundation\Net\NetClient.cs" />
@@ -188,6 +188,20 @@
     <Compile Include="Assets\Home\UI\MainCity.cs" />
     <Compile Include="Assets\Home\UI\MainUI.cs" />
     <Compile Include="Assets\Home\UI\RoleControlUI.cs" />
+    <Compile Include="Assets\Mathematics\Algebra\Complex.cs" />
+    <Compile Include="Assets\Mathematics\Algebra\Detaminate.cs" />
+    <Compile Include="Assets\Mathematics\Algebra\Matrix.cs" />
+    <Compile Include="Assets\Mathematics\Algebra\Vector.cs" />
+    <Compile Include="Assets\ComputationalGeometry\Convex\Convex2D.cs" />
+    <Compile Include="Assets\Mathematics\Geometry2D\LineSegment2D.cs" />
+    <Compile Include="Assets\ComputationalGeometry\LineSegments\Intersection2D.cs" />
+    <Compile Include="Assets\Mathematics\Geometry2D\Polygon2D.cs" />
+    <Compile Include="Assets\Mathematics\Geometry2D\Utility2D.cs" />
+    <Compile Include="Assets\Mathematics\Geometry3D\Cube.cs" />
+    <Compile Include="Assets\Mathematics\Geometry3D\Plane.cs" />
+    <Compile Include="Assets\Mathematics\Geometry3D\Ray.cs" />
+    <Compile Include="Assets\Mathematics\Geometry3D\Utility3D.cs" />
+    <Compile Include="Assets\Mathematics\MathUtility.cs" />
     <Compile Include="Assets\SDK\Android\DeviceAndroid.cs" />
     <Compile Include="Assets\SDK\IOS\CSharpxIOS.cs" />
     <Compile Include="Assets\SDK\IOS\DeviceIOS.cs" />
@@ -206,6 +220,7 @@
     <Compile Include="Assets\SDK\Project\Workflow.cs" />
     <None Include="Assets\EditorResources\Shaders\Property.xml" />
     <None Include="Assets\Resources\App\VersionDetail.xml" />
+    <None Include="Assets\EditorResources\Shaders\Format.xml" />
     <None Include="Assets\Shaders\Common\DiffuseHalfLambert.shader" />
     <None Include="Assets\Shaders\Environment\LightedTerrain.shader" />
     <None Include="Assets\Shaders\Common\SpecularVertex.shader" />
@@ -816,6 +831,10 @@
     <Reference Include="Boo.Lang">
       <HintPath>/Users/lingan/Applications/2019.2.9f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+    <Compile Include="Assets\Algorithm\Structure\BinarySortTree.cs" />
+    <Compile Include="Assets\ComputationalGeometry\LineSegments\VertexSegment2D.cs" />
+    <Compile Include="Assets\Algorithm\Structure\DoubleKeyDictionary.cs" />
+    <Compile Include="Assets\ComputationalGeometry\LineSegments\IntersectionStatusTree.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

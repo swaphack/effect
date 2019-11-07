@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Assets.Foundation.Extensions;
+using Game.Foundation.Extensions;
 using UnityEngine.Events;
-using Assets.Foundation.Effects;
+using Game.Foundation.Effects;
 
-namespace Assets.Foundation.UI
+namespace Game.Foundation.UI
 {
     /// <summary>
     /// ui界面

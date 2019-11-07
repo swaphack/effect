@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Foundation.Schedulers
+namespace Game.Foundation.Schedulers
 {
     /// <summary>
     /// 调度器回调处理

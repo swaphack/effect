@@ -1,7 +1,7 @@
-﻿using Assets.Editor;
+﻿using Game.Editor;
 using UnityEditor;
 
-namespace Assets.Editor.Tools
+namespace Game.Editor.Tools
 {
     class ContextExtensions
     {

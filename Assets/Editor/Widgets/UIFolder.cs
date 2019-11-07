@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     /// <summary>
     /// 文件夹控件

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<root>
+    <Shader>Shader "[Name]" { [Properties] [Subshader] [Fallback] [CustomEditor]}</Shader>
+    <Properties>Properites { [Property ...] }</Properties>
+    <Property>[InternalName]("[InspectorTitle]", [Type])=[Value]</Property>
+    <Tages>Tages { [Tag] ... }</Tages>
+    <Tag>"[Type]"="[Value]"</Tag>
+    <Subshader>Subshader { [Tages] [CommonState] PassDef [Passdef ...] }</Subshader>
+    <Property>[InternalName]("[InspectorTitle]", [Type])=[Value]</Property>
+</root>

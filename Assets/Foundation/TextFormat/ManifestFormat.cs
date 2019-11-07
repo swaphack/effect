@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Foundation.TextFormat
+namespace Game.Foundation.TextFormat
 {
     /// <summary>
     /// u3d清单格式
@@ -20,7 +20,7 @@ namespace Assets.Foundation.TextFormat
             /// <summary>
             /// 左边空格个数
             /// </summary>
-            public int LeftEmptyCount = 0;
+            public int LeftEmptyCount;
             /// <summary>
             /// 父节点
             /// </summary>
@@ -124,7 +124,7 @@ namespace Assets.Foundation.TextFormat
                             tempNode.AddChild(line);
                             break;
                         }
-                        else if (curEmptyIndex > lastChild.LeftEmptyCount)
+                        if (curEmptyIndex > lastChild.LeftEmptyCount)
                         { // 子级 
                             lastChild.AddChild(line);
                             tempNode = lastChild;

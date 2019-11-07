@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Assets.Foundation.Extensions;
+using Game.Foundation.Extensions;
 
-namespace Assets.Foundation.UI
+namespace Game.Foundation.UI
 {
     /// <summary>
     /// 文本

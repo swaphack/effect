@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace Assets.Foundation.Tool
+namespace Game.Foundation.Tool
 {
-    public class FileUtility
+    public static class FileUtility
     {
         /// <summary>
         /// 自动创建文件，文件不存在，创建

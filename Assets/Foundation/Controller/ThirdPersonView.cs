@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Foundation.Controller
+namespace Game.Foundation.Controller
 {
     /// <summary>
     /// 第三人称视角
@@ -13,8 +13,6 @@ namespace Assets.Foundation.Controller
         [SerializeField]
         private Vector3 _offsetPosition;
 
-        private Vector3 _distance;
-        
         public Camera Target
         {
             get { return _target; }

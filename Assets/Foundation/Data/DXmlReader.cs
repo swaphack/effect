@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-namespace Assets.Foundation.Data
+namespace Game.Foundation.Data
 {
     /// <summary>
     /// 将xml转为对象
@@ -403,7 +403,7 @@ namespace Assets.Foundation.Data
                             var temp = (IList)obj;
                             return this.Read(name, ref temp);
                         }
-                        else if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
+                        if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
                         {
                             var temp = (IDictionary)obj;
                             return this.Read(name, ref temp);

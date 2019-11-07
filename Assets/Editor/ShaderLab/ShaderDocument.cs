@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Assets.Editor.ShaderLab
+namespace Game.Editor.ShaderLab
 {
-    public class ShaderDocument : IText
+    public class ShaderDocument
     {
         /// <summary>
         /// 文档名称
@@ -17,7 +17,7 @@ namespace Assets.Editor.ShaderLab
         /// <summary>
         /// shader
         /// </summary>
-        public List<SubShader> SubShaders { get; } = new List<SubShader>();
+        public SubShader SubShader { get; } = new SubShader();
         /// <summary>
         /// 其他shader都无效时，调用该方法
         /// </summary>
@@ -46,37 +46,6 @@ namespace Assets.Editor.ShaderLab
                 return;
             }
             Properties.Remove(value);
-        }
-
-        public void AddSubShader(SubShader value)
-        {
-            if (value == null)
-            {
-                return;
-            }
-            if (!SubShaders.Contains(value))
-            {
-                SubShaders.Add(value);
-            }
-        }
-
-        public void RemoveSubShader(SubShader value)
-        {
-            if (value == null)
-            {
-                return;
-            }
-            SubShaders.Remove(value);
-        }
-
-        string IText.ToText()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("Shader \"{0}\" {", Name);
-            sb.Append("}");
-
-
-            return sb.ToString();
         }
     }
 }

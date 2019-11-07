@@ -1,7 +1,7 @@
-﻿using Assets.Foundation.Actions;
+﻿using Game.Foundation.Actions;
 using UnityEngine;
 
-namespace Assets.Foundation.Extensions
+namespace Game.Foundation.Extensions
 {
     /// <summary>
     /// 动作扩展

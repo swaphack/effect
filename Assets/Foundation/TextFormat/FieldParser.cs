@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Foundation.TextFormat
+namespace Game.Foundation.TextFormat
 {
     /// <summary>
     /// 字段解析
@@ -42,7 +42,7 @@ namespace Assets.Foundation.TextFormat
                 count = 1;
                 return true;
             }
-            else if (this.KeyWord == str.Substring(offset, this.KeyWord.Length))
+            if (this.KeyWord == str.Substring(offset, this.KeyWord.Length))
             {
                 if (!Func(this.KeyWord))
                 {

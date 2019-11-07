@@ -3,9 +3,9 @@ using System.IO;
 using System.Text;
 using System.Xml;
 using UnityEngine;
-using Assets.Foundation.Tool;
+using Game.Foundation.Tool;
 
-namespace Assets.Foundation.DataAccess
+namespace Game.Foundation.DataAccess
 {
     /// <summary>
     /// 存储文件

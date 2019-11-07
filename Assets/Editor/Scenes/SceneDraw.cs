@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.Scenes
+namespace Game.Editor.Scenes
 {
     public class SceneDraw : SceneWidget
     {

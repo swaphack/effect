@@ -1,7 +1,7 @@
 ﻿using System;
-namespace Assets.Foundation.Tool
+namespace Game.Foundation.Tool
 {
-    public class TransformUtility
+    public static class TransformUtility
     {
         /// <summary>
         /// 在区间内，包含min和max

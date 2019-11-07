@@ -1,16 +1,16 @@
-﻿using Assets.Foundation.UI;
-using Assets.Home.UI;
-using Assets.App;
-using Assets.Foundation.Devices;
-using Assets.Foundation.Events;
+﻿using Game.Foundation.UI;
+using Game.Home.UI;
+using Game.App;
+using Game.Foundation.Devices;
+using Game.Foundation.Events;
 using UnityEngine;
-using Assets.SDK.Project;
-using Assets.Foundation.Common;
-using Assets.Foundation.DataAccess;
-using Assets.Foundation.Controller;
-using Assets.Foundation.Extensions;
+using Game.SDK.Project;
+using Game.Foundation.Common;
+using Game.Foundation.DataAccess;
+using Game.Foundation.Controller;
+using Game.Foundation.Extensions;
 
-namespace Assets.Home
+namespace Game.Home
 {
     public class AppMain : AppInstance
     {

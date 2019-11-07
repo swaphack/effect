@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     /// <summary>
     /// ui控件

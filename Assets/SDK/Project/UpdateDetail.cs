@@ -1,5 +1,5 @@
 ﻿
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
     /// <summary>
     /// 更新清单

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-namespace Assets.Foundation.Data
+namespace Game.Foundation.Data
 {
     public class DXmlWriter : IPairWriter
     {
@@ -285,7 +285,7 @@ namespace Assets.Foundation.Data
                             var temp = (IList)obj;
                             return this.Write(name, temp);
                         }
-                        else if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
+                        if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
                         {
                             var temp = (IDictionary)obj;
                             return this.Write(name, temp);

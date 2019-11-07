@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace Assets.Editor
+namespace Game.Editor
 {
     /// <summary>
     /// 编辑器风格预览

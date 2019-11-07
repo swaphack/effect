@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Foundation.Events
+namespace Game.Foundation.Events
 {
     /// <summary>
     /// 点击处理基本接口

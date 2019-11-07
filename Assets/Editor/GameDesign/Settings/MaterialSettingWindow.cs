@@ -1,14 +1,14 @@
-﻿using Assets.Editor.DataAccess;
-using Assets.Editor.Widgets;
+﻿using Game.Editor.DataAccess;
+using Game.Editor.Widgets;
 using UnityEngine;
 
-namespace Assets.Editor.GameDesign.Settings
+namespace Game.Editor.GameDesign.Settings
 {
     public class MaterialSettingWindow : UIWindow
     {
         protected override void InitUI(UIWidget layout)
         {
-            var tex = EditorAssets.LoadAssetAtPath<Texture>(EditorAssets.GetResourcePath("Textures/wooden-box.png"));
+            var tex = EditorGame.LoadAssetAtPath<Texture>(EditorGame.GetResourcePath("Textures/wooden-box.png"));
             var shader = Shader.Find("UI/Default");
             var mat = new Material(shader);
 

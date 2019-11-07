@@ -1,5 +1,5 @@
 ﻿
-namespace Assets.Foundation.Schedulers
+namespace Game.Foundation.Schedulers
 {
     /// <summary>
     /// 带次数限制的调度器
@@ -17,7 +17,7 @@ namespace Assets.Foundation.Schedulers
 
         protected override void OnTriggerEvent()
         {
-            base.DoCallback();
+            DoCallback();
             Count++;
             if (Count >= MaxCount)
             {

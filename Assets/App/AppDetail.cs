@@ -1,6 +1,6 @@
 ﻿
 
-namespace Assets.App
+namespace Game.App
 {
     /// <summary>
     /// 应用程序信息

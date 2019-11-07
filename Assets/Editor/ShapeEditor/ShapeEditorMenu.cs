@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Editor.ShapeEditor
+namespace Game.Editor.ShapeEditor
 {
     public class ShapeEditorMenu
     {

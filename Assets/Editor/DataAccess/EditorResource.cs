@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections;
-using Assets.Foundation.DataAccess;
+using Game.Foundation.DataAccess;
 
-namespace Assets.Editor.DataAccess
+namespace Game.Editor.DataAccess
 {
     public class EditorResource : ResourceLoad
     {

@@ -1,6 +1,6 @@
-﻿using Assets.Foundation.Common;
-using Assets.Foundation.DataAccess;
-using Assets.Foundation.Tool;
+﻿using Game.Foundation.Common;
+using Game.Foundation.DataAccess;
+using Game.Foundation.Tool;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
     /// <summary>
     /// 版本检查

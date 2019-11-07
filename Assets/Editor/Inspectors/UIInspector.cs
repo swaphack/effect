@@ -1,10 +1,10 @@
-﻿using Assets.Editor.Widgets;
-using Assets.Foundation.Data;
+﻿using Game.Editor.Widgets;
+using Game.Foundation.Data;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
 
-namespace Assets.Editor.Inspectors
+namespace Game.Editor.Inspectors
 {
     /// <summary>
     /// editor 视图

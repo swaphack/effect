@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Foundation.Common
+namespace Game.Foundation.Common
 {
     public class LogHandlers : ILogHandler
     {

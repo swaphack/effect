@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Assets.Foundation.Extensions;
+using Game.Foundation.Extensions;
 using UnityEngine.UI;
 
-namespace Assets.Foundation.UI
+namespace Game.Foundation.UI
 {
     public class UIScrollText : UIListView
     {
@@ -26,7 +26,7 @@ namespace Assets.Foundation.UI
             Direction = ScrollDirection.Vertical;
         }
 
-        private bool _bInitTextEvent = false;
+        private bool _bInitTextEvent;
 
         private void UpdateTextEvent()
         {

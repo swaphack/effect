@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Foundation.UI
+namespace Game.Foundation.UI
 {
     /// <summary>
     /// ui文件

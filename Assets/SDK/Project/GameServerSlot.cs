@@ -1,9 +1,9 @@
-﻿using Assets.Foundation.Protocol;
+﻿using Game.Foundation.Protocol;
 using System.Collections;
 using System;
-using Assets.Foundation.Net;
+using Game.Foundation.Net;
 
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
     /// <summary>
     /// 游戏服务器

@@ -2,7 +2,7 @@
 using System.Reflection;
 using UnityEngine;
 
-namespace Assets.Foundation.Common
+namespace Game.Foundation.Common
 {
     public static class SingletonCreator
     {

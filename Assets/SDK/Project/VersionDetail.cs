@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
     /// <summary>
     /// 游戏清单

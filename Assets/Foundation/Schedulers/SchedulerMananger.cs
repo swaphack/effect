@@ -1,8 +1,8 @@
-﻿using Assets.Foundation.Common;
+﻿using Game.Foundation.Common;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Foundation.Schedulers
+namespace Game.Foundation.Schedulers
 {
     /// <summary>
     /// 调度器管理

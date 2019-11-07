@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Foundation.Common
+namespace Game.Foundation.Common
 {
     public class Singleton<T> where T : class
     {

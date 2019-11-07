@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Foundation.Events
+namespace Game.Foundation.Events
 {
     /// <summary>
     /// 鼠标缩放

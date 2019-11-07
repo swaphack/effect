@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Editor.ShaderLab
+namespace Game.Editor.ShaderLab
 {
     /// <summary>
     ///  属性类型
@@ -42,16 +42,11 @@ namespace Assets.Editor.ShaderLab
         public float Max;
     }
 
-    public class ShaderProperty : IText
+    public class ShaderProperty
     {
         public string InternalName { get; set; }
         public string InspectorTitle { get; set; }
         public PropertyType Type { get; set; }
         public object DefaultValue { get; set; }
-
-        public string ToText()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

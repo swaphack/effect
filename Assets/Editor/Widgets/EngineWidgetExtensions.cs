@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     /// <summary>
     /// 空白控件
@@ -151,7 +151,7 @@ namespace Assets.Editor.Widgets
         /// </summary>
         public string Value { set => Text = value; get => Text; } 
 
-        public GUIText()
+        protected GUIText()
         {
             Alignment = TextAnchor.MiddleLeft;
             RichText = false;

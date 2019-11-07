@@ -1,6 +1,6 @@
-﻿using Assets.App;
+﻿using Game.App;
 
-namespace Assets.Home
+namespace Game.Home
 {
     public class HomeDetail : AppDetail
     {

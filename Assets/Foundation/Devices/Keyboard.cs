@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-namespace Assets.Foundation.Devices
+namespace Game.Foundation.Devices
 {
     /// <summary>
     /// 键盘

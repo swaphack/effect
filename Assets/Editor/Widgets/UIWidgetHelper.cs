@@ -4,15 +4,15 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
-    public class UIWidgetHelper
+    public static class UIWidgetHelper
     {
         /// <summary>
         /// 创建控件
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="target"></param>
+        /// <param name="value"></param>
         /// <returns></returns>
         public static UIFieldWidget CreateWidget(string name, Object value)
         {
@@ -102,7 +102,7 @@ namespace Assets.Editor.Widgets
             switch (code)
             {
                 case TypeCode.Boolean:
-                    widget = new UIBooleanFieldWidget(target, fieldInfo);break;
+                    widget = new UIBooleanFieldWidget(target, fieldInfo); break;
                 case TypeCode.Char:
                     widget = new UITextFieldWidget(target, fieldInfo); break;
                 case TypeCode.SByte:

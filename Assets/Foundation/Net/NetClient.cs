@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace Assets.Foundation.Net
+namespace Game.Foundation.Net
 {
     /// <summary>
     /// 客户端

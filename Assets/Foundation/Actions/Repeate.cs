@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-namespace Assets.Foundation.Actions
+namespace Game.Foundation.Actions
 {
     /// <summary>
     /// 循环动作
     /// </summary>
     public class Repeate : ActionBase
     {
-        private int _count = 0;
+        private int _count;
 
         public int RepeateCount { get; set; } = 0;
 

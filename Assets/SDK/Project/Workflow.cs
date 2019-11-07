@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
     /// <summary>
     /// 状态
@@ -128,29 +128,28 @@ namespace Assets.SDK.Project
 
         public void MoveNext()
         {
-            if (State == WorkState.None)
+            switch (State)
             {
-                State = WorkState.Start;
-                this.Init();
-            }
-            else if(State == WorkState.Start)
-            {
-                State = WorkState.Update;
-                this.DoEvent();
-            }
-            else if (State == WorkState.Update)
-            {
-                State = WorkState.End;
-                this.Finish();
-            }
-            else if (State == WorkState.End)
-            {
-                State = WorkState.Finish;
-                if (_group != null)
-                {
-                    _group.RemoveWorkSlot(this);
-                    _group.MoveNext(Data);
-                }
+                case WorkState.None:
+                    State = WorkState.Start;
+                    this.Init();
+                    break;
+                case WorkState.Start:
+                    State = WorkState.Update;
+                    this.DoEvent();
+                    break;
+                case WorkState.Update:
+                    State = WorkState.End;
+                    this.Finish();
+                    break;
+                case WorkState.End:
+                    State = WorkState.Finish;
+                    if (_group != null)
+                    {
+                        _group.RemoveWorkSlot(this);
+                        _group.MoveNext(Data);
+                    }
+                    break;
             }
         }
     }
@@ -164,10 +163,6 @@ namespace Assets.SDK.Project
         /// 事件
         /// </summary>
         private List<IWorkSlot> _events;
-        /// <summary>
-        /// 数据
-        /// </summary>
-        private object _data;
 
         public Workflow()
         {

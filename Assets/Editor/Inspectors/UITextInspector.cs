@@ -1,8 +1,8 @@
-﻿using Assets.Editor.Widgets;
-using Assets.Foundation.UI;
+﻿using Game.Editor.Widgets;
+using Game.Foundation.UI;
 using UnityEditor;
 
-namespace Assets.Editor.Inspectors
+namespace Game.Editor.Inspectors
 {
     [CustomEditor(typeof(UIText))]
     class UITextInspector : UIInspector

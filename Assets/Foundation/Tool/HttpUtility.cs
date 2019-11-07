@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine.Networking;
 
-namespace Assets.Foundation.Tool
+namespace Game.Foundation.Tool
 {
-    public class HttpUtility
+    public static class HttpUtility
     {
 
         /// <summary>

@@ -11,7 +11,7 @@ using System.Text;
 enum SaveFormat { Triangles, Quads }
 enum SaveResolution { Full = 0, Half, Quarter, Eighth, Sixteenth }
 
-namespace Assets.Editor.GameDesign.Terrains
+namespace Game.Editor.GameDesign.Terrains
 {
     public class ExportTerrainWindow : EditorWindow
     {

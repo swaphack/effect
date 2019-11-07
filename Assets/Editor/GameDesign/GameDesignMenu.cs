@@ -1,11 +1,11 @@
-﻿using Assets.Editor.GameDesign.Settings;
-using Assets.Editor.GameDesign.Terrains;
+﻿using Game.Editor.GameDesign.Settings;
+using Game.Editor.GameDesign.Terrains;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.GameDesign
+namespace Game.Editor.GameDesign
 {
-    public class GameDesignMenu
+    public static class GameDesignMenu
     {
         [MenuItem("Game Design/Settings/Material Setting")]
         public static void ShowMaterialSettingWindow()

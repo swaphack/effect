@@ -1,8 +1,8 @@
-﻿using Assets.Foundation.Extensions;
+﻿using Game.Foundation.Extensions;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Foundation.Events
+namespace Game.Foundation.Events
 {    
     /// <summary>
     /// 点击行为
@@ -66,6 +66,7 @@ namespace Assets.Foundation.Events
                 case TouchPhase.Moved: this.TouchMoved(touch); break;
                 case TouchPhase.Canceled: this.TouchEnded(touch); break;
                 case TouchPhase.Ended: this.TouchCanceled(touch); break;
+                default: break;
             }
         }
 
@@ -87,7 +88,7 @@ namespace Assets.Foundation.Events
 
         public virtual void TouchCanceled(Touch touch)
         {
-        }        
+        }
     }
 
     /// <summary>
@@ -118,6 +119,7 @@ namespace Assets.Foundation.Events
                     case TouchPhase.Moved: movedTouches.Add(touch); break;
                     case TouchPhase.Canceled: canceledTouches.Add(touch); break;
                     case TouchPhase.Ended: endedTouches.Add(touch); break;
+                    default: break;
                 }
             }
 

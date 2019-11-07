@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Assets.Foundation.Common;
+using Game.Foundation.Common;
 
-namespace Assets.App
+namespace Game.App
 {
     public class AppTime : SingletonBehaviour<AppTime>
     {

@@ -1,7 +1,7 @@
-﻿using Assets.Editor.Widgets;
+﻿using Game.Editor.Widgets;
 using UnityEditor;
 
-namespace Assets.Editor.Scenes
+namespace Game.Editor.Scenes
 {
     public class SceneHandle : UnityEditor.Editor
     {

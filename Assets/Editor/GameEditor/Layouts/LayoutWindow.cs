@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Assets.Editor.DataAccess;
-using Assets.Editor.Widgets;
+using Game.Editor.DataAccess;
+using Game.Editor.Widgets;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.Layouts
+namespace Game.Editor.Layouts
 {
     public class LayoutWindow : UIWindow
     {
@@ -261,7 +261,7 @@ namespace Assets.Editor.Layouts
             layout.Add(hlayout2);
 
             GUIButton left = new GUIButton();
-            left.ImagePath = EditorAssets.GetResourcePath("Icons/layout_alignment_left.png");
+            left.ImagePath = EditorGame.GetResourcePath("Icons/layout_alignment_left.png");
             left.TriggerHandler = (Widget w) =>
             {
                 this.OrderBy(TextAlignment.Left);
@@ -269,7 +269,7 @@ namespace Assets.Editor.Layouts
             hlayout2.Add(left);
 
             GUIButton center = new GUIButton();
-            center.ImagePath = EditorAssets.GetResourcePath("Icons/layout_alignment_center.png");
+            center.ImagePath = EditorGame.GetResourcePath("Icons/layout_alignment_center.png");
             center.TriggerHandler = (Widget w) =>
             {
                 this.OrderBy(TextAlignment.Center);
@@ -277,7 +277,7 @@ namespace Assets.Editor.Layouts
             hlayout2.Add(center);
 
             GUIButton right = new GUIButton();
-            right.ImagePath = EditorAssets.GetResourcePath("Icons/layout_alignment_right.png");
+            right.ImagePath = EditorGame.GetResourcePath("Icons/layout_alignment_right.png");
             right.TriggerHandler = (Widget w) =>
             {
                 this.OrderBy(TextAlignment.Right);

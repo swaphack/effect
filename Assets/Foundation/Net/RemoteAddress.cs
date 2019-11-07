@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Assets.Foundation.Net
+namespace Game.Foundation.Net
 {
     /// <summary>
     /// 远程地址

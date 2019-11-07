@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Assets.SDK.IOS
+namespace Game.SDK.IOS
 {
     
     

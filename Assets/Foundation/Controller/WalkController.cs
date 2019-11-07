@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
-namespace Assets.Foundation.Controller
+namespace Game.Foundation.Controller
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class WalkController : MonoBehaviour

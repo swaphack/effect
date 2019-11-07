@@ -93,7 +93,6 @@
     <Compile Include="Assets\Editor\Scenes\SceneHandle.cs" />
     <Compile Include="Assets\Editor\Scenes\SceneShape.cs" />
     <Compile Include="Assets\Editor\Scenes\SceneWidget.cs" />
-    <Compile Include="Assets\Editor\ShaderLab\IText.cs" />
     <Compile Include="Assets\Editor\ShaderLab\ShaderDocument.cs" />
     <Compile Include="Assets\Editor\ShaderLab\ShaderEditorWindow.cs" />
     <Compile Include="Assets\Editor\ShaderLab\ShaderFuction.cs" />
@@ -765,6 +764,10 @@
     <Reference Include="Boo.Lang">
       <HintPath>/Users/lingan/Applications/2019.2.9f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+    <Compile Include="Assets\Algorithm\Structure\BinarySortTree.cs" />
+    <Compile Include="Assets\ComputationalGeometry\LineSegments\VertexSegment2D.cs" />
+    <Compile Include="Assets\Algorithm\Structure\DoubleKeyDictionary.cs" />
+    <Compile Include="Assets\ComputationalGeometry\LineSegments\IntersectionStatusTree.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">

@@ -1,12 +1,12 @@
-﻿using Assets.Editor.DataAccess;
-using Assets.Editor.Widgets;
-using Assets.Foundation.DataAccess;
+﻿using Game.Editor.DataAccess;
+using Game.Editor.Widgets;
+using Game.Foundation.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 
-namespace Assets.Editor.GameDeploy.Packages
+namespace Game.Editor.GameDeploy.Packages
 {
     class AssetPackWindow : UIWindow
     {
@@ -76,7 +76,7 @@ namespace Assets.Editor.GameDeploy.Packages
 
                 bundleFolder.Text = "Open";
                 string bundles = FilePath.BundlesPath;
-                bundleFolder.Filepath = Path.Combine(EditorAssets.Root, bundles).Replace("\\", "/");
+                bundleFolder.Filepath = Path.Combine(EditorGame.Root, bundles).Replace("\\", "/");
                 hLayout.Add(bundleFolder);
 
                 innerLayout.Add(hLayout);
@@ -89,7 +89,7 @@ namespace Assets.Editor.GameDeploy.Packages
                 label.Text = "Out Path :";
                 hLayout.Add(label);
 
-                outputFolder.Filepath = Path.Combine(EditorAssets.Root, "Output").Replace("\\", "/");
+                outputFolder.Filepath = Path.Combine(EditorGame.Root, "Output").Replace("\\", "/");
                 outputFolder.Text = "Open";
                 hLayout.Add(outputFolder);
 
@@ -127,17 +127,17 @@ namespace Assets.Editor.GameDeploy.Packages
             }
         }
 
-        private void Pack(Platform platform, string name)
+        private void Pack(Platform platform, string filename)
         {
-            string destPath = Path.Combine(outputFolder.Filepath, name);
+            string destPath = Path.Combine(outputFolder.Filepath, filename);
             string srcPath = bundleFolder.Filepath;
             Pack(srcPath, destPath, (BuildTarget)platform);
         }
 
-        private void SetBuildPath(ref AssetBundleBuild build, string output, string path, string name, BuildTarget target)
+        private void SetBuildPath(ref AssetBundleBuild build, string output, string path, string filename, BuildTarget target)
         {
-            string[] files = EditorAssets.GetFilePaths(path, "*");
-            build.assetBundleName = name + ".unity3d";
+            string[] files = EditorGame.GetFilePaths(path, "*");
+            build.assetBundleName = filename + ".unity3d";
             build.assetNames = files;
         }
 
@@ -161,10 +161,10 @@ namespace Assets.Editor.GameDeploy.Packages
             AssetBundleBuild[] buildMap = new AssetBundleBuild[dirs.Length];
             for (int i = 0; i < dirs.Length; i++)
             {
-                string name = dirs[i].Substring(srcPath.Length);
-                name = name.Replace("/", "");
-                name = name.Replace("\\", "");
-                SetBuildPath(ref buildMap[i], destPath, Path.Combine(srcPath, dirs[i]), name, target);
+                string filename = dirs[i].Substring(srcPath.Length);
+                filename = filename.Replace("/", "");
+                filename = filename.Replace("\\", "");
+                SetBuildPath(ref buildMap[i], destPath, Path.Combine(srcPath, dirs[i]), filename, target);
             }
             BuildPipeline.BuildAssetBundles(destPath, buildMap, BuildAssetBundleOptions.None, target);
             //刷新

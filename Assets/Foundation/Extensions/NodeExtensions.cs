@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Foundation.Extensions
+namespace Game.Foundation.Extensions
 {
     /// <summary>
     /// 节点扩展

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Sockets;
 
-namespace Assets.Foundation.Net
+namespace Game.Foundation.Net
 {
     public class NetClientPool : IProcess
     {

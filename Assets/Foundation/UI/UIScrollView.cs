@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Assets.Foundation.Extensions;
+using Game.Foundation.Extensions;
 
-namespace Assets.Foundation.UI
+namespace Game.Foundation.UI
 {
     /// <summary>
     /// 滚动方向
@@ -24,7 +24,7 @@ namespace Assets.Foundation.UI
 
     public abstract class UIScrollView : ScrollRect
     {
-        public UIScrollView()
+        protected UIScrollView()
         {
 
         }

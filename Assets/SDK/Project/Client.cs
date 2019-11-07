@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Assets.Foundation.Net;
-using Assets.Foundation.Common;
+using Game.Foundation.Net;
+using Game.Foundation.Common;
 
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
     /// <summary>
     /// 客户端

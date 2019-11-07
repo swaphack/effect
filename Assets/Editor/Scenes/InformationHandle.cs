@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.Scenes
+namespace Game.Editor.Scenes
 {
     public class InformationHandle : UnityEditor.Editor
     {

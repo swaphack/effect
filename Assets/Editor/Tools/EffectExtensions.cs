@@ -1,10 +1,10 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using Assets.Foundation.Extensions;
-using Assets.Foundation.Effects;
+using Game.Foundation.Extensions;
+using Game.Foundation.Effects;
 using UnityEngine.UI;
 
-namespace Assets.Editor.Tools
+namespace Game.Editor.Tools
 {
     class EffectExtensions
     {

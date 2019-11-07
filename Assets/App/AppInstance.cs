@@ -1,17 +1,17 @@
 ﻿
 using System;
 using System.IO;
-using Assets.Foundation.Common;
-using Assets.Foundation.DataAccess;
+using Game.Foundation.Common;
+using Game.Foundation.DataAccess;
 using UnityEngine;
 
-namespace Assets.App
+namespace Game.App
 {
     public class AppInstance : MonoBehaviour
     {
-        private bool _bPause = false;
+        private bool _bPause;
 
-        private bool _bFocus = false;
+        private bool _bFocus;
 
         /// <summary>
         /// 是否保存日志，使用文件记录
@@ -64,10 +64,7 @@ namespace Assets.App
                 _bFocus = false;
             }
 
-            if (_bPause)
-            {
-                _bFocus = true;
-            }
+            _bFocus |= _bPause;
 #elif UNITY_EDITOR
             if (!_bFocus)
             {

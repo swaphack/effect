@@ -1,7 +1,7 @@
-﻿using Assets.Foundation.SimpleEffect;
+﻿using Game.Foundation.SimpleEffect;
 using UnityEngine;
 
-namespace Assets.Foundation.Effects
+namespace Game.Foundation.Effects
 {
     [RequireComponent(typeof(FocusTarget))]
     public class Mirror : MaterialSnapshot

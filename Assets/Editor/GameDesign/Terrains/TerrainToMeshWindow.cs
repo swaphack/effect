@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.GameDesign.Terrains
+namespace Game.Editor.GameDesign.Terrains
 {
 
     public class Terrain2MeshWindow : EditorWindow

@@ -5,7 +5,7 @@ using System.Text;
 using System.Collections;
 using System.Reflection;
 
-namespace Assets.Foundation.Data
+namespace Game.Foundation.Data
 {
     /// <summary>
     /// json写入操作
@@ -143,7 +143,7 @@ namespace Assets.Foundation.Data
                 var valueWriter = new DJsonWriter();
                 valueWriter.Write(e.Value);
 
-                string str = string.Format("{0}:{1}", keyWriter.ToString(), valueWriter.ToString());
+                string str = string.Format("{0}:{1}", keyWriter, valueWriter);
                 if (!writer.Write(str))
                 {
                     return false;
@@ -288,7 +288,7 @@ namespace Assets.Foundation.Data
                             var temp = (IList)obj;
                             return this.Write(temp);
                         }
-                        else if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
+                        if (typeof(Dictionary<,>) == type.GetGenericTypeDefinition())
                         {
                             var temp = (IDictionary)obj;
                             return this.Write(temp);

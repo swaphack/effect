@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     public class EditorBoundsField : Widget
     {
@@ -665,10 +665,6 @@ namespace Assets.Editor.Widgets
 
     public class EditorPrefixLabel : Widget
     {
-        public EditorPrefixLabel()
-        {
-        }
-
         protected override void OnDraw()
         {
             EditorGUILayout.PrefixLabel(Content);

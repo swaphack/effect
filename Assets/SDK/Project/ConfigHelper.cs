@@ -1,13 +1,13 @@
-﻿using Assets.Foundation.Data;
-using Assets.Foundation.Tool;
+﻿using Game.Foundation.Data;
+using Game.Foundation.Tool;
 using System;
 using System.IO;
 using System.Xml;
 using UnityEngine;
 
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
-    public class ConfigHelper
+    public static class ConfigHelper
     {
         /// <summary>
         /// 从节点加载对象
@@ -24,7 +24,7 @@ namespace Assets.SDK.Project
             }
 
             Type type = typeof(T);
-            object obj = (object)t;
+            object obj = t;
             DXmlReader reader = new DXmlReader(node);
             if (!reader.Read(type.Name, ref obj))
             {

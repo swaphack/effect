@@ -1,15 +1,15 @@
-﻿using Assets.Foundation.DataAccess;
+﻿using Game.Foundation.DataAccess;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     /// <summary>
     /// gui事件
     /// </summary>
-    /// <param name="?"></param>
+    /// <param name="widget"></param>
     public delegate void WidgetEvent(Widget widget);
 
     /// <summary>
@@ -64,7 +64,7 @@ namespace Assets.Editor.Widgets
         private bool _initStyle;
 
 
-        public Widget()
+        protected Widget()
         {
             ImagePosition = ImagePosition.ImageAbove;
             Option = new LayoutOption();

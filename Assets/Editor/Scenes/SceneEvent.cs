@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Editor.Scenes
+namespace Game.Editor.Scenes
 {
     class SceneEvent
     {

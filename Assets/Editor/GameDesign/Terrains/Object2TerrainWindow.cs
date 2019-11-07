@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace Assets.Editor.GameDesign.Terrains
+namespace Game.Editor.GameDesign.Terrains
 {
     public class Object2TerrainWindow : EditorWindow
     {
         private int resolution = 512;
         private Vector3 addTerrain;
-        int bottomTopRadioSelected = 0;
-        static string[] bottomTopRadio = new string[] { "Bottom Up", "Top Down" };
-        private float shiftHeight = 0f;
+        private int bottomTopRadioSelected;
+        static string[] bottomTopRadio = { "Bottom Up", "Top Down" };
+        private float shiftHeight;
 
         void OnGUI()
         {
@@ -28,11 +28,7 @@ namespace Assets.Editor.GameDesign.Terrains
                     return;
                 }
 
-                else
-                {
-
-                    CreateTerrain();
-                }
+                CreateTerrain();
             }
         }
 

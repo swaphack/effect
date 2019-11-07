@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.IO;
 
-namespace Assets.Editor.Widgets
+namespace Game.Editor.Widgets
 {
     /// <summary>
     /// 编辑器界面

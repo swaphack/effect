@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.App
+namespace Game.App
 {
     public class DeviceVirtual : Device
     {

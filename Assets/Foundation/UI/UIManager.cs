@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Assets.Foundation.Common;
-using Assets.Foundation.DataAccess;
-using Assets.Foundation.Extensions;
-using Assets.App;
+using Game.Foundation.Common;
+using Game.Foundation.DataAccess;
+using Game.Foundation.Extensions;
+using Game.App;
 using UnityEngine.EventSystems;
 
-namespace Assets.Foundation.UI
+namespace Game.Foundation.UI
 {
     /// <summary>
     /// ui管理类

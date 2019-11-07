@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
-using Assets.Editor.DataAccess;
-using Assets.Editor.Widgets;
-using Assets.SDK.Project;
+using Game.Editor.DataAccess;
+using Game.Editor.Widgets;
+using Game.SDK.Project;
 using UnityEngine;
 
-namespace Assets.Editor.GameDeploy.Configs
+namespace Game.Editor.GameDeploy.Configs
 {
     public class ConfigWindow<T> : UIWindow where T : new()
     {
@@ -23,7 +23,7 @@ namespace Assets.Editor.GameDeploy.Configs
         /// </summary>
         private void Load()
         {
-            TextAsset textAsset = EditorAssets.LoadAssetAtPath<TextAsset>(_fullpath);
+            TextAsset textAsset = EditorGame.LoadAssetAtPath<TextAsset>(_fullpath);
             if (textAsset != null)
             {
                 _config = ConfigHelper.LoadFromXmlText<T>(textAsset.text);
@@ -40,7 +40,7 @@ namespace Assets.Editor.GameDeploy.Configs
         private void OnEnable()
         {
             var fileName = _config.GetType().Name;
-            _fullpath = Path.Combine(EditorAssets.Root, string.Format("Resources/App/{0}.xml", fileName));
+            _fullpath = Path.Combine(EditorGame.Root, string.Format("Resources/App/{0}.xml", fileName));
             this.Load();
         }
 

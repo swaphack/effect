@@ -3,7 +3,7 @@ using System.IO;
 using ICSharpCode.SharpZipLib.Zip;
 using System.Collections;
 
-namespace Assets.Foundation.DataAccess
+namespace Game.Foundation.DataAccess
 {
     /// <summary>
     /// zip资源

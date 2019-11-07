@@ -1,10 +1,10 @@
-﻿using Assets.Foundation.DataAccess;
-using Assets.Foundation.Common;
-using Assets.Foundation.Tool;
+﻿using Game.Foundation.DataAccess;
+using Game.Foundation.Common;
+using Game.Foundation.Tool;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Foundation.Extensions
+namespace Game.Foundation.Extensions
 {
     /// <summary>
     /// ui扩展功能

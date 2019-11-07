@@ -1,11 +1,11 @@
 ﻿
-using Assets.Editor.Widgets;
-using Assets.Foundation.UI;
+using Game.Editor.Widgets;
+using Game.Foundation.UI;
 using System;
 using UnityEditor;
 using UnityEngine.UI;
 
-namespace Assets.Editor.Inspectors
+namespace Game.Editor.Inspectors
 {
 
     public class UIListViewBaseInspector : UIInspector

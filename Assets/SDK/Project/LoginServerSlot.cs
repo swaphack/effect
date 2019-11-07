@@ -1,11 +1,11 @@
-﻿using Assets.Foundation.Common;
-using Assets.Foundation.Net;
-using Assets.Foundation.Protocol;
+﻿using Game.Foundation.Common;
+using Game.Foundation.Net;
+using Game.Foundation.Protocol;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Assets.SDK.Project
+namespace Game.SDK.Project
 {
     /// <summary>
     /// 登陆服务器

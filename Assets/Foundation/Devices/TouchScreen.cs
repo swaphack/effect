@@ -1,8 +1,8 @@
-﻿using Assets.Foundation.Events;
+﻿using Game.Foundation.Events;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Foundation.Devices
+namespace Game.Foundation.Devices
 {
     /// <summary>
     /// 触摸屏
