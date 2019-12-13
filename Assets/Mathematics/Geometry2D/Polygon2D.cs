@@ -14,6 +14,11 @@ namespace Game.Mathematics.Geometry2D
             Points = points;
         }
 
+        /// <summary>
+        /// 是否是标准多边形
+        /// 无交叉线
+        /// </summary>
+        /// <returns></returns>
         public bool IsValid()
         {
             if (Points == null || Points.Length <= 3)
@@ -24,9 +29,15 @@ namespace Game.Mathematics.Geometry2D
             return true;
         }
 
+        /// <summary>
+        /// 是否包含点
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
         public bool Contains(Vector2 point)
         {
-            return false;
+            int ret = Utility2D.GetPointPosition(point, Points);
+            return ret <= 0;
         }        
     }
 }

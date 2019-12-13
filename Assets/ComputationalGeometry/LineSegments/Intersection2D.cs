@@ -4,7 +4,6 @@ using Game.Algorithm.Structure;
 using Game.Mathematics.Geometry2D;
 using UnityEngine;
 
-/*
 namespace Game.ComputationalGeometry.LineSegments
 {
     /// <summary>
@@ -39,13 +38,8 @@ namespace Game.ComputationalGeometry.LineSegments
         }
         private DoubleKeyDictionary<Vector2, VertexSegment2D> _upLineSegment = new DoubleKeyDictionary<Vector2, VertexSegment2D>();
         private DoubleKeyDictionary<Vector2, VertexSegment2D> _lowLineSegment = new DoubleKeyDictionary<Vector2, VertexSegment2D>();
-        private SortedSet<Vector2> _sortedVertexes;
+        private SortedSet<Vector2> _sortedVertexes = new SortedSet<Vector2>(new SortedVector());
         private IntersectionStatusTree _statusTree = new IntersectionStatusTree();
-
-        public Intersection2D()
-        {
-            _sortedVertexes = new SortedSet<Vector2>(new SortedVector());
-        }
 
         public void Clear()
         {
@@ -84,9 +78,11 @@ namespace Game.ComputationalGeometry.LineSegments
                 _sortedVertexes.Remove(point);
                 HandleEventPoint(point);
             }
+
+            return null;
         }
 
-        private SortedSet<VertexSegment2D> HandleEventPoint(Vector2 point)
+        private List<Vector2> HandleEventPoint(Vector2 point)
         {
             var upList = new List<VertexSegment2D>();
             foreach (var item in _upLineSegment.Values)
@@ -117,10 +113,11 @@ namespace Game.ComputationalGeometry.LineSegments
             allSeg.UnionWith(lowList);
             allSeg.UnionWith(containsList);
 
+            List<Vector2> intersectionPoints = new List<Vector2>();
             if (allSeg.Count != 0)
             {
-
-                yield return allSeg;
+                //var ary = new 
+                //intersectionPoints.AddRange();
             }
 
             var deleteSeg = new SortedSet<VertexSegment2D>();
@@ -151,7 +148,8 @@ namespace Game.ComputationalGeometry.LineSegments
                     _statusTree.Add(ary[i]);
                 }
             }
+
+            return null;
         }        
     }
 }
-*/

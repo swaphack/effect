@@ -222,7 +222,7 @@
     <Compile Include="Assets\SDK\Project\VersionDetail.cs" />
     <Compile Include="Assets\SDK\Project\VersionUpdateSlot.cs" />
     <Compile Include="Assets\SDK\Project\Workflow.cs" />
-    <Compile Include="Assets\Test\TestConvex.cs" />
+    <Compile Include="Assets\Test\TestConvex2D.cs" />
     <None Include="Assets\EditorResources\Shaders\Property.xml" />
     <None Include="Assets\Resources\App\VersionDetail.xml" />
     <None Include="Assets\EditorResources\Shaders\Format.xml" />
