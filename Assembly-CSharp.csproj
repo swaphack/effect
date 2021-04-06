@@ -63,11 +63,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Assets\Algorithm\structure\AVLTree.cs" />
     <Compile Include="Assets\Algorithm\structure\BinarySortTree.cs" />
     <Compile Include="Assets\Algorithm\structure\BinaryTree.cs" />
     <Compile Include="Assets\Algorithm\structure\DoubleKeyDictionary.cs" />
     <Compile Include="Assets\Algorithm\structure\Value.cs" />
+=======
+    <Compile Include="Assets\Algorithm\Structure\AVLTree.cs" />
+    <Compile Include="Assets\Algorithm\Structure\BinarySortTree.cs" />
+    <Compile Include="Assets\Algorithm\Structure\BinaryTree.cs" />
+    <Compile Include="Assets\Algorithm\Structure\DoubleKeyDictionary.cs" />
+    <Compile Include="Assets\Algorithm\Structure\Value.cs" />
+>>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
     <Compile Include="Assets\App\AppDetail.cs" />
     <Compile Include="Assets\App\AppInstance.cs" />
     <Compile Include="Assets\App\AppTime.cs" />
@@ -222,10 +230,16 @@
     <Compile Include="Assets\SDK\Project\VersionDetail.cs" />
     <Compile Include="Assets\SDK\Project\VersionUpdateSlot.cs" />
     <Compile Include="Assets\SDK\Project\Workflow.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\AutoRunner.cs" />
     <Compile Include="Assets\Scripts\TestMesh.cs" />
     <Compile Include="Assets\Scripts\TestShader.cs" />
     <Compile Include="Assets\Test\TestConvex.cs" />
+=======
+    <Compile Include="Assets\Test\TestConvex2D.cs" />
+    <None Include="Assets\EditorResources\Shaders\Property.xml" />
+    <None Include="Assets\Resources\App\VersionDetail.xml" />
+>>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
     <None Include="Assets\EditorResources\Shaders\Format.xml" />
     <None Include="Assets\Shaders\Environment\LightedTerrain.shader" />
     <None Include="Assets\Shaders\Environment\TerrainSimple.shader" />

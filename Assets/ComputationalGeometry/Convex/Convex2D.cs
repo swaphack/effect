@@ -45,10 +45,22 @@ namespace Game.ComputationalGeometry.Convex
                     var a = upList[upList.Count - 3];
                     var b = upList[upList.Count - 2];
                     var c = upList[upList.Count - 1];
+<<<<<<< HEAD
                     if (Utility2D.GetPointPosition(a, b, c) != 1)
                     {
                         upList.Remove(b);
                     }
+=======
+
+                    if (Utility2D.GetPointPosition(c, a, b) != 1)
+                    {
+                        upList.Remove(b);
+                    }
+                    else
+                    {
+                        break;
+                    }
+>>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
                 }
             }
 
@@ -56,6 +68,10 @@ namespace Game.ComputationalGeometry.Convex
             lowerList.Add(points[points.Length - 1]);
             lowerList.Add(points[points.Length - 2]);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
             for (var i = points.Length - 3; i >= 0; i--)
             {
                 lowerList.Add(points[i]);
@@ -64,10 +80,22 @@ namespace Game.ComputationalGeometry.Convex
                     var a = lowerList[lowerList.Count - 3];
                     var b = lowerList[lowerList.Count - 2];
                     var c = lowerList[lowerList.Count - 1];
+<<<<<<< HEAD
                     if (Utility2D.GetPointPosition(a, b, c) != 1)
                     {
                         lowerList.Remove(b);
                     }
+=======
+
+                    if (Utility2D.GetPointPosition(c, a, b) != 1)
+                    {
+                        lowerList.Remove(b);
+                    }
+                    else
+                    {
+                        break;
+                    }
+>>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
                 }
             }
 

@@ -61,6 +61,42 @@ namespace Game.Mathematics.Geometry2D
         }
 
         /// <summary>
+        /// 在平面上，获取点与多边形的位置关系
+        /// 返回结果：-1内部，0边上，1外部
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="polygon"></param>
+        /// <returns>-1内部，0边上，1外部</returns>
+        public static int GetPointPosition(Vector2 point, Vector2[] polygon)
+        {
+            if (polygon == null || polygon.Length < 3)
+            {
+                return -1;
+            }
+
+            int wn = 0;
+            for (int i = 0; i < polygon.Length; i++)
+            {
+                int cur = i;
+                int next = (i + 1) % polygon.Length;
+                int k = GetPointPosition(point, polygon[cur], polygon[next]);
+                if (k == 0) return 0;     //在边界上
+
+                int d1 = polygon[i].y.CompareTo(point.y);
+                int d2 = polygon[next].y.CompareTo(point.y);
+
+                if (k > 0 && d1 <= 0 && d2 > 0) wn++;               //逆时针 
+                if (k < 0 && d2 <= 0 && d1 > 0) wn--;               //顺时针 
+            }
+
+            if (wn != 0)
+            {
+                return -1;
+            }
+            return 1;                                
+        }
+
+        /// <summary>
         /// 三角形面积
         /// </summary>
         /// <param name="p1"></param>

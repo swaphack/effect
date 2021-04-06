@@ -7,7 +7,7 @@ namespace Game.Test
     /// <summary>
     /// 凸包测试
     /// </summary>
-    public class TestConvex : MonoBehaviour
+    public class TestConvex2D : MonoBehaviour
     {
         [SerializeField]
         [Range(1, 100)]
