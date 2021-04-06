@@ -132,7 +132,7 @@ namespace Game.Editor
             };
             layout.Add(textField);
 
-            string[] allpath = EditorGame.GetFilePaths(EditorGame.Root, express);
+            string[] allpath = EditorAssets.GetFilePaths(EditorAssets.Root, express);
             layout.Add(CreateImagePreviewWidget(allpath));
         }
     }

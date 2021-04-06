@@ -61,8 +61,8 @@ namespace Game.Editor.GameDesign.Terrains
         void Export()
         {
             int vertexCountScale = 4;       // [dev] 将顶点数稀释 vertexCountScale*vertexCountScale 倍
-            int w = terrainData.heightmapWidth;
-            int h = terrainData.heightmapHeight;
+            int w = terrainData.heightmapResolution;
+            int h = terrainData.heightmapResolution;
             Vector3 size = terrainData.size;
             float[,,] alphaMapData = terrainData.GetAlphamaps(0, 0, terrainData.alphamapWidth, terrainData.alphamapHeight);
             Vector3 meshScale = new Vector3(size.x / (w - 1f) * vertexCountScale, 1, size.z / (h - 1f) * vertexCountScale);
