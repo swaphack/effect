@@ -69,7 +69,6 @@ namespace Game.Test
 
         void Update()
         {
-            /*
             if (count >= 2)
             {
                 for (var i = 0; i < count - 1; i++)
@@ -85,8 +84,7 @@ namespace Game.Test
                     Debug.DrawLine(convexPoints[i], convexPoints[(i + 1) % convexPoints.Length], Color.red, 2);
                 }
             }
-            */
-        }
+           }
     }
 }
 

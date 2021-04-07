@@ -27,8 +27,6 @@ namespace Game.ComputationalGeometry.LineSegments
             }
         }
 
-<<<<<<< HEAD
-=======
         /// <summary>
         /// 比较器
         /// </summary>
@@ -39,7 +37,7 @@ namespace Game.ComputationalGeometry.LineSegments
                 return x.x.CompareTo(y.x);
             }
         }
->>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
+
         private DoubleKeyDictionary<Vector2, VertexSegment2D> _upLineSegment = new DoubleKeyDictionary<Vector2, VertexSegment2D>();
         private DoubleKeyDictionary<Vector2, VertexSegment2D> _lowLineSegment = new DoubleKeyDictionary<Vector2, VertexSegment2D>();
         private SortedSet<Vector2> _sortedVertexes = new SortedSet<Vector2>(new SortedVector());
@@ -52,6 +50,11 @@ namespace Game.ComputationalGeometry.LineSegments
             _sortedVertexes.Clear();
         }
 
+        /// <summary>
+        /// 查找相交线段
+        /// </summary>
+        /// <param name="lineSegs"></param>
+        /// <returns></returns>
         public Vector2[] FindIntersections(LineSegment2D[] lineSegs)
         {
             this.Clear();
@@ -83,14 +86,15 @@ namespace Game.ComputationalGeometry.LineSegments
                 HandleEventPoint(point);
             }
 
-<<<<<<< HEAD
             return _sortedVertexes.ToArray();
-=======
-            return null;
->>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
         }
 
-        private List<Vector2> HandleEventPoint(Vector2 point)
+        /// <summary>
+        /// 处理事件点
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        private SortedSet<VertexSegment2D> HandleEventPoint(Vector2 point)
         {
             var upList = new List<VertexSegment2D>();
             foreach (var item in _upLineSegment.Values)
@@ -124,12 +128,7 @@ namespace Game.ComputationalGeometry.LineSegments
             List<Vector2> intersectionPoints = new List<Vector2>();
             if (allSeg.Count != 0)
             {
-<<<<<<< HEAD
                 return allSeg;
-=======
-                //var ary = new 
-                //intersectionPoints.AddRange();
->>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
             }
 
             var deleteSeg = new SortedSet<VertexSegment2D>();
@@ -144,17 +143,10 @@ namespace Game.ComputationalGeometry.LineSegments
                     _statusTree.Remove(ary[i]);
                 }
             }
-<<<<<<< HEAD
-            
-            var addSeg = new SortedSet<VertexSegment2D>();
-            containsList.Reverse();
-=======
 
-            
             var addSeg = new SortedSet<VertexSegment2D>();
             containsList.Reverse();
 
->>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
             addSeg.UnionWith(upList);
             addSeg.UnionWith(containsList);
             if(addSeg.Count > 0)
@@ -166,13 +158,7 @@ namespace Game.ComputationalGeometry.LineSegments
                     _statusTree.Add(ary[i]);
                 }
             }
-
-<<<<<<< HEAD
             return allSeg;
         }
-=======
-            return null;
-        }        
->>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
     }
 }

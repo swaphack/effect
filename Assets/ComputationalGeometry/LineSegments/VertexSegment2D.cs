@@ -34,13 +34,8 @@ namespace Game.ComputationalGeometry.LineSegments
             if (x.y > y.y) return -1;
             if (x.y < y.y) return 1;
             if (x.x < y.x) return -1;
-<<<<<<< HEAD
             if (x.x > y.x) return 1;
             return 0;
-=======
-            if (x.x >= y.x) return 1;
-            return 1;
->>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
         };
 
         /// <summary>
@@ -56,10 +51,7 @@ namespace Game.ComputationalGeometry.LineSegments
             Line = line;
 
             IsHorizontalLine = Mathf.Approximately(Line.Src.x, line.Dest.x);
-<<<<<<< HEAD
-=======
 
->>>>>>> 953175f322bcac1057ea6a522db447f36fa4f397
             int ret = Vector2Compare(line.Src, line.Dest);
             if (ret < 0)
             {
